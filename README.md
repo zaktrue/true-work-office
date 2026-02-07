@@ -3237,3 +3237,28 @@ Overall coverage: **84.1%**
 - `/root/.openclaw/workspace/ava_email_setup.py` (0%)
 - `/root/.openclaw/workspace/notion_direct_create.py` (0%)
 - `/root/.openclaw/workspace/send_blogwatcher_summary.py` (0%)
+
+### Feature #19: System Dependency Mapper
+
+**Location:** `scripts/system_dependency_mapper.py`
+
+Visual mapping system that analyzes all 18 features and their dependencies:
+- Scans 215+ files across the workspace
+- Identifies cross-feature dependencies
+- Generates interactive HTML dashboard with Vis.js graph
+- Provides impact analysis (risk levels for changes)
+- Auto-updates weekly via cron
+
+**Outputs:**
+- `dashboard/dependency-mapper.html` - Interactive visual graph
+- `dashboard/dependency-report.md` - Markdown report with Mermaid diagram
+- `dashboard/dependency-graph.json` - Machine-readable JSON data
+
+**Usage:**
+```bash
+# Manual run
+python3 scripts/system_dependency_mapper.py
+
+# View dashboard
+open dashboard/dependency-mapper.html
+```
