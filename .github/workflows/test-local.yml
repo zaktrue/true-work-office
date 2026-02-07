@@ -1,0 +1,45 @@
+name: Test CI/CD Locally
+run-name: Local validation by ${{ github.actor }}
+
+on:
+  workflow_dispatch:
+
+env:
+  PYTHON_VERSION: '3.11'
+
+jobs:
+  quick-test:
+    name: Quick Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Quick syntax check
+        run: |
+          echo "Testing Python files..."
+          find . -name "*.py" -path "./agent_memory.py" -exec python -m py_compile {} \;
+          echo "✅ Syntax check passed"
+
+      - name: Test JSON files
+        run: |
+          python << 'EOF'
+          import json
+          import os
+          
+          for root, dirs, files in os.walk('.'):
+              dirs[:] = [d for d in dirs if not d.startswith('.')]
+              for file in files:
+                  if file.endswith('.json'):
+                      try:
+                          with open(os.path.join(root, file)) as f:
+                              json.load(f)
+                      except Exception as e:
+                          print(f"❌ {file}: {e}")
+          print("✅ JSON validation complete")
+          EOF

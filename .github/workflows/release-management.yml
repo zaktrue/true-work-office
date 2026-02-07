@@ -1,0 +1,156 @@
+name: Release Management
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to release (e.g., v1.0.0)'
+        required: true
+        default: 'v1.0.0'
+
+env:
+  PYTHON_VERSION: '3.11'
+
+jobs:
+  # ─────────────────────────────────────────
+  # JOB 1: Create Release
+  # ─────────────────────────────────────────
+  create-release:
+    name: 📝 Create Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate changelog
+        id: changelog
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            VERSION=${GITHUB_REF#refs/tags/}
+          else
+            VERSION=${{ github.event.inputs.version }}
+          fi
+          
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          
+          # Generate changelog from commits since last tag
+          LAST_TAG=$(git describe --tags --abbrev=0 HEAD~1 2>/dev/null || echo "")
+          
+          if [ -n "$LAST_TAG" ]; then
+            echo "### Changes since $LAST_TAG" > changelog.txt
+            echo "" >> changelog.txt
+            git log --pretty=format:"- %s (%h)" $LAST_TAG..HEAD >> changelog.txt
+          else
+            echo "### Changes" > changelog.txt
+            echo "" >> changelog.txt
+            git log --pretty=format:"- %s (%h)" -20 >> changelog.txt
+          fi
+          
+          echo "" >> changelog.txt
+          echo "" >> changelog.txt
+          echo "### Stats" >> changelog.txt
+          echo "- Total commits: $(git rev-list --count HEAD)" >> changelog.txt
+          echo "- Contributors: $(git log --pretty=format:'%an' | sort -u | wc -l)" >> changelog.txt
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.changelog.outputs.version }}
+          release_name: Release ${{ steps.changelog.outputs.version }}
+          body_path: changelog.txt
+          draft: false
+          prerelease: ${{ contains(steps.changelog.outputs.version, 'alpha') || contains(steps.changelog.outputs.version, 'beta') || contains(steps.changelog.outputs.version, 'rc') }}
+
+  # ─────────────────────────────────────────
+  # JOB 2: Build Release Artifacts
+  # ─────────────────────────────────────────
+  build-artifacts:
+    name: 📦 Build Artifacts
+    runs-on: ubuntu-latest
+    needs: create-release
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create release archives
+        run: |
+          mkdir -p dist
+          
+          # Create source archive
+          tar -czf dist/source.tar.gz \
+            --exclude='.git' \
+            --exclude='node_modules' \
+            --exclude='.cache' \
+            --exclude='__pycache__' \
+            --exclude='*.pyc' \
+            .
+          
+          # Create skills archive
+          if [ -d skills ]; then
+            tar -czf dist/skills.tar.gz skills/
+          fi
+          
+          # Create scripts archive
+          if [ -d scripts ]; then
+            tar -czf dist/scripts.tar.gz scripts/
+          fi
+          
+          ls -la dist/
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-artifacts
+          path: dist/*.tar.gz
+          retention-days: 90
+
+  # ─────────────────────────────────────────
+  # JOB 3: Deploy Hugo Site (on release)
+  # ─────────────────────────────────────────
+  deploy-site:
+    name: 🌐 Deploy Site
+    runs-on: ubuntu-latest
+    needs: create-release
+    environment:
+      name: production
+      url: https://trueworkoffice.com
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.123.7'
+          extended: true
+
+      - name: Build Hugo site
+        working-directory: true-work-office
+        run: hugo --minify --gc
+
+      - name: Deploy to Hostinger
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOSTINGER_SERVER }}
+          username: ${{ secrets.HOSTINGER_SSH_USER }}
+          key: ${{ secrets.HOSTINGER_SSH_KEY }}
+          port: ${{ secrets.HOSTINGER_PORT || '65002' }}
+          source: "true-work-office/public/*"
+          target: "/home/${{ secrets.HOSTINGER_SSH_USER }}/public_html/"
+          strip_components: 2
+          rm: true
+
+      - name: Notify deployment
+        run: |
+          echo "🚀 Site deployed with release ${{ needs.create-release.outputs.version }}"
