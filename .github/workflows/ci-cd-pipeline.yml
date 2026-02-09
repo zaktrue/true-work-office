@@ -409,7 +409,7 @@ jobs:
           key: ${{ secrets.HOSTINGER_SSH_KEY }}
           port: ${{ secrets.HOSTINGER_PORT || '65002' }}
           source: "true-work-office/public/*"
-          target: "/home/${{ secrets.HOSTINGER_SSH_USER }}/public_html/"
+          target: "/home/u389484855/domains/trueworkoffice.com/public_html/"
           strip_components: 2
           rm: true
 
@@ -422,7 +422,7 @@ jobs:
           port: ${{ secrets.HOSTINGER_PORT || '65002' }}
           script: |
             echo "✅ Deployment completed at $(date)"
-            ls -la "/home/${{ secrets.HOSTINGER_SSH_USER }}/public_html/" | head -5
+            ls -la "/home/u389484855/domains/trueworkoffice.com/public_html/" | head -5
 
   # ─────────────────────────────────────────
   # JOB 8: Generate Report
