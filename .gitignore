@@ -3,5 +3,16 @@ __pycache__/
 # Encrypted credential vault - prevents GitHub secret scanner false positives
 # Files in vault/ are AES-256 encrypted but trigger scanner due to ciphertext patterns
 vault/
+
+# Log files - prevent large files from being tracked
 log-aggregator/logs.db
 *.db
+*.log.archive
+memory/*.log
+logs/*.log
+*.log
+
+# Large data files
+*.sqlite
+*.sqlite3
+*.db-journal
