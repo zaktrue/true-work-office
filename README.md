@@ -1,14 +1,14 @@
 # Workspace
 
 Auto-generated project documentation.
-*Generated: 2026-02-08 19:35 UTC*
+*Generated: 2026-02-09 06:00 UTC*
 
 ## Overview
 
-This project contains **402** Python modules with:
-- **2653** functions
-- **272** classes
-- **86.6%** documentation coverage
+This project contains **413** Python modules with:
+- **2726** functions
+- **273** classes
+- **86.7%** documentation coverage
 
 ## Quick Start
 
@@ -16,7 +16,6 @@ This project contains **402** Python modules with:
 
 - **agent_memory.py** - 
 - **ava_email_setup.py** - No description available
-- **gh_create_project.py** - No description available
 - **github_get_token.py** - No description available
 - **github_login.py** - No description available
 - **main_session_memory.py** - 
@@ -36,8 +35,6 @@ This project contains **402** Python modules with:
 - **notion_login_v2.py** - No description available
 - **notion_long_wait.py** - No description available
 - **notion_setup_helper.py** - No description available
-- **notion_setup_workspace.py** - No description available
-- **notion_share_page.py** - No description available
 - **notion_simple_create.py** - No description available
 - **notion_wait_longer.py** - No description available
 - **ocl_ask_wrapper.py** - 
@@ -201,8 +198,6 @@ Cron job for periodic documentation updates
 
 - `main()` - Run scheduled documentation update.
 
-### gh_create_project.py
-
 ### github_get_token.py
 
 ### github_login.py
@@ -251,18 +246,18 @@ Centralized log collection, indexing, and search across all OpenClaw logs.
 - `_extract_level(self, line: str) -> str` - Extract log level from line
 - `_extract_component(self, line: str, source: str) -> str` - Extract component name from line or source
 - `_clean_message(self, line: str) -> str` - Remove timestamp/level markers to get clean message
-- `_extract_metadata(self, line: str) -> Dict[<ast.Tuple object at 0x7eda6d749fd0>]` - Extract additional metadata from log line
+- `_extract_metadata(self, line: str) -> Dict[<ast.Tuple object at 0x79a08e69f6d0>]` - Extract additional metadata from log line
 - `parse_file(self, filepath: str) -> List[LogEntry]` - Parse entire log file
 - `__init__(self, db_path: str)`
 - `_init_db(self)` - Initialize SQLite database with indexes
 - `index_entries(self, entries: List[LogEntry])` - Index multiple log entries
 - `search(self, query: Optional[str], level: Optional[str], component: Optional[str], source: Optional[str], start_time: Optional[datetime], end_time: Optional[datetime], limit: int) -> List[LogEntry]` - Search indexed logs with filters
-- `get_stats(self) -> Dict[<ast.Tuple object at 0x7eda6d796b90>]` - Get log statistics
+- `get_stats(self) -> Dict[<ast.Tuple object at 0x79a08e6f5490>]` - Get log statistics
 - `clear_old_entries(self, days: int)` - Remove entries older than specified days
 - `__init__(self, workspace_root: str)`
 - `discover_logs(self) -> List[str]` - Discover all log files in workspace
 - `aggregate(self, incremental: bool)` - Run full aggregation of all discovered logs
-- `get_stats(self) -> Dict[<ast.Tuple object at 0x7eda6d7b5a50>]` - Get aggregation statistics
+- `get_stats(self) -> Dict[<ast.Tuple object at 0x79a08e71c310>]` - Get aggregation statistics
 
 **Classes:**
 
@@ -310,9 +305,9 @@ Pattern Detection Engine - Identifies error patterns and anomalies in logs
 - `__init__(self)`
 - `_compile_patterns(self)` - Compile regex patterns for performance
 - `detect_patterns(self, entries: List[Any]) -> List[PatternMatch]` - Detect patterns in log entries
-- `detect_anomalies(self, entries: List[Any]) -> List[<ast.Subscript object at 0x7eda6d8b8510>]` - Detect statistical anomalies in log patterns
-- `generate_summary(self, entries: List[Any]) -> Dict[<ast.Tuple object at 0x7eda6d8c2090>]` - Generate comprehensive pattern summary
-- `analyze(self, entries: List[Any]) -> Dict[<ast.Tuple object at 0x7eda6d6dadd0>]` - Analyze trends in log entries
+- `detect_anomalies(self, entries: List[Any]) -> List[<ast.Subscript object at 0x79a08e80ed90>]` - Detect statistical anomalies in log patterns
+- `generate_summary(self, entries: List[Any]) -> Dict[<ast.Tuple object at 0x79a08e824950>]` - Generate comprehensive pattern summary
+- `analyze(self, entries: List[Any]) -> Dict[<ast.Tuple object at 0x79a08e839690>]` - Analyze trends in log entries
 
 **Classes:**
 
@@ -464,10 +459,6 @@ Run this after implementing model routing improvements to measure impact.
 
 ### notion_setup_helper.py
 
-### notion_setup_workspace.py
-
-### notion_share_page.py
-
 ### notion_simple_create.py
 
 ### notion_wait_longer.py
@@ -505,7 +496,7 @@ Version: 1.0.0
 
 - `print_banner()` - Print CLI banner
 - `print_feature_list()` - Print all available features
-- `get_feature_status() -> Dict[<ast.Tuple object at 0x7eda747cd590>]` - Check status of all features
+- `get_feature_status() -> Dict[<ast.Tuple object at 0x79a095a80790>]` - Check status of all features
 - `cmd_status(args)` - Show system status
 - `cmd_list(args)` - List all features
 - `cmd_health(args)` - Run health dashboard
@@ -571,7 +562,7 @@ Auto-exports high-priority research items to Notion, organized by category.
 - `get_or_create_database(self, parent_id: str, title: str) -> Optional[str]` - Get or create a database for research items.
 - `add_to_database(self, database_id: str, title: str, category: str, priority: str, source_path: str, content_preview: str) -> bool` - Add a research item to the database.
 - `__init__(self, notion_token: str, workspace_id: Optional[str])`
-- `detect_priority(self, content: str, filename: str) -> Tuple[<ast.Tuple object at 0x7eda742ef110>]` - Detect priority and category from content.
+- `detect_priority(self, content: str, filename: str) -> Tuple[<ast.Tuple object at 0x79a0953b4150>]` - Detect priority and category from content.
 - `scan_file(self, filepath: Path) -> Optional[Dict]` - Scan a single file for research content.
 - `scan_folders(self) -> List[Dict]` - Scan all research folders for content.
 - `initialize_workspace(self) -> bool` - Set up Notion workspace with database.
@@ -721,7 +712,7 @@ This enables dynamic skill exchange and collaboration between agents.
 - `_init_db(self)` - Initialize the database schema
 - `register_agent(self, agent_id: str, name: str, description: str) -> bool` - Register a new agent in the marketplace
 - `register_capability(self, capability: Capability) -> bool` - Register a new capability
-- `discover_capabilities(self, category: Optional[str], tags: Optional[<ast.Subscript object at 0x7eda6f113590>], agent_id: Optional[str], query: Optional[str], status: str) -> List[Capability]` - Discover capabilities matching criteria
+- `discover_capabilities(self, category: Optional[str], tags: Optional[<ast.Subscript object at 0x79a09025b8d0>], agent_id: Optional[str], query: Optional[str], status: str) -> List[Capability]` - Discover capabilities matching criteria
 - `get_capability(self, capability_id: str) -> Optional[Capability]` - Get a specific capability by ID
 - `request_capability_use(self, capability_id: str, requester_agent_id: str, requester_agent_name: str, request_data: Dict) -> Optional[str]` - Request to use a capability
 - `respond_to_request(self, request_id: str, accept: bool, result: Optional[Dict], error_message: Optional[str]) -> bool` - Respond to a capability request
@@ -735,7 +726,7 @@ This enables dynamic skill exchange and collaboration between agents.
 - `unregister_capability(self, capability_id: str) -> bool` - Unregister a capability (soft delete by setting status to deprecated)
 - `__init__(self, agent_id: str, agent_name: str, registry: Optional[CapabilityRegistry])`
 - `advertise(self, name: str, description: str, category: str, input_schema: Dict, output_schema: Dict, tags: List[str]) -> str` - Advertise a new capability
-- `discover(self, category: Optional[str], tags: Optional[<ast.Subscript object at 0x7eda6f1839d0>], query: Optional[str]) -> List[Capability]` - Discover capabilities from other agents
+- `discover(self, category: Optional[str], tags: Optional[<ast.Subscript object at 0x79a0900d7690>], query: Optional[str]) -> List[Capability]` - Discover capabilities from other agents
 - `request(self, capability_id: str, request_data: Dict) -> Optional[str]` - Request to use another agent's capability
 - `check_request(self, request_id: str) -> Optional[Dict]` - Check the status of a capability request
 - `get_my_capabilities(self) -> List[Capability]` - Get all capabilities advertised by this agent
@@ -786,6 +777,20 @@ Usage:
 - `generate_research_briefing(topic, _context_str, _context_dict)` - Riley generates a research briefing with Thomas's context.
 - `wrapper(*args, **kwargs)`
 
+### scripts/agent_daily_reports.py
+
+
+Agent Daily Report Generator
+Each agent generates their own daily report for Zak to aggregate
+
+
+**Functions:**
+
+- `count_outputs(agent: str, date: str) -> dict` - Count actual outputs created by agent today
+- `generate_agent_report(agent: str, date: str) -> str` - Generate daily report for an agent
+- `save_agent_report(agent: str, date: str)` - Generate and save report for an agent
+- `main()` - Generate reports for all agents
+
 ### scripts/agent_health_dashboard.py
 
 
@@ -800,12 +805,12 @@ Version: 1.0.0
 
 - `main()` - Generate dashboard and report
 - `__init__(self)`
-- `check_heartbeat(self, agent: str) -> Dict[<ast.Tuple object at 0x7eda6f1f2550>]` - Check an agent's heartbeat status
+- `check_heartbeat(self, agent: str) -> Dict[<ast.Tuple object at 0x79a090356550>]` - Check an agent's heartbeat status
 - `count_recent_outputs(self, agent: str, hours: int) -> int` - Count agent outputs in last N hours
-- `get_email_status(self, agent: str) -> Optional[<ast.Subscript object at 0x7eda6f220b90>]` - Check email inbox for agents with email
-- `get_predictive_tasks(self, agent: str) -> List[<ast.Subscript object at 0x7eda6f223710>]` - Get predictive tasks assigned to this agent
-- `generate_dashboard(self) -> Dict[<ast.Tuple object at 0x7eda6f234c50>]` - Generate complete dashboard
-- `generate_report(self, dashboard: Dict[<ast.Tuple object at 0x7eda6f2351d0>]) -> str` - Generate human-readable report
+- `get_email_status(self, agent: str) -> Optional[<ast.Subscript object at 0x79a09017c810>]` - Check email inbox for agents with email
+- `get_predictive_tasks(self, agent: str) -> List[<ast.Subscript object at 0x79a09017f390>]` - Get predictive tasks assigned to this agent
+- `generate_dashboard(self) -> Dict[<ast.Tuple object at 0x79a09018c8d0>]` - Generate complete dashboard
+- `generate_report(self, dashboard: Dict[<ast.Tuple object at 0x79a09018ce50>]) -> str` - Generate human-readable report
 
 **Classes:**
 
@@ -902,7 +907,7 @@ Created: 2026-02-07
 - `subscribe_to_topics(agent: str, topics: List[str])` - Subscribe agent to topics
 - `get_knowledge_stats() -> Dict` - Get knowledge hub statistics
 - `main()` - Test the Knowledge Sharing Protocol
-- `__init__(self, publisher: str, topic: str, content: str, metadata: Dict[<ast.Tuple object at 0x7eda71689d50>], tags: List[str], priority: str, ttl_hours: int)`
+- `__init__(self, publisher: str, topic: str, content: str, metadata: Dict[<ast.Tuple object at 0x79a09268da10>], tags: List[str], priority: str, ttl_hours: int)`
 - `_generate_id(self, publisher: str, content: str) -> str` - Generate unique ID for this knowledge item
 - `to_dict(self) -> Dict`
 - `from_dict(cls, data: Dict) -> 'KnowledgeItem'`
@@ -915,7 +920,7 @@ Created: 2026-02-07
 - `_save_knowledge(self)` - Save knowledge items to disk
 - `_save_subscriptions(self)` - Save subscriptions to disk
 - `_save_analytics(self)` - Save analytics to disk
-- `publish(self, publisher: str, topic: str, content: str, metadata: Dict[<ast.Tuple object at 0x7eda716cab10>], tags: List[str], priority: str, target_agents: List[str]) -> str` - Publish knowledge to the hub
+- `publish(self, publisher: str, topic: str, content: str, metadata: Dict[<ast.Tuple object at 0x79a0926d67d0>], tags: List[str], priority: str, target_agents: List[str]) -> str` - Publish knowledge to the hub
 - `get_feed(self, agent: str, topics: List[str], unread_only: bool, limit: int, min_priority: str) -> List[KnowledgeItem]` - Get knowledge feed for an agent
 - `acknowledge(self, agent: str, knowledge_id: str)` - Mark a knowledge item as acknowledged by an agent
 - `subscribe(self, agent: str, topics: List[str])` - Subscribe an agent to specific topics
@@ -1013,7 +1018,7 @@ Generates an interactive HTML dashboard for API health monitoring.
 
 - `main()` - CLI entry point.
 - `__init__(self, db_path: Path)`
-- `get_health_data(self) -> Dict[<ast.Tuple object at 0x7eda6dedc510>]` - Fetch health data from database.
+- `get_health_data(self) -> Dict[<ast.Tuple object at 0x79a08f02ec50>]` - Fetch health data from database.
 - `generate_dashboard(self) -> str` - Generate HTML dashboard.
 - `generate(self)` - Generate and save the dashboard.
 - `_update_main_index(self)` - Add link to main dashboard index if it exists.
@@ -1290,8 +1295,8 @@ Processes multiple items in a single API call
 
 - `__init__(self, max_batch_size)`
 - `batch_research_analysis(self, sources: List[Dict]) -> str` - Analyze multiple research sources in one prompt
-- `calculate_savings(self, num_sources: int) -> Dict[<ast.Tuple object at 0x7eda70f222d0>]` - Calculate actual token savings for batch vs separate calls
-- `test(self) -> Dict[<ast.Tuple object at 0x7eda70f7e290>]` - Run validation test and return results
+- `calculate_savings(self, num_sources: int) -> Dict[<ast.Tuple object at 0x79a092001210>]` - Calculate actual token savings for batch vs separate calls
+- `test(self) -> Dict[<ast.Tuple object at 0x79a09200cdd0>]` - Run validation test and return results
 
 **Classes:**
 
@@ -1395,15 +1400,15 @@ Version: 1.0.0
 
 - `main()` - CLI interface
 - `__init__(self)`
-- `_load_triggered(self) -> Dict[<ast.Tuple object at 0x7eda6fadb950>]` - Load previously triggered events
+- `_load_triggered(self) -> Dict[<ast.Tuple object at 0x79a090bcfe50>]` - Load previously triggered events
 - `_save_triggered(self)` - Save triggered events to prevent duplicates
 - `_log(self, message: str)` - Log trigger activity
 - `_get_trigger_key(self, event: CalendarEvent, trigger_type: str) -> str` - Generate unique key for event trigger
-- `check_prep_triggers(self) -> List[<ast.Subscript object at 0x7eda6fad41d0>]` - Check for events needing preparation and trigger workflows
+- `check_prep_triggers(self) -> List[<ast.Subscript object at 0x79a090bc3a10>]` - Check for events needing preparation and trigger workflows
 - `_determine_prep_actions(self, event: CalendarEvent) -> List[str]` - Determine what preparation actions are needed
-- `check_daily_briefing_trigger(self) -> Optional[<ast.Subscript object at 0x7eda6fafcbd0>]` - Check if daily briefing should be generated
-- `check_event_workflow_triggers(self) -> List[<ast.Subscript object at 0x7eda6fb05610>]` - Check for workflow triggers based on calendar events
-- `get_all_triggers(self) -> Dict[<ast.Tuple object at 0x7eda6fb06d10>]` - Get all active triggers
+- `check_daily_briefing_trigger(self) -> Optional[<ast.Subscript object at 0x79a090be2750>]` - Check if daily briefing should be generated
+- `check_event_workflow_triggers(self) -> List[<ast.Subscript object at 0x79a090bf7190>]` - Check for workflow triggers based on calendar events
+- `get_all_triggers(self) -> Dict[<ast.Tuple object at 0x79a090bfc8d0>]` - Get all active triggers
 - `generate_trigger_report(self) -> str` - Generate a report of current triggers
 
 **Classes:**
@@ -1437,11 +1442,11 @@ Version: 1.0.0
 
 **Functions:**
 
-- `check_calendar_events(agent_name: str) -> Dict[<ast.Tuple object at 0x7eda6fd99910>]` - Check calendar for events needing attention
+- `check_calendar_events(agent_name: str) -> Dict[<ast.Tuple object at 0x79a090e59cd0>]` - Check calendar for events needing attention
 - `get_daily_briefing() -> str` - Get daily calendar briefing
 - `should_run_event_workflow() -> bool` - Check if event-based workflow should be triggered
-- `get_event_workflow_context() -> Dict[<ast.Tuple object at 0x7eda6fdb5350>]` - Get context for event-based workflows
-- `log_calendar_check(agent_name: str, result: Dict[<ast.Tuple object at 0x7eda6fdb4d50>])` - Log calendar check to agent's log file
+- `get_event_workflow_context() -> Dict[<ast.Tuple object at 0x79a090e55e50>]` - Get context for event-based workflows
+- `log_calendar_check(agent_name: str, result: Dict[<ast.Tuple object at 0x79a090e4d590>])` - Log calendar check to agent's log file
 
 ### scripts/calendar_monitor_cron.py
 
@@ -1565,6 +1570,32 @@ Tracks usage and alerts when balance approaches threshold
 - `estimate_cost(input_tokens, output_tokens)` - Estimate cost for a request
 - `get_usage_report()` - Generate usage report for tax/accounting
 
+### scripts/codex_monitor.py
+
+
+Codex Usage Monitor
+Tracks Codex usage via secret key connection (ChatGPT Plus)
+Ava runs this to monitor and trigger model switching
+
+Connection: Secret key (not API key)
+Plan: ChatGPT Plus with Codex
+Cost: $20/month + UK VAT (~$24/month)
+Limits: Doubled for first month (3000/800/500)
+Reset: Every 5 hours for messages/tasks
+
+
+**Functions:**
+
+- `init_db()` - Initialize tracking database
+- `get_usage_from_system()` - Try to get usage from openclaw status
+- `get_period_usage(hours)` - Get usage for the last N hours
+- `check_limits()` - Check current usage against limits
+- `save_status(status)` - Save status to tracking file
+- `trigger_model_switch()` - Switch Zak back to Kimi Code when limits reached
+- `get_current_model()` - Get current model for Zak
+- `generate_report()` - Generate daily report
+- `main()` - CLI interface
+
 ### scripts/complete_kai_twitter_setup.py
 
 
@@ -1609,11 +1640,11 @@ Automatically compresses context before model requests to prevent token limit er
 
 **Functions:**
 
-- `compress_before_model(messages: List[<ast.Subscript object at 0x7eda6fa0b2d0>], model: str) -> List[<ast.Subscript object at 0x7eda6fa0bdd0>]` - One-liner function to compress conversation before sending to model
+- `compress_before_model(messages: List[<ast.Subscript object at 0x79a090af8e90>], model: str) -> List[<ast.Subscript object at 0x79a090af9990>]` - One-liner function to compress conversation before sending to model
 - `main()` - Test the integration
 - `__init__(self)`
-- `process_conversation(self, conversation: List[<ast.Subscript object at 0x7eda6f9f1e90>], force_check: bool) -> List[<ast.Subscript object at 0x7eda6f9edc10>]` - Process conversation and compress if approaching token limits
-- `process_for_model(self, messages: List[<ast.Subscript object at 0x7eda6f9ed590>], model: str) -> List[<ast.Subscript object at 0x7eda6f9fb010>]` - Process messages specifically before sending to a model
+- `process_conversation(self, conversation: List[<ast.Subscript object at 0x79a090ade510>], force_check: bool) -> List[<ast.Subscript object at 0x79a090ad9e90>]` - Process conversation and compress if approaching token limits
+- `process_for_model(self, messages: List[<ast.Subscript object at 0x79a090ad9810>], model: str) -> List[<ast.Subscript object at 0x79a090ad2610>]` - Process messages specifically before sending to a model
 - `_log_state(self, token_count: int, mode: str)` - Log current state for monitoring
 - `_log_compression(self, before: int, after: int, savings: int, mode: str)` - Log compression event
 - `_get_timestamp(self) -> str`
@@ -1695,11 +1726,11 @@ Date: 2026-02-07
 - `get_file_info(self, file_path: Path) -> Optional[Dict]` - Get file metadata
 - `should_exclude(self, path: Path) -> bool` - Check if path should be excluded from monitoring
 - `get_monitored_files(self) -> List[Path]` - Get list of all files to monitor
-- `get_severity_for_file(self, file_path: Path) -> Tuple[<ast.Tuple object at 0x7eda726e4710>]` - Get severity and auto_restore setting for a file
+- `get_severity_for_file(self, file_path: Path) -> Tuple[<ast.Tuple object at 0x79a093a5f350>]` - Get severity and auto_restore setting for a file
 - `create_baseline(self, file_path: Path) -> Optional[ConfigFile]` - Create a baseline for a file
 - `initialize_baselines(self)` - Initialize baselines for all monitored files
 - `find_backup_source(self, relative_path: str) -> Optional[Path]` - Find the most recent backup containing this file
-- `restore_file(self, file_path: Path, event_id: str) -> Tuple[<ast.Tuple object at 0x7eda726fb3d0>]` - Attempt to restore a file from backup
+- `restore_file(self, file_path: Path, event_id: str) -> Tuple[<ast.Tuple object at 0x79a09387e050>]` - Attempt to restore a file from backup
 - `scan(self) -> List[DriftEvent]` - Scan for configuration drift
 - `_compare_with_baseline(self, file_path: Path, info: Dict, baseline: ConfigFile) -> List[DriftEvent]` - Compare current file state with baseline
 - `generate_summary(self) -> dict` - Generate drift detection summary
@@ -1758,7 +1789,7 @@ This module provides:
 - `tailor_for_bluesky(cls, content: ContentPiece) -> Dict` - Create Bluesky-optimized content
 - `_create_thread(cls, body: str, content: ContentPiece, platform: str) -> Dict` - Create a thread for longer content
 - `get_optimal_time(cls, platform: str, content_priority: int, min_delay_hours: int) -> datetime` - Calculate optimal posting time
-- `stagger_posts(cls, platforms: List[str], base_time: datetime, stagger_minutes: int) -> Dict[<ast.Tuple object at 0x7eda71f5a850>]` - Stagger posts across platforms to maximize reach
+- `stagger_posts(cls, platforms: List[str], base_time: datetime, stagger_minutes: int) -> Dict[<ast.Tuple object at 0x79a0930edc10>]` - Stagger posts across platforms to maximize reach
 - `__init__(self, db_path: Path)`
 - `_init_db(self)` - Initialize database tables
 - `queue_content(self, content: ContentPiece) -> bool` - Add content to distribution queue
@@ -1915,7 +1946,7 @@ Version: 1.0.0
 - `_score_grammar(self, content: str) -> int` - Score grammar quality (0-100)
 - `_score_style_compliance(self, content: str, content_type: str) -> int` - Score style compliance (0-100)
 - `_calculate_readability(self, content: str) -> float` - Calculate Flesch Reading Ease score
-- `_find_issues(self, content: str, content_type: str) -> List[<ast.Subscript object at 0x7eda6fcf1ad0>]` - Find specific issues in content
+- `_find_issues(self, content: str, content_type: str) -> List[<ast.Subscript object at 0x79a090ddadd0>]` - Find specific issues in content
 - `_generate_suggestions(self, content: str, issues: List[Dict], content_type: str) -> List[str]` - Generate improvement suggestions
 - `_identify_strengths(self, content: str, content_type: str) -> List[str]` - Identify content strengths
 - `__init__(self)`
@@ -1958,7 +1989,7 @@ Only runs when sufficient tokens exist to achieve savings.
 **Functions:**
 
 - `compress_conversation(conversation: List[Dict]) -> List[Dict]` - One-liner to compress conversation (only if beneficial)
-- `load_recent_conversation() -> Optional[<ast.Subscript object at 0x7eda6e96c950>]` - Load recent conversation from session history
+- `load_recent_conversation() -> Optional[<ast.Subscript object at 0x79a08f8e4090>]` - Load recent conversation from session history
 - `main()` - Main entry point for command line usage
 - `__init__(self, max_full_turns, summary_max_tokens, discard_after_turns)`
 - `should_compress(self, conversation: List[Dict]) -> bool` - Determine if compression will be beneficial
@@ -2001,7 +2032,7 @@ Version: 1.0.0
 **Functions:**
 
 - `get_context(agent_name: str, task_type: str, max_items: Optional[int]) -> str` - Convenience function for agents to get formatted context.
-- `get_context_dict(agent_name: str, task_type: str, max_items: Optional[int]) -> Dict[<ast.Tuple object at 0x7eda6de110d0>]` - Get context as a dictionary for programmatic use.
+- `get_context_dict(agent_name: str, task_type: str, max_items: Optional[int]) -> Dict[<ast.Tuple object at 0x79a08ef6f850>]` - Get context as a dictionary for programmatic use.
 - `main()` - CLI for testing and debugging
 - `to_dict(self) -> Dict`
 - `__new__(cls)`
@@ -2009,7 +2040,7 @@ Version: 1.0.0
 - `_log(self, message: str, level: str)` - Log context engine activity
 - `_is_cache_valid(self) -> bool` - Check if cached context is still valid
 - `_load_memory_md(self) -> str` - Load and parse MEMORY.md
-- `_load_daily_logs(self, days: int) -> List[<ast.Subscript object at 0x7eda6df48c90>]` - Load recent daily logs with their dates
+- `_load_daily_logs(self, days: int) -> List[<ast.Subscript object at 0x79a08eeab7d0>]` - Load recent daily logs with their dates
 - `_extract_decisions(self, text: str, source: str, date: str) -> List[ContextItem]` - Extract decisions from text
 - `_extract_preferences(self, text: str, source: str, date: str) -> List[ContextItem]` - Extract preferences and feedback from text
 - `_extract_priorities(self, text: str, source: str, date: str) -> List[ContextItem]` - Extract current priorities and focus areas
@@ -2020,10 +2051,10 @@ Version: 1.0.0
 - `_filter_by_age(self, items: List[ContextItem]) -> List[ContextItem]` - Filter out items older than max_age_days
 - `_calculate_relevance_for_task(self, items: List[ContextItem], task_type: str, agent_name: str) -> List[ContextItem]` - Adjust relevance scores based on specific task and agent
 - `extract_all_context(self, force_refresh: bool) -> List[ContextItem]` - Extract all context from memory sources.
-- `get_context_for_agent(self, agent_name: str, task_type: str, max_items: Optional[int], include_categories: Optional[<ast.Subscript object at 0x7eda6dddd650>]) -> Dict[<ast.Tuple object at 0x7eda6dde5450>]` - Get relevant context for a specific agent and task.
+- `get_context_for_agent(self, agent_name: str, task_type: str, max_items: Optional[int], include_categories: Optional[<ast.Subscript object at 0x79a08ef33dd0>]) -> Dict[<ast.Tuple object at 0x79a08ef3bbd0>]` - Get relevant context for a specific agent and task.
 - `_generate_summary(self, items: List[ContextItem]) -> str` - Generate a natural language summary of context
-- `_generate_quick_facts(self, items: List[ContextItem]) -> Dict[<ast.Tuple object at 0x7eda6ddfe1d0>]` - Generate quick reference facts from context
-- `format_context_for_prompt(self, context: Dict[<ast.Tuple object at 0x7eda6ddfe750>]) -> str` - Format context as a string suitable for injection into agent prompts.
+- `_generate_quick_facts(self, items: List[ContextItem]) -> Dict[<ast.Tuple object at 0x79a08ef60990>]` - Generate quick reference facts from context
+- `format_context_for_prompt(self, context: Dict[<ast.Tuple object at 0x79a08ef60f10>]) -> str` - Format context as a string suitable for injection into agent prompts.
 
 **Classes:**
 
@@ -2163,6 +2194,22 @@ Created: 2026-02-08
 - `update_index_page(resolved_matters)` - Update index.html to mark matters as resolved
 - `resolve_critical_matters()` - Main resolution loop
 
+### scripts/cron_failure_monitor.py
+
+
+Cron Job Failure Monitor
+Tracks cron job execution and alerts on silent failures
+
+
+**Functions:**
+
+- `init_monitor_db()` - Initialize monitoring database
+- `log_job_execution(script_name: str, success: bool, error: str, log_snippet: str)` - Log a job execution
+- `check_job_health(script_name: str) -> dict` - Check if a job is healthy based on recent executions
+- `check_all_jobs() -> list` - Check health of all expected jobs
+- `generate_health_report()` - Generate a health report for all monitored jobs
+- `main()` - Main monitoring routine
+
 ### scripts/cross_agent_coordination.py
 
 
@@ -2185,14 +2232,14 @@ Version: 1.0.0
 - `register_output(agent: str, output_type: str, title: str, file_path: str, themes: List[str], summary: str) -> str` - Convenience function to register an output
 - `get_coordination_context(agent: str, task_type: str) -> str` - Convenience function to get formatted coordination context
 - `get_active_themes(min_agents: int) -> List[SharedTheme]` - Convenience function to get active themes
-- `get_statistics() -> Dict[<ast.Tuple object at 0x7eda72bddb90>]` - Convenience function to get coordination statistics
+- `get_statistics() -> Dict[<ast.Tuple object at 0x79a093f2b6d0>]` - Convenience function to get coordination statistics
 - `main()` - CLI for testing and debugging
 - `__new__(cls)`
 - `__init__(self)`
 - `_log(self, message: str, level: str)` - Log coordination activity
 - `_load_coordination_data(self) -> Dict` - Load coordination data from file
 - `_load_cross_references(self) -> Dict` - Load cross-reference data
-- `_load_active_themes(self) -> Dict[<ast.Tuple object at 0x7eda72d47550>]` - Load active themes
+- `_load_active_themes(self) -> Dict[<ast.Tuple object at 0x79a093e9f650>]` - Load active themes
 - `_save_coordination_data(self)` - Save coordination data
 - `_save_cross_references(self)` - Save cross-reference data
 - `_save_active_themes(self)` - Save active themes
@@ -2201,10 +2248,10 @@ Version: 1.0.0
 - `get_recent_outputs(self, agent: Optional[str], hours: int) -> List[Dict]` - Get recent outputs for coordination.
 - `get_active_themes(self, min_agents: int) -> List[SharedTheme]` - Get themes being worked on by multiple agents.
 - `add_cross_reference(self, from_output: str, to_output: str, reference_type: str)` - Record that one output references another.
-- `get_coordination_context(self, agent: str, task_type: str) -> Dict[<ast.Tuple object at 0x7eda72da2f50>]` - Get coordination context for an agent.
-- `format_coordination_for_prompt(self, context: Dict[<ast.Tuple object at 0x7eda72da34d0>]) -> str` - Format coordination context as a string for agent prompts.
+- `get_coordination_context(self, agent: str, task_type: str) -> Dict[<ast.Tuple object at 0x79a093efcad0>]` - Get coordination context for an agent.
+- `format_coordination_for_prompt(self, context: Dict[<ast.Tuple object at 0x79a093efd050>]) -> str` - Format coordination context as a string for agent prompts.
 - `mark_theme_complete(self, theme: str)` - Mark a theme as completed
-- `get_statistics(self) -> Dict[<ast.Tuple object at 0x7eda72dc9cd0>]` - Get coordination statistics
+- `get_statistics(self) -> Dict[<ast.Tuple object at 0x79a093f1f810>]` - Get coordination statistics
 
 **Classes:**
 
@@ -2236,7 +2283,7 @@ Updated: 2026-02-06 (v2 - robust version)
 - `_load_json(self, filepath: Path, default: dict) -> dict` - Safely load JSON file with fallback
 - `_save_json(self, filepath: Path, data: dict)` - Safely save JSON file
 - `_save_all(self)` - Save all data stores
-- `_calculate_tf_idf(self, content: str) -> Dict[<ast.Tuple object at 0x7eda708ae590>]` - Calculate TF-IDF-like scores for topic detection
+- `_calculate_tf_idf(self, content: str) -> Dict[<ast.Tuple object at 0x79a091952b50>]` - Calculate TF-IDF-like scores for topic detection
 - `_extract_topic(self, content: str) -> str` - Extract primary topic using TF-IDF scoring
 - `_calculate_confidence(self, content: str, agent_name: str) -> int` - Calculate confidence score (0-100) based on multiple factors
 - `_get_source_reliability(self, agent_name: str) -> float` - Get reliability score for an agent based on usage history
@@ -2381,9 +2428,9 @@ Version: 1.0.0
 **Functions:**
 
 - `main()` - CLI interface
-- `to_dict(self) -> Dict[<ast.Tuple object at 0x7eda72a66ad0>]`
+- `to_dict(self) -> Dict[<ast.Tuple object at 0x79a093bddd10>]`
 - `__post_init__(self)`
-- `to_dict(self) -> Dict[<ast.Tuple object at 0x7eda72a62290>]`
+- `to_dict(self) -> Dict[<ast.Tuple object at 0x79a093bd5e90>]`
 - `__init__(self)`
 - `_load_workflows(self)` - Load workflow definitions
 - `_create_default_workflows(self)` - Create default workflow templates
@@ -2391,11 +2438,11 @@ Version: 1.0.0
 - `check_triggers(self) -> List[Workflow]` - Check all workflow triggers and return triggered workflows
 - `_riley_found_recent_news(self) -> bool` - Check if Riley found recent news
 - `_has_upcoming_event(self) -> bool` - Check for calendar events in next 7 days using Google Calendar API
-- `get_calendar_events(self, days: int) -> List[<ast.Subscript object at 0x7eda72aab590>]` - Get upcoming calendar events with full details
-- `get_events_needing_prep(self) -> List[<ast.Subscript object at 0x7eda72ab1210>]` - Get conferences/speaking engagements needing preparation
+- `get_calendar_events(self, days: int) -> List[<ast.Subscript object at 0x79a093c2e1d0>]` - Get upcoming calendar events with full details
+- `get_events_needing_prep(self) -> List[<ast.Subscript object at 0x79a093c2fe10>]` - Get conferences/speaking engagements needing preparation
 - `execute_workflow(self, workflow: Workflow) -> bool` - Execute a workflow
 - `_execute_step(self, step: WorkflowStep) -> bool` - Execute a single workflow step
-- `get_statistics(self) -> Dict[<ast.Tuple object at 0x7eda72aced50>]` - Get workflow statistics
+- `get_statistics(self) -> Dict[<ast.Tuple object at 0x79a093c5d990>]` - Get workflow statistics
 - `generate_report(self) -> str` - Generate workflow report
 
 **Classes:**
@@ -2514,21 +2561,21 @@ Version: 1.0.0
 - `_save_history(self, report: StandupReport)` - Save standup to history
 - `_get_today_log(self) -> str` - Get today's daily log content
 - `_get_yesterday_log(self) -> str` - Get yesterday's daily log for comparison
-- `_parse_activities_from_log(self, log_content: str) -> Dict[<ast.Tuple object at 0x7eda71a2c1d0>]` - Parse activities from daily log content
+- `_parse_activities_from_log(self, log_content: str) -> Dict[<ast.Tuple object at 0x79a092bfbf90>]` - Parse activities from daily log content
 - `_identify_agent(self, text: str) -> str` - Identify which agent an activity belongs to
 - `_categorize_activity(self, title: str) -> str` - Categorize an activity by type
 - `_detect_blockers(self, log_content: str, agent_activities: Dict) -> List[Dict]` - Detect blockers from log content and activities
-- `_extract_achievements(self, activities: Dict[<ast.Tuple object at 0x7eda71a89250>]) -> List[str]` - Extract notable achievements from activities
-- `_identify_focus_areas(self, activities: Dict[<ast.Tuple object at 0x7eda71a7cad0>], blockers: List[Dict]) -> List[str]` - Identify current focus areas based on activities and blockers
-- `_calculate_metrics(self, activities: Dict[<ast.Tuple object at 0x7eda71a601d0>], blockers: List[Dict]) -> Dict` - Calculate team metrics
-- `_check_heartbeat_status(self, agent_id: str) -> Tuple[<ast.Tuple object at 0x7eda71a3efd0>]` - Check heartbeat status for an agent
+- `_extract_achievements(self, activities: Dict[<ast.Tuple object at 0x79a092c26410>]) -> List[str]` - Extract notable achievements from activities
+- `_identify_focus_areas(self, activities: Dict[<ast.Tuple object at 0x79a092c15c90>], blockers: List[Dict]) -> List[str]` - Identify current focus areas based on activities and blockers
+- `_calculate_metrics(self, activities: Dict[<ast.Tuple object at 0x79a092a9d390>], blockers: List[Dict]) -> Dict` - Calculate team metrics
+- `_check_heartbeat_status(self, agent_id: str) -> Tuple[<ast.Tuple object at 0x79a092a841d0>]` - Check heartbeat status for an agent
 - `_generate_agent_activity(self, agent_id: str, activities: List[Dict]) -> AgentActivity` - Generate activity summary for a single agent
 - `_suggest_priorities(self, agent_id: str, activities: List[Dict]) -> List[str]` - Suggest next priorities based on agent role and recent activity
 - `generate_standup(self, date: Optional[str]) -> StandupReport` - Generate complete standup report
 - `_determine_overall_status(self, agent_summaries: List[AgentActivity], blockers: List[Dict]) -> str` - Determine overall team status
 - `generate_markdown_report(self, report: StandupReport) -> str` - Generate markdown-formatted standup report
-- `save_standup(self, report: StandupReport, format: str) -> Dict[<ast.Tuple object at 0x7eda7191e450>]` - Save standup report in specified format(s)
-- `get_comparison_with_yesterday(self) -> Dict[<ast.Tuple object at 0x7eda71925b90>]` - Compare today's standup with yesterday's
+- `save_standup(self, report: StandupReport, format: str) -> Dict[<ast.Tuple object at 0x79a092b01290>]` - Save standup report in specified format(s)
+- `get_comparison_with_yesterday(self) -> Dict[<ast.Tuple object at 0x79a092b0c9d0>]` - Compare today's standup with yesterday's
 
 **Classes:**
 
@@ -2564,9 +2611,9 @@ Version: 1.0.0
 
 **Functions:**
 
-- `get_standup_status() -> Dict[<ast.Tuple object at 0x7eda6f988fd0>]` - Get current standup status for heartbeat integration
+- `get_standup_status() -> Dict[<ast.Tuple object at 0x79a0907a6490>]` - Get current standup status for heartbeat integration
 - `get_standup_summary() -> str` - Get a brief standup summary for display in heartbeat
-- `check_standup_for_action() -> Dict[<ast.Tuple object at 0x7eda6f8c3010>]` - Check if standup requires any action
+- `check_standup_for_action() -> Dict[<ast.Tuple object at 0x79a0907bcbd0>]` - Check if standup requires any action
 - `main()` - CLI to check standup status
 
 ### scripts/daily_workflow_improvements.py
@@ -2628,7 +2675,7 @@ Version: 2.0.0
 - `__init__(self)`
 - `log(self, message: str, level: str)` - Log message to file and stdout
 - `get_file_age_minutes(self, filepath: str) -> Optional[float]` - Get file age in minutes
-- `run_dashboard_script(self, script_name: str, script_args: List[str]) -> Tuple[<ast.Tuple object at 0x7eda6e7db4d0>]` - Run a dashboard generation script
+- `run_dashboard_script(self, script_name: str, script_args: List[str]) -> Tuple[<ast.Tuple object at 0x79a08f94ad50>]` - Run a dashboard generation script
 - `check_dashboard(self, name: str, config: Dict, state: Dict) -> DashboardStatus` - Check status of a single dashboard
 - `check_subagent_health(self) -> Dict` - Proactively check subagent health from heartbeat logs.
 - `_check_delivery_health(self) -> List[str]` - Check universal delivery system for issues
@@ -2714,7 +2761,7 @@ Version: 1.0.0
 - `_load_state(self) -> Dict` - Load persistent delivery state
 - `_save_state(self)` - Save persistent delivery state
 - `_log(self, message: str, level: str)` - Log delivery activity
-- `send_email_with_tracking(self, subject: str, body: str, briefing_type: str, is_critical: bool) -> Tuple[<ast.Tuple object at 0x7eda6f73a2d0>]` - Send email with delivery tracking
+- `send_email_with_tracking(self, subject: str, body: str, briefing_type: str, is_critical: bool) -> Tuple[<ast.Tuple object at 0x79a09082a290>]` - Send email with delivery tracking
 - `verify_delivery(self, tracking_id: str) -> bool` - Verify email delivery status
 - `_confirm_delivery(self, tracking_id: str)` - Mark delivery as confirmed
 - `_send_delivery_receipt(self, delivery: Dict)` - Send lightweight delivery confirmation to Telegram
@@ -2760,25 +2807,25 @@ Usage:
 - `main()`
 - `__init__(self, file_path: Path)`
 - `extract_module_docstring(self) -> Optional[str]` - Extract the module-level docstring.
-- `extract_functions(self) -> List[<ast.Subscript object at 0x7eda71194dd0>]` - Extract all function definitions with docstrings.
-- `extract_classes(self) -> List[<ast.Subscript object at 0x7eda71188450>]` - Extract all class definitions with docstrings.
+- `extract_functions(self) -> List[<ast.Subscript object at 0x79a09222cdd0>]` - Extract all function definitions with docstrings.
+- `extract_classes(self) -> List[<ast.Subscript object at 0x79a09221c610>]` - Extract all class definitions with docstrings.
 - `extract_imports(self) -> List[str]` - Extract import statements.
-- `_extract_args(self, args: ast.arguments) -> List[<ast.Subscript object at 0x7eda7100bed0>]` - Extract function arguments.
+- `_extract_args(self, args: ast.arguments) -> List[<ast.Subscript object at 0x79a092210cd0>]` - Extract function arguments.
 - `_extract_return_type(self, returns) -> Optional[str]` - Extract return type annotation.
 - `_get_annotation(self, node) -> Optional[str]` - Convert annotation node to string.
 - `_get_name(self, node) -> str` - Get name from node.
 - `_get_value(self, node) -> Any` - Extract value from node.
-- `get_documentation_score(self) -> Dict[<ast.Tuple object at 0x7eda710020d0>]` - Calculate documentation coverage score.
+- `get_documentation_score(self) -> Dict[<ast.Tuple object at 0x79a092233590>]` - Calculate documentation coverage score.
 - `__init__(self, root_path: Path)`
 - `scan(self, exclude_patterns: List[str]) -> List[Path]` - Scan for Python files, excluding certain patterns.
-- `parse_all(self) -> List[<ast.Subscript object at 0x7eda70ff8f50>]` - Parse all Python files.
-- `generate_module_docs(self) -> Dict[<ast.Tuple object at 0x7eda70fee310>]` - Generate documentation for all modules.
-- `calculate_coverage(self) -> Dict[<ast.Tuple object at 0x7eda70fde590>]` - Calculate documentation coverage for all files.
+- `parse_all(self) -> List[<ast.Subscript object at 0x79a092222410>]` - Parse all Python files.
+- `generate_module_docs(self) -> Dict[<ast.Tuple object at 0x79a0920937d0>]` - Generate documentation for all modules.
+- `calculate_coverage(self) -> Dict[<ast.Tuple object at 0x79a092087a50>]` - Calculate documentation coverage for all files.
 - `__init__(self, project_path: Path)`
 - `generate(self, template: str) -> str` - Generate README content from project structure.
 - `write(self, output_path: Optional[Path])` - Write README to file.
 - `__init__(self, project_path: Path)`
-- `get_commits(self, since_days: int) -> List[<ast.Subscript object at 0x7eda71043610>]` - Get git commits since specified days ago.
+- `get_commits(self, since_days: int) -> List[<ast.Subscript object at 0x79a0920ce150>]` - Get git commits since specified days ago.
 - `categorize_commit(self, message: str) -> str` - Categorize commit by conventional commit type.
 - `generate(self, since_days: int) -> str` - Generate changelog content.
 - `write(self, output_path: Optional[Path], since_days: int)` - Write changelog to file.
@@ -2787,7 +2834,7 @@ Usage:
 - `update_readme(self) -> Path` - Generate and update README.md.
 - `update_changelog(self, days: int) -> Path` - Generate and update CHANGELOG.md.
 - `save_coverage_report(self) -> Path` - Save documentation coverage report.
-- `run_full_update(self) -> Dict[<ast.Tuple object at 0x7eda7108f410>]` - Run complete documentation update.
+- `run_full_update(self) -> Dict[<ast.Tuple object at 0x79a092119f50>]` - Run complete documentation update.
 
 **Classes:**
 
@@ -2844,6 +2891,23 @@ Version: 1.0.0
 - `sync_memory_files()` - Update memory files with current activity
 - `main()` - Run documentation sync
 
+### scripts/draft_typefully_thread.py
+
+
+Typefully Thread Drafter
+Drafts Twitter threads in Thomas's style
+Avoids AI indicators, uses human voice
+
+
+**Functions:**
+
+- `check_ai_indicators(text)` - Check for AI-sounding phrases
+- `draft_hook(topic, angle)` - Draft opening tweet in Thomas's style
+- `draft_thread(topic, key_points, sources)` - Draft full thread
+- `polish_thread(thread)` - Polish thread for Thomas's voice
+- `save_draft(topic, thread)` - Save draft to memory
+- `main()` - Test drafting
+
 ### scripts/dynamic_router.py
 
 
@@ -2871,17 +2935,17 @@ Version: 1.0.0
 - `record_failure(self) -> bool` - Record a failed request, returns True if circuit opened
 - `can_execute(self) -> bool` - Check if request can be executed
 - `get_active_route(self) -> Optional[Route]` - Get the best active route
-- `to_dict(self) -> Dict[<ast.Tuple object at 0x7eda70cf3f10>]`
-- `to_dict(self) -> Dict[<ast.Tuple object at 0x7eda70cf0f10>]`
+- `to_dict(self) -> Dict[<ast.Tuple object at 0x79a091f68950>]`
+- `to_dict(self) -> Dict[<ast.Tuple object at 0x79a091f61850>]`
 - `__init__(self)`
 - `_init_circuit_breakers(self)` - Initialize circuit breakers for all nodes
 - `_rebuild_routing_table(self)` - Rebuild the routing table based on current mesh state
 - `_calculate_fallback_routes(self, source: str, target: str) -> List[Route]` - Calculate fallback routes through intermediaries
-- `route_by_capability(self, capability: str, message: Dict[<ast.Tuple object at 0x7eda70d36e10>], strategy: RoutingStrategy, exclude: List[str]) -> Optional[str]` - Route to a node with specific capability.
-- `route_message(self, source: str, target: str, message_type: str, payload: Dict[<ast.Tuple object at 0x7eda70d49e10>]) -> Tuple[<ast.Tuple object at 0x7eda70d5fa10>]` - Route a message from source to target.
-- `_find_alternate_target(self, original_target: str, message_type: str, payload: Dict[<ast.Tuple object at 0x7eda70d642d0>]) -> Optional[str]` - Find an alternate target when original is unavailable
+- `route_by_capability(self, capability: str, message: Dict[<ast.Tuple object at 0x79a091db9850>], strategy: RoutingStrategy, exclude: List[str]) -> Optional[str]` - Route to a node with specific capability.
+- `route_message(self, source: str, target: str, message_type: str, payload: Dict[<ast.Tuple object at 0x79a091dc8850>]) -> Tuple[<ast.Tuple object at 0x79a091de2450>]` - Route a message from source to target.
+- `_find_alternate_target(self, original_target: str, message_type: str, payload: Dict[<ast.Tuple object at 0x79a091de2cd0>]) -> Optional[str]` - Find an alternate target when original is unavailable
 - `record_delivery_failure(self, node_id: str) -> bool` - Record a delivery failure to a node
-- `get_route_stats(self) -> Dict[<ast.Tuple object at 0x7eda70d77a50>]` - Get routing statistics
+- `get_route_stats(self) -> Dict[<ast.Tuple object at 0x79a091dfa490>]` - Get routing statistics
 - `generate_routing_report(self) -> str` - Generate routing report
 - `_log_message(self, msg: RoutedMessage)` - Log a routed message
 - `_save_routing_table(self)` - Save routing table to disk
@@ -2949,14 +3013,14 @@ Version: 1.0.0
 
 **Functions:**
 
-- `get_external_data() -> Dict[<ast.Tuple object at 0x7eda6fa7e210>]` - Convenience function to fetch all external data
+- `get_external_data() -> Dict[<ast.Tuple object at 0x79a090b67d50>]` - Convenience function to fetch all external data
 - `__init__(self)`
-- `fetch_calendar_events(self, days_ahead: int) -> List[<ast.Subscript object at 0x7eda6fa2a8d0>]` - Fetch upcoming calendar events.
-- `fetch_email_topics(self, days: int) -> Dict[<ast.Tuple object at 0x7eda6fa4c510>]` - Analyze recent emails for recurring topics.
-- `fetch_weather(self) -> Optional[<ast.Subscript object at 0x7eda6fa584d0>]` - Fetch London weather.
-- `fetch_news_topics(self) -> List[<ast.Subscript object at 0x7eda6fa62a50>]` - Fetch recent news from blogwatcher scan.
-- `fetch_recent_outputs(self, hours: int) -> List[<ast.Subscript object at 0x7eda6fa745d0>]` - Fetch recent agent outputs from file system.
-- `fetch_all(self) -> Dict[<ast.Tuple object at 0x7eda6fa7d590>]` - Fetch all external data sources.
+- `fetch_calendar_events(self, days_ahead: int) -> List[<ast.Subscript object at 0x79a090b1a8d0>]` - Fetch upcoming calendar events.
+- `fetch_email_topics(self, days: int) -> Dict[<ast.Tuple object at 0x79a090b36050>]` - Analyze recent emails for recurring topics.
+- `fetch_weather(self) -> Optional[<ast.Subscript object at 0x79a090b42010>]` - Fetch London weather.
+- `fetch_news_topics(self) -> List[<ast.Subscript object at 0x79a090b505d0>]` - Fetch recent news from blogwatcher scan.
+- `fetch_recent_outputs(self, hours: int) -> List[<ast.Subscript object at 0x79a090b5a110>]` - Fetch recent agent outputs from file system.
+- `fetch_all(self) -> Dict[<ast.Tuple object at 0x79a090b670d0>]` - Fetch all external data sources.
 
 **Classes:**
 
@@ -2983,15 +3047,17 @@ Sends summary report to Thomas after export.
 ### scripts/feature_50_security_audit_automation.py
 
 
-Feature #50: Security Audit Automation
-Automated security checks and compliance scanning
+Feature 50: Security Audit Automation
+Automated security audits for the workspace
 
 
 **Functions:**
 
-- `run_security_checks()` - Run comprehensive security checks
-- `generate_report(report)` - Generate HTML and JSON reports
-- `main()` - Main entry point
+- `check_file_permissions()` - Check for overly permissive files
+- `check_api_keys()` - Check for exposed API keys in code
+- `check_sudo_usage()` - Check scripts for unnecessary sudo
+- `generate_report()` - Generate security audit report
+- `main()` - Run security audit
 
 ### scripts/feature_51_vulnerability_scanner.py
 
@@ -3011,39 +3077,37 @@ Scans for CVEs in dependencies and system packages
 ### scripts/feature_52_secrets_rotation_manager.py
 
 
-Feature #52: Secrets Rotation Manager
-Manages rotation of API keys and credentials
+Feature 52: Secrets Rotation Manager
+Manages rotation of API keys and secrets
 
 
 **Functions:**
 
-- `load_secrets_registry()` - Load secrets registry
-- `save_secrets_registry(registry)` - Save secrets registry
-- `check_secrets_status()` - Check status of all tracked secrets
-- `generate_report(status)` - Generate rotation report
-- `main()` - Main entry point
+- `load_rotation_log()` - Load rotation history
+- `save_rotation_log(log)` - Save rotation history
+- `check_rotation_status()` - Check which secrets need rotation
+- `generate_report()` - Generate rotation status report
+- `main()` - Run secrets rotation check
 
 ### scripts/feature_53_multi-factor_auth_module.py
 
 ### scripts/feature_54_incident_response_orchestrator.py
 
 
-Feature #54: Incident Response Orchestrator
-Automated incident detection and response
+Feature 54: Incident Response Orchestrator
+Coordinates response to system incidents
 
 
 **Functions:**
 
 - `load_incidents()` - Load incident history
 - `save_incidents(data)` - Save incident history
-- `detect_disk_space_issue()` - Check for low disk space
-- `detect_memory_issue()` - Check for high memory usage
-- `detect_zombie_processes()` - Check for zombie processes
-- `detect_failed_services()` - Check for failed systemd services
-- `detect_incidents()` - Run all incident detection checks
-- `auto_resolve(incident)` - Attempt to auto-resolve an incident
-- `generate_response_plan(incidents)` - Generate incident response plan
-- `main()` - Main entry point
+- `create_incident(title, level, description, assigned_to)` - Create new incident
+- `resolve_incident(incident_id, resolution)` - Mark incident as resolved
+- `get_open_incidents()` - Get all open incidents
+- `generate_status_report()` - Generate incident status report
+- `check_system_health()` - Check for incidents automatically
+- `main()` - Run incident response check
 
 ### scripts/feature_56_query_cache_layer.py
 
@@ -3169,19 +3233,19 @@ Part of the Systematic Feature Checking & Development Process.
 
 - `main()` - Main entry point.
 - `__init__(self)`
-- `_load_features(self) -> List[<ast.Subscript object at 0x7eda730cea90>]` - Load features from registry.
-- `get_feature_by_id(self, feature_id: int) -> Optional[<ast.Subscript object at 0x7eda730cd850>]` - Get feature by ID.
-- `run_audit(self, feature_id: int, comprehensive: bool) -> Dict[<ast.Tuple object at 0x7eda730b5510>]` - Run complete audit on a feature.
-- `_test_discovery(self, feature: Dict[<ast.Tuple object at 0x7eda730b4f90>]) -> Dict[<ast.Tuple object at 0x7eda72edae50>]` - Test 1: Verify feature files exist.
-- `_test_syntax(self, feature: Dict[<ast.Tuple object at 0x7eda72eda8d0>]) -> Dict[<ast.Tuple object at 0x7eda72f09810>]` - Test 2: Check code syntax.
-- `_test_execution(self, feature: Dict[<ast.Tuple object at 0x7eda72f09d90>]) -> Dict[<ast.Tuple object at 0x7eda72f23410>]` - Test 3: Execute feature and verify output.
-- `_test_edge_cases(self, feature: Dict[<ast.Tuple object at 0x7eda72f23990>]) -> Dict[<ast.Tuple object at 0x7eda72f2d110>]` - Test 4: Edge case testing (comprehensive only).
-- `_test_integration(self, feature: Dict[<ast.Tuple object at 0x7eda72f2d690>]) -> Dict[<ast.Tuple object at 0x7eda72f2edd0>]` - Test 5: Integration testing (comprehensive only).
-- `_test_performance(self, feature: Dict[<ast.Tuple object at 0x7eda72f2f350>]) -> Dict[<ast.Tuple object at 0x7eda72f38ad0>]` - Test 6: Performance testing (comprehensive only).
-- `_determine_status(self, tests: Dict[<ast.Tuple object at 0x7eda72f39050>]) -> str` - Determine overall feature status.
-- `_generate_recommendations(self, feature: Dict[<ast.Tuple object at 0x7eda72f3b290>], audit: Dict[<ast.Tuple object at 0x7eda72f3b5d0>]) -> List[str]` - Generate recommendations based on audit results.
-- `_save_audit_report(self, feature_id: int, audit: Dict[<ast.Tuple object at 0x7eda72f49990>])` - Save audit report to file.
-- `_print_summary(self, audit: Dict[<ast.Tuple object at 0x7eda72f623d0>])` - Print audit summary.
+- `_load_features(self) -> List[<ast.Subscript object at 0x79a0942329d0>]` - Load features from registry.
+- `get_feature_by_id(self, feature_id: int) -> Optional[<ast.Subscript object at 0x79a094231790>]` - Get feature by ID.
+- `run_audit(self, feature_id: int, comprehensive: bool) -> Dict[<ast.Tuple object at 0x79a094219450>]` - Run complete audit on a feature.
+- `_test_discovery(self, feature: Dict[<ast.Tuple object at 0x79a094218ed0>]) -> Dict[<ast.Tuple object at 0x79a09421f310>]` - Test 1: Verify feature files exist.
+- `_test_syntax(self, feature: Dict[<ast.Tuple object at 0x79a09421ed90>]) -> Dict[<ast.Tuple object at 0x79a094269350>]` - Test 2: Check code syntax.
+- `_test_execution(self, feature: Dict[<ast.Tuple object at 0x79a0942698d0>]) -> Dict[<ast.Tuple object at 0x79a09407ef50>]` - Test 3: Execute feature and verify output.
+- `_test_edge_cases(self, feature: Dict[<ast.Tuple object at 0x79a09407f4d0>]) -> Dict[<ast.Tuple object at 0x79a09408cc50>]` - Test 4: Edge case testing (comprehensive only).
+- `_test_integration(self, feature: Dict[<ast.Tuple object at 0x79a09408d1d0>]) -> Dict[<ast.Tuple object at 0x79a09408e910>]` - Test 5: Integration testing (comprehensive only).
+- `_test_performance(self, feature: Dict[<ast.Tuple object at 0x79a09408ee90>]) -> Dict[<ast.Tuple object at 0x79a094094610>]` - Test 6: Performance testing (comprehensive only).
+- `_determine_status(self, tests: Dict[<ast.Tuple object at 0x79a094094b90>]) -> str` - Determine overall feature status.
+- `_generate_recommendations(self, feature: Dict[<ast.Tuple object at 0x79a094096dd0>], audit: Dict[<ast.Tuple object at 0x79a094097110>]) -> List[str]` - Generate recommendations based on audit results.
+- `_save_audit_report(self, feature_id: int, audit: Dict[<ast.Tuple object at 0x79a0940ad4d0>])` - Save audit report to file.
+- `_print_summary(self, audit: Dict[<ast.Tuple object at 0x79a0940c5f10>])` - Print audit summary.
 
 **Classes:**
 
@@ -3223,12 +3287,12 @@ Usage:
 **Functions:**
 
 - `log(message: str)` - Log with timestamp
-- `load_tracking() -> Dict[<ast.Tuple object at 0x7eda7020a110>]` - Load feature deployment tracking data
-- `save_tracking(tracking: Dict[<ast.Tuple object at 0x7eda70209c10>])` - Save feature deployment tracking data
+- `load_tracking() -> Dict[<ast.Tuple object at 0x79a0912f6590>]` - Load feature deployment tracking data
+- `save_tracking(tracking: Dict[<ast.Tuple object at 0x79a0912f6090>])` - Save feature deployment tracking data
 - `build_email_template(feature_num: int, feature_title: str, description: str, timestamp: Optional[str], docs_link: Optional[str], deployed_by: str, priority: str, additional_notes: Optional[str]) -> tuple` - Build standardized email subject and body for feature deployment
-- `notify_feature_deployed(feature_num: int, feature_title: str, description: str, docs_link: Optional[str], deployed_by: str, priority: str, additional_notes: Optional[str], recipient: str, sender_agent: str, allow_duplicates: bool) -> Dict[<ast.Tuple object at 0x7eda7022e310>]` - Send a standardized feature deployment notification email
-- `send_test_email(recipient: str) -> Dict[<ast.Tuple object at 0x7eda7022fc50>]` - Send a test deployment notification email
-- `get_deployment_stats() -> Dict[<ast.Tuple object at 0x7eda7023af10>]` - Get statistics about feature deployments and notifications
+- `notify_feature_deployed(feature_num: int, feature_title: str, description: str, docs_link: Optional[str], deployed_by: str, priority: str, additional_notes: Optional[str], recipient: str, sender_agent: str, allow_duplicates: bool) -> Dict[<ast.Tuple object at 0x79a09132c2d0>]` - Send a standardized feature deployment notification email
+- `send_test_email(recipient: str) -> Dict[<ast.Tuple object at 0x79a09132dc10>]` - Send a test deployment notification email
+- `get_deployment_stats() -> Dict[<ast.Tuple object at 0x79a091338ed0>]` - Get statistics about feature deployments and notifications
 - `main()`
 
 ### scripts/feature_priority_calculator.py
@@ -3242,17 +3306,17 @@ Part of the Systematic Feature Checking & Development Process.
 **Functions:**
 
 - `get_recency_score(days_since_check: int) -> int` - Get recency score based on days since last check.
-- `get_last_check_date(feature_id: int) -> Tuple[<ast.Tuple object at 0x7eda6e99f9d0>]` - Get the last check date for a feature.
+- `get_last_check_date(feature_id: int) -> Tuple[<ast.Tuple object at 0x79a08f910bd0>]` - Get the last check date for a feature.
 - `get_error_count(feature_id: int, feature_name: str) -> int` - Count recent errors for a feature from logs.
-- `get_cron_status(feature_id: int, feature_name: str) -> Dict[<ast.Tuple object at 0x7eda6e998ed0>]` - Check if feature has a cron job scheduled.
-- `calculate_risk_score(feature: Dict[<ast.Tuple object at 0x7eda6e998810>], error_count: int, cron_status: Dict) -> int` - Calculate risk score (1-10).
-- `calculate_complexity_score(feature: Dict[<ast.Tuple object at 0x7eda6e9b3ed0>]) -> int` - Estimate complexity score (1-10).
-- `calculate_priority(feature: Dict[<ast.Tuple object at 0x7eda6e9b16d0>]) -> Dict[<ast.Tuple object at 0x7eda6e9a8e90>]` - Calculate comprehensive priority score for a feature.
-- `load_features() -> List[<ast.Subscript object at 0x7eda6e7d6f10>]` - Load features from registry.
-- `save_priorities(priorities: List[<ast.Subscript object at 0x7eda6e7d6910>])` - Save priorities to database.
-- `get_priority_queue(limit: int) -> List[<ast.Subscript object at 0x7eda6e7ec3d0>]` - Get top N features by priority.
+- `get_cron_status(feature_id: int, feature_name: str) -> Dict[<ast.Tuple object at 0x79a08f909b50>]` - Check if feature has a cron job scheduled.
+- `calculate_risk_score(feature: Dict[<ast.Tuple object at 0x79a08f8c0590>], error_count: int, cron_status: Dict) -> int` - Calculate risk score (1-10).
+- `calculate_complexity_score(feature: Dict[<ast.Tuple object at 0x79a08f94b850>]) -> int` - Estimate complexity score (1-10).
+- `calculate_priority(feature: Dict[<ast.Tuple object at 0x79a08f92df90>]) -> Dict[<ast.Tuple object at 0x79a08f921750>]` - Calculate comprehensive priority score for a feature.
+- `load_features() -> List[<ast.Subscript object at 0x79a08f950850>]` - Load features from registry.
+- `save_priorities(priorities: List[<ast.Subscript object at 0x79a08f950e50>])` - Save priorities to database.
+- `get_priority_queue(limit: int) -> List[<ast.Subscript object at 0x79a08f95bad0>]` - Get top N features by priority.
 - `main()` - Main entry point.
-- `format_priority(p: Dict[<ast.Tuple object at 0x7eda6e80e650>]) -> str` - Format priority for display.
+- `format_priority(p: Dict[<ast.Tuple object at 0x79a08f789d90>]) -> str` - Format priority for display.
 
 ### scripts/feature_retirement.py
 
@@ -3280,7 +3344,7 @@ Date: 2026-02-07
 - `get_all_features(self) -> List[int]` - Get all registered feature IDs.
 - `log_audit(self, action: str, feature_id: int, details: str, performed_by: str)` - Log an audit entry.
 - `__init__(self, workspace_path: str)`
-- `scan_all_features(self) -> Dict[<ast.Tuple object at 0x7eda71387b90>]` - Scan workspace for all features.
+- `scan_all_features(self) -> Dict[<ast.Tuple object at 0x79a092445890>]` - Scan workspace for all features.
 - `_extract_feature_info(self, file_path: Path) -> Optional[Dict]` - Extract feature information from a file.
 - `_extract_docstring(self, content: str) -> str` - Extract description from docstring.
 - `scan_dependencies(self, feature_id: int, script_path: str) -> List[str]` - Scan for dependencies of a feature.
@@ -3361,14 +3425,14 @@ Feature: #20
 - `_ensure_directories(self)` - Create necessary directories
 - `_load_existing_data(self)` - Load existing usage data
 - `_save_data(self)` - Save usage data to disk
-- `detect_feature_usage(self) -> Dict[<ast.Tuple object at 0x7eda6f500690>]` - Detect usage of all features by analyzing files and logs
-- `log_feature_event(self, feature_id: int, event_type: str, details: Dict[<ast.Tuple object at 0x7eda6f4f7c90>])` - Log a feature usage event
-- `calculate_statistics(self, usage_data: Dict[<ast.Tuple object at 0x7eda6f4f5690>]) -> Dict[<ast.Tuple object at 0x7eda6f4d5e90>]` - Calculate overall statistics
-- `_get_suggestion(self, feature_id: int, usage: Dict[<ast.Tuple object at 0x7eda6f4d5810>]) -> str` - Generate a suggestion for an underutilized feature
-- `generate_dashboard_html(self, usage_data: Dict[<ast.Tuple object at 0x7eda6f568590>], stats: Dict[<ast.Tuple object at 0x7eda6f568b10>]) -> str` - Generate an HTML dashboard
-- `_generate_critical_alerts(self, stats: Dict[<ast.Tuple object at 0x7eda6f588490>]) -> str` - Generate HTML for critical feature alerts
-- `_generate_suggestions(self, stats: Dict[<ast.Tuple object at 0x7eda6f58ad90>]) -> str` - Generate HTML for optimization suggestions
-- `generate_report(self, usage_data: Dict[<ast.Tuple object at 0x7eda6f599190>], stats: Dict[<ast.Tuple object at 0x7eda6f599710>]) -> str` - Generate a markdown report
+- `detect_feature_usage(self) -> Dict[<ast.Tuple object at 0x79a0904b4a10>]` - Detect usage of all features by analyzing files and logs
+- `log_feature_event(self, feature_id: int, event_type: str, details: Dict[<ast.Tuple object at 0x79a0904b4050>])` - Log a feature usage event
+- `calculate_statistics(self, usage_data: Dict[<ast.Tuple object at 0x79a0904a5a10>]) -> Dict[<ast.Tuple object at 0x79a090492210>]` - Calculate overall statistics
+- `_get_suggestion(self, feature_id: int, usage: Dict[<ast.Tuple object at 0x79a090491b90>]) -> str` - Generate a suggestion for an underutilized feature
+- `generate_dashboard_html(self, usage_data: Dict[<ast.Tuple object at 0x79a0904c8210>], stats: Dict[<ast.Tuple object at 0x79a0904c8790>]) -> str` - Generate an HTML dashboard
+- `_generate_critical_alerts(self, stats: Dict[<ast.Tuple object at 0x79a0904e8110>]) -> str` - Generate HTML for critical feature alerts
+- `_generate_suggestions(self, stats: Dict[<ast.Tuple object at 0x79a0904eaa10>]) -> str` - Generate HTML for optimization suggestions
+- `generate_report(self, usage_data: Dict[<ast.Tuple object at 0x79a0904f4e10>], stats: Dict[<ast.Tuple object at 0x79a0904f5390>]) -> str` - Generate a markdown report
 - `run(self)` - Run the full analytics cycle
 
 **Classes:**
@@ -3396,6 +3460,19 @@ Usage: python3 feature_worker.py <feature_id> <feature_name> <effort> <impact>
 - `send_completion_email(feature_id, feature_name, effort, impact, files_created)` - Send email notification about completed feature
 - `implement_token_usage_optimizer()` - Feature #55: Token Usage Optimizer
 - `implement_smart_task_scheduler()` - Feature #65: Smart Task Scheduler
+- `main()`
+
+### scripts/filter_fresh_news.py
+
+
+Fresh News Filter
+Filters RSS articles to only past 24 hours
+
+
+**Functions:**
+
+- `get_fresh_articles()` - Get articles from past 24 hours
+- `categorize_article(title, source)` - Categorize article by topic
 - `main()`
 
 ### scripts/generate_api_health_dashboard.py
@@ -3681,6 +3758,17 @@ Generates HTML dashboard with actual system health metrics
 - `get_feature_count()` - Get active feature count
 - `generate_dashboard()` - Generate HTML dashboard with real metrics
 
+### scripts/generate_zak_dashboard.py
+
+
+Zak Management Dashboard Generator
+Live view of team status and tasks requiring attention
+
+
+**Functions:**
+
+- `generate_dashboard()` - Generate HTML management dashboard
+
 ### scripts/google_calendar_integration.py
 
 
@@ -3700,23 +3788,23 @@ Version: 1.0.0
 **Functions:**
 
 - `main()` - CLI interface for testing
-- `to_dict(self) -> Dict[<ast.Tuple object at 0x7eda6fa9ec90>]`
+- `to_dict(self) -> Dict[<ast.Tuple object at 0x79a0909867d0>]`
 - `__init__(self)`
-- `_load_config(self) -> Dict[<ast.Tuple object at 0x7eda6fa96710>]` - Load calendar configuration
-- `_save_config(self, config: Dict[<ast.Tuple object at 0x7eda6fa96190>])` - Save calendar configuration
+- `_load_config(self) -> Dict[<ast.Tuple object at 0x79a09097e150>]` - Load calendar configuration
+- `_save_config(self, config: Dict[<ast.Tuple object at 0x79a09097dbd0>])` - Save calendar configuration
 - `_init_service(self) -> bool` - Initialize Google Calendar API service
 - `_log(self, message: str)` - Log message to calendar API log
 - `is_authenticated(self) -> bool` - Check if we have valid authentication
 - `get_upcoming_events(self, days: int, max_results: int) -> List[CalendarEvent]` - Fetch upcoming events from Google Calendar
-- `_parse_event(self, event: Dict[<ast.Tuple object at 0x7eda6faa5650>]) -> Optional[CalendarEvent]` - Parse Google Calendar event into CalendarEvent
+- `_parse_event(self, event: Dict[<ast.Tuple object at 0x79a0909bc550>]) -> Optional[CalendarEvent]` - Parse Google Calendar event into CalendarEvent
 - `_classify_event(self, summary: str, description: str, is_conference: bool) -> str` - Classify event type based on content
-- `_get_cached_events(self, days: int) -> Optional[<ast.Subscript object at 0x7eda6f8f9850>]` - Get cached events if still valid
+- `_get_cached_events(self, days: int) -> Optional[<ast.Subscript object at 0x79a0909df390>]` - Get cached events if still valid
 - `_cache_events(self, events: List[CalendarEvent], days: int)` - Cache events to file
 - `get_events_needing_prep(self) -> List[CalendarEvent]` - Get events that need preparation (conferences, speaking engagements)
 - `get_tomorrow_events(self) -> List[CalendarEvent]` - Get events for tomorrow
 - `get_next_7_days_events(self) -> List[CalendarEvent]` - Get events for next 7 days
 - `generate_daily_briefing(self) -> str` - Generate a daily briefing of upcoming events
-- `get_statistics(self) -> Dict[<ast.Tuple object at 0x7eda6f92db90>]` - Get calendar statistics
+- `get_statistics(self) -> Dict[<ast.Tuple object at 0x79a090a136d0>]` - Get calendar statistics
 
 **Classes:**
 
@@ -3815,12 +3903,12 @@ Version: 1.0.0
 - `_filter_suppressed(self, incidents: List[Incident]) -> List[Incident]` - Filter out recently suppressed incidents
 - `record_incident(self, incident: Incident) -> int` - Record an incident to the database
 - `execute_playbook(self, incident_id: int) -> List[HealingAction]` - Execute auto-healing actions for an incident
-- `_execute_healing_action(self, action_type: str, params: Dict) -> Tuple[<ast.Tuple object at 0x7eda6fee11d0>]` - Execute a specific healing action
+- `_execute_healing_action(self, action_type: str, params: Dict) -> Tuple[<ast.Tuple object at 0x79a090fdb2d0>]` - Execute a specific healing action
 - `check_escalation(self) -> List[Incident]` - Check for incidents requiring escalation
 - `escalate_incident(self, incident_id: int, reason: str) -> bool` - Escalate an incident to human attention
-- `get_incident_summary(self) -> Dict[<ast.Tuple object at 0x7eda6ff07150>]` - Get summary of incident status
+- `get_incident_summary(self) -> Dict[<ast.Tuple object at 0x79a091001290>]` - Get summary of incident status
 - `_row_to_incident(self, row) -> Incident` - Convert database row to Incident object
-- `run_response_cycle(self) -> Dict[<ast.Tuple object at 0x7eda6ff2a2d0>]` - Main response cycle - detect, heal, escalate
+- `run_response_cycle(self) -> Dict[<ast.Tuple object at 0x79a091028410>]` - Main response cycle - detect, heal, escalate
 
 **Classes:**
 
@@ -4227,6 +4315,27 @@ Adds 'maint' command to the unified CLI
 - `simulate_issue(issue_type)` - Simulate a maintenance issue for testing.
 - `show_help()` - Show help text.
 
+### scripts/marketplace_tasks.py
+
+
+Structured Task Manager
+Standardized workflows for autonomous delegation
+
+
+**Functions:**
+
+- `main()`
+- `__init__(self)`
+- `init_db(self)`
+- `create_task(self, task_type: str, title: str, description: str) -> dict`
+
+**Classes:**
+
+- `StructuredTaskManager`
+  - `__init__()`
+  - `init_db()`
+  - `create_task()`
+
 ### scripts/memory_cli.py
 
 
@@ -4298,13 +4407,13 @@ This system provides:
 - `get_fallback_manager() -> ModelFallbackManager` - Get or create the global fallback manager.
 - `__post_init__(self)`
 - `__init__(self)`
-- `_load_models(self) -> Dict[<ast.Tuple object at 0x7eda7319ba10>]` - Load model configurations.
+- `_load_models(self) -> Dict[<ast.Tuple object at 0x79a094190950>]` - Load model configurations.
 - `_init_health_tracking(self)` - Initialize health tracking in database.
 - `get_model_health(self, model_name: str) -> Dict` - Get current health status for a model.
 - `update_model_health(self, model_name: str, success: bool, error_type: Optional[str], latency_ms: int)` - Update health status after a request.
 - `route_task(self, task_type: str, preferred_model: Optional[str], complexity: str) -> RoutingDecision` - Determine the best model for a task.
 - `_log_routing_decision(self, task_type: str, requested: Optional[str], decision: RoutingDecision)` - Log routing decision to database.
-- `execute_with_fallback(self, task_type: str, call_fn: Callable, preferred_model: Optional[str], max_retries: int) -> Tuple[<ast.Tuple object at 0x7eda7304ec50>]` - Execute a task with automatic fallback on failure.
+- `execute_with_fallback(self, task_type: str, call_fn: Callable, preferred_model: Optional[str], max_retries: int) -> Tuple[<ast.Tuple object at 0x79a0941b2790>]` - Execute a task with automatic fallback on failure.
 - `get_stats(self, days: int) -> Dict` - Get usage statistics.
 - `save_config(self)` - Save current configuration to file.
 - `model_priority(item)`
@@ -4447,9 +4556,9 @@ Examples:
 
 - `main()` - CLI entry point
 - `__init__(self, workspace_path: str)`
-- `_compile_patterns(self) -> Dict[<ast.Tuple object at 0x7eda70b74c50>]` - Compile regex patterns for query type detection
+- `_compile_patterns(self) -> Dict[<ast.Tuple object at 0x79a091bf0890>]` - Compile regex patterns for query type detection
 - `parse_query(self, query: str) -> ParsedQuery` - Parse a natural language query into structured components
-- `_extract_filters(self, query: str) -> Dict[<ast.Tuple object at 0x7eda709fb8d0>]` - Extract additional filters from query
+- `_extract_filters(self, query: str) -> Dict[<ast.Tuple object at 0x79a091c49cd0>]` - Extract additional filters from query
 - `execute_query(self, parsed: ParsedQuery) -> QueryResult` - Execute a parsed query and return results
 - `_handle_agent_health(self, parsed: ParsedQuery) -> QueryResult` - Handle agent health queries
 - `_handle_agent_activity(self, parsed: ParsedQuery) -> QueryResult` - Handle agent activity queries
@@ -4507,10 +4616,10 @@ Version: 1.0.0
 - `record_heartbeat(self, response_time_ms: Optional[float])` - Record a successful heartbeat
 - `record_missed_heartbeat(self) -> bool` - Record a missed heartbeat, returns True if threshold exceeded
 - `record_request(self, success: bool)` - Record a request result
-- `to_dict(self) -> Dict[<ast.Tuple object at 0x7eda72951110>]` - Convert to dictionary
-- `from_dict(cls, data: Dict[<ast.Tuple object at 0x7eda72950b90>]) -> 'MeshNode'` - Create from dictionary
-- `to_dict(self) -> Dict[<ast.Tuple object at 0x7eda7296f410>]`
-- `from_dict(cls, data: Dict[<ast.Tuple object at 0x7eda7296ee90>]) -> 'Route'`
+- `to_dict(self) -> Dict[<ast.Tuple object at 0x79a093add310>]` - Convert to dictionary
+- `from_dict(cls, data: Dict[<ast.Tuple object at 0x79a093adcd90>]) -> 'MeshNode'` - Create from dictionary
+- `to_dict(self) -> Dict[<ast.Tuple object at 0x79a093b1f850>]`
+- `from_dict(cls, data: Dict[<ast.Tuple object at 0x79a093b1fdd0>]) -> 'Route'`
 - `__init__(self)`
 - `_init_default_nodes(self)` - Initialize default agent nodes
 - `register_node(self, node: MeshNode) -> bool` - Register a new node in the mesh
@@ -4524,7 +4633,7 @@ Version: 1.0.0
 - `calculate_route(self, source: str, target: str) -> Optional[Route]` - Calculate the best route between two nodes
 - `_find_alternative_routes(self, source: str, target: str, max_hops: int) -> List[Route]` - Find alternative routes using BFS
 - `update_neighbors(self, node_id: str, neighbors: List[str])` - Update a node's neighbors
-- `get_mesh_topology(self) -> Dict[<ast.Tuple object at 0x7eda727f66d0>]` - Get the current mesh topology
+- `get_mesh_topology(self) -> Dict[<ast.Tuple object at 0x79a093979350>]` - Get the current mesh topology
 - `start_monitoring(self)` - Start background monitoring threads
 - `stop_monitoring(self)` - Stop background monitoring
 - `_heartbeat_loop(self)` - Background loop for health checking
@@ -4629,6 +4738,21 @@ Executes P0 tasks and adjusts schedule based on results
 - `run_p0_tasks()` - Run all 6 P0 tasks and collect results
 - `main()`
 
+### scripts/peer_review_system.py
+
+
+Peer Review System
+Agents review each other's outputs before production
+
+
+**Functions:**
+
+- `init_db()` - Initialize peer review database
+- `request_review(source_file: str, output_type: str, auto_assign: bool) -> dict` - Request peer review for an agent output
+- `get_pending_reviews(reviewer: str) -> list` - Get pending reviews for a reviewer
+- `complete_review(request_id: int, approved: bool, notes: str)` - Mark a review as complete
+- `main()` - CLI interface
+
 ### scripts/performance_analytics.py
 
 
@@ -4648,29 +4772,29 @@ Version: 1.0.0
 
 **Functions:**
 
-- `record_agent_performance(agent: str, task_type: str, dimension_scores: Dict[<ast.Tuple object at 0x7eda6f866c50>], **kwargs) -> int` - Quick function to record performance
+- `record_agent_performance(agent: str, task_type: str, dimension_scores: Dict[<ast.Tuple object at 0x79a090958850>], **kwargs) -> int` - Quick function to record performance
 - `get_agent_trends(agent: str, days: int) -> List[TrendResult]` - Get trends for an agent
-- `check_system_health() -> Dict[<ast.Tuple object at 0x7eda6f8751d0>]` - Check overall system health
+- `check_system_health() -> Dict[<ast.Tuple object at 0x79a09095ad90>]` - Check overall system health
 - `main()` - CLI for performance analytics
 - `__new__(cls)`
 - `__init__(self)`
 - `init_database(self)` - Initialize SQLite database for performance tracking
 - `_load_config(self) -> Dict` - Load configuration from file
 - `_save_config(self)` - Save configuration to file
-- `record_performance(self, agent: str, task_type: str, dimension_scores: Dict[<ast.Tuple object at 0x7eda6f96eb90>], response_time_ms: int, output_tokens: int, metadata: Optional[Dict]) -> int` - Record a performance measurement.
-- `_calculate_overall_score(self, dimension_scores: Dict[<ast.Tuple object at 0x7eda6f969e50>]) -> float` - Calculate weighted overall score from dimension scores
+- `record_performance(self, agent: str, task_type: str, dimension_scores: Dict[<ast.Tuple object at 0x79a090a53210>], response_time_ms: int, output_tokens: int, metadata: Optional[Dict]) -> int` - Record a performance measurement.
+- `_calculate_overall_score(self, dimension_scores: Dict[<ast.Tuple object at 0x79a090a4e1d0>]) -> float` - Calculate weighted overall score from dimension scores
 - `_check_and_alert(self, agent: str)` - Check trends and create alerts if needed
 - `_generate_alerts_from_trends(self, agent: str, trends: List[TrendResult])` - Generate alerts based on trend analysis
-- `create_alert(self, agent: str, alert_type: str, severity: str, description: str, trend_data: Optional[Dict], suggested_actions: Optional[<ast.Subscript object at 0x7eda6f98fd50>]) -> int` - Create a performance alert
+- `create_alert(self, agent: str, alert_type: str, severity: str, description: str, trend_data: Optional[Dict], suggested_actions: Optional[<ast.Subscript object at 0x79a0908ae190>]) -> int` - Create a performance alert
 - `_update_alerts_file(self)` - Update the alerts JSON file for quick access
 - `analyze_trends(self, agent: Optional[str], days: int) -> List[TrendResult]` - Analyze performance trends for an agent or all agents.
-- `get_agent_summary(self, agent: str, days: int) -> Dict[<ast.Tuple object at 0x7eda6f808f90>]` - Get summary statistics for an agent
-- `get_active_alerts(self, agent: Optional[str]) -> List[<ast.Subscript object at 0x7eda6f819010>]` - Get active (unresolved) alerts
+- `get_agent_summary(self, agent: str, days: int) -> Dict[<ast.Tuple object at 0x79a0908f6b50>]` - Get summary statistics for an agent
+- `get_active_alerts(self, agent: Optional[str]) -> List[<ast.Subscript object at 0x79a090902bd0>]` - Get active (unresolved) alerts
 - `acknowledge_alert(self, alert_id: int)` - Mark an alert as acknowledged
 - `resolve_alert(self, alert_id: int, outcome: str, effectiveness: float)` - Mark an alert as resolved
 - `generate_report(self, agent: Optional[str], days: int) -> str` - Generate a comprehensive performance report
 - `_format_agent_report(self, summary: Dict) -> str` - Format a single agent's summary as markdown
-- `get_dashboard_data(self) -> Dict[<ast.Tuple object at 0x7eda6f85be10>]` - Get data formatted for dashboard display
+- `get_dashboard_data(self) -> Dict[<ast.Tuple object at 0x79a09094da10>]` - Get data formatted for dashboard display
 - `_get_primary_trend(self, trends: List[Dict]) -> str` - Get the primary trend direction for an agent
 
 **Classes:**
@@ -4704,12 +4828,12 @@ Version: 1.0.0
 - `main()` - CLI for performance heartbeat
 - `__init__(self)`
 - `_log(self, message: str)` - Log heartbeat activity
-- `scan_heartbeat_logs(self, hours: int) -> Dict[<ast.Tuple object at 0x7eda71e249d0>]` - Scan agent heartbeat logs for the last N hours.
+- `scan_heartbeat_logs(self, hours: int) -> Dict[<ast.Tuple object at 0x79a092fb49d0>]` - Scan agent heartbeat logs for the last N hours.
 - `_parse_heartbeat_line(self, line: str, cutoff: datetime) -> Optional[Dict]` - Parse a single heartbeat log line
-- `analyze_output_quality(self, agent: str, hours: int) -> Dict[<ast.Tuple object at 0x7eda71e219d0>]` - Analyze quality of agent outputs from various sources.
+- `analyze_output_quality(self, agent: str, hours: int) -> Dict[<ast.Tuple object at 0x79a092fba650>]` - Analyze quality of agent outputs from various sources.
 - `_count_recent_outputs(self, agent: str, hours: int) -> int` - Count recent outputs for an agent
 - `_get_last_heartbeat_time(self, agent: str) -> Optional[datetime]` - Get the timestamp of the last heartbeat entry
-- `collect_and_record(self, hours: int) -> Dict[<ast.Tuple object at 0x7eda71e82250>]` - Main method: collect performance data and record it.
+- `collect_and_record(self, hours: int) -> Dict[<ast.Tuple object at 0x79a09300d5d0>]` - Main method: collect performance data and record it.
 - `generate_quick_status(self) -> str` - Generate a quick status report for display
 
 **Classes:**
@@ -4743,14 +4867,14 @@ Version: 1.0.0
 - `main()` - CLI for integration operations
 - `__init__(self)`
 - `_log(self, message: str)` - Log integration activity
-- `integrate_with_health_dashboard(self) -> Dict[<ast.Tuple object at 0x7eda70620550>]` - Enrich the agent health dashboard with performance data.
+- `integrate_with_health_dashboard(self) -> Dict[<ast.Tuple object at 0x79a0916f4090>]` - Enrich the agent health dashboard with performance data.
 - `_health_status_from_score(self, score: float, alerts: List[Dict]) -> str` - Determine health status from score and alerts
-- `record_from_task_completion(self, agent: str, task_type: str, output_file: str, metrics: Dict[<ast.Tuple object at 0x7eda70619310>]) -> int` - Record performance from a completed task.
+- `record_from_task_completion(self, agent: str, task_type: str, output_file: str, metrics: Dict[<ast.Tuple object at 0x79a0916ed210>]) -> int` - Record performance from a completed task.
 - `generate_daily_digest_section(self) -> str` - Generate markdown section for daily digest.
-- `check_and_notify_degradation(self) -> List[<ast.Subscript object at 0x7eda70665790>]` - Check for performance degradation and return notifications.
+- `check_and_notify_degradation(self) -> List[<ast.Subscript object at 0x79a0917306d0>]` - Check for performance degradation and return notifications.
 - `_get_intervention_suggestions(self, agent: str, declining_dims: List) -> List[str]` - Get intervention suggestions based on declining dimensions
-- `create_performance_based_task(self) -> Optional[<ast.Subscript object at 0x7eda70675a10>]` - Create a proactive task based on performance analysis.
-- `export_for_coordination(self) -> Dict[<ast.Tuple object at 0x7eda7067e390>]` - Export performance data for cross-agent coordination.
+- `create_performance_based_task(self) -> Optional[<ast.Subscript object at 0x79a091748950>]` - Create a proactive task based on performance analysis.
+- `export_for_coordination(self) -> Dict[<ast.Tuple object at 0x79a0917552d0>]` - Export performance data for cross-agent coordination.
 
 **Classes:**
 
@@ -4783,9 +4907,9 @@ Version: 1.0.0
 **Functions:**
 
 - `run_prediction_cycle() -> List[str]` - Run a prediction cycle and return completed task IDs
-- `get_predictive_stats() -> Dict[<ast.Tuple object at 0x7eda72035a10>]` - Get predictive automation statistics
+- `get_predictive_stats() -> Dict[<ast.Tuple object at 0x79a0931c8dd0>]` - Get predictive automation statistics
 - `main()` - CLI for predictive automation
-- `validate(cls, content: str) -> Tuple[<ast.Tuple object at 0x7eda72130850>]` - Validate content matches Thomas's style.
+- `validate(cls, content: str) -> Tuple[<ast.Tuple object at 0x79a0932bc890>]` - Validate content matches Thomas's style.
 - `__new__(cls)`
 - `__init__(self)`
 - `_log(self, message: str, level: str)` - Log predictive automation activity
@@ -4795,7 +4919,7 @@ Version: 1.0.0
 - `_save_patterns(self)` - Save patterns to file
 - `_save_predictions(self)` - Save predictions to file
 - `_save_history(self)` - Save history to file
-- `_fetch_external_data(self) -> Dict[<ast.Tuple object at 0x7eda72191b90>]` - Fetch real external data for pattern detection
+- `_fetch_external_data(self) -> Dict[<ast.Tuple object at 0x79a0933167d0>]` - Fetch real external data for pattern detection
 - `detect_calendar_patterns(self) -> List[DetectedPattern]` - Detect patterns from calendar events using real external data.
 - `detect_email_patterns(self) -> List[DetectedPattern]` - Detect patterns from real email analysis.
 - `detect_seasonal_patterns(self) -> List[DetectedPattern]` - Detect seasonal/cyclical patterns.
@@ -4812,7 +4936,7 @@ Version: 1.0.0
 - `record_feedback(self, task_id: str, action: str, notes: str)` - Record what Thomas did with predictive work.
 - `_adjust_pattern_confidence(self, task_id: str, delta: float)` - Adjust confidence of patterns based on feedback
 - `run_prediction_cycle(self) -> List[str]` - Main entry point: Run full prediction cycle.
-- `get_statistics(self) -> Dict[<ast.Tuple object at 0x7eda720342d0>]` - Get predictive automation statistics
+- `get_statistics(self) -> Dict[<ast.Tuple object at 0x79a0931bf650>]` - Get predictive automation statistics
 
 **Classes:**
 
@@ -4852,16 +4976,16 @@ Version: 1.0.0
 **Functions:**
 
 - `main()` - CLI interface for learning loop
-- `to_dict(self) -> Dict[<ast.Tuple object at 0x7eda725e4a90>]`
-- `from_dict(cls, data: Dict[<ast.Tuple object at 0x7eda725e4510>]) -> 'FeedbackEntry'`
-- `to_dict(self) -> Dict[<ast.Tuple object at 0x7eda725d6490>]`
+- `to_dict(self) -> Dict[<ast.Tuple object at 0x79a09396ca90>]`
+- `from_dict(cls, data: Dict[<ast.Tuple object at 0x79a09396c510>]) -> 'FeedbackEntry'`
+- `to_dict(self) -> Dict[<ast.Tuple object at 0x79a09395e790>]`
 - `__init__(self)`
 - `_load_data(self)` - Load existing feedback and accuracy data
 - `_save_data(self)` - Save feedback and accuracy data
 - `record_feedback(self, task_id: str, feedback_type: FeedbackType, pattern_type: str, confidence: float, notes: str) -> bool` - Record feedback from Thomas about a predictive task
 - `_update_accuracy(self, pattern_type: str)` - Update accuracy metrics for a pattern type
 - `get_recommended_confidence(self, pattern_type: str) -> float` - Get recommended confidence threshold for a pattern type
-- `get_statistics(self) -> Dict[<ast.Tuple object at 0x7eda725d8fd0>]` - Get learning loop statistics
+- `get_statistics(self) -> Dict[<ast.Tuple object at 0x79a09377e350>]` - Get learning loop statistics
 - `generate_report(self) -> str` - Generate learning loop report
 - `get_insights(self) -> List[str]` - Generate insights from learning data
 
@@ -4902,16 +5026,16 @@ Version: 1.0.0
 - `_get_history_file(self)`
 - `load_state(self)` - Load persistent state.
 - `save_state(self)` - Save persistent state.
-- `collect_health_metrics(self) -> Dict[<ast.Tuple object at 0x7eda72c96e10>]` - Collect current health metrics from network mesh.
-- `analyze_trends(self, node_id: str, metrics: List[HealthMetric]) -> Dict[<ast.Tuple object at 0x7eda72c68490>]` - Analyze health trends to detect degradation patterns.
+- `collect_health_metrics(self) -> Dict[<ast.Tuple object at 0x79a093e24210>]` - Collect current health metrics from network mesh.
+- `analyze_trends(self, node_id: str, metrics: List[HealthMetric]) -> Dict[<ast.Tuple object at 0x79a093ded850>]` - Analyze health trends to detect degradation patterns.
 - `predict_failures(self) -> List[FailurePrediction]` - Generate failure predictions based on trend analysis.
-- `get_optimal_maintenance_window(self, node_id: str, maintenance_type: str, risk_level: str, max_lookahead_hours: int) -> Tuple[<ast.Tuple object at 0x7eda72af1690>]` - Calculate optimal maintenance window based on activity patterns.
+- `get_optimal_maintenance_window(self, node_id: str, maintenance_type: str, risk_level: str, max_lookahead_hours: int) -> Tuple[<ast.Tuple object at 0x79a093e702d0>]` - Calculate optimal maintenance window based on activity patterns.
 - `calculate_impact_score(self, node_id: str, window_start: datetime) -> float` - Calculate business impact score for maintenance (0-1, higher = more impact).
 - `should_auto_approve(self, risk_level: str, impact_score: float) -> bool` - Determine if maintenance can be auto-approved.
 - `schedule_maintenance(self, predictions: List[FailurePrediction]) -> List[MaintenanceWindow]` - Create maintenance schedule from predictions.
 - `execute_maintenance(self, window: MaintenanceWindow) -> bool` - Execute a scheduled maintenance task.
 - `check_and_execute_due_maintenance(self) -> List[MaintenanceWindow]` - Check for maintenance that is due and execute it.
-- `generate_report(self) -> Dict[<ast.Tuple object at 0x7eda72b47f50>]` - Generate comprehensive maintenance report.
+- `generate_report(self) -> Dict[<ast.Tuple object at 0x79a093cd2b90>]` - Generate comprehensive maintenance report.
 - `run_cycle(self)` - Execute one full maintenance cycle.
 - `start_monitoring(self, interval_seconds: int)` - Start continuous monitoring in background thread.
 - `stop_monitoring(self)` - Stop continuous monitoring.
@@ -5268,7 +5392,7 @@ Created: 2026-02-07
 - `fetch_full_text(self, url: str, item_id: str) -> Optional[str]` - Fetch full text content from URL.
 - `_extract_text_from_html(self, html_content: str) -> str` - Extract readable text from HTML.
 - `_clean_text(self, text: str) -> str` - Clean extracted text.
-- `calculate_semantic_relevance(self, title: str, summary: str, full_text: Optional[str]) -> Tuple[<ast.Tuple object at 0x7eda6ece9b10>]` - Calculate semantic relevance score based on Thomas's interests.
+- `calculate_semantic_relevance(self, title: str, summary: str, full_text: Optional[str]) -> Tuple[<ast.Tuple object at 0x79a08fe05e90>]` - Calculate semantic relevance score based on Thomas's interests.
 - `_call_llm(self, prompt: str, max_tokens: int) -> Optional[str]` - Call LLM API with retry logic.
 - `_call_anthropic(self, prompt: str, max_tokens: int) -> Optional[str]` - Call Anthropic Claude API.
 - `_call_openai(self, prompt: str, max_tokens: int) -> Optional[str]` - Call OpenAI API.
@@ -5459,9 +5583,9 @@ Version: 1.0.0
 **Functions:**
 
 - `main()` - CLI interface
-- `to_dict(self) -> Dict[<ast.Tuple object at 0x7eda70ca60d0>]`
+- `to_dict(self) -> Dict[<ast.Tuple object at 0x79a091d28ed0>]`
 - `from_entry(cls, entry: Dict, feed_config: Dict, feed_name: str) -> 'FeedItem'` - Create FeedItem from feedparser entry
-- `to_dict(self) -> Dict[<ast.Tuple object at 0x7eda70c8ee50>]`
+- `to_dict(self) -> Dict[<ast.Tuple object at 0x79a091d11e90>]`
 - `__init__(self)`
 - `_load_config(self)` - Load feed configuration
 - `_save_config(self)` - Save feed configuration
@@ -5471,12 +5595,12 @@ Version: 1.0.0
 - `_save_items(self)` - Save detected items
 - `fetch_feed(self, feed_name: str, feed_config: Dict) -> List[FeedItem]` - Fetch and parse a single RSS feed
 - `check_all_feeds(self) -> List[FeedItem]` - Check all configured feeds
-- `categorize_items(self, items: List[FeedItem]) -> Dict[<ast.Tuple object at 0x7eda70af8410>]` - Categorize items by priority and category
+- `categorize_items(self, items: List[FeedItem]) -> Dict[<ast.Tuple object at 0x79a091d72e10>]` - Categorize items by priority and category
 - `trigger_workflows(self, items: List[FeedItem]) -> List[str]` - Trigger cross-agent workflows for relevant items
 - `_create_content_workflow(self, item: FeedItem) -> str` - Create a content workflow for a detected item
 - `generate_report(self) -> str` - Generate monitoring report
-- `get_statistics(self) -> Dict[<ast.Tuple object at 0x7eda70b38c90>]` - Get monitoring statistics
-- `run(self, auto_trigger: bool) -> Dict[<ast.Tuple object at 0x7eda70b45590>]` - Run full monitoring cycle
+- `get_statistics(self) -> Dict[<ast.Tuple object at 0x79a091bbb690>]` - Get monitoring statistics
+- `run(self, auto_trigger: bool) -> Dict[<ast.Tuple object at 0x79a091bc3f90>]` - Run full monitoring cycle
 
 **Classes:**
 
@@ -5516,9 +5640,9 @@ Version: 1.0.0
 **Functions:**
 
 - `get_monitor() -> SelfHealingMonitor` - Get the singleton monitor instance
-- `to_dict(self) -> Dict[<ast.Tuple object at 0x7eda71496310>]`
-- `from_dict(cls, data: Dict[<ast.Tuple object at 0x7eda71495d90>]) -> 'HealingAction'`
-- `to_dict(self) -> Dict[<ast.Tuple object at 0x7eda71492190>]`
+- `to_dict(self) -> Dict[<ast.Tuple object at 0x79a092525c50>]`
+- `from_dict(cls, data: Dict[<ast.Tuple object at 0x79a0925256d0>]) -> 'HealingAction'`
+- `to_dict(self) -> Dict[<ast.Tuple object at 0x79a092515ad0>]`
 - `__init__(self)`
 - `_on_mesh_event(self, event: str, data: Any)` - Handle mesh events
 - `_on_node_failed(self, node: MeshNode)` - Handle node failure
@@ -5539,7 +5663,7 @@ Version: 1.0.0
 - `stop_monitoring(self)` - Stop the monitoring loop
 - `_monitor_loop(self)` - Main monitoring loop
 - `_process_healing_queue(self)` - Process pending healing actions
-- `get_node_health_report(self, node_id: str) -> Dict[<ast.Tuple object at 0x7eda71318590>]` - Get detailed health report for a node
+- `get_node_health_report(self, node_id: str) -> Dict[<ast.Tuple object at 0x79a09238a890>]` - Get detailed health report for a node
 - `generate_health_report(self) -> str` - Generate comprehensive health report
 - `_save_state(self)` - Save monitor state
 - `_load_state(self)` - Load monitor state
@@ -5847,18 +5971,18 @@ Created: 2026-02-06
 - `main()` - CLI for testing the Smart Decision Layer
 - `__init__(self)`
 - `_load_context(self) -> SystemContext` - Load current system context from logs and memory
-- `_load_agent_status(self) -> Dict[<ast.Tuple object at 0x7eda702b5a50>]` - Load status for all agents from daily logs
+- `_load_agent_status(self) -> Dict[<ast.Tuple object at 0x79a0911b5850>]` - Load status for all agents from daily logs
 - `_calculate_health_score(self, name: str, outputs: int, errors: int) -> float` - Calculate agent health score (0-1)
 - `_check_email_backlog(self) -> int` - Check zak inbox for unread/important emails
 - `_load_recent_errors(self) -> List[str]` - Load recent errors from alert log
 - `_analyze_token_trend(self) -> str` - Analyze token usage trend from analytics
 - `_get_last_user_interaction(self) -> Optional[datetime]` - Get timestamp of last user message
-- `should_run_agent_check(self, agent_name: str) -> Tuple[<ast.Tuple object at 0x7eda700e07d0>]` - Decide if we should actively check an agent's status.
-- `should_alert_thomas(self, finding: str, severity: str) -> Tuple[<ast.Tuple object at 0x7eda700d9750>]` - Decide if an alert should be sent to Thomas.
+- `should_run_agent_check(self, agent_name: str) -> Tuple[<ast.Tuple object at 0x79a0911c67d0>]` - Decide if we should actively check an agent's status.
+- `should_alert_thomas(self, finding: str, severity: str) -> Tuple[<ast.Tuple object at 0x79a0911bb750>]` - Decide if an alert should be sent to Thomas.
 - `_check_recent_alerts(self, finding: str) -> bool` - Check if similar alert was sent recently
 - `adjust_heartbeat_interval(self, agent_name: str, base_interval: int) -> int` - Dynamically adjust heartbeat interval based on agent health.
-- `get_task_priority(self, task_name: str) -> Tuple[<ast.Tuple object at 0x7eda7010ce90>]` - Get priority for a task (1-10, 10 = highest).
-- `generate_daily_improvements(self) -> List[<ast.Subscript object at 0x7eda7011b490>]` - Generate 3 workflow improvement suggestions based on current context.
+- `get_task_priority(self, task_name: str) -> Tuple[<ast.Tuple object at 0x79a0911fee50>]` - Get priority for a task (1-10, 10 = highest).
+- `generate_daily_improvements(self) -> List[<ast.Subscript object at 0x79a091215490>]` - Generate 3 workflow improvement suggestions based on current context.
 - `log_decision(self, decision_type: str, decision: str, reasoning: str)` - Log a decision for audit trail
 - `get_summary(self) -> Dict` - Get summary of current context and decisions
 
@@ -5953,7 +6077,7 @@ Version: 1.0.0
 - `extract_js_imports(self, filepath: Path) -> List[str]` - Extract imports from a JavaScript/TypeScript file.
 - `analyze_dependencies(self) -> None` - Analyze dependencies across all files.
 - `build_dependency_graph(self) -> Dict` - Build the complete dependency graph.
-- `calculate_impact_analysis(self, graph: Dict) -> Dict[<ast.Tuple object at 0x7eda72d009d0>]` - Calculate impact analysis for each feature.
+- `calculate_impact_analysis(self, graph: Dict) -> Dict[<ast.Tuple object at 0x79a09404a510>]` - Calculate impact analysis for each feature.
 - `generate_mermaid_diagram(self, graph: Dict) -> str` - Generate a Mermaid flowchart diagram.
 - `generate_html_dashboard(self, graph: Dict, impact: Dict) -> str` - Generate an interactive HTML dashboard.
 - `generate_markdown_report(self, graph: Dict, impact: Dict) -> str` - Generate a Markdown report.
@@ -5999,7 +6123,7 @@ Version: 1.0.0
 - `store_anomaly(self, anomaly: Anomaly)` - Store an anomaly
 - `get_recent_anomalies(self, hours: int) -> List[Anomaly]` - Get recent anomalies
 - `calculate_z_score(value: float, mean: float, std_dev: float) -> float` - Calculate Z-score for anomaly detection
-- `detect_trend(values: List[float]) -> Tuple[<ast.Tuple object at 0x7eda6f459090>]` - Detect trend direction and strength
+- `detect_trend(values: List[float]) -> Tuple[<ast.Tuple object at 0x79a0903b5410>]` - Detect trend direction and strength
 - `calculate_failure_probability(trend: str, trend_strength: float, current_value: float, threshold: float, historical_data: List[float]) -> float` - Calculate probability of failure based on trends
 - `__init__(self)`
 - `collect_metrics(self) -> List[HealthMetric]` - Collect current health metrics from all sources
@@ -6052,18 +6176,18 @@ Aggregates real-time metrics from all 40 features into a unified view.
 
 **Functions:**
 
-- `query_sqlite(db_path: str, query: str) -> List[<ast.Subscript object at 0x7eda70f9be90>]` - Execute SQLite query and return results.
-- `get_db_stats(db_name: str) -> Dict[<ast.Tuple object at 0x7eda70e02d10>]` - Get statistics from a database file.
-- `get_api_health_stats() -> Dict[<ast.Tuple object at 0x7eda70dddd50>]` - Get API health statistics.
-- `get_incident_stats() -> Dict[<ast.Tuple object at 0x7eda70dd5b50>]` - Get incident statistics.
-- `get_feature_retirement_stats() -> Dict[<ast.Tuple object at 0x7eda70e0e110>]` - Get feature retirement statistics.
-- `get_performance_stats() -> Dict[<ast.Tuple object at 0x7eda70e15350>]` - Get performance benchmark statistics.
-- `get_research_scout_stats() -> Dict[<ast.Tuple object at 0x7eda70e1c690>]` - Get research scout statistics.
-- `get_model_fallback_stats() -> Dict[<ast.Tuple object at 0x7eda70e2c610>]` - Get model fallback statistics.
-- `get_config_drift_stats() -> Dict[<ast.Tuple object at 0x7eda70e2f810>]` - Get configuration drift statistics.
-- `get_task_prioritization_stats() -> Dict[<ast.Tuple object at 0x7eda70e36a50>]` - Get task prioritization statistics.
-- `collect_all_metrics() -> Dict[<ast.Tuple object at 0x7eda70e3c6d0>]` - Collect metrics from all data sources.
-- `generate_dashboard_html(metrics: Dict[<ast.Tuple object at 0x7eda70e3cbd0>]) -> str` - Generate the unified dashboard HTML.
+- `query_sqlite(db_path: str, query: str) -> List[<ast.Subscript object at 0x79a092053510>]` - Execute SQLite query and return results.
+- `get_db_stats(db_name: str) -> Dict[<ast.Tuple object at 0x79a092046850>]` - Get statistics from a database file.
+- `get_api_health_stats() -> Dict[<ast.Tuple object at 0x79a09203f290>]` - Get API health statistics.
+- `get_incident_stats() -> Dict[<ast.Tuple object at 0x79a091e7cf90>]` - Get incident statistics.
+- `get_feature_retirement_stats() -> Dict[<ast.Tuple object at 0x79a091e84bd0>]` - Get feature retirement statistics.
+- `get_performance_stats() -> Dict[<ast.Tuple object at 0x79a091e87dd0>]` - Get performance benchmark statistics.
+- `get_research_scout_stats() -> Dict[<ast.Tuple object at 0x79a091e93110>]` - Get research scout statistics.
+- `get_model_fallback_stats() -> Dict[<ast.Tuple object at 0x79a091e9b090>]` - Get model fallback statistics.
+- `get_config_drift_stats() -> Dict[<ast.Tuple object at 0x79a091ea22d0>]` - Get configuration drift statistics.
+- `get_task_prioritization_stats() -> Dict[<ast.Tuple object at 0x79a091ead510>]` - Get task prioritization statistics.
+- `collect_all_metrics() -> Dict[<ast.Tuple object at 0x79a091eaf150>]` - Collect metrics from all data sources.
+- `generate_dashboard_html(metrics: Dict[<ast.Tuple object at 0x79a091eaf650>]) -> str` - Generate the unified dashboard HTML.
 - `main()` - Main entry point.
 - `update_main_index()` - Update the main dashboard index to include the new dashboard.
 
@@ -6089,15 +6213,15 @@ Version: 1.0.0
 
 - `main()` - CLI interface for the prioritization system
 - `__init__(self)`
-- `detect_urgency(self, title: str, description: str, source: str) -> Tuple[<ast.Tuple object at 0x7eda6e127110>]` - Analyze task and return priority level, factor scores, and detected deadline.
+- `detect_urgency(self, title: str, description: str, source: str) -> Tuple[<ast.Tuple object at 0x79a08f0a7650>]` - Analyze task and return priority level, factor scores, and detected deadline.
 - `_extract_deadline(self, title: str, description: str) -> Optional[datetime]` - Extract deadline from text using pattern matching
 - `__init__(self)`
 - `_init_database(self)` - Initialize SQLite database
 - `_load_correlations(self)` - Load alert correlations from file
 - `_save_correlations(self)` - Save alert correlations to file
 - `_generate_task_hash(self, title: str, description: str, source: str) -> str` - Generate unique hash for task deduplication
-- `add_task(self, title: str, description: str, source: str, source_id: Optional[str], agent: Optional[str], deadline: Optional[datetime], metadata: Optional[<ast.Subscript object at 0x7eda6e0db550>]) -> Task` - Add a new task to the prioritization queue.
-- `_calculate_priority_score(self, priority: PriorityLevel, factors: Dict[<ast.Tuple object at 0x7eda6e161ed0>], deadline: Optional[datetime], agent: Optional[str]) -> float` - Calculate final priority score (0-100)
+- `add_task(self, title: str, description: str, source: str, source_id: Optional[str], agent: Optional[str], deadline: Optional[datetime], metadata: Optional[<ast.Subscript object at 0x79a08f080e10>]) -> Task` - Add a new task to the prioritization queue.
+- `_calculate_priority_score(self, priority: PriorityLevel, factors: Dict[<ast.Tuple object at 0x79a08f0c0650>], deadline: Optional[datetime], agent: Optional[str]) -> float` - Calculate final priority score (0-100)
 - `_detect_correlation(self, title: str, description: str, source: str) -> Optional[str]` - Detect if task correlates with existing alert patterns
 - `get_task_by_hash(self, task_hash: str) -> Optional[Task]` - Retrieve task by its hash
 - `_row_to_task(self, row) -> Task` - Convert database row to Task object
@@ -6107,12 +6231,12 @@ Version: 1.0.0
 - `assign_task(self, task_id: int, agent: str) -> bool` - Assign a task to an agent
 - `complete_task(self, task_id: int, result: Optional[Dict]) -> bool` - Mark a task as completed
 - `escalate_overdue_tasks(self) -> List[Task]` - Find and escalate tasks that are approaching or past deadline
-- `get_queue_summary(self) -> Dict[<ast.Tuple object at 0x7eda6dfe2b90>]` - Get summary statistics of the task queue
-- `process_queue(self) -> Dict[<ast.Tuple object at 0x7eda6dfea510>]` - Main queue processing function.
+- `get_queue_summary(self) -> Dict[<ast.Tuple object at 0x79a08f13d310>]` - Get summary statistics of the task queue
+- `process_queue(self) -> Dict[<ast.Tuple object at 0x79a08f148c90>]` - Main queue processing function.
 - `create_correlation_group(self, pattern: str, tasks: List[str]) -> str` - Create a new correlation group for related alerts
 - `suppress_correlation(self, group_id: str) -> bool` - Suppress a correlation group (reduce alert noise)
 - `_log(self, message: str)` - Write to priority system log
-- `generate_dashboard_data(self) -> Dict[<ast.Tuple object at 0x7eda6dfffe10>]` - Generate data for the priority dashboard
+- `generate_dashboard_data(self) -> Dict[<ast.Tuple object at 0x79a08f15a590>]` - Generate data for the priority dashboard
 
 **Classes:**
 
@@ -6338,6 +6462,24 @@ Tests all CLI commands and functionality
   - `test_verbose_flag()` - Test verbose flag
   - `test_short_flags()` - Test short flags work
 
+### scripts/timestamp_sync_service.py
+
+
+Timestamp Synchronization Service
+Ensures dashboard timestamps are always accurate and consistent
+
+
+**Functions:**
+
+- `load_timestamp_state()` - Load the timestamp state file
+- `save_timestamp_state(state)` - Save the timestamp state file
+- `update_dashboard_timestamp(dashboard_name: str, timestamp: datetime)` - Update the timestamp for a specific dashboard
+- `get_dashboard_timestamp(dashboard_name: str) -> dict` - Get the timestamp for a specific dashboard
+- `sync_all_dashboards()` - Sync timestamps from actual file modification times to state
+- `get_timestamp_for_index(dashboard_name: str) -> str` - Get the timestamp to display in the index page
+- `verify_timestamp_consistency()` - Verify that dashboard and index timestamps match
+- `main()` - Main synchronization routine
+
 ### scripts/token_analytics.py
 
 
@@ -6430,6 +6572,24 @@ Usage: python3 token_monitor.py [--check | --report | --alert-test]
   - `_get_weekly_usage()` - Calculate tokens used in current week.
   - ... and 7 more methods
 
+### scripts/token_usage_telemetry.py
+
+
+Token Usage Telemetry System
+Automatically tracks Kimi API usage and updates dashboard
+
+
+**Functions:**
+
+- `get_kimi_usage_from_api()` - Get actual Kimi API usage from the service
+- `load_usage_history()` - Load historical usage data
+- `save_usage_history(data)` - Save usage history
+- `update_dashboard(usage: dict)` - Update the service costs dashboard with current usage
+- `check_alerts(usage: dict, history: dict) -> list` - Check if any alerts need to be sent
+- `log_telemetry(usage: dict, alerts: list)` - Log telemetry data
+- `generate_report(usage: dict, alerts: list)` - Generate telemetry report
+- `main()` - Main telemetry routine
+
 ### scripts/token_usage_tracker.py
 
 
@@ -6463,13 +6623,13 @@ Version: 1.0.0
 
 - `main()` - Main entry point
 - `__init__(self)`
-- `_parse_heartbeat_log(self, agent: str) -> Optional[<ast.Subscript object at 0x7eda6f017f50>]` - Parse the latest heartbeat from an agent's log
+- `_parse_heartbeat_log(self, agent: str) -> Optional[<ast.Subscript object at 0x79a090173bd0>]` - Parse the latest heartbeat from an agent's log
 - `_get_zak_recent_activity(self) -> List[str]` - Get Zak's recent activity from memory files and work logs
 - `_count_daily_outputs(self, agent: str) -> int` - Count outputs created by agent today
 - `_get_agent_alerts(self, agent: str) -> List[str]` - Get recent alerts for an agent (last 24 hours only)
-- `_get_recent_system_alerts(self) -> List[<ast.Subscript object at 0x7eda6f037490>]` - Get recent system-wide alerts
+- `_get_recent_system_alerts(self) -> List[<ast.Subscript object at 0x79a08ff9b810>]` - Get recent system-wide alerts
 - `_get_top_themes(self) -> List[str]` - Extract top themes from recent outputs
-- `_ensure_readable_activities(self, agent_id: str, activities: List[Any]) -> List[<ast.Subscript object at 0x7eda6eedc3d0>]` - Ensure agent has 3 readable activity bullet points with timestamps
+- `_ensure_readable_activities(self, agent_id: str, activities: List[Any]) -> List[<ast.Subscript object at 0x79a090040050>]` - Ensure agent has 3 readable activity bullet points with timestamps
 - `generate_dashboard(self) -> DashboardData` - Generate complete dashboard data
 - `save_json(self, data: DashboardData)` - Save dashboard data as JSON
 - `generate_html(self, data: DashboardData)` - Generate HTML dashboard
@@ -6532,7 +6692,7 @@ Version: 2.0.0
 - `_log(self, message: str, level: str)` - Log delivery activity
 - `register_email_type(self, email_type: str, description: str, is_critical: bool)` - Register a new email type for tracking.
 - `_check_duplicate(self, email_type: str, to: str) -> Optional[str]` - Check if an email of this type was already sent to this recipient today.
-- `send_email(self, to: str, subject: str, body: str, email_type: str, is_critical: Optional[bool], sender_agent: str, html_body: Optional[str], attachments: Optional[<ast.Subscript object at 0x7eda6ec0bb90>], allow_duplicates: bool, sender_email: Optional[str], cc: Optional[str]) -> DeliveryResult` - Universal email send with delivery confirmation.
+- `send_email(self, to: str, subject: str, body: str, email_type: str, is_critical: Optional[bool], sender_agent: str, html_body: Optional[str], attachments: Optional[<ast.Subscript object at 0x79a08fb7e390>], allow_duplicates: bool, sender_email: Optional[str], cc: Optional[str]) -> DeliveryResult` - Universal email send with delivery confirmation.
 - `_register_email_in_registry(self, email_type: str, delivery_info: Dict)` - Track all emails by type for analytics
 - `_schedule_auto_confirmation(self, tracking_id: str)` - Schedule automatic confirmation after configured delay
 - `confirm_delivery(self, tracking_id: str, verified: bool) -> bool` - Mark a delivery as confirmed.
@@ -6542,8 +6702,8 @@ Version: 2.0.0
 - `retry_failed(self, tracking_id: str) -> DeliveryResult` - Retry a failed or pending delivery
 - `_escalate_delivery(self, delivery: Dict, reason: str)` - Escalate persistent delivery failures
 - `get_status(self) -> Dict` - Get current delivery system status
-- `get_pending_deliveries(self) -> Dict[<ast.Tuple object at 0x7eda6ec6ced0>]` - Get all pending deliveries
-- `get_failed_deliveries(self) -> Dict[<ast.Tuple object at 0x7eda6ec6d890>]` - Get all failed deliveries
+- `get_pending_deliveries(self) -> Dict[<ast.Tuple object at 0x79a08fbd7690>]` - Get all pending deliveries
+- `get_failed_deliveries(self) -> Dict[<ast.Tuple object at 0x79a08fbe0090>]` - Get all failed deliveries
 - `run_verification(self) -> Dict` - Run verification cycle on all pending deliveries.
 - `decorator(func: Callable) -> Callable`
 - `wrapper(*args, **kwargs)`
@@ -6632,19 +6792,66 @@ Distinguishes between stubs, implementations, and retired features
 ### scripts/update_index_timestamps.py
 
 
-Dashboard Index Updater
-Updates timestamps AND critical matters section from aggregated issues
-Should be run after any dashboard is regenerated
+Dashboard Index Updater - Enhanced Version
+Updates timestamps and shows which dashboards are stale
 
 
 **Functions:**
 
 - `get_file_timestamp(filepath)` - Get the last modified time of a file
+- `get_synced_timestamp(filename)` - Get timestamp from timestamp sync service
+- `is_stale(mtime, hours)` - Check if file is stale (not updated in specified hours)
+- `get_staleness_class(mtime)` - Get CSS class based on staleness
 - `load_issues()` - Load issues from the aggregated issues file
+- `generate_stale_dashboards_section(stale_dashboards)` - Generate HTML for stale dashboards warning
 - `generate_critical_matters_html(issues)` - Generate HTML for critical matters section
-- `update_critical_matters_section(content, issues)` - Update the critical matters section in the index HTML
 - `update_index()` - Update timestamps and critical matters in the index page
 - `replace_time(match)`
+
+### scripts/validate_database_schemas.py
+
+
+Database Schema Validator
+Validates and auto-migrates database schemas on startup
+Prevents "no such column" errors
+
+
+**Functions:**
+
+- `validate_database(db_name: str, schema_def: Dict[<ast.Tuple object at 0x79a091a0a750>]) -> List[str]` - Validate a database against its schema definition
+- `migrate_database(db_name: str, migrations: Dict[<ast.Tuple object at 0x79a091a04cd0>]) -> List[str]` - Apply migrations to fix schema issues
+- `auto_fix_common_issues()` - Auto-fix common schema issues
+- `main()` - Main validation routine
+
+### scripts/validate_feature_implementations.py
+
+
+Feature Implementation Validator
+Automatically validates whether features are real implementations or stubs
+Updates feature registry status based on actual code analysis
+
+
+**Functions:**
+
+- `validate_feature_status(feat_id: int, script_path: str, current_status: str) -> tuple` - Validate if a feature is a stub or real implementation
+- `update_feature_registry()` - Update all features in the registry based on actual code analysis
+- `generate_stub_report()` - Generate a report of all stub features
+- `main()` - Main validation routine
+
+### scripts/verify_agent_heartbeats.py
+
+
+Agent Heartbeat Verification System
+Validates that agent heartbeats actually produce outputs
+
+
+**Functions:**
+
+- `init_monitor_db()` - Initialize monitoring database
+- `check_agent_outputs(agent_id: str, agent_info: dict) -> dict` - Check if an agent is producing actual outputs
+- `log_check(result: dict)` - Log the check result
+- `generate_report()` - Generate heartbeat verification report
+- `main()` - Main verification routine
 
 ### scripts/verify_deliveries.py
 
@@ -6680,6 +6887,19 @@ Sends summary of system health to zak@trueworkoffice.com
 
 - `generate_weekly_report()` - Generate weekly health summary
 - `main()`
+
+### scripts/zak_daily_briefing.py
+
+
+Zak's Daily Briefing Generator
+Aggregates all agent reports into executive summary for Thomas
+
+
+**Functions:**
+
+- `read_agent_summary(agent: str, date: str) -> dict` - Extract key info from agent's daily report
+- `generate_zak_briefing(date: str) -> str` - Generate Zak's executive briefing for Thomas
+- `main()` - Generate and save briefing
 
 ### send_blogwatcher_summary.py
 
@@ -7034,19 +7254,19 @@ Defaults to current model (most recent daily entry), or list all models.
 **Functions:**
 
 - `eprint(msg: str) -> None`
-- `run_codexbar_cost(provider: str) -> List[<ast.Subscript object at 0x7eda6db2b190>]`
-- `load_payload(input_path: Optional[str], provider: str) -> Dict[<ast.Tuple object at 0x7eda6db23310>]`
-- `parse_daily_entries(payload: Dict[<ast.Tuple object at 0x7eda6db228d0>]) -> List[<ast.Subscript object at 0x7eda6db21290>]`
+- `run_codexbar_cost(provider: str) -> List[<ast.Subscript object at 0x79a08ea93190>]`
+- `load_payload(input_path: Optional[str], provider: str) -> Dict[<ast.Tuple object at 0x79a08ea83310>]`
+- `parse_daily_entries(payload: Dict[<ast.Tuple object at 0x79a08ea828d0>]) -> List[<ast.Subscript object at 0x79a08ea81290>]`
 - `parse_date(value: str) -> Optional[date]`
-- `filter_by_days(entries: List[<ast.Subscript object at 0x7eda6db1fcd0>], days: Optional[int]) -> List[<ast.Subscript object at 0x7eda6db1d050>]`
-- `aggregate_costs(entries: Iterable[<ast.Subscript object at 0x7eda6db1c990>]) -> Dict[<ast.Tuple object at 0x7eda6dad9950>]`
-- `pick_current_model(entries: List[<ast.Subscript object at 0x7eda6dad8f90>]) -> Tuple[<ast.Tuple object at 0x7eda6db30ed0>]`
+- `filter_by_days(entries: List[<ast.Subscript object at 0x79a08ea7be10>], days: Optional[int]) -> List[<ast.Subscript object at 0x79a08ea79050>]`
+- `aggregate_costs(entries: Iterable[<ast.Subscript object at 0x79a08ea78a50>]) -> Dict[<ast.Tuple object at 0x79a08ec710d0>]`
+- `pick_current_model(entries: List[<ast.Subscript object at 0x79a08ec70bd0>]) -> Tuple[<ast.Tuple object at 0x79a08ea7e6d0>]`
 - `usd(value: Optional[float]) -> str`
-- `latest_day_cost(entries: List[<ast.Subscript object at 0x7eda6db27a10>], model: str) -> Tuple[<ast.Tuple object at 0x7eda6db60ed0>]`
+- `latest_day_cost(entries: List[<ast.Subscript object at 0x79a08ea7d250>], model: str) -> Tuple[<ast.Tuple object at 0x79a08eabf690>]`
 - `render_text_current(provider: str, model: str, latest_date: Optional[str], total_cost: Optional[float], latest_cost: Optional[float], latest_cost_date: Optional[str], entry_count: int) -> str`
-- `render_text_all(provider: str, totals: Dict[<ast.Tuple object at 0x7eda6db68a50>]) -> str`
-- `build_json_current(provider: str, model: str, latest_date: Optional[str], total_cost: Optional[float], latest_cost: Optional[float], latest_cost_date: Optional[str], entry_count: int) -> Dict[<ast.Tuple object at 0x7eda6db702d0>]`
-- `build_json_all(provider: str, totals: Dict[<ast.Tuple object at 0x7eda6db708d0>]) -> Dict[<ast.Tuple object at 0x7eda6db72050>]`
+- `render_text_all(provider: str, totals: Dict[<ast.Tuple object at 0x79a08eac7210>]) -> str`
+- `build_json_current(provider: str, model: str, latest_date: Optional[str], total_cost: Optional[float], latest_cost: Optional[float], latest_cost_date: Optional[str], entry_count: int) -> Dict[<ast.Tuple object at 0x79a08eacea90>]`
+- `build_json_all(provider: str, totals: Dict[<ast.Tuple object at 0x79a08eacf090>]) -> Dict[<ast.Tuple object at 0x79a08ead4850>]`
 - `main() -> int`
 
 **Classes:**
@@ -7060,7 +7280,7 @@ Defaults to current model (most recent daily entry), or list all models.
 - `slugify(text: str) -> str`
 - `default_out_dir() -> Path`
 - `pick_prompts(count: int) -> list[str]`
-- `get_model_defaults(model: str) -> tuple[<ast.Tuple object at 0x7eda6dacb410>]` - Return (default_size, default_quality) for the given model.
+- `get_model_defaults(model: str) -> tuple[<ast.Tuple object at 0x79a08ea23410>]` - Return (default_size, default_quality) for the given model.
 - `request_images(api_key: str, prompt: str, model: str, size: str, quality: str, background: str, output_format: str, style: str) -> dict`
 - `write_gallery(out_dir: Path, items: list[dict]) -> None`
 - `main() -> int`
@@ -7142,24 +7362,24 @@ Examples:
 
 **Functions:**
 
-- `load_config() -> Dict[<ast.Tuple object at 0x7eda6d93f1d0>]` - Load configuration from config.json if it exists, with defaults.
+- `load_config() -> Dict[<ast.Tuple object at 0x79a08e895810>]` - Load configuration from config.json if it exists, with defaults.
 - `get_env_key(provider: str) -> Optional[str]` - Get API key for provider from environment.
 - `validate_api_key(provider: str) -> str` - Validate and return API key, with helpful error messages.
-- `auto_route_provider(query: str, config: Dict[<ast.Tuple object at 0x7eda6d9c5790>]) -> Dict[<ast.Tuple object at 0x7eda6d9c62d0>]` - Intelligently route query to the best provider.
-- `explain_routing(query: str, config: Dict[<ast.Tuple object at 0x7eda6d9c68d0>]) -> Dict[<ast.Tuple object at 0x7eda6d7dc810>]` - Provide detailed explanation of routing decision for debugging.
+- `auto_route_provider(query: str, config: Dict[<ast.Tuple object at 0x79a08e928050>]) -> Dict[<ast.Tuple object at 0x79a08e928b90>]` - Intelligently route query to the best provider.
+- `explain_routing(query: str, config: Dict[<ast.Tuple object at 0x79a08e929190>]) -> Dict[<ast.Tuple object at 0x79a08e937090>]` - Provide detailed explanation of routing decision for debugging.
 - `make_request(url: str, headers: dict, body: dict, timeout: int) -> dict` - Make HTTP POST request and return JSON response.
 - `search_serper(query: str, api_key: str, max_results: int, country: str, language: str, search_type: str, time_range: Optional[str], include_images: bool) -> dict` - Search using Serper (Google Search API).
-- `search_tavily(query: str, api_key: str, max_results: int, depth: str, topic: str, include_domains: Optional[<ast.Subscript object at 0x7eda6d80dd90>], exclude_domains: Optional[<ast.Subscript object at 0x7eda6d80e090>], include_images: bool, include_raw_content: bool) -> dict` - Search using Tavily (AI Research Search).
-- `search_exa(query: str, api_key: str, max_results: int, search_type: str, category: Optional[str], start_date: Optional[str], end_date: Optional[str], similar_url: Optional[str], include_domains: Optional[<ast.Subscript object at 0x7eda6d824890>], exclude_domains: Optional[<ast.Subscript object at 0x7eda6d824b90>]) -> dict` - Search using Exa (Neural/Semantic Search).
+- `search_tavily(query: str, api_key: str, max_results: int, depth: str, topic: str, include_domains: Optional[<ast.Subscript object at 0x79a08e96c650>], exclude_domains: Optional[<ast.Subscript object at 0x79a08e96c950>], include_images: bool, include_raw_content: bool) -> dict` - Search using Tavily (AI Research Search).
+- `search_exa(query: str, api_key: str, max_results: int, search_type: str, category: Optional[str], start_date: Optional[str], end_date: Optional[str], similar_url: Optional[str], include_domains: Optional[<ast.Subscript object at 0x79a08e77f110>], exclude_domains: Optional[<ast.Subscript object at 0x79a08e77f410>]) -> dict` - Search using Exa (Neural/Semantic Search).
 - `main()`
-- `__init__(self, config: Dict[<ast.Tuple object at 0x7eda6d917a10>])`
-- `_calculate_signal_score(self, query: str, signals: Dict[<ast.Tuple object at 0x7eda6d916a50>]) -> Tuple[<ast.Tuple object at 0x7eda6d9a9e50>]` - Calculate score for a signal category.
+- `__init__(self, config: Dict[<ast.Tuple object at 0x79a08ea678d0>])`
+- `_calculate_signal_score(self, query: str, signals: Dict[<ast.Tuple object at 0x79a08ea2f010>]) -> Tuple[<ast.Tuple object at 0x79a08e8d7950>]` - Calculate score for a signal category.
 - `_detect_product_brand_combo(self, query: str) -> float` - Detect product + brand combinations which strongly indicate shopping intent.
 - `_detect_url(self, query: str) -> Optional[str]` - Detect URLs in query - strong signal for Exa similar search.
-- `_assess_query_complexity(self, query: str) -> Dict[<ast.Tuple object at 0x7eda6d969d50>]` - Assess query complexity - complex queries favor Tavily.
-- `_detect_recency_intent(self, query: str) -> Tuple[<ast.Tuple object at 0x7eda6d957ad0>]` - Detect if query wants recent/timely information.
-- `analyze(self, query: str) -> Dict[<ast.Tuple object at 0x7eda6d944950>]` - Perform comprehensive query analysis.
-- `route(self, query: str) -> Dict[<ast.Tuple object at 0x7eda6d9c5150>]` - Route query to optimal provider with confidence scoring.
+- `_assess_query_complexity(self, query: str) -> Dict[<ast.Tuple object at 0x79a08e8b74d0>]` - Assess query complexity - complex queries favor Tavily.
+- `_detect_recency_intent(self, query: str) -> Tuple[<ast.Tuple object at 0x79a08e8b5290>]` - Detect if query wants recent/timely information.
+- `analyze(self, query: str) -> Dict[<ast.Tuple object at 0x79a08e89e0d0>]` - Perform comprehensive query analysis.
+- `route(self, query: str) -> Dict[<ast.Tuple object at 0x79a08e91f990>]` - Route query to optimal provider with confidence scoring.
 
 **Classes:**
 
@@ -7283,17 +7503,17 @@ This is the main entry point for the comprehensive testing suite.
 - `_get_feature_files(self, feature_name: str) -> List[str]` - Get list of files associated with a feature
 - `_import_feature_module(self, feature_name: str)` - Try to import a feature's main module
 - `_run_integration_tests(self)` - Run cross-feature integration tests
-- `_test_health_performance_integration(self) -> Tuple[<ast.Tuple object at 0x7eda73950d10>]` - Test health dashboard and performance analytics integration
-- `_test_knowledge_cross_agent_integration(self) -> Tuple[<ast.Tuple object at 0x7eda73946090>]` - Test knowledge protocol with cross-agent workflows
-- `_test_alert_correlation_integration(self) -> Tuple[<ast.Tuple object at 0x7eda73944410>]` - Test alert system with correlation dashboard
-- `_test_calendar_workflow_integration(self) -> Tuple[<ast.Tuple object at 0x7eda7393e490>]` - Test calendar API with workflow triggers
-- `_run_performance_benchmarks(self) -> Dict[<ast.Tuple object at 0x7eda739b23d0>]` - Run performance benchmarks
+- `_test_health_performance_integration(self) -> Tuple[<ast.Tuple object at 0x79a094bd7d50>]` - Test health dashboard and performance analytics integration
+- `_test_knowledge_cross_agent_integration(self) -> Tuple[<ast.Tuple object at 0x79a094bd5110>]` - Test knowledge protocol with cross-agent workflows
+- `_test_alert_correlation_integration(self) -> Tuple[<ast.Tuple object at 0x79a094bc7450>]` - Test alert system with correlation dashboard
+- `_test_calendar_workflow_integration(self) -> Tuple[<ast.Tuple object at 0x79a094bc5510>]` - Test calendar API with workflow triggers
+- `_run_performance_benchmarks(self) -> Dict[<ast.Tuple object at 0x79a094c33350>]` - Run performance benchmarks
 - `_benchmark_database_queries(self) -> float` - Benchmark database query performance
 - `_benchmark_file_system(self) -> float` - Benchmark file system operations
 - `_benchmark_memory_operations(self) -> float` - Benchmark memory operations
 - `_benchmark_imports(self) -> float` - Benchmark module import time
 - `_detect_regressions(self, current_benchmarks: Dict) -> List[Dict]` - Detect performance regressions
-- `_calculate_coverage(self) -> Dict[<ast.Tuple object at 0x7eda737e84d0>]` - Calculate test coverage statistics
+- `_calculate_coverage(self) -> Dict[<ast.Tuple object at 0x79a094c65450>]` - Calculate test coverage statistics
 - `_save_results(self, result: TestSuiteResult)` - Save test results to file
 - `_generate_report(self, result: TestSuiteResult)` - Generate human-readable test report
 
@@ -8407,7 +8627,7 @@ Aggregates data from all 17 previous features into comprehensive weekly summarie
 - `__init__(self, workspace_path: str)`
 - `generate_report(self) -> str` - Generate the complete weekly report.
 - `_collect_metrics(self) -> WeeklySummary` - Collect metrics from all data sources.
-- `_collect_agent_metrics(self) -> Dict[<ast.Tuple object at 0x7eda6d699650>]` - Collect metrics for all 5 subagents.
+- `_collect_agent_metrics(self) -> Dict[<ast.Tuple object at 0x79a08e5ffed0>]` - Collect metrics for all 5 subagents.
 - `_collect_cost_metrics(self) -> CostMetrics` - Collect cost and token usage metrics.
 - `_collect_quality_metrics(self) -> QualityMetrics` - Collect content quality metrics.
 - `_count_completed_tasks(self) -> int` - Count tasks completed this week.
@@ -8454,7 +8674,7 @@ Weekly Report Email Sender - Alternative using AgentMail API
 
 ## Documentation Coverage
 
-Overall coverage: **86.6%**
+Overall coverage: **86.7%**
 
 ### Files Needing Documentation
 
@@ -8462,9 +8682,9 @@ Overall coverage: **86.6%**
 - `/root/.openclaw/workspace/notion_js_find.py` (0%)
 - `/root/.openclaw/workspace/github_login.py` (0%)
 - `/root/.openclaw/workspace/notion_login.py` (0%)
-- `/root/.openclaw/workspace/notion_setup_workspace.py` (0%)
 - `/root/.openclaw/workspace/github_get_token.py` (0%)
 - `/root/.openclaw/workspace/notion_login_flow.py` (0%)
 - `/root/.openclaw/workspace/ava_email_setup.py` (0%)
 - `/root/.openclaw/workspace/notion_direct_create.py` (0%)
 - `/root/.openclaw/workspace/send_blogwatcher_summary.py` (0%)
+- `/root/.openclaw/workspace/notion_create_and_share.py` (0%)
