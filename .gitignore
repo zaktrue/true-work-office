@@ -1,1 +1,5 @@
 __pycache__/
+
+# Encrypted credential vault - prevents GitHub secret scanner false positives
+# Files in vault/ are AES-256 encrypted but trigger scanner due to ciphertext patterns
+vault/
