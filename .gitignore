@@ -16,3 +16,9 @@ logs/*.log
 *.sqlite
 *.sqlite3
 *.db-journal
+
+# Image files - prevent accidental credential screenshots from being tracked
+*.png
+*.jpg
+*.jpeg
+*.gif
