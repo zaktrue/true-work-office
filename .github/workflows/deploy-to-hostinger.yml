@@ -23,7 +23,7 @@ jobs:
         run: hugo --minify
 
       - name: Deploy to Hostinger
-        uses: appleboy/scp-action@master
+        uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.HOSTINGER_SERVER }}
           username: ${{ secrets.HOSTINGER_SSH_USER }}
@@ -33,9 +33,10 @@ jobs:
           target: "/home/u389484855/domains/trueworkoffice.com/public_html/"
           strip_components: 1
           rm: true
+          debug: true
 
       - name: Verify deployment
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.HOSTINGER_SERVER }}
           username: ${{ secrets.HOSTINGER_SSH_USER }}
