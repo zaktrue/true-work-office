@@ -4,6 +4,14 @@ __pycache__/
 # Files in vault/ are AES-256 encrypted but trigger scanner due to ciphertext patterns
 vault/
 
+# Agent configuration files containing API keys and passwords
+ava_email_config.json
+himalaya-zak.toml
+config/himalaya-*.toml
+config/*-agentmail.toml
+memory/secrets_vault.json
+.secure/
+
 # Log files - prevent large files from being tracked
 log-aggregator/logs.db
 *.db
