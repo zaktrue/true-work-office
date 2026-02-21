@@ -54,9 +54,10 @@ USER.md
 HEARTBEAT.md
 WORKFLOW*.md
 
-# Scripts (except website scripts)
+# Scripts (except website scripts and deployment script)
 scripts/
 !true-work-office/scripts/
+!scripts/sync_dashboards_to_website.sh
 
 # Skills (large, local only)
 skills/
