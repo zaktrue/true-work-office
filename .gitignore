@@ -1,32 +1,99 @@
-__pycache__/
+# === Workspace files (NOT for GitHub) ===
+# These should stay local, only website files go to GitHub
 
-# Encrypted credential vault - prevents GitHub secret scanner false positives
-# Files in vault/ are AES-256 encrypted but trigger scanner due to ciphertext patterns
-vault/
+# Cache and temp files
+.cache/
+.clawdhub/
+.clawhub/
+.config/
+.openclaw/
 
-# Agent configuration files containing API keys and passwords
+# Environment and secrets
+.env*
+.secure/
+.moltbook_credentials.json
+
+# Agent configs with credentials
 ava_email_config.json
 himalaya-zak.toml
-config/himalaya-*.toml
-config/*-agentmail.toml
-memory/secrets_vault.json
-.secure/
+config/
+!config/crontab.mission-control
 
-# Log files - prevent large files from being tracked
-log-aggregator/logs.db
-*.db
-*.log.archive
-memory/*.log
-logs/*.log
+# Memory and logs (large, local only)
+memory/
+logs/
 *.log
+*.log.archive
 
-# Large data files
+# Databases (large binary files)
+*.db
+*.db-journal
 *.sqlite
 *.sqlite3
-*.db-journal
+database/*.db
 
-# Image files - prevent accidental credential screenshots from being tracked
-*.png
-*.jpg
-*.jpeg
-*.gif
+# Documentation and project files (not website)
+*.md
+!true-work-office/**/*.md
+
+# Agent files
+AGENTS.md
+AGENT_*.md
+AUTONOMOUS_*.md
+BACKUP_*.md
+CHANGELOG.md
+CLAUDE_*.md
+CONTENT_*.md
+DEPLOYMENT_*.md
+EMAIL_*.md
+FEATURE*.md
+IDENTITY.md
+MISSION_*.md
+SOUL.md
+USER.md
+HEARTBEAT.md
+WORKFLOW*.md
+
+# Scripts (except website scripts)
+scripts/
+!true-work-office/scripts/
+
+# Skills (large, local only)
+skills/
+
+# Dashboard source (generated locally)
+dashboard/
+!true-work-office/static/dashboards/
+
+# Database and data
+data/
+database/
+
+# Monitoring
+monitoring/
+
+# Weekly reports
+weekly-report/
+
+# PaperBanana outputs
+paperbanana_outputs/
+
+# Skills learning
+skill-learning/
+
+# Git hooks (local only)
+.githooks/
+
+# Project config
+.github_project_config.json
+.zak_model_env
+
+# === Website build artifacts ===
+true-work-office/public/
+true-work-office/resources/_gen/
+true-work-office/.hugo_build.lock
+
+# === Keep these ===
+# .github/workflows/ - Required for deployment
+# true-work-office/ - The website
+# .gitignore - This file
