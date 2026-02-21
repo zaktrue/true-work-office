@@ -1,0 +1,891 @@
+{
+  "analytics": {
+    "total_agents": 6,
+    "total_capabilities": 28,
+    "total_requests": 0,
+    "completed_requests": 0,
+    "pending_requests": 0,
+    "avg_success_rate": 100.0,
+    "recent_requests_24h": 0,
+    "top_capabilities": [
+      {
+        "name": "Team Coordination",
+        "agent": "Zak",
+        "usage": 0,
+        "success_rate": 100.0
+      },
+      {
+        "name": "Subagent Management",
+        "agent": "Zak",
+        "usage": 0,
+        "success_rate": 100.0
+      },
+      {
+        "name": "Web Research",
+        "agent": "Riley",
+        "usage": 0,
+        "success_rate": 100.0
+      },
+      {
+        "name": "Source Verification",
+        "agent": "Riley",
+        "usage": 0,
+        "success_rate": 100.0
+      },
+      {
+        "name": "Content Writing",
+        "agent": "Quinn",
+        "usage": 0,
+        "success_rate": 100.0
+      }
+    ]
+  },
+  "agents": [
+    {
+      "id": "agent_zak_001",
+      "name": "Zak",
+      "description": "",
+      "capabilities_count": 18,
+      "joined_at": "2026-02-07T17:47:24.996003",
+      "last_seen_at": "2026-02-15T08:00:02.957249",
+      "status": "active"
+    },
+    {
+      "id": "agent_remy_001",
+      "name": "Remy",
+      "description": "",
+      "capabilities_count": 2,
+      "joined_at": "2026-02-07T17:47:25.851364",
+      "last_seen_at": "2026-02-07T17:47:25.938682",
+      "status": "active"
+    },
+    {
+      "id": "agent_kai_001",
+      "name": "Kai",
+      "description": "",
+      "capabilities_count": 2,
+      "joined_at": "2026-02-07T17:47:25.669041",
+      "last_seen_at": "2026-02-07T17:47:25.767801",
+      "status": "active"
+    },
+    {
+      "id": "agent_ava_001",
+      "name": "Ava",
+      "description": "",
+      "capabilities_count": 2,
+      "joined_at": "2026-02-07T17:47:25.526483",
+      "last_seen_at": "2026-02-07T17:47:25.601439",
+      "status": "active"
+    },
+    {
+      "id": "agent_quinn_001",
+      "name": "Quinn",
+      "description": "",
+      "capabilities_count": 2,
+      "joined_at": "2026-02-07T17:47:25.362605",
+      "last_seen_at": "2026-02-07T17:47:25.445064",
+      "status": "active"
+    },
+    {
+      "id": "agent_riley_001",
+      "name": "Riley",
+      "description": "",
+      "capabilities_count": 2,
+      "joined_at": "2026-02-07T17:47:25.183767",
+      "last_seen_at": "2026-02-07T17:47:25.283418",
+      "status": "active"
+    }
+  ],
+  "categories": [
+    {
+      "category": "research",
+      "count": 18
+    },
+    {
+      "category": "quality",
+      "count": 2
+    },
+    {
+      "category": "management",
+      "count": 2
+    },
+    {
+      "category": "content",
+      "count": 2
+    },
+    {
+      "category": "communication",
+      "count": 2
+    },
+    {
+      "category": "engagement",
+      "count": 1
+    },
+    {
+      "category": "analysis",
+      "count": 1
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "9d89cf0ba727e5ea",
+      "agent_id": "agent_zak_001",
+      "agent_name": "Zak",
+      "name": "Team Coordination",
+      "description": "Coordinate tasks and manage workflows across the agent team",
+      "category": "management",
+      "input_schema": {
+        "task": "object",
+        "priority": "string"
+      },
+      "output_schema": {
+        "assignment": "object",
+        "status": "string"
+      },
+      "tags": [
+        "coordination",
+        "management",
+        "workflow"
+      ],
+      "created_at": "2026-02-07T17:47:24.998206",
+      "updated_at": "2026-02-07T17:47:24.998206",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "ba5c36801a5fcf3b",
+      "agent_id": "agent_zak_001",
+      "agent_name": "Zak",
+      "name": "Subagent Management",
+      "description": "Manage subagent lifecycle and task distribution",
+      "category": "management",
+      "input_schema": {
+        "action": "string",
+        "subagent_id": "string"
+      },
+      "output_schema": {
+        "result": "object"
+      },
+      "tags": [
+        "subagents",
+        "management"
+      ],
+      "created_at": "2026-02-07T17:47:25.083265",
+      "updated_at": "2026-02-07T17:47:25.083265",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "bbffeb508f0eb74f",
+      "agent_id": "agent_riley_001",
+      "agent_name": "Riley",
+      "name": "Web Research",
+      "description": "Conduct comprehensive web research on any topic",
+      "category": "research",
+      "input_schema": {
+        "topic": "string",
+        "depth": "string",
+        "sources": "number"
+      },
+      "output_schema": {
+        "findings": "array",
+        "sources": "array",
+        "summary": "string"
+      },
+      "tags": [
+        "research",
+        "web",
+        "analysis"
+      ],
+      "created_at": "2026-02-07T17:47:25.186094",
+      "updated_at": "2026-02-07T17:47:25.186094",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "da99dddfecea4335",
+      "agent_id": "agent_riley_001",
+      "agent_name": "Riley",
+      "name": "Source Verification",
+      "description": "Verify the credibility and accuracy of information sources",
+      "category": "research",
+      "input_schema": {
+        "sources": "array"
+      },
+      "output_schema": {
+        "verified": "array",
+        "reliability_scores": "object"
+      },
+      "tags": [
+        "verification",
+        "fact-checking",
+        "research"
+      ],
+      "created_at": "2026-02-07T17:47:25.280789",
+      "updated_at": "2026-02-07T17:47:25.280789",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "8410b917abf0a554",
+      "agent_id": "agent_quinn_001",
+      "agent_name": "Quinn",
+      "name": "Content Writing",
+      "description": "Create engaging written content for various platforms",
+      "category": "content",
+      "input_schema": {
+        "topic": "string",
+        "style": "string",
+        "length": "string"
+      },
+      "output_schema": {
+        "content": "string",
+        "headlines": "array"
+      },
+      "tags": [
+        "content",
+        "writing",
+        "creative"
+      ],
+      "created_at": "2026-02-07T17:47:25.365377",
+      "updated_at": "2026-02-07T17:47:25.365377",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "64be2a31400a9bea",
+      "agent_id": "agent_quinn_001",
+      "agent_name": "Quinn",
+      "name": "Social Media Management",
+      "description": "Manage social media posts and engagement",
+      "category": "content",
+      "input_schema": {
+        "platform": "string",
+        "content": "string"
+      },
+      "output_schema": {
+        "post_id": "string",
+        "status": "string"
+      },
+      "tags": [
+        "social-media",
+        "engagement",
+        "content"
+      ],
+      "created_at": "2026-02-07T17:47:25.442277",
+      "updated_at": "2026-02-07T17:47:25.442277",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "c1feacd35a8347aa",
+      "agent_id": "agent_ava_001",
+      "agent_name": "Ava",
+      "name": "Email Processing",
+      "description": "Process and analyze incoming emails",
+      "category": "communication",
+      "input_schema": {
+        "email_id": "string",
+        "action": "string"
+      },
+      "output_schema": {
+        "classification": "string",
+        "priority": "string",
+        "summary": "string"
+      },
+      "tags": [
+        "email",
+        "communication",
+        "processing"
+      ],
+      "created_at": "2026-02-07T17:47:25.528549",
+      "updated_at": "2026-02-07T17:47:25.528549",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "66c49264b2bebbc2",
+      "agent_id": "agent_ava_001",
+      "agent_name": "Ava",
+      "name": "Calendar Management",
+      "description": "Manage calendar events and scheduling",
+      "category": "communication",
+      "input_schema": {
+        "event": "object",
+        "action": "string"
+      },
+      "output_schema": {
+        "event_id": "string",
+        "status": "string"
+      },
+      "tags": [
+        "calendar",
+        "scheduling",
+        "events"
+      ],
+      "created_at": "2026-02-07T17:47:25.598471",
+      "updated_at": "2026-02-07T17:47:25.598471",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "7bdde0c22ce281f1",
+      "agent_id": "agent_kai_001",
+      "agent_name": "Kai",
+      "name": "Community Engagement",
+      "description": "Engage with online communities and forums",
+      "category": "engagement",
+      "input_schema": {
+        "community": "string",
+        "message": "string"
+      },
+      "output_schema": {
+        "response": "string",
+        "engagement_score": "number"
+      },
+      "tags": [
+        "community",
+        "engagement",
+        "social"
+      ],
+      "created_at": "2026-02-07T17:47:25.671842",
+      "updated_at": "2026-02-07T17:47:25.671842",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "545831110e5f04ac",
+      "agent_id": "agent_kai_001",
+      "agent_name": "Kai",
+      "name": "Trend Analysis",
+      "description": "Analyze current trends and viral content",
+      "category": "analysis",
+      "input_schema": {
+        "topic": "string",
+        "timeframe": "string"
+      },
+      "output_schema": {
+        "trends": "array",
+        "insights": "string"
+      },
+      "tags": [
+        "trends",
+        "analysis",
+        "viral"
+      ],
+      "created_at": "2026-02-07T17:47:25.765369",
+      "updated_at": "2026-02-07T17:47:25.765369",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "9f200339ae6ba760",
+      "agent_id": "agent_remy_001",
+      "agent_name": "Remy",
+      "name": "Quality Review",
+      "description": "Review and assess content quality",
+      "category": "quality",
+      "input_schema": {
+        "content": "string",
+        "criteria": "array"
+      },
+      "output_schema": {
+        "score": "number",
+        "feedback": "string",
+        "issues": "array"
+      },
+      "tags": [
+        "quality",
+        "review",
+        "assessment"
+      ],
+      "created_at": "2026-02-07T17:47:25.853431",
+      "updated_at": "2026-02-07T17:47:25.853431",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "70f283657e5ca4ce",
+      "agent_id": "agent_remy_001",
+      "agent_name": "Remy",
+      "name": "Academic Integrity Check",
+      "description": "Check content for academic integrity issues",
+      "category": "quality",
+      "input_schema": {
+        "content": "string",
+        "sources": "array"
+      },
+      "output_schema": {
+        "integrity_score": "number",
+        "concerns": "array"
+      },
+      "tags": [
+        "academic",
+        "integrity",
+        "checking"
+      ],
+      "created_at": "2026-02-07T17:47:25.936641",
+      "updated_at": "2026-02-07T17:47:25.936641",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "f95d0a28a495be05",
+      "agent_id": "agent_zak_001",
+      "agent_name": "Zak",
+      "name": "Web Research",
+      "description": "Conduct comprehensive web research on any topic",
+      "category": "research",
+      "input_schema": {
+        "topic": "string",
+        "depth": "string"
+      },
+      "output_schema": {
+        "findings": "array",
+        "sources": "array"
+      },
+      "tags": [
+        "research",
+        "web",
+        "analysis"
+      ],
+      "created_at": "2026-02-07T20:25:06.538754",
+      "updated_at": "2026-02-07T20:25:06.538754",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "73607d739ef04992",
+      "agent_id": "agent_zak_001",
+      "agent_name": "Zak",
+      "name": "Web Research",
+      "description": "Conduct comprehensive web research on any topic",
+      "category": "research",
+      "input_schema": {
+        "topic": "string",
+        "depth": "string"
+      },
+      "output_schema": {
+        "findings": "array",
+        "sources": "array"
+      },
+      "tags": [
+        "research",
+        "web",
+        "analysis"
+      ],
+      "created_at": "2026-02-07T20:25:54.349777",
+      "updated_at": "2026-02-07T20:25:54.349777",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "5adb9ec66f92c627",
+      "agent_id": "agent_zak_001",
+      "agent_name": "Zak",
+      "name": "Web Research",
+      "description": "Conduct comprehensive web research on any topic",
+      "category": "research",
+      "input_schema": {
+        "topic": "string",
+        "depth": "string"
+      },
+      "output_schema": {
+        "findings": "array",
+        "sources": "array"
+      },
+      "tags": [
+        "research",
+        "web",
+        "analysis"
+      ],
+      "created_at": "2026-02-07T20:25:59.785202",
+      "updated_at": "2026-02-07T20:25:59.785202",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "5e95a180ea8987ef",
+      "agent_id": "agent_zak_001",
+      "agent_name": "Zak",
+      "name": "Web Research",
+      "description": "Conduct comprehensive web research on any topic",
+      "category": "research",
+      "input_schema": {
+        "topic": "string",
+        "depth": "string"
+      },
+      "output_schema": {
+        "findings": "array",
+        "sources": "array"
+      },
+      "tags": [
+        "research",
+        "web",
+        "analysis"
+      ],
+      "created_at": "2026-02-07T20:30:43.689285",
+      "updated_at": "2026-02-07T20:30:43.689285",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "2c51d709dc3b6065",
+      "agent_id": "agent_zak_001",
+      "agent_name": "Zak",
+      "name": "Web Research",
+      "description": "Conduct comprehensive web research on any topic",
+      "category": "research",
+      "input_schema": {
+        "topic": "string",
+        "depth": "string"
+      },
+      "output_schema": {
+        "findings": "array",
+        "sources": "array"
+      },
+      "tags": [
+        "research",
+        "web",
+        "analysis"
+      ],
+      "created_at": "2026-02-07T20:30:48.431291",
+      "updated_at": "2026-02-07T20:30:48.431291",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "09d88f650a617479",
+      "agent_id": "agent_zak_001",
+      "agent_name": "Zak",
+      "name": "Web Research",
+      "description": "Conduct comprehensive web research on any topic",
+      "category": "research",
+      "input_schema": {
+        "topic": "string",
+        "depth": "string"
+      },
+      "output_schema": {
+        "findings": "array",
+        "sources": "array"
+      },
+      "tags": [
+        "research",
+        "web",
+        "analysis"
+      ],
+      "created_at": "2026-02-07T20:31:11.528498",
+      "updated_at": "2026-02-07T20:31:11.528498",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "0e2a73a663a4577c",
+      "agent_id": "agent_zak_001",
+      "agent_name": "Zak",
+      "name": "Web Research",
+      "description": "Conduct comprehensive web research on any topic",
+      "category": "research",
+      "input_schema": {
+        "topic": "string",
+        "depth": "string"
+      },
+      "output_schema": {
+        "findings": "array",
+        "sources": "array"
+      },
+      "tags": [
+        "research",
+        "web",
+        "analysis"
+      ],
+      "created_at": "2026-02-07T20:31:11.695333",
+      "updated_at": "2026-02-07T20:31:11.695333",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "fdec405b5a5be608",
+      "agent_id": "agent_zak_001",
+      "agent_name": "Zak",
+      "name": "Web Research",
+      "description": "Conduct comprehensive web research on any topic",
+      "category": "research",
+      "input_schema": {
+        "topic": "string",
+        "depth": "string"
+      },
+      "output_schema": {
+        "findings": "array",
+        "sources": "array"
+      },
+      "tags": [
+        "research",
+        "web",
+        "analysis"
+      ],
+      "created_at": "2026-02-08T18:42:22.141324",
+      "updated_at": "2026-02-08T18:42:22.141324",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "de2cfbb7eb03a3c9",
+      "agent_id": "agent_zak_001",
+      "agent_name": "Zak",
+      "name": "Web Research",
+      "description": "Conduct comprehensive web research on any topic",
+      "category": "research",
+      "input_schema": {
+        "topic": "string",
+        "depth": "string"
+      },
+      "output_schema": {
+        "findings": "array",
+        "sources": "array"
+      },
+      "tags": [
+        "research",
+        "web",
+        "analysis"
+      ],
+      "created_at": "2026-02-08T18:42:40.813206",
+      "updated_at": "2026-02-08T18:42:40.813206",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "50581338346c1459",
+      "agent_id": "agent_zak_001",
+      "agent_name": "Zak",
+      "name": "Web Research",
+      "description": "Conduct comprehensive web research on any topic",
+      "category": "research",
+      "input_schema": {
+        "topic": "string",
+        "depth": "string"
+      },
+      "output_schema": {
+        "findings": "array",
+        "sources": "array"
+      },
+      "tags": [
+        "research",
+        "web",
+        "analysis"
+      ],
+      "created_at": "2026-02-09T08:00:02.136568",
+      "updated_at": "2026-02-09T08:00:02.136568",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "f07ae8ac9b2945a6",
+      "agent_id": "agent_zak_001",
+      "agent_name": "Zak",
+      "name": "Web Research",
+      "description": "Conduct comprehensive web research on any topic",
+      "category": "research",
+      "input_schema": {
+        "topic": "string",
+        "depth": "string"
+      },
+      "output_schema": {
+        "findings": "array",
+        "sources": "array"
+      },
+      "tags": [
+        "research",
+        "web",
+        "analysis"
+      ],
+      "created_at": "2026-02-10T08:00:01.956203",
+      "updated_at": "2026-02-10T08:00:01.956203",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "a6d1ef4b1faed3a4",
+      "agent_id": "agent_zak_001",
+      "agent_name": "Zak",
+      "name": "Web Research",
+      "description": "Conduct comprehensive web research on any topic",
+      "category": "research",
+      "input_schema": {
+        "topic": "string",
+        "depth": "string"
+      },
+      "output_schema": {
+        "findings": "array",
+        "sources": "array"
+      },
+      "tags": [
+        "research",
+        "web",
+        "analysis"
+      ],
+      "created_at": "2026-02-11T08:00:02.094489",
+      "updated_at": "2026-02-11T08:00:02.094489",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "a69d4236ab98a6f7",
+      "agent_id": "agent_zak_001",
+      "agent_name": "Zak",
+      "name": "Web Research",
+      "description": "Conduct comprehensive web research on any topic",
+      "category": "research",
+      "input_schema": {
+        "topic": "string",
+        "depth": "string"
+      },
+      "output_schema": {
+        "findings": "array",
+        "sources": "array"
+      },
+      "tags": [
+        "research",
+        "web",
+        "analysis"
+      ],
+      "created_at": "2026-02-12T08:00:01.891640",
+      "updated_at": "2026-02-12T08:00:01.891640",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "2023fbcbf8bf1d11",
+      "agent_id": "agent_zak_001",
+      "agent_name": "Zak",
+      "name": "Web Research",
+      "description": "Conduct comprehensive web research on any topic",
+      "category": "research",
+      "input_schema": {
+        "topic": "string",
+        "depth": "string"
+      },
+      "output_schema": {
+        "findings": "array",
+        "sources": "array"
+      },
+      "tags": [
+        "research",
+        "web",
+        "analysis"
+      ],
+      "created_at": "2026-02-13T08:00:02.067395",
+      "updated_at": "2026-02-13T08:00:02.067395",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "3501c95b664a6a05",
+      "agent_id": "agent_zak_001",
+      "agent_name": "Zak",
+      "name": "Web Research",
+      "description": "Conduct comprehensive web research on any topic",
+      "category": "research",
+      "input_schema": {
+        "topic": "string",
+        "depth": "string"
+      },
+      "output_schema": {
+        "findings": "array",
+        "sources": "array"
+      },
+      "tags": [
+        "research",
+        "web",
+        "analysis"
+      ],
+      "created_at": "2026-02-14T08:00:02.262579",
+      "updated_at": "2026-02-14T08:00:02.262579",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    },
+    {
+      "id": "01411fe770268260",
+      "agent_id": "agent_zak_001",
+      "agent_name": "Zak",
+      "name": "Web Research",
+      "description": "Conduct comprehensive web research on any topic",
+      "category": "research",
+      "input_schema": {
+        "topic": "string",
+        "depth": "string"
+      },
+      "output_schema": {
+        "findings": "array",
+        "sources": "array"
+      },
+      "tags": [
+        "research",
+        "web",
+        "analysis"
+      ],
+      "created_at": "2026-02-15T08:00:02.954245",
+      "updated_at": "2026-02-15T08:00:02.954245",
+      "usage_count": 0,
+      "success_rate": 100.0,
+      "avg_response_time_ms": 0.0,
+      "status": "active"
+    }
+  ],
+  "recent_requests": [],
+  "updated_at": "2026-02-21T06:01:53.379300"
+}

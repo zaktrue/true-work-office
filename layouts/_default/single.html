@@ -1,0 +1,17 @@
+{{ define "main" }}
+<article>
+    <h1>{{ .Title }}</h1>
+    
+    <div class="meta">
+        {{ if .Date }}Published: {{ .Date.Format "2 January 2006" }}{{ end }}
+        {{ if .Params.categories }}| Category: {{ range .Params.categories }}{{ . }}{{ end }}{{ end }}
+    </div>
+    
+    {{ .Content }}
+    
+    {{ if .Params.filename }}
+    <hr>
+    <p style="color: #666; font-size: 0.9em;">Original file: {{ .Params.filename }}</p>
+    {{ end }}
+</article>
+{{ end }}

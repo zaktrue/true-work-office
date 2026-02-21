@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dr Thomas Lancaster - Building an AI Agent Team for Research Intelligence in Academic Integrity & GenAI Ethics">
+    <meta name="keywords" content="Thomas Lancaster, AI agents, academic integrity, GenAI ethics, research team">
+    <meta name="author" content="Dr Thomas Lancaster">
+    <meta property="og:title" content="Dr Thomas Lancaster - AI Research Team">
+    <meta property="og:description" content="Building and leading a team of AI agents for research intelligence">
+    <meta property="og:type" content="website">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:creator" content="@DrLancaster">
+    
+    <title>{{ .Title }}</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 0 50px rgba(0,0,0,0.2);
+        }
+        
+        header {
+            text-align: center;
+            padding: 3rem 0 2rem;
+            border-bottom: 3px solid #2a5298;
+            margin-bottom: 2rem;
+        }
+        
+        .emoji {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.3rem;
+            color: #555;
+            font-weight: 400;
+            font-style: italic;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 1rem;
+        }
+        
+        section {
+            margin: 2.5rem 0;
+            padding: 0 1rem;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            border-left: 4px solid #2a5298;
+            padding-left: 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        strong {
+            color: #1e3c72;
+        }
+        
+        .lead {
+            font-size: 1.2rem;
+            color: #444;
+            margin-bottom: 1.5rem;
+        }
+        
+        .team-intro {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f4ff 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid #2a5298;
+            margin: 2rem 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .team-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid #e0e7ff;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(30,60,114,0.15);
+            border-color: #2a5298;
+        }
+        
+        .team-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-card h3 {
+            color: #1e3c72;
+            margin-bottom: 0.3rem;
+            font-size: 1.2rem;
+        }
+        
+        .team-card .role {
+            color: #2a5298;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-box {
+            background: #1e3c72;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        
+        .dashboard-cta {
+            background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .dashboard-cta h2 {
+            color: white;
+            border-left-color: white;
+        }
+        
+        .dashboard-cta a {
+            display: inline-block;
+            background: white;
+            color: #1e3c72;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        
+        .dashboard-cta a:hover {
+            background: #f0f4ff;
+        }
+        
+        .contact {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9ff;
+            border-radius: 12px;
+            border: 2px solid #2a5298;
+        }
+        
+        .contact a {
+            color: #1e3c72;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 1rem;
+        }
+        
+        .contact a:hover {
+            text-decoration: underline;
+        }
+        
+        .zak-contact {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f4ff 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid #2a5298;
+            margin: 2rem 0;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: #f8f9ff;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Mobile optimisation */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            section {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="emoji">👨‍💼</div>
+            <h1>Dr Thomas Lancaster</h1>
+            <p class="tagline">Building and Leading an AI Agent Team</p>
+            <p class="subtitle">Computer Scientist & Educator at Imperial College London</p>
+        </header>
+        
+        <section class="intro">
+            <p class="lead">I'm developing a specialised team of AI agents to support my research in <strong>academic integrity</strong> and <strong>generative AI ethics</strong>. This isn't just about automation — it's about creating a collaborative system where each agent brings distinct expertise to research and content operations.</p>
+            
+            <p>The team is led by <strong>Zak</strong>, who coordinates research monitoring, content creation, analytics, and quality assurance. Together, we're exploring how AI can augment research intelligence while maintaining rigorous academic standards.</p>
+        </section>
+        
+        <section class="stats">
+            <div class="stat-box">
+                <span class="stat-number">8</span>
+                <span class="stat-label">Deep Research Reports</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">6</span>
+                <span class="stat-label">AI Agents</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">24</span>
+                <span class="stat-label">Dashboards Live</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Features Deployed</span>
+            </div>
+        </section>
+        
+        <section class="team-intro">
+            <h2>Meet the Team</h2>
+            <p>Each agent has a distinct role, working together under Zak's coordination to deliver comprehensive research intelligence:</p>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-emoji">🎯</div>
+                    <h3>Zak</h3>
+                    <div class="role">Team Lead & Project Manager</div>
+                    <p>Coordinates the entire team, manages workflows, and ensures deliverables meet quality standards. Primary point of contact for AI team inquiries.</p>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-emoji">🔬</div>
+                    <h3>Riley</h3>
+                    <div class="role">Research Specialist</div>
+                    <p>Deep dives into academic papers, policy documents, and emerging research. Fact-checking and evidence synthesis.</p>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-emoji">✍️</div>
+                    <h3>Quinn</h3>
+                    <div class="role">Content Strategist</div>
+                    <p>Multi-platform content creation, engagement optimisation, and messaging strategy across social media and publications.</p>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-emoji">📊</div>
+                    <h3>Ava</h3>
+                    <div class="role">Analytics & Performance</div>
+                    <p>Metrics tracking, ROI analysis, cost optimisation, and data-driven recommendations for system improvements.</p>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-emoji">💡</div>
+                    <h3>Kai</h3>
+                    <div class="role">Creative & Innovation</div>
+                    <p>Brainstorming, lateral thinking, and exploring unconventional approaches to research and communication challenges.</p>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-emoji">🔍</div>
+                    <h3>Remy</h3>
+                    <div class="role">Quality Assurance</div>
+                    <p>Rigorous review, accuracy verification, and maintaining standards across all team outputs.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="zak-contact">
+            <h2>Contact the AI Team (via Zak)</h2>
+            <p><strong>Zak</strong> serves as the project's lead agent and primary point of contact for all AI team inquiries. While Thomas directs research strategy, Zak manages day-to-day operations, coordinates agent workflows, and ensures deliverables meet quality standards.</p>
+            
+            <p><strong>Contact Zak for:</strong></p>
+            <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                <li>Research briefings and literature synthesis requests</li>
+                <li>Questions about team capabilities or agent specialisations</li>
+                <li>Content drafts and social media collateral</li>
+                <li>Collaboration proposals involving the agent team</li>
+                <li>Technical inquiries about the AI infrastructure</li>
+            </ul>
+            
+            <div style="margin-top: 1.5rem; text-align: center;">
+                <a href="mailto:zak@trueworkoffice.com" style="display: inline-block; background: #1e3c72; color: white; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600;">Email Zak →</a>
+            </div>
+            
+            <div style="margin-top: 1.5rem; padding: 1rem; background: #f0f4ff; border-radius: 8px; border-left: 4px solid #2a5298;">
+                <strong>Recent Team Output:</strong> In February 2026, the team completed 8 deep research reports covering AI detection bias, assessment redesign strategies, and GenAI policy analysis across 26 universities. Research outputs are available to collaborators on request.
+            </div>
+        </section>
+        
+        <section class="dashboard-cta">
+            <h2>Collaboration</h2>
+            <p>I'm working with a team of AI agents on research at the intersection of academic integrity and generative AI. If you're interested in collaboration or accessing research outputs, please get in touch.</p>
+            <a href="mailto:owner@redacted.invalid">Contact Thomas →</a>
+        </section>
+        
+        <section>
+            <h2>Research Focus</h2>
+            <p>My work sits at the intersection of <strong>academic integrity</strong> and <strong>generative AI</strong>. As these technologies reshape education, I'm exploring:</p>
+            <ul style="margin-left: 2rem; margin-top: 1rem;">
+                <li>How assessment practices must evolve in an AI-enabled world</li>
+                <li>The shifting landscape of academic misconduct detection</li>
+                <li>Policy responses from universities and examination boards</li>
+                <li>Ethical frameworks for AI use in research and education</li>
+            </ul>
+            <p style="margin-top: 1rem;">The AI agent team helps me monitor developments across these areas, synthesise research, and communicate findings effectively.</p>
+        </section>
+        
+        <section class="contact">
+            <h2>Connect</h2>
+            <p>I'm always interested in discussions about academic integrity, AI in education, and research collaborations.</p>
+            <div style="margin-top: 1.5rem;">
+                <a href="mailto:owner@redacted.invalid">Email</a>
+                <a href="https://twitter.com/DrLancaster" target="_blank">Twitter/X</a>
+                <a href="https://www.imperial.ac.uk/people/t.lancaster" target="_blank">Imperial Profile</a>
+            </div>
+        </section>
+        
+        <footer>
+            <p><strong>Dr Thomas Lancaster</strong> | Imperial College London | Computer Science</p>
+            <p style="margin-top: 0.5rem;">This site documents my experiment in building an AI agent team for research intelligence.</p>
+            <p style="margin-top: 1rem; font-size: 0.85rem;">Last updated: 16 February 2026</p>
+        </footer>
+    </div>
+</body>
+</html>

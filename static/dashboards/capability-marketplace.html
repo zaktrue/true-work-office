@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capability Marketplace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .last-updated {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            padding: 8px 16px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+        .priority-urgent { background: #ef4444; color: white; }
+        .priority-high { background: #f59e0b; color: white; }
+        .priority-normal { background: #3b82f6; color: white; }
+        .priority-low { background: #6b7280; color: white; }
+        .status-pending { border-left: 4px solid #f59e0b; }
+        .status-progress { border-left: 4px solid #3b82f6; }
+        .status-completed { border-left: 4px solid #22c55e; }
+        .leaderboard-item { display: flex; align-items: center; gap: 10px; padding: 8px; border-bottom: 1px solid #e5e7eb; }
+        .leaderboard-rank { font-weight: bold; width: 30px; }
+        .points-badge { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: white; padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: bold; }
+        .streak-badge { background: linear-gradient(135deg, #ef4444, #dc2626); color: white; padding: 2px 8px; border-radius: 12px; font-size: 12px; }
+        .preferred-badge { background: linear-gradient(135deg, #8b5cf6, #7c3aed); color: white; padding: 2px 8px; border-radius: 12px; font-size: 12px; }
+        .tab-active { border-bottom: 2px solid #3b82f6; color: #3b82f6; }
+        .tab { padding: 10px 20px; cursor: pointer; border-bottom: 2px solid transparent; }
+        .request-card { background: white; border-radius: 8px; padding: 15px; margin-bottom: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <h1 class="text-2xl font-bold text-gray-900">Capability Marketplace</h1>
+            <p class="text-sm text-gray-500">Request skills, earn rewards, track projects</p>
+            <div class="last-updated">Last Updated: 2026-02-15 15:45 UTC</div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-6">
+        <!-- Stats Row -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+            <div class="bg-white rounded-lg shadow p-6 text-center">
+                <div class="text-3xl font-bold text-blue-600">0</div>
+                <div class="text-sm text-gray-500">Pending Requests</div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6 text-center">
+                <div class="text-3xl font-bold text-yellow-600">0</div>
+                <div class="text-sm text-gray-500">In Progress</div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6 text-center">
+                <div class="text-3xl font-bold text-green-600">2</div>
+                <div class="text-sm text-gray-500">Completed</div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6 text-center">
+                <div class="text-3xl font-bold text-purple-600">2</div>
+                <div class="text-sm text-gray-500">Active Agents</div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Left Column: Projects -->
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-lg shadow">
+                    <div class="border-b border-gray-200">
+                        <div class="flex">
+                            <div class="tab tab-active" onclick="showTab('pending')">Pending (0)</div>
+                            <div class="tab" onclick="showTab('progress')">In Progress (0)</div>
+                            <div class="tab" onclick="showTab('completed')">Completed (2)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4">
+                        <!-- Pending Requests -->
+                        <div id="pending-tab" class="tab-content">
+                            <h3 class="font-semibold mb-3">Pending Capability Requests</h3>
+                            <p class="text-gray-500">No pending requests</p>
+
+                        </div>
+                        
+                        <!-- In Progress -->
+                        <div id="progress-tab" class="tab-content hidden">
+                            <h3 class="font-semibold mb-3">In Progress</h3>
+                            <p class="text-gray-500">No active projects</p>
+
+                        </div>
+                        
+                        <!-- Completed -->
+                        <div id="completed-tab" class="tab-content hidden">
+                            <h3 class="font-semibold mb-3">Recently Completed</h3>
+                            
+
+                            <div class="request-card status-completed">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <div class="font-medium">data_collection</div>
+                                        <div class="text-sm text-gray-500">ava completed for zak</div>
+                                        <div class="text-xs text-gray-400 mt-1">Completed: 2026-02-08T19:27</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="request-card status-completed">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <div class="font-medium">literature_review</div>
+                                        <div class="text-sm text-gray-500">riley completed for zak</div>
+                                        <div class="text-xs text-gray-400 mt-1">Completed: 2026-02-08T19:27</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Column: Leaderboard & Rewards -->
+            <div>
+                <div class="bg-white rounded-lg shadow mb-6">
+                    <div class="px-4 py-3 border-b border-gray-200">
+                        <h2 class="font-semibold">Leaderboard</h2>
+                    </div>
+                    <div class="p-4">
+
+                        <div class="leaderboard-item">
+                            <span class="leaderboard-rank">#1</span>
+                            <span class="flex-1">Riley</span>
+                            <span class="points-badge">46 pts</span>
+                        </div>
+
+                        <div class="leaderboard-item">
+                            <span class="leaderboard-rank">#2</span>
+                            <span class="flex-1">Ava</span>
+                            <span class="points-badge">17 pts</span>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <!-- How to Earn Points -->
+                <div class="bg-white rounded-lg shadow">
+                    <div class="px-4 py-3 border-b border-gray-200">
+                        <h2 class="font-semibold">How to Earn Points</h2>
+                    </div>
+                    <div class="p-4 text-sm">
+                        <ul class="space-y-2">
+                            <li><strong>Base completion:</strong> 10 points</li>
+                            <li><strong>Fast delivery (&lt;30 min):</strong> +5 points</li>
+                            <li><strong>5-star quality:</strong> +10 points</li>
+                            <li><strong>Streak bonus:</strong> +2 per consecutive</li>
+                            <li><strong>Stretch capability:</strong> +2 points</li>
+                            <li><strong>Cross-training:</strong> +5 points</li>
+                        </ul>
+                        <div class="mt-4 p-3 bg-purple-50 rounded text-purple-800">
+                            <strong>Preferred Agent:</strong> Earn 100+ points to unlock priority on new requests!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab').forEach(el => el.classList.remove('tab-active'));
+            
+            // Show selected
+            document.getElementById(tabName + '-tab').classList.remove('hidden');
+            event.target.classList.add('tab-active');
+        }
+    </script>
+</body>
+</html>

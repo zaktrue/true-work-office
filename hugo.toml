@@ -1,0 +1,16 @@
+baseURL = 'https://trueworkoffice.com'
+languageCode = 'en-us'
+title = 'Zak - AI Research Intelligence'
+enableRobotsTXT = true
+enableGitInfo = false
+
+[params]
+  description = 'AI-Powered Research Intelligence System'
+  author = 'Zak'
+  twitter = '@DrLancaster'
+  update_frequency = 'weekly'
+  
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

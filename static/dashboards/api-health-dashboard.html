@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Health Monitor - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        .status-healthy { background-color: #22c55e; box-shadow: 0 0 8px #22c55e; }
+        .status-degraded { background-color: #eab308; box-shadow: 0 0 8px #eab308; }
+        .status-unhealthy { background-color: #f97316; box-shadow: 0 0 8px #f97316; }
+        .status-down { background-color: #ef4444; box-shadow: 0 0 8px #ef4444; animation: pulse 2s infinite; }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .api-card {
+            transition: all 0.3s ease;
+        }
+        .api-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .last-updated {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            padding: 8px 16px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <div class="status-indicator status-healthy"></div>
+                    <h1 class="text-2xl font-bold text-gray-900">API Health Monitor</h1>
+                    <span class="ml-4 px-3 py-1 rounded-full text-sm font-medium bg-green-500 text-white">
+                        HEALTHY
+                    </span>
+                </div>
+                <div class="last-updated">🕐 Last Updated: 2026-02-15 15:00 UTC</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
+        <!-- Summary Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8">
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="text-sm font-medium text-gray-500">Total APIs</div>
+                <div class="text-3xl font-bold text-gray-900">4</div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-green-500">
+                <div class="text-sm font-medium text-gray-500">Healthy</div>
+                <div class="text-3xl font-bold text-green-600">4</div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-yellow-500">
+                <div class="text-sm font-medium text-gray-500">Degraded</div>
+                <div class="text-3xl font-bold text-yellow-600">0</div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-orange-500">
+                <div class="text-sm font-medium text-gray-500">Unhealthy</div>
+                <div class="text-3xl font-bold text-orange-600">0</div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-red-500">
+                <div class="text-sm font-medium text-gray-500">Down</div>
+                <div class="text-3xl font-bold text-red-600">0</div>
+            </div>
+        </div>
+        
+        <!-- API Status Grid -->
+        <div class="bg-white rounded-lg shadow mb-8">
+            <div class="px-6 py-4 border-b border-gray-200">
+                <h2 class="text-lg font-semibold text-gray-900">API Endpoints</h2>
+            </div>
+            <div class="p-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                    <div class="api-card bg-gray-50 rounded-lg p-4 border border-gray-200">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center">
+                                <div class="status-indicator status-healthy"></div>
+                                <span class="font-medium text-gray-900">OpenClaw Gateway</span>
+                            </div>
+                            <span class="px-2 py-1 rounded text-xs font-medium bg-green-100 text-green-800">
+                                HEALTHY
+                            </span>
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            <div>Response: 45ms</div>
+                            <div>Success Rate: 99.5%</div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="api-card bg-gray-50 rounded-lg p-4 border border-gray-200">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center">
+                                <div class="status-indicator status-healthy"></div>
+                                <span class="font-medium text-gray-900">Himalaya Email</span>
+                            </div>
+                            <span class="px-2 py-1 rounded text-xs font-medium bg-green-100 text-green-800">
+                                HEALTHY
+                            </span>
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            <div>Response: 120ms</div>
+                            <div>Success Rate: 98.0%</div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="api-card bg-gray-50 rounded-lg p-4 border border-gray-200">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center">
+                                <div class="status-indicator status-healthy"></div>
+                                <span class="font-medium text-gray-900">GitHub API</span>
+                            </div>
+                            <span class="px-2 py-1 rounded text-xs font-medium bg-green-100 text-green-800">
+                                HEALTHY
+                            </span>
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            <div>Response: 200ms</div>
+                            <div>Success Rate: 99.9%</div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="api-card bg-gray-50 rounded-lg p-4 border border-gray-200">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center">
+                                <div class="status-indicator status-healthy"></div>
+                                <span class="font-medium text-gray-900">Brave Search</span>
+                            </div>
+                            <span class="px-2 py-1 rounded text-xs font-medium bg-green-100 text-green-800">
+                                HEALTHY
+                            </span>
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            <div>Response: 150ms</div>
+                            <div>Success Rate: 95.0%</div>
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center text-gray-500 text-sm">
+            <p>API Health Monitor | Generated: 2026-02-15 15:00 UTC</p>
+        </div>
+    </main>
+</body>
+</html>

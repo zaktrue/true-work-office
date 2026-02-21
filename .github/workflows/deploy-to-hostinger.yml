@@ -20,7 +20,6 @@ jobs:
           rm /tmp/hugo.deb
 
       - name: Build site
-        working-directory: true-work-office
         run: hugo --minify
 
       - name: Deploy to Hostinger
@@ -30,9 +29,9 @@ jobs:
           username: ${{ secrets.HOSTINGER_SSH_USER }}
           key: ${{ secrets.HOSTINGER_SSH_KEY }}
           port: ${{ secrets.HOSTINGER_PORT || '65002' }}
-          source: "true-work-office/public/*"
+          source: "public/*"
           target: "/home/u389484855/domains/trueworkoffice.com/public_html/"
-          strip_components: 2
+          strip_components: 1
           rm: true
           debug: true
 

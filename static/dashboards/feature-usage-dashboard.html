@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature Usage Analytics</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #eee; min-height: 100vh; padding: 2rem; }
+        .header { text-align: center; margin-bottom: 2rem; }
+        .header h1 { font-size: 2.5rem; background: linear-gradient(90deg, #00d4ff, #7b2cbf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .header p { color: #888; margin-top: 0.5rem; }
+        .last-updated { background: rgba(16, 185, 129, 0.2); color: #10b981; padding: 8px 16px; border-radius: 6px; display: inline-block; margin-top: 10px; font-weight: 600; font-size: 0.85rem; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .summary { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .sum-card { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 1.5rem; min-width: 140px; text-align: center; border: 1px solid rgba(255,255,255,0.1); }
+        .sum-val { font-size: 2.5rem; font-weight: 700; color: #00d4ff; }
+        .sum-label { color: #888; font-size: 0.9rem; margin-top: 0.5rem; }
+        .status-breakdown { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .status-pill { background: rgba(255,255,255,0.05); padding: 0.75rem 1.5rem; border-radius: 20px; display: flex; align-items: center; gap: 0.5rem; }
+        .status-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .status-dot.active { background: #00d26a; }
+        .status-dot.warning { background: #fbbf24; }
+        .status-dot.error { background: #f87171; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.5rem; max-width: 1400px; margin: 0 auto; }
+        .card { background: rgba(255,255,255,0.05); border-radius: 16px; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1); }
+        .card h2 { font-size: 1.3rem; margin-bottom: 1rem; color: #fff; }
+        .feature-card { background: rgba(0,0,0,0.2); border-radius: 10px; padding: 1rem; margin-bottom: 0.75rem; border-left: 3px solid; }
+        .feature-card.status-active { border-left-color: #00d26a; }
+        .feature-card.status-warning { border-left-color: #fbbf24; }
+        .feature-card.status-error { border-left-color: #f87171; }
+        .feature-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+        .feature-id { background: rgba(255,255,255,0.1); padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; color: #888; }
+        .feature-status { font-size: 0.7rem; font-weight: 600; }
+        .feature-name { font-weight: 600; margin-bottom: 0.5rem; }
+        .feature-meta { display: flex; gap: 1rem; font-size: 0.8rem; color: #888; margin-bottom: 0.75rem; }
+        .alert { background: rgba(248,113,113,0.1); border: 1px solid rgba(248,113,113,0.3); border-radius: 8px; padding: 1rem; margin-bottom: 0.75rem; }
+        .alert-title { color: #f87171; font-weight: 600; margin-bottom: 0.5rem; }
+        .recommendation { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.2); border-radius: 8px; padding: 0.75rem; margin-bottom: 0.5rem; }
+        .recommendation-title { color: #00d4ff; font-size: 0.85rem; font-weight: 600; }
+        .recommendation-text { font-size: 0.8rem; color: #aaa; margin-top: 0.25rem; }
+        .footer { text-align: center; margin-top: 3rem; color: #666; }
+        .stub-note { background: rgba(107,114,128,0.1); border: 1px solid rgba(107,114,128,0.3); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; color: #9ca3af; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Feature Usage Analytics</h1>
+        <p>Real implementations only - stubs excluded from analysis</p>
+        <div class="last-updated">Last Updated: 2026-02-15 07:05 UTC</div>
+    </div>
+
+    <div class="stub-note">
+        <strong>Note:</strong> 6 stub implementations excluded from this report. 
+        Only 76 real implementations are tracked here.
+    </div>
+
+    <div class="summary">
+        <div class="sum-card">
+            <div class="sum-val">76</div>
+            <div class="sum-label">Implemented</div>
+        </div>
+        <div class="sum-card">
+            <div class="sum-val">39</div>
+            <div class="sum-label">With Cron Jobs</div>
+        </div>
+        <div class="sum-card">
+            <div class="sum-val" style="color: #00d26a">13</div>
+            <div class="sum-label">Active (24h)</div>
+        </div>
+        <div class="sum-card">
+            <div class="sum-val" style="color: #f87171">26</div>
+            <div class="sum-label">Unused</div>
+        </div>
+    </div>
+
+    <div class="grid">
+        <!-- Alerts & Cron Issues -->
+        <div class="card">
+            <h2>⚠️ Cron Job Issues</h2>
+            <p style="color: #888;">No cron job issues detected</p>
+            <div class="recommendation">
+                <div class="recommendation-title">Cron Jobs Status</div>
+                <div class="recommendation-text">All features with cron jobs are executing normally. Logs available in /var/log/openclaw/ and workspace/logs/</div>
+            </div>
+        </div>
+
+        <!-- Active Features -->
+        <div class="card">
+            <h2>✅ Active Features</h2>
+            <div class="feature-card status-active">
+                <div class="feature-header">
+                    <span class="feature-id">#5</span>
+                    <span class="feature-status" style="color: #00d26a">ACTIVE</span>
+                </div>
+                <div class="feature-name">Feature #5 Deployment Notification</div>
+                <div class="feature-meta">
+                    <span>31 uses</span>
+                    <span>Last: 2026-02-15</span>
+                    <span style="color: #00d4ff">[CRON]</span>
+                </div>
+            </div>
+            <div class="feature-card status-active">
+                <div class="feature-header">
+                    <span class="feature-id">#8</span>
+                    <span class="feature-status" style="color: #00d26a">ACTIVE</span>
+                </div>
+                <div class="feature-name">Performance Trend Analytics v1.0.0</div>
+                <div class="feature-meta">
+                    <span>165 uses</span>
+                    <span>Last: 2026-02-15</span>
+                    <span style="color: #00d4ff">[CRON]</span>
+                </div>
+            </div>
+            <div class="feature-card status-active">
+                <div class="feature-header">
+                    <span class="feature-id">#9</span>
+                    <span class="feature-status" style="color: #00d26a">ACTIVE</span>
+                </div>
+                <div class="feature-name">Auto-Documentation Generator (Feature #9)</div>
+                <div class="feature-meta">
+                    <span>17 uses</span>
+                    <span>Last: 2026-02-15</span>
+                    <span style="color: #00d4ff">[CRON]</span>
+                </div>
+            </div>
+            <div class="feature-card status-active">
+                <div class="feature-header">
+                    <span class="feature-id">#53</span>
+                    <span class="feature-status" style="color: #00d26a">ACTIVE</span>
+                </div>
+                <div class="feature-name">Feature #53: Multi-Factor Authentication Module</div>
+                <div class="feature-meta">
+                    <span>1 uses</span>
+                    <span>Last: 2026-02-14</span>
+                    
+                </div>
+            </div>
+            <div class="feature-card status-active">
+                <div class="feature-header">
+                    <span class="feature-id">#57</span>
+                    <span class="feature-status" style="color: #00d26a">ACTIVE</span>
+                </div>
+                <div class="feature-name">Feature #57: API Rate Limiting</div>
+                <div class="feature-meta">
+                    <span>1 uses</span>
+                    <span>Last: 2026-02-14</span>
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- Unused But Implemented -->
+        <div class="card">
+            <h2>❌ Implemented But Never Used</h2>
+            <div class="feature-card status-warning">
+                <div class="feature-header">
+                    <span class="feature-id">#59</span>
+                    <span class="feature-status" style="color: #fbbf24">NO CRON</span>
+                </div>
+                <div class="feature-name">Feature #59: Distributed Tracing</div>
+                <div class="feature-meta">
+                    <span>Needs cron job setup</span>
+                </div>
+            </div>
+            <div class="feature-card status-warning">
+                <div class="feature-header">
+                    <span class="feature-id">#60</span>
+                    <span class="feature-status" style="color: #fbbf24">NO CRON</span>
+                </div>
+                <div class="feature-name">Feature #60: Real-time Metrics Stream</div>
+                <div class="feature-meta">
+                    <span>Needs cron job setup</span>
+                </div>
+            </div>
+            <div class="feature-card status-warning">
+                <div class="feature-header">
+                    <span class="feature-id">#61</span>
+                    <span class="feature-status" style="color: #fbbf24">NO CRON</span>
+                </div>
+                <div class="feature-name">Feature #61: Custom Alert Rules Engine</div>
+                <div class="feature-meta">
+                    <span>Needs cron job setup</span>
+                </div>
+            </div>
+            <div class="feature-card status-warning">
+                <div class="feature-header">
+                    <span class="feature-id">#62</span>
+                    <span class="feature-status" style="color: #fbbf24">NO CRON</span>
+                </div>
+                <div class="feature-name">Feature #62: SLO Tracking Dashboard</div>
+                <div class="feature-meta">
+                    <span>Needs cron job setup</span>
+                </div>
+            </div>
+            <div class="feature-card status-warning">
+                <div class="feature-header">
+                    <span class="feature-id">#64</span>
+                    <span class="feature-status" style="color: #fbbf24">NO CRON</span>
+                </div>
+                <div class="feature-name">Feature #64: User Experience Monitoring</div>
+                <div class="feature-meta">
+                    <span>Needs cron job setup</span>
+                </div>
+            </div>
+            <div class="feature-card status-warning">
+                <div class="feature-header">
+                    <span class="feature-id">#66</span>
+                    <span class="feature-status" style="color: #fbbf24">NO CRON</span>
+                </div>
+                <div class="feature-name">Feature #66: Auto-Scaling Controller</div>
+                <div class="feature-meta">
+                    <span>Needs cron job setup</span>
+                </div>
+            </div>
+            <div class="feature-card status-warning">
+                <div class="feature-header">
+                    <span class="feature-id">#68</span>
+                    <span class="feature-status" style="color: #fbbf24">NO CRON</span>
+                </div>
+                <div class="feature-name">Feature #68: Test Automation Framework</div>
+                <div class="feature-meta">
+                    <span>Needs cron job setup</span>
+                </div>
+            </div>
+            <div class="feature-card status-warning">
+                <div class="feature-header">
+                    <span class="feature-id">#69</span>
+                    <span class="feature-status" style="color: #fbbf24">NO CRON</span>
+                </div>
+                <div class="feature-name">Feature #69: Configuration Generator</div>
+                <div class="feature-meta">
+                    <span>Needs cron job setup</span>
+                </div>
+            </div>
+            <p style="color: #888; text-align: center; margin-top: 1rem;">... and 18 more</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Feature Usage Analytics | Generated: 2026-02-15 07:05 UTC</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+            Showing 76 real implementations | 6 stubs excluded
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{{ define "main" }}
+<main>
+    <h1>{{ .Title }}</h1>
+    {{ if .Description }}<p class="meta">{{ .Description }}</p>{{ end }}
+    {{ if .Date }}<p class="last-updated">Last updated: {{ .Date.Format "2 January 2006, 15:04 UTC" }}</p>{{ end }}
+    
+    {{ .Content }}
+    
+    {{ if .Sections }}
+    <div class="sections">
+        {{ range .Sections }}
+        <section style="margin: 30px 0; padding: 20px; background: #f9f9f9; border-radius: 5px;">
+            <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+            {{ if .Description }}<p>{{ .Description }}</p>{{ end }}
+            
+            <ul>
+            {{ range .Pages }}
+                <li>
+                    <strong><a href="{{ .RelPermalink }}">{{ .Title }}</a></strong>
+                    <span style="color: #666;">— {{ .Date.Format "2 Jan 2006" }}</span>
+                    {{ if .Params.description }}<br><small>{{ .Params.description }}</small>{{ end }}
+                </li>
+            {{ end }}
+            </ul>
+        </section>
+        {{ end }}
+    </div>
+    {{ end }}
+    
+    {{ if .Pages }}
+    <ul style="list-style: none; padding: 0;">
+    {{ range .Pages }}
+        <li style="margin: 15px 0; padding: 15px; background: #f9f9f9; border-radius: 5px;">
+            <strong><a href="{{ .RelPermalink }}">{{ .Title }}</a></strong>
+            <span style="color: #666;">— {{ .Date.Format "2 Jan 2006" }}</span>
+            {{ if .Params.description }}<br><small>{{ .Params.description }}</small>{{ end }}
+        </li>
+    {{ end }}
+    </ul>
+    {{ end }}
+</main>
+{{ end }}

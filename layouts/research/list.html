@@ -1,0 +1,20 @@
+{{ define "main" }}
+<main>
+    <h1>Research Archive</h1>
+    
+    <p class="meta">Deep research reports and findings on academic integrity</p>
+    
+    <ul style="list-style: none; padding: 0;">
+    {{ range .Pages }}
+        <li style="margin: 20px 0; padding: 20px; background: #f9f9f9; border-radius: 8px; border-left: 4px solid #2d389a;">
+            <strong style="font-size: 1.2em;"><a href="{{ .RelPermalink }}" style="text-decoration: none;">{{ .Title }}</a></strong>
+            <div style="color: #666; margin: 8px 0;">
+                {{ .Date.Format "2 January 2006" }}
+                {{ if .Params.description }}| {{ .Params.description }}{{ end }}
+            </div>
+            {{ if .Summary }}<p style="margin-top: 10px;">{{ .Summary }}</p>{{ end }}
+        </li>
+    {{ end }}
+    </ul>
+</main>
+{{ end }}

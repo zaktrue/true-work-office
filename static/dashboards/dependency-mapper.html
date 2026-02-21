@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Dependency Mapper | OpenClaw</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        #dependency-graph { width: 100%; height: 600px; border: 1px solid #e5e7eb; border-radius: 8px; }
+        .feature-card { transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
+        .risk-high { border-left: 4px solid #ef4444; }
+        .risk-medium { border-left: 4px solid #f59e0b; }
+        .risk-low { border-left: 4px solid #10b981; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg">
+        <div class="container mx-auto px-6 py-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-3xl font-bold"><i class="fas fa-project-diagram mr-3"></i>System Dependency Mapper</h1>
+                    <p class="text-indigo-100 mt-1">Feature #19 | Visual map of all system dependencies and impact analysis</p>
+                </div>
+                <div class="text-right">
+                    <div class="text-2xl font-bold">18</div>
+                    <div class="text-sm text-indigo-200">Features Mapped</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-blue-100 text-blue-600">
+                        <i class="fas fa-cubes text-xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <div class="text-sm text-gray-500">Total Features</div>
+                        <div class="text-2xl font-bold">18</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-green-100 text-green-600">
+                        <i class="fas fa-file-code text-xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <div class="text-sm text-gray-500">Total Files</div>
+                        <div class="text-2xl font-bold">444</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-purple-100 text-purple-600">
+                        <i class="fas fa-link text-xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <div class="text-sm text-gray-500">Dependencies</div>
+                        <div class="text-2xl font-bold">16</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-red-100 text-red-600">
+                        <i class="fas fa-exclamation-triangle text-xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <div class="text-sm text-gray-500">High Risk</div>
+                        <div class="text-2xl font-bold">1</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Graph Visualization -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h2 class="text-xl font-bold mb-4"><i class="fas fa-sitemap mr-2"></i>Dependency Graph</h2>
+            <div id="dependency-graph"></div>
+            <div class="mt-4 flex gap-4 text-sm text-gray-600">
+                <span><i class="fas fa-circle text-blue-500 mr-1"></i> Monitoring</span>
+                <span><i class="fas fa-circle text-green-500 mr-1"></i> Learning</span>
+                <span><i class="fas fa-circle text-purple-500 mr-1"></i> Workflow</span>
+                <span><i class="fas fa-circle text-orange-500 mr-1"></i> Analytics</span>
+                <span><i class="fas fa-circle text-red-500 mr-1"></i> Infrastructure</span>
+            </div>
+        </div>
+
+        <!-- Impact Analysis -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h2 class="text-xl font-bold mb-4"><i class="fas fa-chart-line mr-2"></i>Impact Analysis</h2>
+            <p class="text-gray-600 mb-4">Features sorted by impact score (higher = more dependents, more risk if modified)</p>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-3 text-sm font-medium text-gray-700">Feature</th>
+                            <th class="px-4 py-3 text-sm font-medium text-gray-700">Risk Level</th>
+                            <th class="px-4 py-3 text-sm font-medium text-gray-700">Impact Score</th>
+                            <th class="px-4 py-3 text-sm font-medium text-gray-700">Dependents</th>
+                            <th class="px-4 py-3 text-sm font-medium text-gray-700">Dependencies</th>
+                        </tr>
+                    </thead>
+                    <tbody id="impact-table">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Feature Categories -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-lg font-bold mb-3"><i class="fas fa-eye text-blue-500 mr-2"></i>Monitoring</h3>
+                <ul class="space-y-2" id="monitoring-list"></ul>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-lg font-bold mb-3"><i class="fas fa-graduation-cap text-green-500 mr-2"></i>Learning</h3>
+                <ul class="space-y-2" id="learning-list"></ul>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-lg font-bold mb-3"><i class="fas fa-cogs text-purple-500 mr-2"></i>Workflow</h3>
+                <ul class="space-y-2" id="workflow-list"></ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-6 mt-12">
+        <div class="container mx-auto px-6 text-center">
+            <p>Generated by System Dependency Mapper | Feature #19 | OpenClaw</p>
+            <p class="text-sm mt-1">{graph["metadata"]["generated_at"]}</p>
+        </div>
+    </footer>
+
+    <script>
+        const nodes = [{"id": "agent_health_dashboard", "name": "Subagent Health Dashboard", "category": "monitoring", "file_count": 3, "files": ["scripts/health_check.py", "scripts/feature_90_health_check_orchestrator.py", "scripts/agent_health_dashboard.py"]}, {"id": "predictive_feedback", "name": "Predictive Feedback Learning Loop", "category": "learning", "file_count": 2, "files": ["scripts/predictive_learning.py", "scripts/predictive_automation.py"]}, {"id": "cross_agent_workflows", "name": "Cross-Agent Workflows", "category": "workflow", "file_count": 14, "files": ["tests/test_f3_cross_agent.py", "scripts/cross_agent_coordination.py", "scripts/cross_agent_workflows.py", "scripts/test_cross_agent_learning.py", "scripts/cross_agent_learning_integration.py", "scripts/cross_agent_learning.py", "scripts/ava_with_coordination.py", "scripts/riley_with_coordination.py", "scripts/remy_with_coordination.py", "scripts/cross_agent_learning_integration_v1_backup.py"]}, {"id": "workflow_cron", "name": "Workflow Cron Integration", "category": "automation", "file_count": 3, "files": ["tests/test_f4_cron_workflows.py", "scripts/test_adaptive_scheduler.py", "scripts/adaptive_scheduler.py"]}, {"id": "rss_monitor", "name": "RSS Feed Monitor", "category": "monitoring", "file_count": 2, "files": ["tests/test_f5_rss_monitor.py", "scripts/rss_feed_monitor.py"]}, {"id": "knowledge_protocol", "name": "Agent Knowledge Sharing Protocol", "category": "integration", "file_count": 3, "files": ["tests/test_f6_knowledge_protocol.py", "scripts/agent_knowledge_integration.py", "scripts/agent_knowledge_protocol.py"]}, {"id": "calendar_integration", "name": "Google Calendar API Integration", "category": "integration", "file_count": 2, "files": ["scripts/setup_google_calendar.py", "scripts/google_calendar_integration.py"]}, {"id": "performance_analytics", "name": "Performance Trend Analytics", "category": "analytics", "file_count": 3, "files": ["tests/test_performance_analytics.py", "tests/test_f8_performance_analytics.py", "scripts/performance_analytics.py"]}, {"id": "auto_documentation", "name": "Auto-Documentation Generator", "category": "automation", "file_count": 8, "files": ["tests/test_f9_doc_generator.py", "tests/test_doc_generator.py", "scripts/feature_94_documentation_sync_tool.py", "scripts/feature_82_documentation_generator.py", "scripts/feature_50_automated_documentation_generator.py", "scripts/doc_generator.py", "scripts/documentation_sync_tool.py", "scripts/feature_41_api_documentation_generator.py"]}, {"id": "backup_recovery", "name": "Backup & Recovery System", "category": "infrastructure", "file_count": 3, "files": ["tests/test_f10_backup_recovery.py", "scripts/feature_73_backup_verification.py", "backups/scripts/send_feature10_email.py"]}, {"id": "skill_learning", "name": "Agent Skill Learning System", "category": "learning", "file_count": 7, "files": ["tests/test_f11_skill_learning.py", "skill-learning/scripts/share_patterns.py", "skill-learning/scripts/extract_patterns.py", "skill-learning/scripts/learning_analytics.py", "skill-learning/scripts/orchestrator.py", "skill-learning/scripts/send_feature11_email.py", "skill-learning/scripts/skill_library.py"]}, {"id": "cost_optimization", "name": "Cost Optimization Dashboard", "category": "analytics", "file_count": 6, "files": ["monitoring/token_monitor.py", "tests/test_f12_cost_optimization.py", "scripts/cost_optimization_dashboard.py", "scripts/generate_service_cost_dashboard.py", "scripts/cost_optimization_email.py", "scripts/token_monitor.py"]}, {"id": "task_prioritization", "name": "Agent Task Prioritization System", "category": "workflow", "file_count": 4, "files": ["tests/test_f13_task_prioritization.py", "scripts/priority_dashboard.py", "scripts/generate_priority_dashboard.py", "scripts/task_prioritization.py"]}, {"id": "smart_alert_correlation", "name": "Smart Alert Correlation", "category": "monitoring", "file_count": 4, "files": ["tests/test_f14_alert_correlation.py", "scripts/smart_alert_correlator.py", "scripts/alert_correlation_heartbeat.py", "scripts/alert_correlation_dashboard.py"]}, {"id": "content_quality", "name": "Content Quality Scoring", "category": "analytics", "file_count": 6, "files": ["tests/test_f15_content_quality.py", "scripts/generate_content_quality_dashboard.py", "scripts/content_quality_heartbeat_fixed.py", "scripts/validate_content_quality_dashboard.py", "scripts/content_quality_heartbeat.py", "scripts/content_quality_scorer.py"]}, {"id": "automated_testing", "name": "Automated Testing Suite", "category": "infrastructure", "file_count": 12, "files": ["tests/test_feature23.py", "tests/test_feature19_dependency_mapper.py", "tests/test_feature35_capability_marketplace.py", "tests/automated_testing_suite.py", "tests/test_feature21.py", "tests/test_feature22.py", "tests/test_feature34_retirement.py", "tests/test_feature44_dashboard.py", "tests/test_feature37.py", "scripts/feature_99_test_feature.py"]}, {"id": "content_distribution", "name": "Multi-Channel Content Distribution", "category": "integration", "file_count": 4, "files": ["tests/test_content_distribution.py", "scripts/content_distribution_config.py", "scripts/content_distribution.py", "scripts/content_distribution_dashboard.py"]}, {"id": "weekly_report", "name": "Weekly Report Generator", "category": "automation", "file_count": 4, "files": ["scripts/weekly_report.py", "weekly-report/scripts/generator.py", "weekly-report/scripts/send_report.py", "weekly-report/scripts/send_via_agentmail.py"]}];
+        const edges = [{"source": "smart_alert_correlation", "target": "automated_testing", "type": "depends_on"}, {"source": "content_quality", "target": "automated_testing", "type": "depends_on"}, {"source": "cost_optimization", "target": "automated_testing", "type": "depends_on"}, {"source": "rss_monitor", "target": "automated_testing", "type": "depends_on"}, {"source": "cross_agent_workflows", "target": "automated_testing", "type": "depends_on"}, {"source": "cross_agent_workflows", "target": "calendar_integration", "type": "depends_on"}, {"source": "workflow_cron", "target": "automated_testing", "type": "depends_on"}, {"source": "auto_documentation", "target": "weekly_report", "type": "depends_on"}, {"source": "auto_documentation", "target": "automated_testing", "type": "depends_on"}, {"source": "skill_learning", "target": "automated_testing", "type": "depends_on"}, {"source": "performance_analytics", "target": "automated_testing", "type": "depends_on"}, {"source": "task_prioritization", "target": "automated_testing", "type": "depends_on"}, {"source": "knowledge_protocol", "target": "automated_testing", "type": "depends_on"}, {"source": "backup_recovery", "target": "automated_testing", "type": "depends_on"}, {"source": "automated_testing", "target": "smart_alert_correlation", "type": "depends_on"}, {"source": "automated_testing", "target": "content_quality", "type": "depends_on"}];
+        const impact = {"agent_health_dashboard": {"name": "Subagent Health Dashboard", "dependents": [], "dependency_count": 0, "dependent_count": 0, "impact_score": 0, "risk_level": "low"}, "predictive_feedback": {"name": "Predictive Feedback Learning Loop", "dependents": [], "dependency_count": 0, "dependent_count": 0, "impact_score": 0, "risk_level": "low"}, "cross_agent_workflows": {"name": "Cross-Agent Workflows", "dependents": [], "dependency_count": 2, "dependent_count": 0, "impact_score": 10, "risk_level": "low"}, "workflow_cron": {"name": "Workflow Cron Integration", "dependents": [], "dependency_count": 1, "dependent_count": 0, "impact_score": 5, "risk_level": "low"}, "rss_monitor": {"name": "RSS Feed Monitor", "dependents": [], "dependency_count": 1, "dependent_count": 0, "impact_score": 5, "risk_level": "low"}, "knowledge_protocol": {"name": "Agent Knowledge Sharing Protocol", "dependents": [], "dependency_count": 1, "dependent_count": 0, "impact_score": 5, "risk_level": "low"}, "calendar_integration": {"name": "Google Calendar API Integration", "dependents": ["cross_agent_workflows"], "dependency_count": 0, "dependent_count": 1, "impact_score": 10, "risk_level": "medium"}, "performance_analytics": {"name": "Performance Trend Analytics", "dependents": [], "dependency_count": 1, "dependent_count": 0, "impact_score": 5, "risk_level": "low"}, "auto_documentation": {"name": "Auto-Documentation Generator", "dependents": [], "dependency_count": 2, "dependent_count": 0, "impact_score": 10, "risk_level": "low"}, "backup_recovery": {"name": "Backup & Recovery System", "dependents": [], "dependency_count": 1, "dependent_count": 0, "impact_score": 5, "risk_level": "low"}, "skill_learning": {"name": "Agent Skill Learning System", "dependents": [], "dependency_count": 1, "dependent_count": 0, "impact_score": 5, "risk_level": "low"}, "cost_optimization": {"name": "Cost Optimization Dashboard", "dependents": [], "dependency_count": 1, "dependent_count": 0, "impact_score": 5, "risk_level": "low"}, "task_prioritization": {"name": "Agent Task Prioritization System", "dependents": [], "dependency_count": 1, "dependent_count": 0, "impact_score": 5, "risk_level": "low"}, "smart_alert_correlation": {"name": "Smart Alert Correlation", "dependents": ["automated_testing"], "dependency_count": 1, "dependent_count": 1, "impact_score": 15, "risk_level": "medium"}, "content_quality": {"name": "Content Quality Scoring", "dependents": ["automated_testing"], "dependency_count": 1, "dependent_count": 1, "impact_score": 15, "risk_level": "medium"}, "automated_testing": {"name": "Automated Testing Suite", "dependents": ["smart_alert_correlation", "content_quality", "cost_optimization", "rss_monitor", "cross_agent_workflows", "workflow_cron", "auto_documentation", "skill_learning", "performance_analytics", "task_prioritization", "knowledge_protocol", "backup_recovery"], "dependency_count": 2, "dependent_count": 12, "impact_score": 130, "risk_level": "high"}, "content_distribution": {"name": "Multi-Channel Content Distribution", "dependents": [], "dependency_count": 0, "dependent_count": 0, "impact_score": 0, "risk_level": "low"}, "weekly_report": {"name": "Weekly Report Generator", "dependents": ["auto_documentation"], "dependency_count": 0, "dependent_count": 1, "impact_score": 10, "risk_level": "medium"}};
+
+        // Color scheme by category
+        const categoryColors = {
+            monitoring: '#3b82f6',
+            learning: '#10b981',
+            workflow: '#8b5cf6',
+            automation: '#f59e0b',
+            integration: '#ec4899',
+            analytics: '#06b6d4',
+            infrastructure: '#ef4444'
+        };
+
+        // Initialize Vis.js network
+        const container = document.getElementById('dependency-graph');
+        const data = {
+            nodes: new vis.DataSet(nodes.map(n => ({
+                id: n.id,
+                label: n.name.length > 25 ? n.name.substring(0, 25) + '...' : n.name,
+                color: categoryColors[n.category] || '#6b7280',
+                title: `${n.name}\nFiles: ${n.file_count}`,
+                shape: 'box',
+                font: { color: 'white' }
+            }))),
+            edges: new vis.DataSet(edges.map(e => ({
+                from: e.source,
+                to: e.target,
+                arrows: 'to',
+                color: { color: '#9ca3af' }
+            })))
+        };
+
+        const options = {
+            layout: {
+                hierarchical: {
+                    direction: 'TB',
+                    sortMethod: 'directed',
+                    levelSeparation: 100
+                }
+            },
+            physics: {
+                enabled: false
+            },
+            interaction: {
+                hover: true,
+                tooltipDelay: 200
+            }
+        };
+
+        new vis.Network(container, data, options);
+
+        // Populate impact table
+        const sortedImpact = Object.entries(impact).sort((a, b) => b[1].impact_score - a[1].impact_score);
+        const tableBody = document.getElementById('impact-table');
+        sortedImpact.forEach(([id, data]) => {
+            const row = document.createElement('tr');
+            row.className = 'border-t hover:bg-gray-50';
+            row.innerHTML = `
+                <td class="px-4 py-3 font-medium">${data.name}</td>
+                <td class="px-4 py-3">
+                    <span class="px-2 py-1 rounded text-xs font-semibold ${
+                        data.risk_level === 'high' ? 'bg-red-100 text-red-700' :
+                        data.risk_level === 'medium' ? 'bg-yellow-100 text-yellow-700' :
+                        'bg-green-100 text-green-700'
+                    }">${data.risk_level.toUpperCase()}</span>
+                </td>
+                <td class="px-4 py-3">${data.impact_score}</td>
+                <td class="px-4 py-3">${data.dependent_count}</td>
+                <td class="px-4 py-3">${data.dependency_count}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+
+        // Populate category lists
+        nodes.forEach(node => {
+            const listId = `${node.category}-list`;
+            const list = document.getElementById(listId);
+            if (list) {
+                const li = document.createElement('li');
+                li.className = 'flex items-center text-sm';
+                li.innerHTML = `
+                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                    <span>${node.name}</span>
+                    <span class="ml-auto text-xs text-gray-500">${node.file_count} files</span>
+                `;
+                list.appendChild(li);
+            }
+        });
+    </script>
+</body>
+</html>
