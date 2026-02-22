@@ -70,6 +70,19 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
+        /* Ideas expand/collapse animation */
+        .ideas-container {
+            transition: max-height 0.3s ease-out;
+        }
+        .ideas-expanded {
+            max-height: 600px !important;
+        }
+        .idea-item {
+            transition: opacity 0.2s ease-in;
+        }
+        .idea-item.hidden-idea {
+            display: none;
+        }
     </style>
 </head>
 <body class="bg-mc-dark text-gray-100 min-h-screen">
@@ -102,8 +115,8 @@
             <div class="flex items-center justify-center gap-2 text-sm">
                 <i class="fas fa-clock text-mc-accent"></i>
                 <span class="text-gray-400">Last updated:</span>
-                <span id="last-refresh" class="font-medium text-white" data-timestamp="2026-02-22T14:20:01.761773">
-                    2026-02-22T14:20
+                <span id="last-refresh" class="font-medium text-white" data-timestamp="2026-02-22T14:25:01.497794">
+                    2026-02-22T14:25
                 </span>
                 <span id="time-ago" class="text-xs text-gray-500 ml-2"></span>
             </div>
@@ -232,17 +245,23 @@
                     </div>
                 </div>
 
-                <!-- Ideas & Improvements -->
+                <!-- Ideas & Improvements - Expandable -->
                 <div class="bg-mc-card border border-mc-border rounded-lg overflow-hidden">
                     <div class="px-4 py-3 border-b border-mc-border flex items-center justify-between">
                         <h2 class="font-semibold flex items-center gap-2">
                             <i class="fas fa-lightbulb text-yellow-400"></i>
                             Ideas & Improvements
                         </h2>
-                        <span class="text-xs text-gray-400">15 pending</span>
+                        <span class="text-xs text-gray-400" id="ideas-count">32 pending</span>
                     </div>
-                    <div id="idea-list" class="max-h-64 overflow-y-auto">
+                    <div id="idea-list" class="ideas-container max-h-64 overflow-y-auto">
                         <!-- Ideas populated by JS -->
+                    </div>
+                    <div id="ideas-expand-bar" class="px-4 py-2 border-t border-mc-border bg-gray-800/50">
+                        <button id="ideas-toggle-btn" onclick="toggleIdeasExpand()" class="w-full text-center text-xs text-mc-accent hover:text-blue-400 transition flex items-center justify-center gap-2">
+                            <i class="fas fa-chevron-down" id="ideas-toggle-icon"></i>
+                            <span id="ideas-toggle-text">Expand to see all</span>
+                        </button>
                     </div>
                 </div>
 
@@ -269,7 +288,11 @@
 
     <script>
         // Dashboard data from server
-        const dashboardData = {"agents": [{"name": "Ava", "role": "Analytics Lead & Systems Monitor", "status": "idle", "current_task": "\u23f3 Ready for new assignments", "last_heartbeat": "2026-02-22T14:20:01.687616", "heartbeat_freshness": "fresh", "tasks_today": 0, "success_rate_percent": 100}, {"name": "Echo", "role": "Social Media Manager", "status": "offline", "current_task": null, "last_heartbeat": "2026-02-22T14:20:01.694815", "heartbeat_freshness": "fresh", "tasks_today": 0, "success_rate_percent": 100}, {"name": "Kai", "role": "Creative Lead & Visual Designer", "status": "idle", "current_task": null, "last_heartbeat": "2026-02-22T14:20:01.682157", "heartbeat_freshness": "fresh", "tasks_today": 0, "success_rate_percent": 100}, {"name": "Quinn", "role": "Content Strategist & Writer", "status": "idle", "current_task": null, "last_heartbeat": "2026-02-22T14:20:01.678513", "heartbeat_freshness": "fresh", "tasks_today": 0, "success_rate_percent": 100}, {"name": "Remy", "role": "Quality Assurance Lead", "status": "idle", "current_task": null, "last_heartbeat": "2026-02-22T14:20:01.692196", "heartbeat_freshness": "fresh", "tasks_today": 0, "success_rate_percent": 100}, {"name": "Riley", "role": "Trend Analyst & Research Lead", "status": "idle", "current_task": null, "last_heartbeat": "2026-02-22T14:20:01.675630", "heartbeat_freshness": "fresh", "tasks_today": 0, "success_rate_percent": 100}, {"name": "Zak", "role": "Chief of Staff / Mission Control Lead", "status": "offline", "current_task": null, "last_heartbeat": "2026-02-22T14:20:01.671524", "heartbeat_freshness": "fresh", "tasks_today": 0, "success_rate_percent": 100}], "active_projects": [], "pending_tasks": [], "active_alerts": [], "upcoming_emails": [{"email_type": "cost_report", "recipient": "owner@redacted.invalid", "next_scheduled": "2026-02-22T17:00:00", "last_sent": "2026-02-21T17:00:05", "last_status": "sent", "is_critical": 1}, {"email_type": "daily_digest", "recipient": "owner@redacted.invalid", "next_scheduled": "2026-02-22T18:00:00", "last_sent": "2026-02-21T18:00:09", "last_status": "sent", "is_critical": 1}, {"email_type": "morning_briefing", "recipient": "owner@redacted.invalid", "next_scheduled": "2026-02-23T07:00:00", "last_sent": "2026-02-21T07:00:15", "last_status": "sent", "is_critical": 1}, {"email_type": "academic_integrity_briefing", "recipient": "owner@redacted.invalid", "next_scheduled": "2026-02-23T08:00:00", "last_sent": "2026-02-21T08:00:53", "last_status": "sent", "is_critical": 1}], "ideas": [{"id": 38, "title": "Customer support ticket routing", "description": "Read incoming support tickets, classify urgency, route to right person, draft initial response.", "category": "community", "priority": "high", "status": "proposed", "suggested_by": "OpenClaw Community (GitHub Discussions)", "estimated_effort": "hours", "potential_impact": "Sourced from GitHub Discussions community discussion", "created_at": "2026-02-22T12:00:02.086378"}, {"id": 35, "title": "Smart reply suggestions for emails", "description": "Analyze incoming email, suggest 3 reply options (positive, neutral, decline). One-click send.", "category": "community", "priority": "high", "status": "proposed", "suggested_by": "OpenClaw Community (Discord)", "estimated_effort": "hours", "potential_impact": "Sourced from Discord community discussion", "created_at": "2026-02-22T06:00:01.720654"}, {"id": 29, "title": "Remote Browser Worker Architecture", "description": "Run Playwright in separate container/VM, agent calls via HTTP. Keep OpenClaw sandboxed but move risky browser parts out. Better security isolation.", "category": "improvement", "priority": "high", "status": "proposed", "suggested_by": "OpenClaw Community (r/Clawdbot)", "estimated_effort": "days", "potential_impact": "Security isolation; easier to scale browser workers", "created_at": "2026-02-22T01:53:22.802124"}, {"id": 26, "title": "AI Automation Services for SMB", "description": "Set up AI chatbots for Shopify stores, automated customer emails, Notion dashboards. Use ChatGPT, Zapier, Make. Charge setup + monthly maintenance. High demand from small businesses.", "category": "business", "priority": "high", "status": "proposed", "suggested_by": "OpenClaw Community (r/Clawdbot)", "estimated_effort": "weeks", "potential_impact": "Recurring revenue; leverages your OpenClaw expertise", "created_at": "2026-02-22T01:53:22.794568"}, {"id": 25, "title": "SEO Report Automation System", "description": "Agent performs deep-dives into SEO, performance, security. Generates automated reports for marketing agencies. Proven model: $10k/mo in community case study.", "category": "automation", "priority": "high", "status": "proposed", "suggested_by": "OpenClaw Community (r/Clawdbot)", "estimated_effort": "weeks", "potential_impact": "High-value service offering; scalable B2B model", "created_at": "2026-02-22T01:53:22.791701"}, {"id": 24, "title": "Conference Note-Taking Agent", "description": "Agent takes notes during conferences while fact-checking quotes in real-time, looks up referenced studies, organizes everything automatically. Perfect for academic conferences.", "category": "automation", "priority": "high", "status": "proposed", "suggested_by": "OpenClaw Community (r/Clawdbot)", "estimated_effort": "days", "potential_impact": "Automatically builds citation library from talks attended", "created_at": "2026-02-22T01:53:22.787272"}, {"id": 23, "title": "Event-Driven Webhook System", "description": "Instead of polling, use webhooks for event-driven automation. Email arrives \u2192 webhook triggers agent \u2192 processes immediately. Example: PR reviews via webhooks (code submits as PR, human reviews via comments).", "category": "automation", "priority": "high", "status": "proposed", "suggested_by": "OpenClaw Community (r/Clawdbot)", "estimated_effort": "days", "potential_impact": "Reduces latency from minutes to seconds; more efficient than cron", "created_at": "2026-02-22T01:53:22.784169"}, {"id": 22, "title": "Browser automation for form filling", "description": "Community request: Use Playwright to auto-fill repetitive web forms. Common use case: expense reports, timesheets, registrations.", "category": "community", "priority": "high", "status": "proposed", "suggested_by": "OpenClaw Community (Reddit r/Clawdbot)", "estimated_effort": "hours", "potential_impact": "Sourced from Reddit r/Clawdbot community discussion", "created_at": "2026-02-22T01:19:59.173836"}, {"id": 21, "title": "Deadline early warning system", "description": "Monitor all your deadlines (projects, submissions, renewals). Alert 1 week, 3 days, 1 day before.", "category": "community", "priority": "high", "status": "proposed", "suggested_by": "OpenClaw Community (Discord)", "estimated_effort": "hours", "potential_impact": "Sourced from Discord community discussion", "created_at": "2026-02-22T01:19:59.170322"}, {"id": 15, "title": "Writing Assistant for Papers/Posts", "description": "You write bullet points or rough draft. AI expands to polished paragraphs, suggests citations, checks academic tone. Like Grammarly but for academic writing.", "category": "feature", "priority": "high", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "weeks", "potential_impact": "Faster paper writing; better quality first drafts; less editing time", "created_at": "2026-02-22T01:03:26.520747"}, {"id": 14, "title": "Smart Email Triage", "description": "Analyze your inbox, sort into: Action Required, FYI, Low Priority. Draft 1-sentence response suggestions for routine emails. Bundle newsletters for weekend reading.", "category": "automation", "priority": "high", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "days", "potential_impact": "Reduce email processing time by 50 percent; never miss important messages", "created_at": "2026-02-22T01:03:26.517038"}, {"id": 11, "title": "Academic Paper Summarizer", "description": "Drop a PDF link or upload. Get back: (1) 3-key findings, (2) methodology note, (3) relevance to your research, (4) 2 follow-up questions. For when you need to scan 20 papers quickly.", "category": "feature", "priority": "high", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "days", "potential_impact": "Read 10 papers in the time it used to take to read 1; faster literature reviews", "created_at": "2026-02-22T01:03:26.499727"}, {"id": 10, "title": "Auto-Generate Social Posts from Research", "description": "When Riley finds interesting research, Quinn auto-drafts 3 tweet variations + 1 LinkedIn post. You review and approve. Echo schedules optimal posting times.", "category": "automation", "priority": "high", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "days", "potential_impact": "Consistent social presence without manual drafting; 5-10x more content output", "created_at": "2026-02-22T01:03:26.496322"}, {"id": 9, "title": "Daily GenAI/Academic Integrity Digest", "description": "Every morning at 7am, compile 5-7 most relevant articles/papers on GenAI in education, academic integrity, and tech ethics. Include 2-sentence summary of each. Deliver via email with read later links.", "category": "content", "priority": "high", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "hours", "potential_impact": "Save 30-60 min daily searching for content; always have fresh insights ready to share", "created_at": "2026-02-22T01:03:26.492073"}, {"id": 8, "title": "Add natural language task creation", "description": "Allow Thomas to create tasks by typing naturally (e.g., \"Riley, research X and send me a summary\"). Parse intent and auto-assign.", "category": "feature", "priority": "high", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "weeks", "potential_impact": "Faster task delegation, more natural interaction", "created_at": "2026-02-22T01:02:04.960788"}], "health": [{"metric_name": "agent_heartbeat_freshness", "metric_value": "0 min ago", "is_healthy": 1, "last_updated": "2026-02-22T14:20:01.713729"}, {"metric_name": "context_token_usage", "metric_value": "9,502 tokens", "is_healthy": 1, "last_updated": "2026-02-22T14:20:01.704311"}, {"metric_name": "database_size_mb", "metric_value": "0.5 MB", "is_healthy": 1, "last_updated": "2026-02-22T14:20:01.708651"}, {"metric_name": "estimated_daily_cost", "metric_value": "$0.68", "is_healthy": 1, "last_updated": "2026-02-22T14:20:01.706453"}, {"metric_name": "failed_deliveries_count", "metric_value": "0", "is_healthy": 1, "last_updated": "2026-02-22T14:20:01.702161"}, {"metric_name": "stale_dashboards_count", "metric_value": "0", "is_healthy": 1, "last_updated": "2026-02-22T14:20:01.699842"}], "stats": {"active_projects": 0, "completed_projects": 0, "pending_tasks": 0, "critical_alerts": 0, "warning_alerts": 0, "new_ideas": 32, "active_agents": 0, "last_refresh": "2026-02-22T14:20:01.761773"}, "cost": {"tokens": "9,502 tokens", "daily_cost": "$0.68"}};
+        const dashboardData = {"agents": [{"name": "Ava", "role": "Analytics Lead & Systems Monitor", "status": "idle", "current_task": "\u23f3 Ready for new assignments", "last_heartbeat": "2026-02-22T14:25:01.427055", "heartbeat_freshness": "fresh", "tasks_today": 0, "success_rate_percent": 100}, {"name": "Echo", "role": "Social Media Manager", "status": "offline", "current_task": null, "last_heartbeat": "2026-02-22T14:25:01.435268", "heartbeat_freshness": "fresh", "tasks_today": 0, "success_rate_percent": 100}, {"name": "Kai", "role": "Creative Lead & Visual Designer", "status": "idle", "current_task": null, "last_heartbeat": "2026-02-22T14:25:01.423551", "heartbeat_freshness": "fresh", "tasks_today": 0, "success_rate_percent": 100}, {"name": "Quinn", "role": "Content Strategist & Writer", "status": "idle", "current_task": null, "last_heartbeat": "2026-02-22T14:25:01.418992", "heartbeat_freshness": "fresh", "tasks_today": 0, "success_rate_percent": 100}, {"name": "Remy", "role": "Quality Assurance Lead", "status": "idle", "current_task": null, "last_heartbeat": "2026-02-22T14:25:01.432212", "heartbeat_freshness": "fresh", "tasks_today": 0, "success_rate_percent": 100}, {"name": "Riley", "role": "Trend Analyst & Research Lead", "status": "idle", "current_task": null, "last_heartbeat": "2026-02-22T14:25:01.415800", "heartbeat_freshness": "fresh", "tasks_today": 0, "success_rate_percent": 100}, {"name": "Zak", "role": "Chief of Staff / Mission Control Lead", "status": "offline", "current_task": null, "last_heartbeat": "2026-02-22T14:25:01.411699", "heartbeat_freshness": "fresh", "tasks_today": 0, "success_rate_percent": 100}], "active_projects": [], "pending_tasks": [], "active_alerts": [], "upcoming_emails": [{"email_type": "cost_report", "recipient": "owner@redacted.invalid", "next_scheduled": "2026-02-22T17:00:00", "last_sent": "2026-02-21T17:00:05", "last_status": "sent", "is_critical": 1}, {"email_type": "daily_digest", "recipient": "owner@redacted.invalid", "next_scheduled": "2026-02-22T18:00:00", "last_sent": "2026-02-21T18:00:09", "last_status": "sent", "is_critical": 1}, {"email_type": "morning_briefing", "recipient": "owner@redacted.invalid", "next_scheduled": "2026-02-23T07:00:00", "last_sent": "2026-02-21T07:00:15", "last_status": "sent", "is_critical": 1}, {"email_type": "academic_integrity_briefing", "recipient": "owner@redacted.invalid", "next_scheduled": "2026-02-23T08:00:00", "last_sent": "2026-02-21T08:00:53", "last_status": "sent", "is_critical": 1}], "ideas": [{"id": 38, "title": "Customer support ticket routing", "description": "Read incoming support tickets, classify urgency, route to right person, draft initial response.", "category": "community", "priority": "high", "status": "proposed", "suggested_by": "OpenClaw Community (GitHub Discussions)", "estimated_effort": "hours", "potential_impact": "Sourced from GitHub Discussions community discussion", "created_at": "2026-02-22T12:00:02.086378"}, {"id": 35, "title": "Smart reply suggestions for emails", "description": "Analyze incoming email, suggest 3 reply options (positive, neutral, decline). One-click send.", "category": "community", "priority": "high", "status": "proposed", "suggested_by": "OpenClaw Community (Discord)", "estimated_effort": "hours", "potential_impact": "Sourced from Discord community discussion", "created_at": "2026-02-22T06:00:01.720654"}, {"id": 29, "title": "Remote Browser Worker Architecture", "description": "Run Playwright in separate container/VM, agent calls via HTTP. Keep OpenClaw sandboxed but move risky browser parts out. Better security isolation.", "category": "improvement", "priority": "high", "status": "proposed", "suggested_by": "OpenClaw Community (r/Clawdbot)", "estimated_effort": "days", "potential_impact": "Security isolation; easier to scale browser workers", "created_at": "2026-02-22T01:53:22.802124"}, {"id": 26, "title": "AI Automation Services for SMB", "description": "Set up AI chatbots for Shopify stores, automated customer emails, Notion dashboards. Use ChatGPT, Zapier, Make. Charge setup + monthly maintenance. High demand from small businesses.", "category": "business", "priority": "high", "status": "proposed", "suggested_by": "OpenClaw Community (r/Clawdbot)", "estimated_effort": "weeks", "potential_impact": "Recurring revenue; leverages your OpenClaw expertise", "created_at": "2026-02-22T01:53:22.794568"}, {"id": 25, "title": "SEO Report Automation System", "description": "Agent performs deep-dives into SEO, performance, security. Generates automated reports for marketing agencies. Proven model: $10k/mo in community case study.", "category": "automation", "priority": "high", "status": "proposed", "suggested_by": "OpenClaw Community (r/Clawdbot)", "estimated_effort": "weeks", "potential_impact": "High-value service offering; scalable B2B model", "created_at": "2026-02-22T01:53:22.791701"}, {"id": 24, "title": "Conference Note-Taking Agent", "description": "Agent takes notes during conferences while fact-checking quotes in real-time, looks up referenced studies, organizes everything automatically. Perfect for academic conferences.", "category": "automation", "priority": "high", "status": "proposed", "suggested_by": "OpenClaw Community (r/Clawdbot)", "estimated_effort": "days", "potential_impact": "Automatically builds citation library from talks attended", "created_at": "2026-02-22T01:53:22.787272"}, {"id": 23, "title": "Event-Driven Webhook System", "description": "Instead of polling, use webhooks for event-driven automation. Email arrives \u2192 webhook triggers agent \u2192 processes immediately. Example: PR reviews via webhooks (code submits as PR, human reviews via comments).", "category": "automation", "priority": "high", "status": "proposed", "suggested_by": "OpenClaw Community (r/Clawdbot)", "estimated_effort": "days", "potential_impact": "Reduces latency from minutes to seconds; more efficient than cron", "created_at": "2026-02-22T01:53:22.784169"}, {"id": 22, "title": "Browser automation for form filling", "description": "Community request: Use Playwright to auto-fill repetitive web forms. Common use case: expense reports, timesheets, registrations.", "category": "community", "priority": "high", "status": "proposed", "suggested_by": "OpenClaw Community (Reddit r/Clawdbot)", "estimated_effort": "hours", "potential_impact": "Sourced from Reddit r/Clawdbot community discussion", "created_at": "2026-02-22T01:19:59.173836"}, {"id": 21, "title": "Deadline early warning system", "description": "Monitor all your deadlines (projects, submissions, renewals). Alert 1 week, 3 days, 1 day before.", "category": "community", "priority": "high", "status": "proposed", "suggested_by": "OpenClaw Community (Discord)", "estimated_effort": "hours", "potential_impact": "Sourced from Discord community discussion", "created_at": "2026-02-22T01:19:59.170322"}, {"id": 15, "title": "Writing Assistant for Papers/Posts", "description": "You write bullet points or rough draft. AI expands to polished paragraphs, suggests citations, checks academic tone. Like Grammarly but for academic writing.", "category": "feature", "priority": "high", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "weeks", "potential_impact": "Faster paper writing; better quality first drafts; less editing time", "created_at": "2026-02-22T01:03:26.520747"}, {"id": 14, "title": "Smart Email Triage", "description": "Analyze your inbox, sort into: Action Required, FYI, Low Priority. Draft 1-sentence response suggestions for routine emails. Bundle newsletters for weekend reading.", "category": "automation", "priority": "high", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "days", "potential_impact": "Reduce email processing time by 50 percent; never miss important messages", "created_at": "2026-02-22T01:03:26.517038"}, {"id": 11, "title": "Academic Paper Summarizer", "description": "Drop a PDF link or upload. Get back: (1) 3-key findings, (2) methodology note, (3) relevance to your research, (4) 2 follow-up questions. For when you need to scan 20 papers quickly.", "category": "feature", "priority": "high", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "days", "potential_impact": "Read 10 papers in the time it used to take to read 1; faster literature reviews", "created_at": "2026-02-22T01:03:26.499727"}, {"id": 10, "title": "Auto-Generate Social Posts from Research", "description": "When Riley finds interesting research, Quinn auto-drafts 3 tweet variations + 1 LinkedIn post. You review and approve. Echo schedules optimal posting times.", "category": "automation", "priority": "high", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "days", "potential_impact": "Consistent social presence without manual drafting; 5-10x more content output", "created_at": "2026-02-22T01:03:26.496322"}, {"id": 9, "title": "Daily GenAI/Academic Integrity Digest", "description": "Every morning at 7am, compile 5-7 most relevant articles/papers on GenAI in education, academic integrity, and tech ethics. Include 2-sentence summary of each. Deliver via email with read later links.", "category": "content", "priority": "high", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "hours", "potential_impact": "Save 30-60 min daily searching for content; always have fresh insights ready to share", "created_at": "2026-02-22T01:03:26.492073"}, {"id": 8, "title": "Add natural language task creation", "description": "Allow Thomas to create tasks by typing naturally (e.g., \"Riley, research X and send me a summary\"). Parse intent and auto-assign.", "category": "feature", "priority": "high", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "weeks", "potential_impact": "Faster task delegation, more natural interaction", "created_at": "2026-02-22T01:02:04.960788"}, {"id": 37, "title": "Code review assistant", "description": "Scan PRs for common issues, suggest improvements, check against team style guide. GitHub integration.", "category": "community", "priority": "medium", "status": "proposed", "suggested_by": "OpenClaw Community (Discord)", "estimated_effort": "hours", "potential_impact": "Sourced from Discord community discussion", "created_at": "2026-02-22T12:00:02.082723"}, {"id": 36, "title": "Document comparison tool", "description": "Upload two versions of a doc, get diff summary with semantic changes (not just text). Contract review use case.", "category": "community", "priority": "medium", "status": "proposed", "suggested_by": "OpenClaw Community (Reddit r/Clawdbot)", "estimated_effort": "hours", "potential_impact": "Sourced from Reddit r/Clawdbot community discussion", "created_at": "2026-02-22T12:00:02.074260"}, {"id": 33, "title": "Calendar conflict resolution", "description": "Auto-detect meeting conflicts, propose reschedules, send negotiation messages to attendees.", "category": "community", "priority": "medium", "status": "proposed", "suggested_by": "OpenClaw Community (Discord)", "estimated_effort": "hours", "potential_impact": "Sourced from Discord community discussion", "created_at": "2026-02-22T06:00:01.703559"}, {"id": 32, "title": "Prompt Injection Security Scanner", "description": "Scan incoming emails/prompts for injection attacks before processing. Whitelist + pattern detection. Essential for webhook-based systems.", "category": "improvement", "priority": "medium", "status": "proposed", "suggested_by": "OpenClaw Community (r/Clawdbot)", "estimated_effort": "hours", "potential_impact": "Security hardening for webhook systems", "created_at": "2026-02-22T01:53:22.808850"}, {"id": 31, "title": "Git Workflow Integration", "description": "Agent submits code as PRs. Human interacts via review comments, change requests. Normal git workflow with AI assistance.", "category": "feature", "priority": "medium", "status": "proposed", "suggested_by": "OpenClaw Community (r/Clawdbot)", "estimated_effort": "days", "potential_impact": "Familiar workflow; quality control gate", "created_at": "2026-02-22T01:53:22.806904"}, {"id": 30, "title": "Daily Jobs Self-Healing Monitor", "description": "Daily scheduled jobs sometimes fail (like music rotation). Detect failures and auto-restart or alert. Cron reliability monitoring.", "category": "automation", "priority": "medium", "status": "proposed", "suggested_by": "OpenClaw Community (r/Clawdbot)", "estimated_effort": "hours", "potential_impact": "Reliability for critical scheduled tasks", "created_at": "2026-02-22T01:53:22.804264"}, {"id": 28, "title": "iOS App Wrapper for OpenClaw", "description": "Native iOS interface instead of Telegram/WhatsApp juggling. Direct push notifications, better UX. Community member already built this successfully.", "category": "feature", "priority": "medium", "status": "proposed", "suggested_by": "OpenClaw Community (r/Clawdbot)", "estimated_effort": "weeks", "potential_impact": "Better mobile experience; removes platform dependency", "created_at": "2026-02-22T01:53:22.800106"}, {"id": 27, "title": "Multi-Agent Model Routing", "description": "Test same task across multiple models, compare results, costs, latency. Auto-select best model for task type. Use Haiku for simple, Kimi for complex.", "category": "automation", "priority": "medium", "status": "proposed", "suggested_by": "OpenClaw Community (r/Clawdbot)", "estimated_effort": "days", "potential_impact": "Cost optimization; 10x reduction on simple tasks", "created_at": "2026-02-22T01:53:22.797149"}, {"id": 20, "title": "Voice memo transcription pipeline", "description": "Record voice \u2192 Whisper transcribes \u2192 AI summarizes \u2192 action items extracted. Popular community workflow.", "category": "community", "priority": "medium", "status": "proposed", "suggested_by": "OpenClaw Community (GitHub Discussions)", "estimated_effort": "hours", "potential_impact": "Sourced from GitHub Discussions community discussion", "created_at": "2026-02-22T01:16:11.519052"}, {"id": 19, "title": "Newsletter curation with AI ranking", "description": "Subscribe to many newsletters, AI ranks by relevance to your interests, delivers top 5 weekly.", "category": "community", "priority": "medium", "status": "proposed", "suggested_by": "OpenClaw Community (Reddit r/Clawdbot)", "estimated_effort": "hours", "potential_impact": "Sourced from Reddit r/Clawdbot community discussion", "created_at": "2026-02-22T01:16:11.515768"}, {"id": 17, "title": "Content Calendar with Auto-Scheduling", "description": "Plan your social posts 2 weeks ahead. Quinn drafts, you approve, Echo schedules optimal times. View calendar: what is going out when, gaps to fill.", "category": "feature", "priority": "medium", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "days", "potential_impact": "Consistent posting rhythm; strategic content planning; no daily scrambling", "created_at": "2026-02-22T01:03:26.528313"}, {"id": 16, "title": "Trend Spike Alerts", "description": "Monitor X/Twitter for spikes in mentions of: academic integrity, AI detection, ChatGPT cheating, etc. Alert when your expertise is suddenly relevant.", "category": "automation", "priority": "medium", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "hours", "potential_impact": "Join conversations at peak relevance; ride trending topics for visibility", "created_at": "2026-02-22T01:03:26.523558"}, {"id": 13, "title": "Conference and CFP Finder", "description": "Scrape academic conference deadlines (SIGCSE, ITiCSE, ASE, etc.) and industry events. Alert 4 weeks before deadline. Include CFP summary and your fit score.", "category": "automation", "priority": "medium", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "days", "potential_impact": "Never miss a submission deadline; find perfect venues for your work", "created_at": "2026-02-22T01:03:26.508952"}, {"id": 12, "title": "Citation Tracker for Your Work", "description": "Monitor Google Scholar for new citations of your papers. Weekly email: Your work was cited by [Author] in [Paper] about [Topic]. Track your research impact automatically.", "category": "automation", "priority": "medium", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "hours", "potential_impact": "Know immediately when your research influences others; find new collaborators", "created_at": "2026-02-22T01:03:26.505010"}, {"id": 34, "title": "Expense receipt auto-processing", "description": "Photo of receipt \u2192 extract merchant, amount, date \u2192 categorize \u2192 submit to expense system.", "category": "community", "priority": "low", "status": "proposed", "suggested_by": "OpenClaw Community (Reddit r/Clawdbot)", "estimated_effort": "hours", "potential_impact": "Sourced from Reddit r/Clawdbot community discussion", "created_at": "2026-02-22T06:00:01.712932"}, {"id": 18, "title": "Research Collaborator Finder", "description": "Analyze papers in your field, identify authors working on similar topics you have not collaborated with. Suggest: You both work on X - consider connecting.", "category": "research", "priority": "low", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "weeks", "potential_impact": "Expand your research network; find perfect co-authors for future work", "created_at": "2026-02-22T01:03:26.533991"}, {"id": 6, "title": "Add keyboard shortcuts to dashboard", "description": "Enable keyboard navigation: / to search, R to refresh, 1-5 to switch tabs. Power user feature.", "category": "feature", "priority": "low", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "hours", "potential_impact": "Faster navigation for power users", "created_at": "2026-02-22T00:52:55.016007"}], "health": [{"metric_name": "agent_heartbeat_freshness", "metric_value": "0 min ago", "is_healthy": 1, "last_updated": "2026-02-22T14:25:01.455751"}, {"metric_name": "context_token_usage", "metric_value": "9,502 tokens", "is_healthy": 1, "last_updated": "2026-02-22T14:25:01.445740"}, {"metric_name": "database_size_mb", "metric_value": "0.5 MB", "is_healthy": 1, "last_updated": "2026-02-22T14:25:01.451106"}, {"metric_name": "estimated_daily_cost", "metric_value": "$0.68", "is_healthy": 1, "last_updated": "2026-02-22T14:25:01.448835"}, {"metric_name": "failed_deliveries_count", "metric_value": "0", "is_healthy": 1, "last_updated": "2026-02-22T14:25:01.443545"}, {"metric_name": "stale_dashboards_count", "metric_value": "0", "is_healthy": 1, "last_updated": "2026-02-22T14:25:01.441220"}], "stats": {"active_projects": 0, "completed_projects": 0, "pending_tasks": 0, "critical_alerts": 0, "warning_alerts": 0, "total_ideas": 32, "new_ideas": 32, "active_agents": 0, "last_refresh": "2026-02-22T14:25:01.497794"}, "cost": {"tokens": "9,502 tokens", "daily_cost": "$0.68"}};
+        
+        // Ideas expansion state
+        let ideasExpanded = false;
+        const IDEAS_COLLAPSED_COUNT = 5;
 
         // Initialize dashboard
         function initDashboard() {
@@ -282,6 +305,54 @@
             renderHealth();
             checkCriticalAlerts();
             updateLastRefreshTime();
+            updateIdeasToggleVisibility();
+        }
+        
+        // Toggle ideas expand/collapse
+        function toggleIdeasExpand() {
+            ideasExpanded = !ideasExpanded;
+            const container = document.getElementById('idea-list');
+            const icon = document.getElementById('ideas-toggle-icon');
+            const text = document.getElementById('ideas-toggle-text');
+            const hiddenIdeas = document.querySelectorAll('.idea-item.hidden-idea');
+            
+            if (ideasExpanded) {
+                // Expand
+                container.classList.add('ideas-expanded');
+                icon.className = 'fas fa-chevron-up';
+                text.textContent = 'Collapse';
+                hiddenIdeas.forEach(el => {
+                    el.classList.remove('hidden-idea');
+                    el.classList.add('fade-in');
+                });
+            } else {
+                // Collapse
+                container.classList.remove('ideas-expanded');
+                icon.className = 'fas fa-chevron-down';
+                text.textContent = `Expand to see ${hiddenIdeas.length + document.querySelectorAll('.idea-item:not(.hidden-idea)').length - IDEAS_COLLAPSED_COUNT} more`;
+                
+                // Re-hide items beyond the first 5
+                const allIdeas = document.querySelectorAll('.idea-item');
+                allIdeas.forEach((el, index) => {
+                    if (index >= IDEAS_COLLAPSED_COUNT) {
+                        el.classList.add('hidden-idea');
+                        el.classList.remove('fade-in');
+                    }
+                });
+            }
+        }
+        
+        // Update toggle button visibility based on idea count
+        function updateIdeasToggleVisibility() {
+            const activeIdeas = dashboardData.ideas.filter(i => i.status === 'proposed' || i.status === 'under_review');
+            const expandBar = document.getElementById('ideas-expand-bar');
+            
+            if (activeIdeas.length <= IDEAS_COLLAPSED_COUNT) {
+                expandBar.style.display = 'none';
+            } else {
+                const hiddenCount = activeIdeas.length - IDEAS_COLLAPSED_COUNT;
+                document.getElementById('ideas-toggle-text').textContent = `Expand to see ${hiddenCount} more`;
+            }
         }
 
         // Update last refresh time display
@@ -534,7 +605,7 @@
             });
         }
 
-        // Render ideas
+        // Render ideas with expand/collapse
         function renderIdeas() {
             const container = document.getElementById('idea-list');
             container.innerHTML = '';
@@ -552,8 +623,8 @@
                 return;
             }
             
-            // Show up to 5 ideas
-            activeIdeas.slice(0, 5).forEach(idea => {
+            // Render all ideas, but mark those beyond the first 5 as hidden
+            activeIdeas.forEach((idea, index) => {
                 const priorityColor = idea.priority === 'critical' ? 'text-mc-danger' :
                                      idea.priority === 'high' ? 'text-mc-warning' :
                                      'text-gray-400';
@@ -567,7 +638,9 @@
                 const freshnessIcon = ageHours < 6 ? '🟢' : ageHours < 24 ? '🟡' : '🔴';
                 
                 const div = document.createElement('div');
-                div.className = 'px-4 py-3 hover:bg-gray-800 transition border-l-2 border-transparent hover:border-mc-accent cursor-pointer';
+                // Add hidden-idea class for items beyond the first 5
+                const hiddenClass = index >= IDEAS_COLLAPSED_COUNT ? 'hidden-idea' : '';
+                div.className = `idea-item px-4 py-3 hover:bg-gray-800 transition border-l-2 border-transparent hover:border-mc-accent cursor-pointer ${hiddenClass}`;
                 div.onclick = () => showIdeaDetails(idea);
                 div.innerHTML = `
                     <div class="flex items-start justify-between gap-2">
@@ -585,15 +658,6 @@
                 `;
                 container.appendChild(div);
             });
-            
-            // Add "View all" link if more than 5
-            if (activeIdeas.length > 5) {
-                const viewAll = document.createElement('div');
-                viewAll.className = 'px-4 py-2 text-center text-xs text-mc-accent hover:underline cursor-pointer';
-                viewAll.textContent = `View all ${activeIdeas.length} ideas...`;
-                viewAll.onclick = () => alert('Full idea management coming soon! Use: python3 scripts/idea_manager.py list');
-                container.appendChild(viewAll);
-            }
         }
         
         // Show idea details (placeholder for modal)
@@ -659,7 +723,7 @@ From: ${idea.suggested_by}`);
         }
 
         function formatEmailType(type) {
-            return type.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+            return type.replace(/_/g, ' ').replace(/\w/g, l => l.toUpperCase());
         }
 
         function formatTimeAgo(timeStr) {
@@ -742,7 +806,7 @@ From: ${idea.suggested_by}`);
         }
 
         function formatMetricName(name) {
-            return name.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+            return name.replace(/_/g, ' ').replace(/\w/g, l => l.toUpperCase());
         }
 
         // Force refresh
@@ -767,53 +831,6 @@ From: ${idea.suggested_by}`);
 
         // Initialize on load
         document.addEventListener('DOMContentLoaded', initDashboard);
-        
-        // Keyboard shortcuts
-        document.addEventListener('keydown', (e) => {
-            // Don't trigger if typing in an input
-            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-            
-            switch(e.key) {
-                case '/':
-                    e.preventDefault();
-                    document.getElementById('agent-search')?.focus();
-                    break;
-                case 'r':
-                case 'R':
-                    if (!e.ctrlKey && !e.metaKey) {
-                        e.preventDefault();
-                        location.reload();
-                    }
-                    break;
-                case '1':
-                    e.preventDefault();
-                    switchTab('overview');
-                    break;
-                case '2':
-                    e.preventDefault();
-                    switchTab('agents');
-                    break;
-                case '3':
-                    e.preventDefault();
-                    switchTab('emails');
-                    break;
-                case '4':
-                    e.preventDefault();
-                    switchTab('ideas');
-                    break;
-                case '?':
-                    e.preventDefault();
-                    alert('Keyboard Shortcuts:\n' +
-                         '/ - Search agents\n' +
-                         'r - Refresh dashboard\n' +
-                         '1 - Overview tab\n' +
-                         '2 - Agents tab\n' +
-                         '3 - Emails tab\n' +
-                         '4 - Ideas tab\n' +
-                         '? - Show this help');
-                    break;
-            }
-        });
     </script>
 </body>
 </html>
