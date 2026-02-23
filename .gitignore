@@ -53,3 +53,7 @@
 
 # Exception: Track dashboard generator
 !database/generate_dashboard.py
+
+# Track dashboard generator (need to unignore directory first)
+!database/
+!database/generate_dashboard.py
