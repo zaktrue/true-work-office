@@ -50,3 +50,6 @@
 **/secrets*
 **/credentials*
 **/*private*
+
+# Exception: Track dashboard generator
+!database/generate_dashboard.py
