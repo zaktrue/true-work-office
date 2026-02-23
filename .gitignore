@@ -1,0 +1,52 @@
+# Ignore everything by default
+*
+
+# Except website essentials
+!.gitignore
+!hugo.toml
+!hugo.yaml
+!config.toml
+!config.yaml
+
+# Content
+!content/
+!content/**
+
+# Static assets
+!static/
+!static/**
+
+# Themes
+!themes/
+!themes/**
+
+# Layouts
+!layouts/
+!layouts/**
+
+# Assets
+!assets/
+!assets/**
+
+# Data
+!data/
+!data/**
+
+# i18n
+!i18n/
+!i18n/**
+
+# GitHub Actions
+!.github/
+!.github/**
+
+# Archetypes
+!archetypes/
+!archetypes/**
+
+# But ignore specific sensitive files even in allowed directories
+**/*.env
+**/.env
+**/secrets*
+**/credentials*
+**/*private*
