@@ -5,57 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cost & Usage Dashboard | Mission Control</title>
     <style>
-        :root {
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --bg-tertiary: #334155;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent-blue: #3b82f6;
-            --accent-green: #10b981;
-            --accent-yellow: #f59e0b;
-            --accent-red: #ef4444;
-            --accent-purple: #8b5cf6;
-            --border-color: #475569;
-        }
-        
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
+        body { 
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, var(--bg-primary) 0%, #1a1a2e 100%);
-            color: var(--text-primary);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e4e4e4;
             min-height: 100vh;
             padding: 2rem;
         }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 2rem; }
+        h1 { font-size: 2.5rem; background: linear-gradient(90deg, #00d4aa, #00a8e8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .subtitle { color: #888; margin-top: 0.5rem; }
         
-        .container { max-width: 1400px; margin: 0 auto; }
-        
-        header {
-            text-align: center;
-            margin-bottom: 2rem;
-            padding: 2rem;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .subtitle { color: var(--text-secondary); font-size: 1.1rem; }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
         
         .card {
             background: rgba(255,255,255,0.05);
@@ -63,33 +26,36 @@
             padding: 1.5rem;
             border: 1px solid rgba(255,255,255,0.1);
         }
+        .card h2 { color: #00d4aa; margin-bottom: 1rem; font-size: 1.2rem; }
         
-        .card h2 {
-            color: var(--accent-green);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .metric {
-            display: flex;
-            justify-content: space-between;
+        .metric { 
+            display: flex; 
+            justify-content: space-between; 
             align-items: center;
             padding: 1rem;
             background: rgba(0,0,0,0.2);
             border-radius: 8px;
             margin-bottom: 1rem;
         }
+        .metric-value { font-size: 2rem; font-weight: bold; color: #00d4aa; }
+        .metric-label { color: #888; font-size: 0.9rem; }
         
-        .metric-value {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--accent-green);
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 0.5rem;
         }
-        
-        .metric-label { color: var(--text-secondary); font-size: 0.9rem; }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00d4aa, #00a8e8);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+        .progress-fill.warning { background: linear-gradient(90deg, #f39c12, #e74c3c); }
+        .progress-fill.danger { background: linear-gradient(90deg, #e74c3c, #c0392b); }
         
         .status {
             display: inline-block;
@@ -98,123 +64,25 @@
             font-size: 0.8rem;
             font-weight: bold;
         }
+        .status.ok { background: rgba(0, 212, 170, 0.2); color: #00d4aa; }
+        .status.warning { background: rgba(243, 156, 18, 0.2); color: #f39c12; }
+        .status.danger { background: rgba(231, 76, 60, 0.2); color: #e74c3c; }
         
-        .status.ok { background: rgba(16, 185, 129, 0.2); color: #10b981; }
-        .status.warning { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
-        .status.danger { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
-        .status.inactive { background: rgba(107, 114, 128, 0.2); color: #6b7280; }
-        
-        .services-grid {
+        .services {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1rem;
+            margin-top: 2rem;
         }
-        
-        .service-card {
+        .service {
             background: rgba(255,255,255,0.03);
             border-radius: 8px;
             padding: 1rem;
-            border-left: 4px solid;
-            transition: transform 0.2s, box-shadow 0.2s;
+            border-left: 3px solid #00d4aa;
         }
-        
-        .service-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        }
-        
-        .service-card.llm { border-left-color: #3b82f6; }
-        .service-card.search { border-left-color: #10b981; }
-        .service-card.email { border-left-color: #f59e0b; }
-        .service-card.hosting { border-left-color: #ef4444; }
-        .service-card.scraper { border-left-color: #8b5cf6; }
-        .service-card.storage { border-left-color: #06b6d4; }
-        .service-card.other { border-left-color: #6b7280; }
-        
-        .service-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-        
-        .service-name { font-weight: bold; font-size: 1rem; }
-        
-        .service-category {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            background: rgba(255,255,255,0.1);
-        }
-        
-        .service-cost {
-            font-size: 1.5rem;
-            color: var(--accent-green);
-            margin: 0.5rem 0;
-        }
-        
-        .service-details {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-        
-        .billing-badge {
-            display: inline-block;
-            font-size: 0.7rem;
-            padding: 0.15rem 0.4rem;
-            border-radius: 4px;
-            margin-top: 0.5rem;
-        }
-        
-        .billing-badge.subscription { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
-        .billing-badge.usage { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
-        .billing-badge.free { background: rgba(16, 185, 129, 0.2); color: #34d399; }
-        .billing-badge.credit { background: rgba(139, 92, 246, 0.2); color: #a78bfa; }
-        
-        .quota-bar {
-            width: 100%;
-            height: 6px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 3px;
-            overflow: hidden;
-            margin-top: 0.5rem;
-        }
-        
-        .quota-fill {
-            height: 100%;
-            border-radius: 3px;
-            transition: width 0.3s ease;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-        }
-        
-        th, td {
-            padding: 0.75rem;
-            text-align: left;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        th { color: var(--accent-green); font-weight: 600; }
-        tr:hover { background: rgba(255,255,255,0.03); }
-        
-        .category-header {
-            background: rgba(255,255,255,0.05);
-            padding: 1rem;
-            margin: 1.5rem 0 1rem 0;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+        .service-name { font-weight: bold; margin-bottom: 0.5rem; }
+        .service-cost { font-size: 1.5rem; color: #00d4aa; }
+        .service-limit { font-size: 0.8rem; color: #888; }
         
         .timestamp {
             text-align: center;
@@ -225,425 +93,146 @@
             border-top: 1px solid rgba(255,255,255,0.1);
         }
         
-        .projection-card {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
         }
-        
-        .total-row {
-            font-weight: bold;
-            font-size: 1.1rem;
-            background: rgba(16, 185, 129, 0.1);
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
+        th { color: #00d4aa; font-weight: 600; }
+        tr:hover { background: rgba(255,255,255,0.03); }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>💰 Cost & Usage Dashboard</h1>
-            <p class="subtitle">Database-driven service cost tracking • February 2026</p>
+            <p class="subtitle">Real-time quota tracking and API cost monitoring</p>
         </header>
         
-        <!-- Summary Cards -->
         <div class="grid">
             <div class="card">
-                <h2>💵 Current Month</h2>
+                <h2>📧 Email Quota (AgentMail)</h2>
                 <div class="metric">
                     <div>
-                        <div class="metric-value">$45.15</div>
-                        <div class="metric-label">Total Spent So Far</div>
+                        <div class="metric-value">0</div>
+                        <div class="metric-label">Monthly Emails Sent</div>
                     </div>
-                    <span class="status ok">Active</span>
+                    <span class="status ok">0/100</span>
                 </div>
-                <div class="service-details">
-                    Fixed: $45.15 • Variable: $0.00
+                <div class="progress-bar">
+                    <div class="progress-fill " style="width: 0.0%"></div>
                 </div>
-            </div>
-            
-            <div class="card projection-card">
-                <h2>📈 Month Projection</h2>
-                <div class="metric">
-                    <div>
-                        <div class="metric-value">$45.15</div>
-                        <div class="metric-label">Estimated Total</div>
-                    </div>
-                    <span class="status ok">Forecast</span>
-                </div>
-                <div class="service-details">
-                    Based on current usage trajectory
-                </div>
+                <p style="margin-top: 0.5rem; color: #888; font-size: 0.9rem;">
+                    Daily Limit: ~100 emails | Monthly Est: 100
+                </p>
             </div>
             
             <div class="card">
-                <h2>🔌 Active Services</h2>
+                <h2>🔍 Brave Search Quota</h2>
                 <div class="metric">
                     <div>
-                        <div class="metric-value">13</div>
-                        <div class="metric-label">Services Enabled</div>
+                        <div class="metric-value">9</div>
+                        <div class="metric-label">Monthly Searches</div>
                     </div>
-                    <span class="status ok">1 Inactive</span>
+                    <span class="status ok">9/1000</span>
                 </div>
-                <div class="service-details">
-                    14 total in registry
+                <div class="progress-bar">
+                    <div class="progress-fill " style="width: 0.8999999999999999%"></div>
+                </div>
+                <p style="margin-top: 0.5rem; color: #888; font-size: 0.9rem;">
+                    Daily Limit: ~1000 queries | Monthly Est: 1000
+                </p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>💳 API Services & Costs</h2>
+            <div class="services">
+                <div class="service">
+                    <div class="service-name">Kimi Code API</div>
+                    <div class="service-cost">~$0.50-2.00</div>
+                    <div class="service-limit">Per 1M tokens | Usage: Variable</div>
+                </div>
+                <div class="service">
+                    <div class="service-name">Brave Search API</div>
+                    <div class="service-cost">Free Tier</div>
+                    <div class="service-limit">Up to 2,000 queries/month</div>
+                </div>
+                <div class="service">
+                    <div class="service-name">AgentMail</div>
+                    <div class="service-cost">Free Tier</div>
+                    <div class="service-limit">Up to 100 emails/day</div>
+                </div>
+                <div class="service">
+                    <div class="service-name">BrowserAct</div>
+                    <div class="service-cost">Free Tier</div>
+                    <div class="service-limit">Limited monthly credits</div>
                 </div>
             </div>
         </div>
         
-        <!-- Category Breakdown -->
         <div class="card">
-            <h2>📊 Cost Breakdown by Category</h2>
+            <h2>📊 Recent Usage (Last 7 Days)</h2>
             <table>
                 <tr>
-                    <th>Category</th>
-                    <th>Services</th>
-                    <th>Cost</th>
-                    <th>% of Total</th>
+                    <th>Date</th>
+                    <th>Emails</th>
+                    <th>Searches</th>
+                    <th>Status</th>
                 </tr>
 
                 <tr>
-                    <td><span style="color: #3b82f6">🤖</span> Llm</td>
-                    <td>5</td>
-                    <td>$39.00</td>
-                    <td>86.4%</td>
+                    <td>2026-02-23</td>
+                    <td>0</td>
+                    <td>9</td>
+                    <td>✅ OK</td>
                 </tr>
                 <tr>
-                    <td><span style="color: #ef4444">🖥️</span> Hosting</td>
-                    <td>2</td>
-                    <td>$6.15</td>
-                    <td>13.6%</td>
+                    <td>2026-02-22</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>✅ OK</td>
                 </tr>
                 <tr>
-                    <td><span style="color: #f59e0b">📧</span> Email</td>
-                    <td>1</td>
-                    <td>$0.00</td>
-                    <td>0.0%</td>
+                    <td>2026-02-21</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>✅ OK</td>
                 </tr>
                 <tr>
-                    <td><span style="color: #8b5cf6">🕷️</span> Scraper</td>
-                    <td>1</td>
-                    <td>$0.00</td>
-                    <td>0.0%</td>
+                    <td>2026-02-20</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>✅ OK</td>
                 </tr>
                 <tr>
-                    <td><span style="color: #10b981">🔍</span> Search</td>
-                    <td>3</td>
-                    <td>$0.00</td>
-                    <td>0.0%</td>
+                    <td>2026-02-19</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>✅ OK</td>
                 </tr>
                 <tr>
-                    <td><span style="color: #06b6d4">💾</span> Storage</td>
-                    <td>2</td>
-                    <td>$0.00</td>
-                    <td>0.0%</td>
-                </tr>
-                <tr class="total-row">
-                    <td>Total</td>
-                    <td>14</td>
-                    <td>$45.15</td>
-                    <td>100%</td>
-                </tr>
-            </table>
-        </div>
-        
-        <!-- All Services by Category -->
-        <div class="card">
-            <h2>🔧 All Services</h2>
-
-            <div class="category-header" style="border-left: 4px solid #3b82f6">
-                🤖 Llm Services
-            </div>
-            <div class="services-grid">
-
-                <div class="service-card llm">
-                    <div class="service-header">
-                        <span class="service-name">Claude Sonnet 4.6</span>
-                        <span class="status inactive">Inactive</span>
-                    </div>
-                    <div class="service-cost">$0.00</div>
-                    <div class="service-details">
-                        Awaiting API key - $3/M input, $15/M output tokens
-                    </div>
-                    <span class="billing-badge usage_based">Usage Based</span>
-                    
-                </div>
-
-                <div class="service-card llm">
-                    <div class="service-header">
-                        <span class="service-name">Codex CLI</span>
-                        <span class="status ok">Active</span>
-                    </div>
-                    <div class="service-cost">$0.00</div>
-                    <div class="service-details">
-                        Free via OpenAI CLI
-                    </div>
-                    <span class="billing-badge free">Free</span>
-                    
-                </div>
-
-                <div class="service-card llm">
-                    <div class="service-header">
-                        <span class="service-name">Gemini 2.0 Flash</span>
-                        <span class="status ok">Active</span>
-                    </div>
-                    <div class="service-cost">$0.00</div>
-                    <div class="service-details">
-                        $300 credit (expires 2026-03-20)
-                    </div>
-                    <span class="billing-badge credit_based">Credit Based</span>
-                    
-                </div>
-
-                <div class="service-card llm">
-                    <div class="service-header">
-                        <span class="service-name">Kimi Code</span>
-                        <span class="status ok">Active</span>
-                    </div>
-                    <div class="service-cost">$39.00</div>
-                    <div class="service-details">
-                        Flat monthly rate via subscription
-                    </div>
-                    <span class="billing-badge subscription">Subscription</span>
-                    
-                </div>
-
-                <div class="service-card llm">
-                    <div class="service-header">
-                        <span class="service-name">Qwen3 Local</span>
-                        <span class="status ok">Active</span>
-                    </div>
-                    <div class="service-cost">$0.00</div>
-                    <div class="service-details">
-                        Local Ollama - no cost
-                    </div>
-                    <span class="billing-badge free">Free</span>
-                    
-                </div>
-
-            </div>
-
-            <div class="category-header" style="border-left: 4px solid #10b981">
-                🔍 Search Services
-            </div>
-            <div class="services-grid">
-
-                <div class="service-card search">
-                    <div class="service-header">
-                        <span class="service-name">Brave Search</span>
-                        <span class="status ok">Active</span>
-                    </div>
-                    <div class="service-cost">$0.00</div>
-                    <div class="service-details">
-                        Free tier: 2,000 queries/month
-                    </div>
-                    <span class="billing-badge free">Free</span>
-                    
-                    <div class="quota-bar">
-                        <div class="quota-fill" style="width: 0.44999999999999996%; background: #10b981"></div>
-                    </div>
-                    <div class="service-details">9 / 2000 (0.4%)</div>
-                
-                </div>
-
-                <div class="service-card search">
-                    <div class="service-header">
-                        <span class="service-name">Google Search Console</span>
-                        <span class="status ok">Active</span>
-                    </div>
-                    <div class="service-cost">$0.00</div>
-                    <div class="service-details">
-                        Free via Google API
-                    </div>
-                    <span class="billing-badge free">Free</span>
-                    
-                </div>
-
-                <div class="service-card search">
-                    <div class="service-header">
-                        <span class="service-name">xAI Grok Search</span>
-                        <span class="status ok">Active</span>
-                    </div>
-                    <div class="service-cost">$0.00</div>
-                    <div class="service-details">
-                        Real-time X/Twitter search
-                    </div>
-                    <span class="billing-badge usage_based">Usage Based</span>
-                    
-                </div>
-
-            </div>
-
-            <div class="category-header" style="border-left: 4px solid #f59e0b">
-                📧 Email Services
-            </div>
-            <div class="services-grid">
-
-                <div class="service-card email">
-                    <div class="service-header">
-                        <span class="service-name">AgentMail</span>
-                        <span class="status ok">Active</span>
-                    </div>
-                    <div class="service-cost">$0.00</div>
-                    <div class="service-details">
-                        Free tier: 100 emails/day, 3,000/month
-                    </div>
-                    <span class="billing-badge free">Free</span>
-                    
-                    <div class="quota-bar">
-                        <div class="quota-fill" style="width: 0.03333333333333333%; background: #10b981"></div>
-                    </div>
-                    <div class="service-details">1 / 3000 (0.0%)</div>
-                
-                </div>
-
-            </div>
-
-            <div class="category-header" style="border-left: 4px solid #ef4444">
-                🖥️ Hosting Services
-            </div>
-            <div class="services-grid">
-
-                <div class="service-card hosting">
-                    <div class="service-header">
-                        <span class="service-name">Hetzner Server</span>
-                        <span class="status ok">Active</span>
-                    </div>
-                    <div class="service-cost">$4.51</div>
-                    <div class="service-details">
-                        CPX11: 2 vCPUs, 4GB RAM
-                    </div>
-                    <span class="billing-badge subscription">Subscription</span>
-                    
-                </div>
-
-                <div class="service-card hosting">
-                    <div class="service-header">
-                        <span class="service-name">Hostinger</span>
-                        <span class="status ok">Active</span>
-                    </div>
-                    <div class="service-cost">$1.64</div>
-                    <div class="service-details">
-                        Website + email hosting
-                    </div>
-                    <span class="billing-badge subscription">Subscription</span>
-                    
-                </div>
-
-            </div>
-
-            <div class="category-header" style="border-left: 4px solid #8b5cf6">
-                🕷️ Scraper Services
-            </div>
-            <div class="services-grid">
-
-                <div class="service-card scraper">
-                    <div class="service-header">
-                        <span class="service-name">BrowserAct</span>
-                        <span class="status ok">Active</span>
-                    </div>
-                    <div class="service-cost">$0.00</div>
-                    <div class="service-details">
-                        90,600 credits/month (1% used so far)
-                    </div>
-                    <span class="billing-badge credit_based">Credit Based</span>
-                    
-                </div>
-
-            </div>
-
-            <div class="category-header" style="border-left: 4px solid #06b6d4">
-                💾 Storage Services
-            </div>
-            <div class="services-grid">
-
-                <div class="service-card storage">
-                    <div class="service-header">
-                        <span class="service-name">GitHub</span>
-                        <span class="status ok">Active</span>
-                    </div>
-                    <div class="service-cost">$0.00</div>
-                    <div class="service-details">
-                        Personal Access Token
-                    </div>
-                    <span class="billing-badge free">Free</span>
-                    
-                </div>
-
-                <div class="service-card storage">
-                    <div class="service-header">
-                        <span class="service-name">Notion</span>
-                        <span class="status ok">Active</span>
-                    </div>
-                    <div class="service-cost">$0.00</div>
-                    <div class="service-details">
-                        Integration token stored
-                    </div>
-                    <span class="billing-badge free">Free</span>
-                    
-                </div>
-
-            </div>
-
-        </div>
-        
-        <!-- Projection Details -->
-        <div class="card">
-            <h2>📈 Cost Projection Details</h2>
-            <table>
-                <tr>
-                    <th>Service</th>
-                    <th>Type</th>
-                    <th>Current</th>
-                    <th>Projected</th>
-                </tr>
-
-                <tr>
-                    <td>Kimi Code</td>
-                    <td>Fixed</td>
-                    <td>$39.00</td>
-                    <td>$39.00</td>
+                    <td>2026-02-18</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>✅ OK</td>
                 </tr>
                 <tr>
-                    <td>Hetzner Server</td>
-                    <td>Fixed</td>
-                    <td>$4.51</td>
-                    <td>$4.51</td>
-                </tr>
-                <tr>
-                    <td>Hostinger</td>
-                    <td>Fixed</td>
-                    <td>$1.64</td>
-                    <td>$1.64</td>
-                </tr>
-                <tr>
-                    <td>AgentMail</td>
-                    <td>Variable</td>
-                    <td>$0.00</td>
-                    <td>$0.00</td>
-                </tr>
-                <tr>
-                    <td>BrowserAct</td>
-                    <td>Variable</td>
-                    <td>$0.00</td>
-                    <td>$0.00</td>
-                </tr>
-                <tr>
-                    <td>Brave Search</td>
-                    <td>Variable</td>
-                    <td>$0.00</td>
-                    <td>$0.00</td>
-                </tr>
-                <tr class="total-row">
-                    <td>Total</td>
-                    <td>-</td>
-                    <td>$45.15</td>
-                    <td>$45.15</td>
+                    <td>2026-02-17</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>✅ OK</td>
                 </tr>
             </table>
         </div>
         
         <div class="timestamp">
-            Last Updated: 2026-02-23 22:00:02 UTC • 
-            Database: mission_control.db • 
-            Auto-refreshes every 30 minutes
+            Last Updated: 2026-02-23 23:30:01 UTC
         </div>
     </div>
 </body>
