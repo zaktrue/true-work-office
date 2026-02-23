@@ -74,15 +74,21 @@ jobs:
           HOSTINGER_SSH_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
           HOSTINGER_PORT: ${{ secrets.HOSTINGER_PORT }}
         run: |
-          # Setup SSH
+          # Setup SSH directory
           mkdir -p ~/.ssh
-          echo "$HOSTINGER_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 700 ~/.ssh
+          
+          # Write SSH key with proper newlines (preserve \n from secret)
+          echo "$HOSTINGER_SSH_KEY" | sed 's/\\n/\n/g' > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
           
           # Add host to known hosts
           ssh-keyscan -p "${HOSTINGER_PORT:-65002}" "$HOSTINGER_SERVER" >> ~/.ssh/known_hosts 2>/dev/null || true
           
+          # Test SSH connection first
+          ssh -p "${HOSTINGER_PORT:-65002}" -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no -o BatchMode=yes "${HOSTINGER_SSH_USER}@${HOSTINGER_SERVER}" "echo 'SSH connection successful'" || echo "SSH test failed"
+          
           # Deploy via SCP
-          scp -P "${HOSTINGER_PORT:-65002}" -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no -r public/* "${HOSTINGER_SSH_USER}@${HOSTINGER_SERVER}:/home/u389484855/domains/trueworkoffice.com/public_html/"
+          scp -P "${HOSTINGER_PORT:-65002}" -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no -o BatchMode=yes -r public/* "${HOSTINGER_SSH_USER}@${HOSTINGER_SERVER}:/home/u389484855/domains/trueworkoffice.com/public_html/"
           
           echo "✅ Deployed to Hostinger"
