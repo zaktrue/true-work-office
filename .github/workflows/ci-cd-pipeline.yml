@@ -1,0 +1,88 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Validate JSON files
+        run: |
+          find . -name "*.json" -type f ! -path "./.git/*" ! -path "*/node_modules/*" -exec python3 -c "import json; json.load(open('{}'))" \; 2>&1 | head -20
+          echo "✅ JSON validation complete"
+      
+      - name: Validate YAML files
+        run: |
+          find . -name "*.yml" -o -name "*.yaml" | grep -v node_modules | head -20 | while read f; do
+            python3 -c "import yaml; yaml.safe_load(open('$f'))" 2>/dev/null || echo "⚠️  $f"
+          done
+          echo "✅ YAML validation complete"
+
+  build-hugo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+      
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+      
+      - name: Build Hugo Site
+        run: |
+          hugo --minify --gc
+          echo "✅ Hugo build complete"
+      
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hugo-site
+          path: public/
+          retention-days: 1
+
+  deploy:
+    needs: [validate, build-hugo]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+      
+      - name: Build Hugo Site
+        run: hugo --minify --gc
+      
+      - name: Deploy to Hostinger
+        env:
+          HOSTINGER_SERVER: ${{ secrets.HOSTINGER_SERVER }}
+          HOSTINGER_SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
+          HOSTINGER_SSH_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+          HOSTINGER_PORT: ${{ secrets.HOSTINGER_PORT }}
+        run: |
+          # Setup SSH
+          mkdir -p ~/.ssh
+          echo "$HOSTINGER_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          
+          # Add host to known hosts
+          ssh-keyscan -p "${HOSTINGER_PORT:-65002}" "$HOSTINGER_SERVER" >> ~/.ssh/known_hosts 2>/dev/null || true
+          
+          # Deploy via SCP
+          scp -P "${HOSTINGER_PORT:-65002}" -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no -r public/* "${HOSTINGER_SSH_USER}@${HOSTINGER_SERVER}:/home/u389484855/domains/trueworkoffice.com/public_html/"
+          
+          echo "✅ Deployed to Hostinger"
