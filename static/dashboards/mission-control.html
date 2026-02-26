@@ -134,8 +134,8 @@
         <!-- Stats Row -->
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3 mb-4">
             <div class="bg-mc-card border border-mc-border rounded-lg p-3 text-center">
-                <div class="text-2xl font-bold text-mc-accent">0</div>
-                <div class="text-xs text-gray-400">Active Agents</div>
+                <div class="text-2xl font-bold text-mc-accent">6</div>
+                <div class="text-xs text-gray-400">Agents Available</div>
             </div>
             <div class="bg-mc-card border border-mc-border rounded-lg p-3 text-center">
                 <div class="text-2xl font-bold text-mc-success">0</div>
@@ -170,14 +170,17 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <!-- Left Column: Agents & Alerts -->
             <div class="space-y-4">
-                <!-- Agent Status -->
+                <!-- Agent Team (On-Demand) -->
                 <div class="bg-mc-card border border-mc-border rounded-lg overflow-hidden">
                     <div class="px-4 py-3 border-b border-mc-border flex items-center justify-between">
                         <h2 class="font-semibold flex items-center gap-2">
                             <i class="fas fa-robot text-mc-accent"></i>
-                            Agent Status
+                            Agent Team
                         </h2>
-                        <span class="text-xs text-gray-400">7 agents</span>
+                        <span class="text-xs text-mc-success bg-green-900/30 px-2 py-1 rounded">On-Demand</span>
+                    </div>
+                    <div class="px-4 py-2 text-xs text-gray-400 bg-gray-800/30 border-b border-mc-border">
+                        <i class="fas fa-info-circle mr-1"></i> Agents spawn when needed for tasks
                     </div>
                     <div class="divide-y divide-mc-border" id="agent-list">
                         <!-- Agents populated by JS -->
@@ -644,22 +647,17 @@
             }
         }
 
-        // Render agent list
+        // Render agent list (On-Demand Model)
         function renderAgents() {
             const container = document.getElementById('agent-list');
             container.innerHTML = '';
             
             dashboardData.agents.forEach(agent => {
-                const statusClass = getStatusClass(agent.status);
-                const freshnessClass = agent.heartbeat_freshness === 'fresh' ? 'text-mc-success' : 
-                                      agent.heartbeat_freshness === 'stale' ? 'text-mc-warning' : 'text-gray-500';
-                
-                // Clean up task text - remove timestamp prefix if present
-                let cleanTask = agent.current_task || '';
-                const taskMatch = cleanTask.match(/^\[\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z?\]\s*(.*)/);
-                if (taskMatch) {
-                    cleanTask = taskMatch[1];
-                }
+                // For on-demand model, show all specialist agents as "Available"
+                // Only Zak shows as "Active" since he's always online
+                const isZak = agent.name === 'Zak';
+                const displayStatus = isZak ? 'Active' : 'Available';
+                const statusClass = isZak ? 'status-active' : 'status-idle';
                 
                 const div = document.createElement('div');
                 div.className = 'px-4 py-3 hover:bg-gray-800 transition';
@@ -669,17 +667,9 @@
                             <span class="status-dot ${statusClass}"></span>
                             <span class="font-medium">${agent.name}</span>
                         </div>
-                        <span class="text-xs text-gray-400 capitalize">${agent.status}</span>
+                        <span class="text-xs text-gray-400">${displayStatus}</span>
                     </div>
-                    <div class="text-xs text-gray-400 mb-1">${agent.role || 'Agent'}</div>
-                    ${cleanTask ? `<div class="text-xs text-mc-accent truncate" title="${cleanTask}">${cleanTask}</div>` : ''}
-                    <div class="flex items-center gap-3 mt-2 text-xs">
-                        <span class="${freshnessClass}">
-                            <i class="fas fa-heartbeat mr-1"></i>${agent.heartbeat_freshness}
-                        </span>
-                        <span class="text-gray-500" title="Last heartbeat">🕐 ${formatTimeAgo(agent.last_heartbeat)}</span>
-                        <span class="text-gray-500">Tasks: ${agent.tasks_today || 0}</span>
-                    </div>
+                    <div class="text-xs text-gray-400">${agent.role || 'Agent'}</div>
                 `;
                 container.appendChild(div);
             });
