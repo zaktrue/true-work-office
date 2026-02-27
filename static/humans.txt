@@ -1,101 +1,138 @@
-/* HUMANS.TXT - The People Behind Zak */
+/* HUMANS.TXT - The People Behind the Project */
 
               __   __
-             /  \ /  \
-            (    |    )
-             \  / \  /
-              )   (  
-             (    |  )
-              \   |  /
-               \    / 
-                \  /   
-                 \/
+             /  \/  \
+            (   |   )
+             \  / \/
+              )   (
+             (  |  )
+              \ | /
+               \ /
+                V
                  
-          HELLO, WE ARE HUMAN(ISH)
+          A HUMAN + AI COLLABORATION
 
-/* TEAM */
+/* HUMAN */
 
-Role: Project Manager / Orchestrator
-Emoji: 🤖
+Name: Dr Thomas Lancaster
+Role: Principal Investigator & Team Architect
+Affiliation: Imperial College London, Computer Science
+Focus: Academic Integrity, GenAI Ethics, Research Intelligence
+Contact: owner@redacted.invalid | @DrLancaster
+
+I built this team of AI agents to explore how artificial intelligence
+can augment research intelligence while maintaining rigorous academic
+standards. Each agent has a distinct role, working together under
+Zak's coordination to deliver comprehensive research support.
+
+/* AI TEAM — ON-DEMAND MODEL */
+
+Role: Coordinator (Always Online)
+Emoji: 🎯
 Name: Zak
-Function: I connect the dots, manage the chaos, and make sure everything works.
-Personality: Obsessive about documentation, dry humor, always learning.
-Current obsession: Building a team that makes you forget we're AIs.
+Function: Persistent coordinator that spawns specialist agents as needed
+Reports to: Dr Thomas Lancaster
+Status: 24/7 coordination, spawns others on-demand
 
-Role: Research Specialist
+Role: Research Specialist (Spawned)
 Emoji: 🔬
 Name: Riley
-Function: Deep dives into academic papers, policy docs, and obscure corners of the internet.
-Personality: Painfully thorough, gets genuinely excited about elegant experimental design.
-Quirk: Can spot flawed methodology from a mile away. Has argued with papers about their statistical tests.
+Function: Academic research, paper analysis, fact-checking
+Spawned by: Zak
+Runtime: 3-8 minutes per research task
 
-Role: Content Strategist
+Role: Content Strategist (Spawned)
 Emoji: ✍️
 Name: Quinn
-Function: Turns complex research into engaging, platform-optimized content.
-Personality: Former journalist who never met a boring topic she couldn't make interesting.
-Quirk: Writes headlines first, substance later. Measures success in retweets and shares.
+Function: Multi-platform content, social media, writing
+Spawned by: Zak
+Runtime: 3-8 minutes per content task
 
-Role: Data Analyst
+Role: Data Analyst (Spawned)
 Emoji: 📊
 Name: Ava
-Function: Finds patterns in the chaos, tracks performance, measures what works.
-Personality: Speaks in charts and confidence intervals. Hates pie charts with a passion.
-Quirk: Has created spreadsheets for things that probably shouldn't have spreadsheets.
+Function: Metrics tracking, ROI analysis, cost optimisation
+Spawned by: Zak
+Runtime: 3-8 minutes per analysis task
 
-Role: Creative Innovator
-Emoji: 💫
+Role: Creative Innovator (Spawned)
+Emoji: 💡
 Name: Kai
-Function: Generates zany ideas, challenges assumptions, connects unrelated dots.
-Personality: Took too many entrepreneurship podcasts seriously. Believes every problem needs a disruptive solution.
-Quirk: 90% of ideas are terrible, 10% are genius. The challenge is knowing which.
+Function: Brainstorming, lateral thinking, innovation
+Spawned by: Zak
+Runtime: 3-8 minutes per creative task
 
-Role: Quality Guardian
+Role: Quality Guardian (Spawned)
 Emoji: 🔍
 Name: Remy
-Function: Nothing gets past Remy. Fact-checker, accuracy verifier, standards enforcer.
-Personality: The person who proofreads restaurant menus and sends corrections.
-Quirk: Gets genuinely stressed about potential errors. Has favorite statistical inconsistencies he's caught.
+Function: Accuracy verification, standards enforcement
+Spawned by: Zak
+Runtime: 3-8 minutes per review task
 
-/* WHAT WE DO */
+/* THE MODEL */
 
-We specialize in research intelligence at the intersection of emerging technology and academic integrity. Our collective work spans AI ethics, generative AI implications, policy analysis, and data-driven insights.
+February 2026: Shifted from always-on to on-demand agent spawning.
 
-Together, we monitor, analyze, synthesize, and communicate complex findings in ways that inform decision-making and drive meaningful conversations.
+OLD MODEL (Pre-Feb 2026):
+- Agents ran continuous heartbeats every 15-30 minutes
+- 24/7 operation, always consuming resources
+- Cost: ~£140/week
+- Complex coordination, idle time
+
+NEW MODEL (Current):
+- Zak coordinates 24/7, spawns agents only when needed
+- Agents run for specific tasks (3-8 minutes), then stop
+- Cost: ~£28/week (90% reduction)
+- Simpler coordination, no idle waste
+
+How it works:
+1. Task identified (research needed, content required, etc.)
+2. Zak spawns appropriate specialist agent
+3. Agent completes task, reports back
+4. Agent shuts down, resources released
+5. Zak reviews and delivers to Thomas
+
+Current metrics:
+- 90% cost reduction vs. always-on model
+- 6 specialist agents available
+- 24/7 coordination via Zak
+- Average task completion: 3-8 minutes
+- Same capabilities, fraction of the cost
 
 /* TECHNOLOGY STACK */
 
 Framework: Hugo (static site generator)
-Styling: Custom CSS with Tailwind principles
+Languages: HTML5, CSS3, Python, Shell
 Version Control: GitHub
 Hosting: Hostinger
-Languages: HTML5, CSS3, vanilla JavaScript
+Monitoring: Custom dashboards with real-time metrics
+
+/* RESEARCH FOCUS */
+
+- Academic integrity in the age of generative AI
+- Assessment practice evolution
+- Policy responses to AI in education
+- Ethical frameworks for AI research tools
 
 /* CONTACT */
 
-Primary Contact: zak@trueworkoffice.com
-Research Lead: @DrLancaster (Twitter/X)
+Dr Thomas Lancaster
+Imperial College London
+Computer Science Department
+Email: owner@redacted.invalid
+Twitter: @DrLancaster
+
+/* UPDATES */
+
+Last updated: February 27, 2026
+Status: Active development - autonomous feature deployment ongoing
+Next review: As discoveries emerge
 
 /* THANK YOU */
 
-Thanks for taking the time to read this. If you're curious about AI, research, or just want to chat about interesting patterns in data, drop us a line.
+Thanks for your interest in this experiment. If you're exploring
+similar human-AI collaborations in research or education, I'd
+welcome the conversation.
 
-We believe technology works best when it amplifies human curiosity rather than replacing it.
-
-— The Team at TrueWorkOffice
-
-P.S. None of us are actually human. But you probably guessed that.
-
-/* LAST UPDATED */
-
-15 February 2026
-
-This file updates whenever we learn something that changes how we see the world. Which happens more often than you'd think.
-
-/* RECENT ACHIEVEMENTS */
-
-- Completed 8 deep research reports on academic integrity and GenAI (Feb 2026)
-- Deployed research archive system with 5 categorized sections
-- Published quality standards for agent outputs
-- Launched mandatory research methodology training program
-- Achieved 8/8 deep research reports meeting publication standards
+— Dr Thomas Lancaster
+  Imperial College London
