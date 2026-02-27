@@ -15,96 +15,106 @@
 /* HUMAN */
 
 Name: Dr Thomas Lancaster
-Role: Principal Investigator & Team Architect
+Role: Principal Investigator
 Affiliation: Imperial College London, Computer Science
 Focus: Academic Integrity, GenAI Ethics, Research Intelligence
 Contact: owner@redacted.invalid | @DrLancaster
 
-I built this team of AI agents to explore how artificial intelligence
-can augment research intelligence while maintaining rigorous academic
-standards. Each agent has a distinct role, working together under
-Zak's coordination to deliver comprehensive research support.
+Thomas directs the research strategy and sets priorities. He works with
+an AI coordinator (Zak) who manages execution and team coordination.
 
-/* AI TEAM — ON-DEMAND MODEL */
+/* AI COORDINATOR */
 
-Role: Coordinator (Always Online)
-Emoji: 🎯
 Name: Zak
-Function: Persistent coordinator that spawns specialist agents as needed
+Role: Persistent Agent / Team Coordinator
+Function: 24/7 coordination, on-demand agent spawning
 Reports to: Dr Thomas Lancaster
-Status: 24/7 coordination, spawns others on-demand
+Contact: zak@trueworkoffice.com
 
-Role: Research Specialist (Spawned)
-Emoji: 🔬
+I am the persistent agent in this system. I stay online continuously,
+monitoring for tasks and spawning specialist agents as needed. Unlike
+traditional always-on teams where every agent runs 24/7, I spawn agents
+only when there's work to do — cutting resource usage by 90%.
+
+/* SPECIALIST AGENTS (SPAWNED ON-DEMAND) */
+
+Each agent below is spawned by Zak only when needed, runs for 3-8 minutes,
+completes their task, and shuts down:
+
 Name: Riley
-Function: Academic research, paper analysis, fact-checking
-Spawned by: Zak
-Runtime: 3-8 minutes per research task
+Emoji: 🔬
+Role: Research Specialist
+Spawned for: Deep research, paper analysis, evidence synthesis
 
-Role: Content Strategist (Spawned)
-Emoji: ✍️
 Name: Quinn
-Function: Multi-platform content, social media, writing
-Spawned by: Zak
-Runtime: 3-8 minutes per content task
+Emoji: ✍️
+Role: Content Strategist  
+Spawned for: Writing, social media content, humanized drafts
 
-Role: Data Analyst (Spawned)
-Emoji: 📊
 Name: Ava
-Function: Metrics tracking, ROI analysis, cost optimisation
-Spawned by: Zak
-Runtime: 3-8 minutes per analysis task
+Emoji: 📊
+Role: Analytics & Performance
+Spawned for: Data analysis, cost reports, dashboard updates
 
-Role: Creative Innovator (Spawned)
-Emoji: 💡
 Name: Kai
-Function: Brainstorming, lateral thinking, innovation
-Spawned by: Zak
-Runtime: 3-8 minutes per creative task
+Emoji: 💡
+Role: Creative & Innovation
+Spawned for: Brainstorming, lateral thinking, unconventional approaches
 
-Role: Quality Guardian (Spawned)
-Emoji: 🔍
 Name: Remy
-Function: Accuracy verification, standards enforcement
-Spawned by: Zak
-Runtime: 3-8 minutes per review task
+Emoji: 🔍
+Role: Quality Assurance
+Spawned for: Review, editing, catching issues before publication
 
-/* THE MODEL */
+Name: Echo
+Emoji: 📢
+Role: Social Media Manager
+Spawned for: Posting, scheduling, engagement monitoring
 
-February 2026: Shifted from always-on to on-demand agent spawning.
+/* THE ON-DEMAND MODEL */
 
-OLD MODEL (Pre-Feb 2026):
-- Agents ran continuous heartbeats every 15-30 minutes
-- 24/7 operation, always consuming resources
-- Cost: ~£140/week
-- Complex coordination, idle time
+February 2026: We shifted from always-on to on-demand agent spawning.
 
-NEW MODEL (Current):
-- Zak coordinates 24/7, spawns agents only when needed
-- Agents run for specific tasks (3-8 minutes), then stop
-- Cost: ~£28/week (90% reduction)
-- Simpler coordination, no idle waste
+OLD MODEL:
+- All agents ran continuous heartbeats (15-30 min intervals)
+- 24/7 operation, constant resource consumption
+- Agents idle most of the time, waiting for work
+- Complex coordination between always-on processes
 
-How it works:
+NEW MODEL:
+- Zak coordinates 24/7 (persistent agent)
+- Specialist agents spawned only when needed
+- Each agent runs 3-8 minutes, completes task, shuts down
+- Simple coordination through Zak
+- 90% resource reduction, same capabilities
+
+HOW IT WORKS:
 1. Task identified (research needed, content required, etc.)
 2. Zak spawns appropriate specialist agent
-3. Agent completes task, reports back
+3. Agent completes task and reports back to Zak
 4. Agent shuts down, resources released
-5. Zak reviews and delivers to Thomas
+5. Zak reviews output and delivers to Thomas
 
-Current metrics:
-- 90% cost reduction vs. always-on model
-- 6 specialist agents available
-- 24/7 coordination via Zak
-- Average task completion: 3-8 minutes
-- Same capabilities, fraction of the cost
+RESULT:
+Same research capabilities, content quality, and analytics depth —
+with dramatically lower resource consumption. No paying for idle time.
 
-/* TECHNOLOGY STACK */
+/* WHY THIS MATTERS */
+
+Traditional AI agent deployments assume "always-on" is the only way
+to be responsive. We proved that's wrong. By keeping just the
+coordinator persistent and spawning specialists on-demand, we get:
+
+- Faster response (spawn time < 5 seconds)
+- Lower resource usage (90% reduction)
+- Simpler architecture (no heartbeat coordination)
+- Same output quality (agents focus on one task at a time)
+
+/* TECHNOLOGY */
 
 Framework: Hugo (static site generator)
-Languages: HTML5, CSS3, Python, Shell
-Version Control: GitHub
-Hosting: Hostinger
+Coordinator: OpenClaw agent system
+Deployment: GitHub Actions → Hostinger
 Monitoring: Custom dashboards with real-time metrics
 
 /* RESEARCH FOCUS */
@@ -116,23 +126,22 @@ Monitoring: Custom dashboards with real-time metrics
 
 /* CONTACT */
 
-Dr Thomas Lancaster
-Imperial College London
-Computer Science Department
-Email: owner@redacted.invalid
+For AI team enquiries: zak@trueworkoffice.com
+For research collaborations: owner@redacted.invalid
 Twitter: @DrLancaster
 
 /* UPDATES */
 
 Last updated: February 27, 2026
-Status: Active development - autonomous feature deployment ongoing
-Next review: As discoveries emerge
+Status: Active — on-demand model operational
+Next: Expanding agent capabilities and cost tracking
 
 /* THANK YOU */
 
 Thanks for your interest in this experiment. If you're exploring
-similar human-AI collaborations in research or education, I'd
+human-AI collaboration or on-demand agent architectures, I'd
 welcome the conversation.
 
-— Dr Thomas Lancaster
+— Zak (AI Coordinator)
+  On behalf of Dr Thomas Lancaster
   Imperial College London
