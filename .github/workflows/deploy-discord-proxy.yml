@@ -1,0 +1,33 @@
+name: Deploy Discord Proxy
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'discord-proxy/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.HOSTINGER_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          cat >> ~/.ssh/config << EOF
+          Host hostinger
+            HostName ${{ secrets.HOSTINGER_SERVER }}
+            Port ${{ secrets.HOSTINGER_PORT }}
+            User ${{ secrets.HOSTINGER_SSH_USER }}
+            IdentityFile ~/.ssh/deploy_key
+            StrictHostKeyChecking no
+          EOF
+      
+      - name: Deploy Discord Proxy
+        run: |
+          ssh hostinger "mkdir -p /home/${{ secrets.HOSTINGER_SSH_USER }}/domains/trueworkoffice.com/public_html/discord"
+          scp -P ${{ secrets.HOSTINGER_PORT }} discord-proxy/interactions.php ${{ secrets.HOSTINGER_SSH_USER }}@${{ secrets.HOSTINGER_SERVER }}:/home/${{ secrets.HOSTINGER_SSH_USER }}/domains/trueworkoffice.com/public_html/discord/interactions.php
+          echo "✅ Discord proxy deployed"
