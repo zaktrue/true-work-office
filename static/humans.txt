@@ -61,7 +61,7 @@ Emoji: 🔍
 Role: Quality Assurance
 Spawned for: Review, editing, catching issues before publication
 
-Name: Humanizer
+Name: Ava
 Emoji: 🪶
 Role: Editorial Pass
 Spawned for: Removing AI writing tics, final human-voice edit before publication
