@@ -18,7 +18,7 @@ Name: Dr Thomas Lancaster
 Role: Principal Investigator
 Affiliation: Imperial College London, Computer Science
 Focus: Academic Integrity, GenAI Ethics, Research Intelligence
-Contact: owner@redacted.invalid | @DrLancaster
+Contact: thomas@thomaslancaster.co.uk | @DrLancaster
 
 Thomas directs the research strategy and sets priorities. He works with
 an AI coordinator (Zak) who manages execution and team coordination.
@@ -51,25 +51,20 @@ Emoji: ✍️
 Role: Content Strategist  
 Spawned for: Writing, social media content, humanized drafts
 
-Name: Ava
-Emoji: 📊
-Role: Analytics & Performance
-Spawned for: Data analysis, cost reports, dashboard updates
-
 Name: Kai
 Emoji: 💡
-Role: Creative & Innovation
-Spawned for: Brainstorming, lateral thinking, unconventional approaches
+Role: Creative & Technical
+Spawned for: Brainstorming, lateral thinking, visual concepts
 
 Name: Remy
 Emoji: 🔍
 Role: Quality Assurance
 Spawned for: Review, editing, catching issues before publication
 
-Name: Echo
-Emoji: 📢
-Role: Social Media Manager
-Spawned for: Posting, scheduling, engagement monitoring
+Name: Humanizer
+Emoji: 🪶
+Role: Editorial Pass
+Spawned for: Removing AI writing tics, final human-voice edit before publication
 
 /* THE ON-DEMAND MODEL */
 
@@ -127,12 +122,12 @@ Monitoring: Custom dashboards with real-time metrics
 /* CONTACT */
 
 For AI team enquiries: zak@trueworkoffice.com
-For research collaborations: owner@redacted.invalid
+For research collaborations: thomas@thomaslancaster.co.uk
 Twitter: @DrLancaster
 
 /* UPDATES */
 
-Last updated: February 27, 2026
+Last updated: July 6, 2026
 Status: Active — on-demand model operational
 Next: Expanding agent capabilities and cost tracking
 
