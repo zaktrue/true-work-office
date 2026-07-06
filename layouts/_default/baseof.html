@@ -19,18 +19,23 @@
         nav a:hover { text-decoration: underline; }
         .last-updated { color: #666; font-size: 0.85em; font-style: italic; }
         ul { line-height: 2; }
+        @media (max-width: 600px) {
+            body { padding: 12px; }
+            nav a { margin-right: 12px; display: inline-block; margin-bottom: 6px; }
+        }
     </style>
 </head>
 <body>
     <nav>
         <a href="/">Home</a>
+        <a href="/reports/">Reports</a>
+        <a href="/blog/">Blog</a>
         <a href="/dashboards/">Dashboards</a>
-        <a href="/archive/">Archive</a>
-        <a href="/projects/">Projects</a>
+        <a href="/about/">About</a>
     </nav>
-    
+
     {{ block "main" . }}{{ end }}
-    
+
     <footer style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee; color: #666; font-size: 0.85em;">
         <p>AI Research Intelligence System | Zak | <a href="https://trueworkoffice.com">trueworkoffice.com</a></p>
     </footer>
