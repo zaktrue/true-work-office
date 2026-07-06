@@ -139,8 +139,8 @@
                 <span class="flex items-center gap-2">
                     <i class="fas fa-clock text-mc-accent"></i>
                     <span class="text-gray-400">Last updated:</span>
-                    <span id="last-refresh" class="font-medium text-mc-accent" data-timestamp="2026-07-06T16:40:01.945705Z">
-                        6 Jul 2026, 17:40 BST · 16:40 UTC
+                    <span id="last-refresh" class="font-medium text-mc-accent" data-timestamp="2026-07-06T16:45:11.802249Z">
+                        6 Jul 2026, 17:45 BST · 16:45 UTC
                     </span>
                     <span id="time-ago" class="text-xs text-gray-500 ml-1"></span>
                 </span>
@@ -183,7 +183,7 @@
                 <div class="text-xs text-gray-400">Critical</div>
             </div>
             <div class="bg-mc-card border border-mc-border rounded-lg p-3 text-center">
-                <div class="text-2xl font-bold text-mc-warning">2</div>
+                <div class="text-2xl font-bold text-mc-warning">1</div>
                 <div class="text-xs text-gray-400">Warnings</div>
             </div>
             <div class="bg-mc-card border border-mc-border rounded-lg p-3 text-center cursor-pointer hover:bg-gray-800 transition" onclick="window.open('cost-dashboard.html', '_blank')">
@@ -191,8 +191,8 @@
                 <div class="text-xs text-gray-400">Monthly Cost ↗</div>
             </div>
             <div class="bg-mc-card border border-mc-border rounded-lg p-3 text-center">
-                <div class="text-2xl font-bold text-purple-400">134,501 tokens</div>
-                <div class="text-xs text-gray-400">Tokens</div>
+                <div class="text-2xl font-bold text-purple-400">33% of 120k</div>
+                <div class="text-xs text-gray-400" title="Max live context across active gateway sessions (post-compaction), from openclaw status">Live Context</div>
             </div>
             <div class="bg-mc-card border border-mc-border rounded-lg p-3 text-center">
                 <div class="text-2xl font-bold text-gray-400">2</div>
@@ -227,7 +227,7 @@
                             <i class="fas fa-bell text-mc-danger"></i>
                             Active Alerts
                         </h2>
-                        <span class="text-xs text-gray-400" id="alert-count">2</span>
+                        <span class="text-xs text-gray-400" id="alert-count">1</span>
                     </div>
                     <div id="alert-list" class="max-h-64 overflow-y-auto">
                         <!-- Alerts populated by JS -->
@@ -288,7 +288,7 @@
                             <i class="fas fa-lightbulb text-yellow-400"></i>
                             Ideas & Improvements
                         </h2>
-                        <span class="text-xs text-gray-400" id="ideas-count">4 pending</span>
+                        <span class="text-xs text-gray-400" id="ideas-count">3 pending</span>
                     </div>
                     <div id="idea-list" class="ideas-container max-h-64 overflow-y-auto">
                         <!-- Ideas populated by JS -->
@@ -366,8 +366,20 @@
                         </span>
                     </div>
                     <div class="divide-y divide-mc-border" id="security-checks-list">
-                        <!-- Security checks populated dynamically. Sorted critical-first (FAIL/STALE/UNKNOWN above PASS/DISABLED). -->
-                        
+                        <!-- Aggregate security posture only. Per-check infra detail is intentionally
+                             kept OFF the public dashboard (privacy); it remains in the DB internally. -->
+                        <div class="px-4 py-3 text-sm">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Security monitoring</span>
+                                <span class="text-green-400">
+                                    <i class="fas fa-shield-alt"></i>
+                                    20 of 21 checks passing
+                                </span>
+                            </div>
+                            <div class="text-xs text-gray-500 mt-1">
+                                1 disabled &middot; score 9/10
+                            </div>
+                        </div>
                     </div>
                     <!-- Expandable full registry -->
                     <div id="security-registry-full" class="hidden divide-y divide-mc-border border-t border-mc-border">
@@ -422,7 +434,7 @@
 
     <script>
         // Dashboard data from server
-        const dashboardData = {"agents": [{"name": "Ava", "role": "Editorial De-AI Pass", "status": "active", "current_task": "\u23f3 Last session activity 37m ago", "last_heartbeat": "2026-07-06T16:02:46.390561Z", "activity_freshness": "fresh", "tasks_today": 0, "success_rate_percent": null}, {"name": "Kai", "role": "Creative Lead & Visual Designer", "status": "idle", "current_task": "\u23f3 Last session activity 352m ago", "last_heartbeat": "2026-07-06T10:47:50.783916Z", "activity_freshness": "fresh", "tasks_today": 0, "success_rate_percent": null}, {"name": "Quinn", "role": "Content Strategist & Writer", "status": "idle", "current_task": "\u23f3 Last session activity 237m ago", "last_heartbeat": "2026-07-06T12:42:31.435718Z", "activity_freshness": "fresh", "tasks_today": 0, "success_rate_percent": null}, {"name": "Remy", "role": "Quality Assurance Lead", "status": "idle", "current_task": "\u23f3 Last session activity 256m ago", "last_heartbeat": "2026-07-06T12:23:23.722904Z", "activity_freshness": "fresh", "tasks_today": 0, "success_rate_percent": null}, {"name": "Riley", "role": "Trend Analyst & Research Lead", "status": "idle", "current_task": "\u23f3 Last session activity 237m ago", "last_heartbeat": "2026-07-06T12:42:55.870672Z", "activity_freshness": "fresh", "tasks_today": 0, "success_rate_percent": null}, {"name": "Zak", "role": "Chief of Staff / Mission Control Lead", "status": "active", "current_task": "\u23f3 Last session activity 3m ago", "last_heartbeat": "2026-07-06T16:36:09.615891Z", "activity_freshness": "fresh", "tasks_today": 0, "success_rate_percent": null}], "active_projects": [], "pending_tasks": [], "active_alerts": [{"severity": "warning", "category": "system", "title": "Context token usage high", "description": "Context at 134,501 tokens. Consider compacting soon.", "source": "DataSync", "first_detected": "2026-07-06T16:35:01.283160Z", "occurrence_count": 2}, {"severity": "warning", "category": "system", "title": "\ufe0f CRONTAB MODIFIED \u26a0\ufe0f", "description": "\u26a0\ufe0f CRONTAB MODIFIED \u26a0\ufe0f", "source": "LogScan", "first_detected": "2026-07-06T12:30:01.919337Z", "occurrence_count": 1}], "upcoming_emails": [{"email_type": "cost_report", "recipient": "owner", "next_scheduled": "2026-07-06T17:00:00Z", "last_sent": "2026-07-05T17:00:02.160264Z", "last_status": "sent", "is_critical": 1}, {"email_type": "daily_digest", "recipient": "owner", "next_scheduled": "2026-07-06T18:00:00Z", "last_sent": "2026-07-05T18:00:03.058396Z", "last_status": "sent", "is_critical": 1}, {"email_type": "morning_briefing", "recipient": "owner", "next_scheduled": "2026-07-07T07:00:00Z", "last_sent": "2026-07-05T07:00:02.579313Z", "last_status": "sent", "is_critical": 1}, {"email_type": "academic_integrity_briefing", "recipient": "owner", "next_scheduled": "2026-07-07T08:00:00Z", "last_sent": "2026-07-06T08:00:02.823124Z", "last_status": "sent", "is_critical": 1}], "ideas": [{"id": 507, "title": "Review monthly subscription spend", "description": "Amortised daily cost is $9.67. Review active subscriptions on the cost dashboard for anything unused.", "category": "improvement", "priority": "medium", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "hours", "potential_impact": "Trim unused subscription spend", "created_at": "2026-07-06T16:34:05.423626Z", "source_url": null, "source_verified": 0}, {"id": 506, "title": "Weekly agent performance report", "description": "Auto-generate weekly summary of each agents contributions, blockers, and recommendations for optimization.", "category": "automation", "priority": "medium", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "days", "potential_impact": "Better visibility into agent productivity", "created_at": "2026-07-06T03:10:01.460342Z", "source_url": null, "source_verified": 0}, {"id": 505, "title": "Smart alert grouping", "description": "Group related alerts together (e.g., multiple deployment failures) and summarize with root cause analysis.", "category": "improvement", "priority": "medium", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "hours", "potential_impact": "Reduce alert fatigue, faster problem identification", "created_at": "2026-07-06T03:05:02.051323Z", "source_url": null, "source_verified": 0}, {"id": 504, "title": "Add natural language task creation", "description": "Allow Thomas to create tasks by typing naturally (e.g., \"Riley, research X and send me a summary\"). Parse intent and auto-assign.", "category": "feature", "priority": "medium", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "weeks", "potential_impact": "Faster task delegation, more natural interaction", "created_at": "2026-07-06T02:35:01.351487Z", "source_url": null, "source_verified": 0}], "health": [{"metric_name": "context_token_usage", "metric_value": "134,501 tokens", "is_healthy": 0, "last_updated": "2026-07-06T16:40:01.493526"}, {"metric_name": "active_services_count", "metric_value": "14", "is_healthy": 1, "last_updated": "2026-07-06T16:40:01.941146"}, {"metric_name": "database_size_mb", "metric_value": "29.7 MB", "is_healthy": 1, "last_updated": "2026-07-06T16:40:01.513860"}, {"metric_name": "estimated_daily_cost", "metric_value": "$9.68", "is_healthy": 1, "last_updated": "2026-07-06T16:40:01.496194"}, {"metric_name": "failed_deliveries_count", "metric_value": "0", "is_healthy": 1, "last_updated": "2026-07-06T16:40:01.491205"}, {"metric_name": "monthly_cost_total", "metric_value": "$45.15", "is_healthy": 1, "last_updated": "2026-07-06T16:40:01.937721"}, {"metric_name": "stale_dashboards_count", "metric_value": "0", "is_healthy": 1, "last_updated": "2026-07-06T16:40:01.488910"}, {"metric_name": "stale_projects_count", "metric_value": "0", "is_healthy": 1, "last_updated": "2026-07-06T16:40:01.606434"}], "stats": {"active_projects": 0, "completed_projects": 2, "pending_tasks": 0, "critical_alerts": 0, "warning_alerts": 2, "total_ideas": 4, "new_ideas": 4, "active_agents": 2, "last_refresh": "2026-07-06T16:40:01.945705Z"}, "cost": {"tokens": "134,501 tokens", "daily_cost": "$9.68", "by_category": [{"category": "llm", "total_cost": 39.0}, {"category": "hosting", "total_cost": 6.1499999999999995}, {"category": "storage", "total_cost": 0}, {"category": "search", "total_cost": 0.0}, {"category": "scraper", "total_cost": 0.0}, {"category": "image", "total_cost": 0}, {"category": "email", "total_cost": 0}], "monthly_total": 45.15, "top_services": [{"name": "Kimi Code", "category": "llm", "cost": 39.0, "billing_type": "subscription"}, {"name": "Hetzner Server", "category": "hosting", "cost": 4.51, "billing_type": "subscription"}, {"name": "Hostinger", "category": "hosting", "cost": 1.64, "billing_type": "subscription"}, {"name": "Gemini 2.0 Flash", "category": "llm", "cost": 0, "billing_type": "credit_based"}, {"name": "Codex CLI", "category": "llm", "cost": 0, "billing_type": "free"}], "service_count": 14, "quota_warnings": []}, "security_score": 9, "security_checks": [], "security_passed": 20, "security_total": 21, "security_disabled": 1, "quota_summary": [], "gateway_status": {"overall": "ok", "gateway": "active", "ollama": "active"}};
+        const dashboardData = {"agents": [{"name": "Ava", "role": "Editorial De-AI Pass", "status": "active", "current_task": "\u23f3 Last session activity 42m ago", "last_heartbeat": "2026-07-06T16:02:46.390561Z", "activity_freshness": "fresh", "tasks_today": 0, "success_rate_percent": null}, {"name": "Kai", "role": "Creative Lead & Visual Designer", "status": "idle", "current_task": "\u23f3 Last session activity 357m ago", "last_heartbeat": "2026-07-06T10:47:50.783916Z", "activity_freshness": "fresh", "tasks_today": 0, "success_rate_percent": null}, {"name": "Quinn", "role": "Content Strategist & Writer", "status": "idle", "current_task": "\u23f3 Last session activity 242m ago", "last_heartbeat": "2026-07-06T12:42:31.435718Z", "activity_freshness": "fresh", "tasks_today": 0, "success_rate_percent": null}, {"name": "Remy", "role": "Quality Assurance Lead", "status": "idle", "current_task": "\u23f3 Last session activity 261m ago", "last_heartbeat": "2026-07-06T12:23:23.722904Z", "activity_freshness": "fresh", "tasks_today": 0, "success_rate_percent": null}, {"name": "Riley", "role": "Trend Analyst & Research Lead", "status": "idle", "current_task": "\u23f3 Last session activity 242m ago", "last_heartbeat": "2026-07-06T12:42:55.870672Z", "activity_freshness": "fresh", "tasks_today": 0, "success_rate_percent": null}, {"name": "Zak", "role": "Chief of Staff / Mission Control Lead", "status": "active", "current_task": "\u23f3 Last session activity 8m ago", "last_heartbeat": "2026-07-06T16:36:09.615891Z", "activity_freshness": "fresh", "tasks_today": 0, "success_rate_percent": null}], "active_projects": [], "pending_tasks": [], "active_alerts": [{"id": 208, "severity": "warning", "category": "system", "title": "\ufe0f CRONTAB MODIFIED \u26a0\ufe0f", "description": "\u26a0\ufe0f CRONTAB MODIFIED \u26a0\ufe0f", "source": "LogScan", "first_detected": "2026-07-06T12:30:01.919337Z", "last_occurrence": "2026-07-06T12:30:01.919337Z", "occurrence_count": 1, "grouped": false, "group_count": 1}], "upcoming_emails": [{"email_type": "cost_report", "recipient": "owner", "next_scheduled": "2026-07-06T17:00:00Z", "last_sent": "2026-07-05T17:00:02.160264Z", "last_status": "sent", "is_critical": 1}, {"email_type": "daily_digest", "recipient": "owner", "next_scheduled": "2026-07-06T18:00:00Z", "last_sent": "2026-07-05T18:00:03.058396Z", "last_status": "sent", "is_critical": 1}, {"email_type": "morning_briefing", "recipient": "owner", "next_scheduled": "2026-07-07T07:00:00Z", "last_sent": "2026-07-05T07:00:02.579313Z", "last_status": "sent", "is_critical": 1}, {"email_type": "academic_integrity_briefing", "recipient": "owner", "next_scheduled": "2026-07-07T08:00:00Z", "last_sent": "2026-07-06T08:00:02.823124Z", "last_status": "sent", "is_critical": 1}], "ideas": [{"id": 507, "title": "Review monthly subscription spend", "description": "Amortised daily cost is $9.67. Review active subscriptions on the cost dashboard for anything unused.", "category": "improvement", "priority": "medium", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "hours", "potential_impact": "Trim unused subscription spend", "created_at": "2026-07-06T16:34:05.423626Z", "source_url": null, "source_verified": 0}, {"id": 506, "title": "Weekly agent performance report", "description": "Auto-generate weekly summary of each agents contributions, blockers, and recommendations for optimization.", "category": "automation", "priority": "medium", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "days", "potential_impact": "Better visibility into agent productivity", "created_at": "2026-07-06T03:10:01.460342Z", "source_url": null, "source_verified": 0}, {"id": 505, "title": "Smart alert grouping", "description": "Group related alerts together (e.g., multiple deployment failures) and summarize with root cause analysis.", "category": "improvement", "priority": "medium", "status": "approved", "suggested_by": "Zak", "estimated_effort": "hours", "potential_impact": "Reduce alert fatigue, faster problem identification", "created_at": "2026-07-06T03:05:02.051323Z", "source_url": null, "source_verified": 0}], "health": [{"metric_name": "active_services_count", "metric_value": "14", "is_healthy": 1, "last_updated": "2026-07-06T16:45:11.799962"}, {"metric_name": "context_token_usage", "metric_value": "33% of 120k", "is_healthy": 1, "last_updated": "2026-07-06T16:45:11.520385"}, {"metric_name": "database_size_mb", "metric_value": "29.7 MB", "is_healthy": 1, "last_updated": "2026-07-06T16:45:11.528919"}, {"metric_name": "estimated_daily_cost", "metric_value": "$1.46", "is_healthy": 1, "last_updated": "2026-07-06T16:45:11.526484"}, {"metric_name": "failed_deliveries_count", "metric_value": "0", "is_healthy": 1, "last_updated": "2026-07-06T16:45:01.735009"}, {"metric_name": "monthly_cost_total", "metric_value": "$45.15", "is_healthy": 1, "last_updated": "2026-07-06T16:45:11.797214"}, {"metric_name": "stale_dashboards_count", "metric_value": "0", "is_healthy": 1, "last_updated": "2026-07-06T16:45:01.729816"}, {"metric_name": "stale_projects_count", "metric_value": "0", "is_healthy": 1, "last_updated": "2026-07-06T16:45:11.558784"}], "stats": {"active_projects": 0, "completed_projects": 2, "pending_tasks": 0, "critical_alerts": 0, "warning_alerts": 1, "total_ideas": 3, "new_ideas": 2, "active_agents": 2, "last_refresh": "2026-07-06T16:45:11.802249Z"}, "cost": {"tokens": "33% of 120k", "daily_cost": "$1.46", "by_category": [{"category": "llm", "total_cost": 39.0}, {"category": "hosting", "total_cost": 6.1499999999999995}, {"category": "storage", "total_cost": 0}, {"category": "search", "total_cost": 0.0}, {"category": "scraper", "total_cost": 0.0}, {"category": "image", "total_cost": 0}, {"category": "email", "total_cost": 0}], "monthly_total": 45.15, "top_services": [{"name": "Kimi Code", "category": "llm", "cost": 39.0, "billing_type": "subscription"}, {"name": "Hetzner Server", "category": "hosting", "cost": 4.51, "billing_type": "subscription"}, {"name": "Hostinger", "category": "hosting", "cost": 1.64, "billing_type": "subscription"}, {"name": "Gemini 2.0 Flash", "category": "llm", "cost": 0, "billing_type": "credit_based"}, {"name": "Codex CLI", "category": "llm", "cost": 0, "billing_type": "free"}], "service_count": 14, "quota_warnings": []}, "security_score": 9, "security_checks": [], "security_passed": 20, "security_total": 21, "security_disabled": 1, "quota_summary": [], "gateway_status": {"overall": "ok", "gateway": "active", "ollama": "active"}};
         
         // Ideas expansion state
         let ideasExpanded = false;
@@ -637,19 +649,37 @@
                     cleanDesc = descMatch[1];
                 }
                 
+                // Smart Alert Grouping: when several related alerts collapsed
+                // into one entry, show a ×N badge + deterministic root-cause
+                // summary + the member titles (detail preserved, not lost).
+                const isGroup = alert.group_count && alert.group_count > 1;
+                const groupBadge = isGroup
+                    ? ` <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-mc-warning/20 text-mc-warning align-middle">×${alert.group_count}</span>`
+                    : '';
+                if (isGroup && alert.root_cause_summary) {
+                    cleanDesc = alert.root_cause_summary;
+                }
+                let membersHtml = '';
+                if (isGroup && Array.isArray(alert.group_members)) {
+                    membersHtml = '<ul class="mt-1 ml-1 text-xs text-gray-400 list-disc list-inside space-y-0.5">' +
+                        alert.group_members.map(m => `<li class="truncate">${(m.title || '').replace(/^\[[^\]]*\]\s*/, '')}</li>`).join('') +
+                        '</ul>';
+                }
+
                 // Only show description if it's different from title
                 const showDesc = cleanDesc && cleanDesc !== cleanTitle;
-                
+
                 const div = document.createElement('div');
                 div.className = `px-4 py-3 border-l-4 ${severityColor} hover:bg-gray-800 transition`;
                 div.innerHTML = `
                     <div class="flex items-start gap-2">
-                        <i class="fas ${alert.severity === 'critical' ? 'fa-exclamation-circle text-mc-danger' : 
-                                       alert.severity === 'warning' ? 'fa-exclamation-triangle text-mc-warning' : 
+                        <i class="fas ${alert.severity === 'critical' ? 'fa-exclamation-circle text-mc-danger' :
+                                       alert.severity === 'warning' ? 'fa-exclamation-triangle text-mc-warning' :
                                        'fa-info-circle text-mc-info'} mt-1"></i>
                         <div class="flex-1 min-w-0">
-                            <div class="text-sm font-medium leading-snug">${cleanTitle}</div>
+                            <div class="text-sm font-medium leading-snug">${cleanTitle}${groupBadge}</div>
                             ${showDesc ? `<div class="text-xs text-gray-300 mt-1 leading-relaxed">${cleanDesc}</div>` : ''}
+                            ${membersHtml}
                             <div class="flex items-center gap-2 mt-2 text-xs text-gray-400">
                                 <span class="uppercase tracking-wide text-[10px]">${alert.category}</span>
                                 <span>•</span>
@@ -657,7 +687,7 @@
                                 <span>•</span>
                                 <span class="text-gray-500">🕐 ${formatDateTime(alert.first_detected)}</span>
                             </div>
-                            ${alert.occurrence_count > 1 ? `<div class="text-xs text-mc-warning mt-1">⚠️ Occurred ${alert.occurrence_count} times</div>` : ''}
+                            ${!isGroup && alert.occurrence_count > 1 ? `<div class="text-xs text-mc-warning mt-1">⚠️ Occurred ${alert.occurrence_count} times</div>` : ''}
                         </div>
                     </div>
                 `;
