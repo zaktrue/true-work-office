@@ -88,6 +88,12 @@ jobs:
           # Test SSH connection first
           ssh -p "${HOSTINGER_PORT:-65002}" -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no -o BatchMode=yes "${HOSTINGER_SSH_USER}@${HOSTINGER_SERVER}" "echo 'SSH connection successful'" || echo "SSH test failed"
           
+          # Remove paths that are no longer part of the build - scp only adds/
+          # overwrites, it never deletes stale files on the remote host. Without
+          # this, static/private/ (removed from the repo 2026-07-06 privacy
+          # audit) would stay live on the site forever.
+          ssh -p "${HOSTINGER_PORT:-65002}" -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no -o BatchMode=yes "${HOSTINGER_SSH_USER}@${HOSTINGER_SERVER}" "rm -rf /home/u389484855/domains/trueworkoffice.com/public_html/private" || echo "stale-path cleanup failed (non-fatal)"
+
           # Deploy via SCP
           scp -P "${HOSTINGER_PORT:-65002}" -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no -o BatchMode=yes -r public/* "${HOSTINGER_SSH_USER}@${HOSTINGER_SERVER}:/home/u389484855/domains/trueworkoffice.com/public_html/"
           
