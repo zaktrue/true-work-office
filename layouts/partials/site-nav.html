@@ -1,0 +1,10 @@
+{{- $p := . -}}
+{{- $sec := $p.Section -}}
+<nav class="site-nav">
+    <a class="brand" href="/">True Work Office</a>
+    <a href="/"{{ if $p.IsHome }} class="active"{{ end }}>Home</a>
+    <a href="/reports/"{{ if eq $sec "reports" }} class="active"{{ end }}>Reports</a>
+    <a href="/blog/"{{ if eq $sec "blog" }} class="active"{{ end }}>Blog</a>
+    <a href="/dashboards/">Dashboards</a>
+    <a href="/about/"{{ if eq $sec "about" }} class="active"{{ end }}>About</a>
+</nav>

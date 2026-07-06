@@ -1,0 +1,19 @@
+{{ define "main" }}
+<main>
+    <h1>{{ .Title }}</h1>
+    {{ if .Description }}<p class="lead">{{ .Description }}</p>{{ end }}
+
+    {{ .Content }}
+
+    <ul class="card-list">
+    {{ range (sort (where site.RegularPages "Section" "in" (slice "reports" "blog")) "Date" "desc") }}
+        <li>
+            <span class="meta">{{ .Date.Format "2 Jan 2006" }}</span>
+            &nbsp;·&nbsp;<span class="meta">{{ humanize .Section }}</span><br>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            {{ if .Params.description }}<br><small>{{ .Params.description }}</small>{{ end }}
+        </li>
+    {{ end }}
+    </ul>
+</main>
+{{ end }}

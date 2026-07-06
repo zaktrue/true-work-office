@@ -1,17 +1,20 @@
 {{ define "main" }}
 <article>
     <h1>{{ .Title }}</h1>
-    
+
     <div class="meta">
         {{ if .Date }}Published: {{ .Date.Format "2 January 2006" }}{{ end }}
-        {{ if .Params.categories }}| Category: {{ range .Params.categories }}{{ . }}{{ end }}{{ end }}
+        {{ if .Params.categories }}| Category: {{ delimit .Params.categories ", " }}{{ end }}
+        {{ if .ReadingTime }}| {{ .ReadingTime }} min read{{ end }}
     </div>
-    
+
     {{ .Content }}
-    
-    {{ if .Params.filename }}
+
     <hr>
-    <p style="color: #666; font-size: 0.9em;">Original file: {{ .Params.filename }}</p>
+    <p class="meta"><a href="/{{ .Section }}/">← Back to {{ humanize .Section }}</a></p>
+
+    {{ if .Params.filename }}
+    <p class="meta">Original file: {{ .Params.filename }}</p>
     {{ end }}
 </article>
 {{ end }}
