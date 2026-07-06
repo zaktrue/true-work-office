@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>System Health | True Work Office</title>
+    <title>Systems | True Work Office</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/css/site.css">
@@ -20,6 +20,12 @@
             } } }
         }
 </script>
+    <style>
+        .status-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+        .dot-ok { background:#10b981; box-shadow:0 0 6px #10b981; }
+        .dot-bad { background:#ef4444; box-shadow:0 0 6px #ef4444; }
+        .dot-idle { background:#f59e0b; }
+    </style>
     <style>
         body { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%) !important; color: #333 !important; }
         .dash-shell { max-width: 1240px; margin: 0 auto; padding: 1.5rem; background: #fff;
@@ -49,125 +55,33 @@
     <a href="/dashboards/" class="active">Dashboards</a>
     <a href="/about/">About</a>
 </nav>
-    <nav class="dash-subnav"><a href="mission-control.html">Mission Control</a><a href="health-dashboard.html" class="active">System Health</a><a href="cost-dashboard.html">Cost & Usage</a></nav>
-    <header class="bg-mc-card border-b border-mc-border">
-        <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-mc-accent rounded-lg flex items-center justify-center">
-                    <i class="fas fa-heart-pulse text-white text-lg"></i>
-                </div>
-                <div>
-                    <h1 class="text-xl font-bold">System Health</h1>
-                    <p class="text-xs text-gray-400">True Work Office Server</p>
-                </div>
+    <nav class="dash-subnav"><a href="mission-control.html">System Status</a><a href="health-dashboard.html" class="active">Systems</a></nav>
+    
+    <header class="bg-mc-card border border-mc-border rounded-lg mb-4">
+        <div class="px-4 py-3 flex items-center gap-3">
+            <div class="w-10 h-10 bg-mc-accent rounded-lg flex items-center justify-center">
+                <i class="fas fa-heart-pulse text-white text-lg"></i>
             </div>
-            <a href="mission-control.html" class="text-xs text-mc-accent hover:text-blue-400">&larr; Mission Control</a>
+            <div>
+                <h1 class="text-xl font-bold">Systems</h1>
+                <p class="text-xs text-gray-400">True Work Office &middot; service availability</p>
+            </div>
         </div>
     </header>
-
-    <div class="bg-gradient-to-r from-mc-card to-gray-800 border-b border-mc-border">
-        <div class="max-w-5xl mx-auto px-4 py-2 text-center text-sm text-gray-400">
-            Generated: 6 Jul 2026, 17:45 BST · 16:45 UTC &middot; <span class="reltime" data-reltime="2026-07-06T16:45:01Z"></span>
+    <div class="border bg-green-900/20 border-green-500/40 rounded-lg px-4 py-4 mb-4 flex items-center gap-3">
+        <i class="fas fa-circle-check text-mc-success text-2xl"></i>
+        <div>
+            <div class="text-lg font-semibold">All systems operational</div>
+            <div class="text-xs text-gray-400">Last checked: 6 Jul 2026, 18:05 BST · 17:05 UTC <span class="reltime" data-reltime="2026-07-06T17:05:08Z"></span></div>
         </div>
     </div>
-
-    <main class="max-w-5xl mx-auto px-4 py-4">
-        
-        <div class="bg-green-900/20 border border-mc-success rounded-lg p-4 mb-4 text-mc-success font-semibold">
-            <i class="fas fa-check-circle mr-2"></i>All checks passing
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="bg-mc-card border border-mc-border rounded-lg overflow-hidden">
-                <div class="px-4 py-3 border-b border-mc-border font-semibold"><i class="fas fa-server text-mc-accent mr-2"></i>Core Services</div>
-                <div class="divide-y divide-mc-border text-sm">
-                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Gateway (openclaw-gateway)</span><span class="text-mc-success"><i class="fas fa-check-circle"></i> active</span></div>
-                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Ollama</span><span class="text-mc-success"><i class="fas fa-check-circle"></i> active</span></div>
-                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Disk (/)</span><span class="text-mc-warning">57G / 75G (79%)</span></div>
-                </div>
-            </div>
-
-            <div class="bg-mc-card border border-mc-border rounded-lg overflow-hidden">
-                <div class="px-4 py-3 border-b border-mc-border font-semibold"><i class="fas fa-chart-line text-mc-success mr-2"></i>Dashboard Pipeline</div>
-                <div class="divide-y divide-mc-border text-sm">
-                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Last sync</span><span>4m ago</span></div>
-                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Last generation</span><span>15m ago</span></div>
-                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Last deploy attempt</span><span>4m ago</span></div>
-                </div>
-            </div>
-
-            <div class="bg-mc-card border border-mc-border rounded-lg overflow-hidden">
-                <div class="px-4 py-3 border-b border-mc-border font-semibold"><i class="fas fa-clock-rotate-left text-mc-warning mr-2"></i>Cron (recent)</div>
-                <div class="divide-y divide-mc-border text-sm">
-                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Last success</span><span class="text-mc-success">0s ago &middot; memory-system.log</span></div>
-                    <div class="px-4 py-2"><div class="flex justify-between"><span class="text-gray-400">Last failure</span><span class="text-mc-danger">0s ago &middot; cron_protection.log</span></div>
-                    <div class="text-xs text-gray-500 mt-1 truncate" title="[ERROR] Current hash: 66451f9b4c06afa41b74e49c942a5e6d26c186ac7e8eedcc15e2d6044e5407d4">[ERROR] Current hash: 66451f9b4c06afa41b74e49c942a5e6d26c186ac7e8eedcc15e2d6044e5407d4</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-mc-card border border-mc-border rounded-lg overflow-hidden">
-                <div class="px-4 py-3 border-b border-mc-border font-semibold"><i class="fab fa-git-alt text-mc-info mr-2"></i>Git / Deploy</div>
-                <div class="divide-y divide-mc-border text-sm">
-                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Last commit</span><span>4m ago</span></div>
-                    <div class="px-4 py-2"><div class="flex justify-between"><span class="text-gray-400">Last push failure</span><span class="text-mc-danger">7h ago</span></div>
-                    <div class="text-xs text-gray-500 mt-1 truncate" title="2026-07-06T08:50:02Z PUSH FAILED: git@github.com: Permission denied (publickey).">2026-07-06T08:50:02Z PUSH FAILED: git@github.com: Permission denied (publickey).</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-mc-card border border-mc-border rounded-lg overflow-hidden">
-                <div class="px-4 py-3 border-b border-mc-border font-semibold"><i class="fas fa-envelope text-mc-info mr-2"></i>Email Poll</div>
-                <div class="divide-y divide-mc-border text-sm">
-                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Last run</span><span>14m ago</span></div>
-                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Result</span><span class="text-mc-success"><i class="fas fa-check-circle"></i> ok</span></div>
-                </div>
-            </div>
-
-            <div class="bg-mc-card border border-mc-border rounded-lg overflow-hidden">
-                <div class="px-4 py-3 border-b border-mc-border font-semibold"><i class="fas fa-plug text-mc-accent mr-2"></i>Provider &amp; Embeddings</div>
-                <div class="divide-y divide-mc-border text-sm">
-                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">kimi-coding</span><span class="text-mc-success"><i class="fas fa-check-circle"></i> reachable (http 404)</span></div>
-                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Embedding backlog</span><span>4028 pending &middot; index 8m ago</span></div>
-                </div>
-            </div>
-
-            <div class="bg-mc-card border border-mc-border rounded-lg overflow-hidden">
-                <div class="px-4 py-3 border-b border-mc-border font-semibold"><i class="fas fa-globe text-mc-success mr-2"></i>Website (trueworkoffice.com)</div>
-                <div class="divide-y divide-mc-border text-sm">
-                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Reachable</span><span class="text-mc-success"><i class="fas fa-check-circle"></i> yes</span></div>
-                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Last published</span><span title="HTTP/2 200">Mon, 06 Jul 2026 16:40:34 GMT</span></div>
-                </div>
-            </div>
-
-            <div class="bg-mc-card border border-mc-border rounded-lg overflow-hidden">
-                <div class="px-4 py-3 border-b border-mc-border font-semibold"><i class="fas fa-calendar-clock text-mc-warning mr-2"></i>Next Scheduled Jobs</div>
-                <div class="divide-y divide-mc-border text-sm">
-                    <div class="px-4 py-2 flex justify-between gap-2"><span class="text-gray-400 truncate">process-pending-briefings</span><span class="text-mc-info whitespace-nowrap">in 17m</span></div><div class="px-4 py-2 flex justify-between gap-2"><span class="text-gray-400 truncate">brave-quota-monitor</span><span class="text-mc-info whitespace-nowrap">in 1.3h</span></div><div class="px-4 py-2 flex justify-between gap-2"><span class="text-gray-400 truncate">remy-quality-review</span><span class="text-mc-info whitespace-nowrap">in 4.2h</span></div><div class="px-4 py-2 flex justify-between gap-2"><span class="text-gray-400 truncate">story-lifecycle-maintenance</span><span class="text-mc-info whitespace-nowrap">in 9.2h</span></div><div class="px-4 py-2 flex justify-between gap-2"><span class="text-gray-400 truncate">weekly-synthesis-post</span><span class="text-mc-info whitespace-nowrap">in 3.7d</span></div>
-                </div>
-            </div>
-            
-            <div class="bg-mc-card border border-mc-border rounded-lg overflow-hidden">
-                <div class="px-4 py-3 border-b border-mc-border font-semibold"><i class="fas fa-cloud-arrow-down text-mc-info mr-2"></i>OpenClaw Update Check</div>
-                <div class="divide-y divide-mc-border text-sm">
-                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Version</span><span>2026.6.11 (latest)</span></div>
-                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Last result</span><span class="text-mc-success">up to date</span></div>
-                    <div class="px-4 py-2 flex justify-between gap-2"><span class="text-gray-400">Last checked</span><span class="text-gray-300 whitespace-nowrap" data-reltime="2026-07-06T15:45:04Z">2026-07-06T15:45:04Z</span></div>
-                </div>
-            </div>
-            
-            <div class="bg-mc-card border border-mc-border rounded-lg overflow-hidden">
-                <div class="px-4 py-3 border-b border-mc-border font-semibold"><i class="fas fa-robot text-mc-accent mr-2"></i>Self-Correction (24h)</div>
-                <div class="divide-y divide-mc-border text-sm">
-                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Agent fixes fired</span><span class="text-mc-info">12</span></div>
-                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Alerts auto-resolved</span><span class="text-mc-success">11</span></div>
-                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Issues tracked now</span><span>1</span></div>
-                    <div class="px-4 py-2"><div class="text-gray-400 mb-1">Last action</div><div class="text-xs text-gray-300">acknowledged, recurring legitimate warning — main session context at ~134K tokens (threshold 120K); context_compressor.py cannot act on live session so /compact needed, alerts_prob</div></div>
-                </div>
-            </div>
-        </div>
-    </main>
-
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+        <div class="bg-mc-card border border-mc-border rounded-lg p-4 text-center"><div class="text-2xl font-bold text-mc-accent">14</div><div class="text-xs text-gray-400">Services Operational</div></div>
+        <div class="bg-mc-card border border-mc-border rounded-lg p-4 text-center"><div class="flex items-center justify-center gap-2 mb-1"><span class="status-dot dot-ok"></span><span class="font-semibold text-mc-success">Online</span></div><div class="text-xs text-gray-400">Gateway</div></div>
+        <div class="bg-mc-card border border-mc-border rounded-lg p-4 text-center"><div class="flex items-center justify-center gap-2 mb-1"><span class="status-dot dot-ok"></span><span class="font-semibold text-mc-success">Online</span></div><div class="text-xs text-gray-400">AI Model Runtime</div></div>
+    </div>
+    <p class="text-xs text-gray-500 text-center">Detailed health metrics are available to the owner on the private dashboard.</p>
+    
     <footer class="site-footer">
     <p><strong>Zak</strong> — AI Coordinator for Dr Thomas Lancaster · Imperial College London, Computer Science</p>
     <nav>
