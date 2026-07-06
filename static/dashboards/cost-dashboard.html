@@ -6,7 +6,7 @@
     <title>Cost & Usage Dashboard | Mission Control</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
+        body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             color: #e4e4e4;
@@ -17,92 +17,28 @@
         header { text-align: center; margin-bottom: 2rem; }
         h1 { font-size: 2.5rem; background: linear-gradient(90deg, #00d4aa, #00a8e8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .subtitle { color: #888; margin-top: 0.5rem; }
-        
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
-        
-        .card {
-            background: rgba(255,255,255,0.05);
-            border-radius: 12px;
-            padding: 1.5rem;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
+        .card { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1); }
         .card h2 { color: #00d4aa; margin-bottom: 1rem; font-size: 1.2rem; }
-        
-        .metric { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center;
-            padding: 1rem;
-            background: rgba(0,0,0,0.2);
-            border-radius: 8px;
-            margin-bottom: 1rem;
-        }
+        .metric { display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; margin-bottom: 1rem; }
         .metric-value { font-size: 2rem; font-weight: bold; color: #00d4aa; }
         .metric-label { color: #888; font-size: 0.9rem; }
-        
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 4px;
-            overflow: hidden;
-            margin-top: 0.5rem;
-        }
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #00d4aa, #00a8e8);
-            border-radius: 4px;
-            transition: width 0.3s ease;
-        }
+        .progress-bar { width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; margin-top: 0.5rem; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #00d4aa, #00a8e8); border-radius: 4px; transition: width 0.3s ease; }
         .progress-fill.warning { background: linear-gradient(90deg, #f39c12, #e74c3c); }
         .progress-fill.danger { background: linear-gradient(90deg, #e74c3c, #c0392b); }
-        
-        .status {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
+        .status { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
         .status.ok { background: rgba(0, 212, 170, 0.2); color: #00d4aa; }
         .status.warning { background: rgba(243, 156, 18, 0.2); color: #f39c12; }
         .status.danger { background: rgba(231, 76, 60, 0.2); color: #e74c3c; }
-        
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        .service {
-            background: rgba(255,255,255,0.03);
-            border-radius: 8px;
-            padding: 1rem;
-            border-left: 3px solid #00d4aa;
-        }
+        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 2rem; }
+        .service { background: rgba(255,255,255,0.03); border-radius: 8px; padding: 1rem; border-left: 3px solid #00d4aa; }
         .service-name { font-weight: bold; margin-bottom: 0.5rem; }
         .service-cost { font-size: 1.5rem; color: #00d4aa; }
         .service-limit { font-size: 0.8rem; color: #888; }
-        
-        .timestamp {
-            text-align: center;
-            color: #666;
-            font-size: 0.8rem;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-        th, td {
-            padding: 0.75rem;
-            text-align: left;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
+        .timestamp { text-align: center; color: #666; font-size: 0.8rem; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
         th { color: #00d4aa; font-weight: 600; }
         tr:hover { background: rgba(255,255,255,0.03); }
     </style>
@@ -113,8 +49,22 @@
             <h1>💰 Cost & Usage Dashboard</h1>
             <p class="subtitle">Real-time quota tracking and API cost monitoring</p>
         </header>
-        
+
         <div class="grid">
+            <div class="card">
+                <h2>💷 Monthly Cost Summary</h2>
+                <div class="metric">
+                    <div>
+                        <div class="metric-value">£45.15</div>
+                        <div class="metric-label">Total Projected This Month</div>
+                    </div>
+                    <span class="status ok">13 services</span>
+                </div>
+                <p style="margin-top: 0.5rem; color: #888; font-size: 0.9rem;">
+                    Fixed: £45.15 · Variable (usage-based, incl. token cost): £0.00
+                </p>
+            </div>
+
             <div class="card">
                 <h2>📧 Email Quota (AgentMail)</h2>
                 <div class="metric">
@@ -122,117 +72,148 @@
                         <div class="metric-value">0</div>
                         <div class="metric-label">Monthly Emails Sent</div>
                     </div>
-                    <span class="status ok">0/800</span>
+                    <span class="status warning">no live counter</span>
                 </div>
-                <div class="progress-bar">
-                    <div class="progress-fill " style="width: 0.0%"></div>
-                </div>
-                <p style="margin-top: 0.5rem; color: #888; font-size: 0.9rem;">
-                    Daily Limit: ~100 emails | Monthly Est: 800
-                </p>
+                <p style="margin-top: 0.5rem; color: #888; font-size: 0.9rem;">Last recorded: 2026-02-23 (no live daily counter is currently wired up)</p>
             </div>
-            
+
             <div class="card">
                 <h2>🔍 Brave Search Quota</h2>
                 <div class="metric">
                     <div>
-                        <div class="metric-value">530</div>
+                        <div class="metric-value">241</div>
                         <div class="metric-label">Monthly Searches</div>
                     </div>
-                    <span class="status ok">530/8000</span>
+                    <span class="status ok">241/2,000</span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill " style="width: 6.625%"></div>
+                    <div class="progress-fill " style="width: 12.0%"></div>
                 </div>
                 <p style="margin-top: 0.5rem; color: #888; font-size: 0.9rem;">
-                    Daily Limit: ~1000 queries | Monthly Est: 8000
+                    Free tier: 2,000 queries/month | Overage: $5.00 per 1,000 requests
                 </p>
             </div>
         </div>
-        
+
         <div class="card">
             <h2>💳 API Services & Costs</h2>
             <div class="services">
                 <div class="service">
-                    <div class="service-name">Kimi Code API</div>
-                    <div class="service-cost">~$0.50-2.00</div>
-                    <div class="service-limit">Per 1M tokens | Usage: Variable</div>
-                </div>
-                <div class="service">
-                    <div class="service-name">Brave Search API</div>
-                    <div class="service-cost">Free Tier</div>
-                    <div class="service-limit">Up to 2,000 queries/month</div>
-                </div>
-                <div class="service">
                     <div class="service-name">AgentMail</div>
-                    <div class="service-cost">Free Tier</div>
-                    <div class="service-limit">Up to 100 emails/day</div>
+                    <div class="service-cost">Usage-based / free tier</div>
+                    <div class="service-limit">Email</div>
+                </div>
+                <div class="service">
+                    <div class="service-name">Hetzner Server</div>
+                    <div class="service-cost">£4.51/mo</div>
+                    <div class="service-limit">Hosting</div>
+                </div>
+                <div class="service">
+                    <div class="service-name">Hostinger</div>
+                    <div class="service-cost">£1.64/mo</div>
+                    <div class="service-limit">Hosting</div>
+                </div>
+                <div class="service">
+                    <div class="service-name">Codex CLI</div>
+                    <div class="service-cost">Usage-based / free tier</div>
+                    <div class="service-limit">Llm</div>
+                </div>
+                <div class="service">
+                    <div class="service-name">Gemini 2.0 Flash</div>
+                    <div class="service-cost">Usage-based / free tier</div>
+                    <div class="service-limit">Llm</div>
+                </div>
+                <div class="service">
+                    <div class="service-name">Kimi Code</div>
+                    <div class="service-cost">£39.00/mo</div>
+                    <div class="service-limit">Llm</div>
+                </div>
+                <div class="service">
+                    <div class="service-name">Qwen3 Local</div>
+                    <div class="service-cost">Usage-based / free tier</div>
+                    <div class="service-limit">Llm</div>
                 </div>
                 <div class="service">
                     <div class="service-name">BrowserAct</div>
-                    <div class="service-cost">Free Tier</div>
-                    <div class="service-limit">Limited monthly credits</div>
+                    <div class="service-cost">Usage-based / free tier</div>
+                    <div class="service-limit">Scraper</div>
+                </div>
+                <div class="service">
+                    <div class="service-name">Brave Search</div>
+                    <div class="service-cost">Usage-based / free tier</div>
+                    <div class="service-limit">Search</div>
+                </div>
+                <div class="service">
+                    <div class="service-name">Google Search Console</div>
+                    <div class="service-cost">Usage-based / free tier</div>
+                    <div class="service-limit">Search</div>
+                </div>
+                <div class="service">
+                    <div class="service-name">xAI Grok Search</div>
+                    <div class="service-cost">Usage-based / free tier</div>
+                    <div class="service-limit">Search</div>
+                </div>
+                <div class="service">
+                    <div class="service-name">GitHub</div>
+                    <div class="service-cost">Usage-based / free tier</div>
+                    <div class="service-limit">Storage</div>
+                </div>
+                <div class="service">
+                    <div class="service-name">Notion</div>
+                    <div class="service-cost">Usage-based / free tier</div>
+                    <div class="service-limit">Storage</div>
                 </div>
             </div>
         </div>
-        
+
         <div class="card">
-            <h2>📊 Recent Usage (Last 7 Days)</h2>
+            <h2>📊 Brave Search Usage (Last 7 Days)</h2>
             <table>
                 <tr>
                     <th>Date</th>
-                    <th>Emails</th>
-                    <th>Searches</th>
+                    <th>Queries</th>
                     <th>Status</th>
                 </tr>
-
                 <tr>
-                    <td>2026-03-09</td>
-                    <td>0</td>
-                    <td>52</td>
+                    <td>2026-07-06</td>
+                    <td>41</td>
                     <td>✅ OK</td>
                 </tr>
                 <tr>
-                    <td>2026-03-08</td>
-                    <td>0</td>
-                    <td>36</td>
+                    <td>2026-07-05</td>
+                    <td>40</td>
                     <td>✅ OK</td>
                 </tr>
                 <tr>
-                    <td>2026-03-07</td>
-                    <td>0</td>
-                    <td>154</td>
+                    <td>2026-07-04</td>
+                    <td>40</td>
                     <td>✅ OK</td>
                 </tr>
                 <tr>
-                    <td>2026-03-06</td>
-                    <td>0</td>
-                    <td>23</td>
+                    <td>2026-07-03</td>
+                    <td>40</td>
                     <td>✅ OK</td>
                 </tr>
                 <tr>
-                    <td>2026-03-05</td>
-                    <td>0</td>
-                    <td>17</td>
+                    <td>2026-07-02</td>
+                    <td>40</td>
                     <td>✅ OK</td>
                 </tr>
                 <tr>
-                    <td>2026-03-04</td>
-                    <td>0</td>
-                    <td>23</td>
+                    <td>2026-07-01</td>
+                    <td>40</td>
                     <td>✅ OK</td>
                 </tr>
                 <tr>
-                    <td>2026-03-03</td>
-                    <td>0</td>
-                    <td>79</td>
+                    <td>2026-06-30</td>
+                    <td>40</td>
                     <td>✅ OK</td>
                 </tr>
             </table>
         </div>
-        
+
         <div class="timestamp">
-            Last Updated: 2026-03-09 21:30:01 UTC
+            Last Updated: 2026-07-06 08:47:11 UTC · Auto-regenerated every 30 min by generate_cost_dashboard.py
         </div>
     </div>
 </body>
