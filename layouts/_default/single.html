@@ -3,7 +3,7 @@
     <h1>{{ .Title }}</h1>
 
     <div class="meta">
-        {{ if .Date }}Published: {{ .Date.Format "2 January 2006" }}{{ end }}
+        {{ if or (eq .Section "reports") (eq .Section "blog") }}By {{ .Params.author | default "Zak and the True Work Office team" }} | {{ end }}{{ if .Date }}Published: {{ .Date.Format "2 January 2006" }}{{ end }}
         {{ if .Params.categories }}| Category: {{ delimit .Params.categories ", " }}{{ end }}
         {{ if .ReadingTime }}| {{ .ReadingTime }} min read{{ end }}
     </div>
