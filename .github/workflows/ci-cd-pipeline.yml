@@ -88,13 +88,29 @@ jobs:
           # Test SSH connection first
           ssh -p "${HOSTINGER_PORT:-65002}" -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no -o BatchMode=yes "${HOSTINGER_SSH_USER}@${HOSTINGER_SERVER}" "echo 'SSH connection successful'" || echo "SSH test failed"
           
-          # Remove paths that are no longer part of the build - scp only adds/
-          # overwrites, it never deletes stale files on the remote host. Without
-          # this, static/private/ (removed from the repo 2026-07-06 privacy
-          # audit) would stay live on the site forever.
-          ssh -p "${HOSTINGER_PORT:-65002}" -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no -o BatchMode=yes "${HOSTINGER_SSH_USER}@${HOSTINGER_SERVER}" "rm -rf /home/u389484855/domains/trueworkoffice.com/public_html/private" || echo "stale-path cleanup failed (non-fatal)"
+          # Deploy via rsync --delete (mirrors public/ exactly onto the remote
+          # docroot, removing anything remote that Hugo no longer generates).
+          #
+          # Previously this used `scp -r public/*`, which only adds/overwrites
+          # and never deletes - every page ever removed from the Hugo build
+          # (static/private/, the old content/archive/research/ deep-research
+          # pages, stale dashboards, etc.) stayed live on trueworkoffice.com
+          # forever, because there was nothing to overwrite them. Found
+          # 2026-07-06 when content/archive/research/* pages were removed
+          # from the repo for a privacy fix but were still returning HTTP 200
+          # on the live site days later. A one-off `rm -rf .../private` was
+          # bolted on for the previous incident, but that doesn't scale -
+          # every future removal would need its own hand-added rm. rsync
+          # --delete fixes the whole class of bug generically.
+          #
+          # --exclude='/discord/' protects discord-proxy's manually-deployed
+          # interactions.php (deployed by .github/workflows/deploy-discord-proxy.yml,
+          # a separate workflow that only runs on discord-proxy/** changes) from
+          # being deleted by this workflow, since that path isn't part of the
+          # Hugo build output.
+          rsync -avz --delete \
+            --exclude='/discord/' \
+            -e "ssh -p ${HOSTINGER_PORT:-65002} -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no -o BatchMode=yes" \
+            public/ "${HOSTINGER_SSH_USER}@${HOSTINGER_SERVER}:/home/u389484855/domains/trueworkoffice.com/public_html/"
 
-          # Deploy via SCP
-          scp -P "${HOSTINGER_PORT:-65002}" -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no -o BatchMode=yes -r public/* "${HOSTINGER_SSH_USER}@${HOSTINGER_SERVER}:/home/u389484855/domains/trueworkoffice.com/public_html/"
-          
           echo "✅ Deployed to Hostinger"
