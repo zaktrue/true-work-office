@@ -108,8 +108,17 @@ jobs:
           # a separate workflow that only runs on discord-proxy/** changes) from
           # being deleted by this workflow, since that path isn't part of the
           # Hugo build output.
+          #
+          # --exclude='/secure/' protects the password-gated PRIVATE dashboard
+          # (PHP gate + the owner's full/sensitive dashboards). Those files are
+          # pushed straight from the ops server to Hostinger by
+          # scripts/push_private_dashboard.sh (never via this public repo), so
+          # they aren't in the Hugo build - without this exclude, rsync --delete
+          # would wipe them on every public deploy. See
+          # memory/2026-07-06-dashboard-privacy-split.md.
           rsync -avz --delete \
             --exclude='/discord/' \
+            --exclude='/secure/' \
             -e "ssh -p ${HOSTINGER_PORT:-65002} -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no -o BatchMode=yes" \
             public/ "${HOSTINGER_SSH_USER}@${HOSTINGER_SERVER}:/home/u389484855/domains/trueworkoffice.com/public_html/"
 

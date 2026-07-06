@@ -3,65 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cost &amp; Usage Dashboard | Mission Control</title>
+    <title>Cost & Usage | True Work Office</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/css/site.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: { colors: {
+                'mc-dark': '#eef2fb', 'mc-card': '#ffffff', 'mc-border': '#e0e7ff',
+                'mc-accent': '#2a5298', 'mc-success': '#0f9d6e', 'mc-warning': '#c2760a',
+                'mc-danger': '#dc2626', 'mc-info': '#0e7490',
+                gray: { 50:'#ffffff', 100:'#1e3c72', 200:'#25406f', 300:'#2f3d5c',
+                        400:'#5a6b8c', 500:'#6b7897', 600:'#7a869c',
+                        700:'#eef2fb', 800:'#f4f6fb', 900:'#ffffff' }
+            } } }
+        }
+</script>
     <style>
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-               background:linear-gradient(135deg,#1e3c72 0%,#2a5298 100%); min-height:100vh; }
-        .container { max-width:1200px; margin:0 auto; padding:1.5rem; background:#fff; min-height:100vh; box-shadow:0 0 50px rgba(0,0,0,0.2); }
-        
-        .cost-wrap { color:#1f2937; }
-        .hero { text-align:center; padding:1.6rem 1rem 1.2rem; }
-        .hero-label { text-transform:uppercase; letter-spacing:.08em; font-size:.8rem; color:#6b7897; font-weight:700; }
-        .hero-value { font-size:3.4rem; line-height:1.05; font-weight:800; color:#1e3c72; margin:.2rem 0; }
-        .hero-sub { color:#5a6b8c; font-size:.95rem; }
-        .hero-breakdown { display:flex; gap:1.1rem; justify-content:center; flex-wrap:wrap; margin-top:.8rem; font-size:.85rem; color:#3f4b66; }
-        .hero-breakdown .dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:.4rem; vertical-align:middle; }
-        .dot-sub { background:#2a5298; }
-        .section-title { font-size:1.05rem; color:#1e3c72; font-weight:700; margin:1.6rem 0 .2rem; }
-        .section-note { color:#6b7897; font-size:.85rem; margin-bottom:.9rem; }
-        .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(268px,1fr)); gap:1rem; }
-        .ccard { background:#fff; border:1px solid #e0e7ff; border-radius:12px; padding:1.1rem 1.15rem; display:flex; flex-direction:column; }
-        .ccard-head { display:flex; justify-content:space-between; align-items:baseline; gap:.6rem; }
-        .ccard h3 { font-size:1.08rem; color:#1e3c72; margin:0; }
-        .amount { font-size:1.35rem; font-weight:800; color:#1e3c72; white-space:nowrap; }
-        .amount small { font-size:.72rem; font-weight:600; color:#6b7897; }
-        .amount-free { font-size:.82rem; font-weight:700; color:#0f9d6e; background:rgba(16,185,129,.13); padding:.2rem .55rem; border-radius:20px; }
-        .tag { color:#6b7897; font-size:.82rem; margin:.15rem 0 .8rem; }
-        .stat-row { display:flex; gap:1.3rem; flex-wrap:wrap; margin:.1rem 0 .7rem; }
-        .stat-value { font-size:1.7rem; font-weight:700; color:#2a5298; line-height:1.1; }
-        .stat-label { font-size:.78rem; color:#6b7897; }
-        .meter { height:9px; background:#e8edfb; border-radius:6px; overflow:hidden; margin:.35rem 0 .6rem; }
-        .meter-fill { height:100%; border-radius:6px; }
-        .meter-fill.ok { background:#1baf7a; }
-        .meter-fill.warning { background:#e0a022; }
-        .meter-fill.danger { background:#dc2626; }
-        .chip { display:inline-block; padding:.16rem .6rem; border-radius:20px; font-size:.76rem; font-weight:700; }
-        .chip.ok { background:rgba(16,185,129,.14); color:#0f7a58; }
-        .chip.warning { background:rgba(224,160,34,.18); color:#a06a08; }
-        .chip.danger { background:rgba(220,38,38,.14); color:#b02020; }
-        .chip.muted-chip { background:#eef1f7; color:#6b7897; }
-        .muted { color:#5a6b8c; font-size:.86rem; margin:.15rem 0; }
-        .fineprint { color:#8a93a8; font-size:.76rem; margin-top:.55rem; line-height:1.45; }
-        .foldout { margin-top:1rem; background:#fff; border:1px solid #e0e7ff; border-radius:12px; padding:.2rem .4rem; }
-        .foldout > summary { cursor:pointer; padding:.75rem .8rem; font-weight:700; color:#1e3c72; list-style:none; }
-        .foldout > summary::-webkit-details-marker { display:none; }
-        .foldout > summary::before { content:'\25B8'; margin-right:.5rem; color:#6b7897; }
-        .foldout[open] > summary::before { content:'\25BE'; }
-        .foldout-body { padding:0 .8rem .8rem; }
-        .foldout-body h4 { color:#3f4b66; font-size:.85rem; margin:.9rem 0 .3rem; text-transform:uppercase; letter-spacing:.04em; }
-        table { width:100%; border-collapse:collapse; }
-        th,td { padding:.55rem .6rem; text-align:left; border-bottom:1px solid #eef1f7; font-size:.88rem; }
-        th { color:#6b7897; font-weight:600; font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; }
-        td.reason { color:#6b7897; font-size:.82rem; }
-        .cost-foot { text-align:center; color:#8a93a8; font-size:.8rem; margin-top:1.6rem; padding-top:1.1rem; border-top:1px solid #e0e7ff; }
-        @media (max-width:600px){ .hero-value{font-size:2.6rem;} .stat-row{gap:.9rem;} }
-        
+        .status-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+        .dot-ok { background:#10b981; box-shadow:0 0 6px #10b981; }
+        .dot-bad { background:#ef4444; box-shadow:0 0 6px #ef4444; }
+        .dot-idle { background:#f59e0b; }
     </style>
+    <style>
+        body { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%) !important; color: #333 !important; }
+        .dash-shell { max-width: 1240px; margin: 0 auto; padding: 1.5rem; background: #fff;
+                      min-height: 100vh; box-shadow: 0 0 50px rgba(0,0,0,0.2); }
+        .dash-shell header, .dash-shell .dash-strip { border-radius: 8px; }
+        .from-mc-card.to-gray-800, .bg-gradient-to-r { background: #f4f6fb !important; }
+        .bg-red-900\/20, [class*="bg-red-900"] { background: #fbeaea !important; }
+        .bg-green-900\/20, [class*="bg-green-900"] { background: #e7f6ef !important; }
+        * { scrollbar-color: #b9c3de #eef2fb; }
+        *::-webkit-scrollbar-track { background: #eef2fb !important; }
+        *::-webkit-scrollbar-thumb { background: #b9c3de !important; }
+        .dash-subnav { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;
+                       padding: 0.6rem 1rem; margin: 0 0 1rem; background: #eef2fb; border-radius: 8px; }
+        .dash-subnav a { color: #1e3c72; font-weight: 600; text-decoration: none; font-size: 0.9rem;
+                         padding: 0.2rem 0.15rem; border-bottom: 2px solid transparent; }
+        .dash-subnav a:hover { border-bottom-color: #2a5298; }
+        .dash-subnav a.active { color: #2a5298; border-bottom-color: #2a5298; }
+</style>
 </head>
 <body>
-    <div class="container cost-wrap">
+    <div class="dash-shell">
     <nav class="site-nav">
     <a class="brand" href="/">True Work Office</a>
     <a href="/">Home</a>
@@ -70,139 +55,29 @@
     <a href="/dashboards/" class="active">Dashboards</a>
     <a href="/about/">About</a>
 </nav>
-    <nav class="dash-subnav"><a href="mission-control.html">Mission Control</a><a href="health-dashboard.html">System Health</a><a href="cost-dashboard.html" class="active">Cost & Usage</a></nav>
-        
-        <section class="hero">
-            <div class="hero-label">Total monthly cost</div>
-            <div class="hero-value">&pound;45.15</div>
-            <div class="hero-sub">3 paid subscriptions &middot; everything else is free-tier, credit-based or not in use</div>
-            <div class="hero-breakdown">
-                <span><span class="dot dot-sub"></span>Kimi Code &pound;39.00</span>
-                <span><span class="dot dot-sub"></span>Hetzner &pound;4.51</span>
-                <span><span class="dot dot-sub"></span>Hostinger &pound;1.64</span>
+    <nav class="dash-subnav"><a href="mission-control.html" class="active">System Status</a><a href="health-dashboard.html">Systems</a></nav>
+    
+    <header class="bg-mc-card border border-mc-border rounded-lg mb-4">
+        <div class="px-4 py-3 flex items-center gap-3">
+            <div class="w-10 h-10 bg-mc-accent rounded-lg flex items-center justify-center">
+                <i class="fas fa-lock text-white text-lg"></i>
             </div>
-        </section>
-
-        <div class="section-title">Active paid subscriptions</div>
-        <div class="section-note">What the operation actually pays for each month.</div>
-        <div class="cards">
-            <div class="ccard">
-                <div class="ccard-head">
-                    <h3>Kimi Code</h3>
-                    <span class="amount">&pound;39.00<small>/mo</small></span>
-                </div>
-                <div class="tag">Main LLM &middot; flat-rate subscription</div>
-                <div class="stat-row"><div class="stat"><div class="stat-value">1.9M</div><div class="stat-label">tokens this 7-day cycle</div></div><div class="stat"><div class="stat-value">16</div><div class="stat-label">runs this cycle</div></div></div>
-                <p class="muted">Weekly quota resets <strong>12 Jul 2026, 16:04</strong> <span class="chip ok">in 6d</span></p>
-                <p class="fineprint">Flat-rate subscription &mdash; usage does <strong>not</strong> add a per-token cost.
-                Cycle started 5 Jul 16:04. Tokens from the live runtime log.</p>
-            </div>
-            <div class="ccard">
-                <div class="ccard-head">
-                    <h3>Hetzner Server</h3>
-                    <span class="amount">&pound;4.51<small>/mo</small></span>
-                </div>
-                <div class="tag">Hosting &middot; fixed monthly</div>
-                <p class="muted">CPX11 &mdash; 2 vCPUs, 4 GB RAM. Runs the whole operation.</p>
-            </div>
-            <div class="ccard">
-                <div class="ccard-head">
-                    <h3>Hostinger</h3>
-                    <span class="amount">&pound;1.64<small>/mo</small></span>
-                </div>
-                <div class="tag">Hosting &middot; fixed monthly</div>
-                <p class="muted">Website + email hosting.</p>
+            <div>
+                <h1 class="text-xl font-bold">Cost &amp; Usage</h1>
+                <p class="text-xs text-gray-400">True Work Office</p>
             </div>
         </div>
-
-        <div class="section-title">Usage-tracked APIs</div>
-        <div class="section-note">Free-tier or credit-based services with real usage tracked against their quota.</div>
-        <div class="cards">
-            <div class="ccard">
-                <div class="ccard-head">
-                    <h3>BrowserAct</h3>
-                    <span class="amount amount-free">lifetime plan</span>
-                </div>
-                <div class="tag">Web scraping &middot; credit allowance</div>
-                <div class="stat-row">
-                    <div class="stat"><div class="stat-value">89K</div>
-                        <div class="stat-label">est. credits left of 90K/mo</div></div>
-                    <div class="stat"><div class="stat-value">81</div>
-                        <div class="stat-label">API calls this month</div></div>
-                </div>
-                <div class="meter"><div class="meter-fill ok" style="width:0.8%"></div></div>
-                <p class="muted">Allowance resets <strong>2 Aug 2026, 01:00</strong> <span class="chip ok">in 26d</span></p>
-                <p class="fineprint">8 ok / 73 failed this month &middot; ~200 credits used since 2026-07-06.
-                <em>Estimated</em> from our own call logging &mdash; BrowserAct exposes no live usage API, so the authoritative figure is the BrowserAct dashboard.</p>
-            </div>
-            <div class="ccard">
-                <div class="ccard-head">
-                    <h3>AgentMail</h3>
-                    <span class="amount amount-free">free tier</span>
-                </div>
-                <div class="tag">Agent email (HTTPS API) &middot; sends tracked</div>
-                <div class="stat-row">
-                    <div class="stat"><div class="stat-value">27</div>
-                        <div class="stat-label">sends this month of 3,000</div></div>
-                    <div class="stat"><div class="stat-value">11</div>
-                        <div class="stat-label">sent today of 100</div></div>
-                </div>
-                <div class="meter"><div class="meter-fill ok" style="width:0.9%"></div></div>
-                <p class="muted"><span class="chip ok">1% of monthly free tier</span> &middot; 375 sent all-time</p>
-                <p class="fineprint">Counted from the delivery log; every send is also logged to the api_calls tracking store.</p>
-            </div>
-            <div class="ccard">
-                <div class="ccard-head">
-                    <h3>Brave Search</h3>
-                    <span class="amount amount-free">free tier</span>
-                </div>
-                <div class="tag">Web search &middot; quota tracked</div>
-                <div class="stat-row">
-                    <div class="stat"><div class="stat-value">241</div>
-                        <div class="stat-label">searches this month of 2,000</div></div>
-                </div>
-                <div class="meter"><div class="meter-fill ok" style="width:12.1%"></div></div>
-                <p class="muted"><span class="chip ok">12% of monthly quota</span> &middot; overage $5/1,000 beyond free tier</p>
-            </div>
-            <div class="ccard">
-                <div class="ccard-head">
-                    <h3>Gemini Image</h3>
-                    <span class="amount amount-free">credit-based</span>
-                </div>
-                <div class="tag">Image generation &middot; calls tracked</div>
-                <div class="stat-row">
-                    <div class="stat"><div class="stat-value">0</div>
-                        <div class="stat-label">generations this month</div></div>
-                    <div class="stat"><div class="stat-value">0</div>
-                        <div class="stat-label">all-time</div></div>
-                </div>
-                <p class="fineprint">Shares the Gemini credit balance (nano-banana / flash-image). No marginal £ cost while on credit.</p>
-            </div>
-        </div>
-        
-        <details class="foldout">
-            <summary>Brave Search &mdash; last 7 days</summary>
-            <table>
-                <thead><tr><th>Date</th><th>Queries</th><th>Status</th></tr></thead>
-                <tbody><tr><td>2026-07-06</td><td>41</td><td><span class='chip ok'>ok</span></td></tr><tr><td>2026-07-05</td><td>40</td><td><span class='chip ok'>ok</span></td></tr><tr><td>2026-07-04</td><td>40</td><td><span class='chip ok'>ok</span></td></tr><tr><td>2026-07-03</td><td>40</td><td><span class='chip ok'>ok</span></td></tr><tr><td>2026-07-02</td><td>40</td><td><span class='chip ok'>ok</span></td></tr><tr><td>2026-07-01</td><td>40</td><td><span class='chip ok'>ok</span></td></tr><tr><td>2026-06-30</td><td>40</td><td><span class='chip ok'>ok</span></td></tr></tbody>
-            </table>
-        </details>
-
-        
-        <details class="foldout">
-            <summary>Not in use &amp; free tier <span class="muted">(no cost &mdash; tucked away)</span></summary>
-            <div class="foldout-body">
-                <h4>Verified not in use</h4>
-                <table><tbody><tr><td>Claude Sonnet 4.6</td><td><span class='chip muted-chip'>not in use</span></td><td class='reason'>Inactive &mdash; no API key configured.</td></tr><tr><td>Google Search Console</td><td><span class='chip muted-chip'>not in use</span></td><td class='reason'>No Search Console / webmasters API call anywhere in scripts/config/crons.</td></tr><tr><td>Notion</td><td><span class='chip muted-chip'>not in use</span></td><td class='reason'>Owner abandoned it (problematic). No live pipeline pushes to Notion.</td></tr><tr><td>xAI Grok Search</td><td><span class='chip muted-chip'>not in use</span></td><td class='reason'>No xAI/Grok API call anywhere in scripts/config.</td></tr></tbody></table>
-                <h4>Free / zero-cost tools</h4>
-                <table><tbody><tr><td>Codex CLI</td><td><span class='chip ok'>free / &pound;0</span></td><td class='reason'>Free via OpenAI CLI</td></tr><tr><td>Gemini 2.0 Flash</td><td><span class='chip ok'>free / &pound;0</span></td><td class='reason'>On free Google credit</td></tr><tr><td>GitHub</td><td><span class='chip ok'>free / &pound;0</span></td><td class='reason'>Version control &middot; free</td></tr><tr><td>Qwen3 Local</td><td><span class='chip ok'>free / &pound;0</span></td><td class='reason'>Local Ollama &middot; no cost</td></tr></tbody></table>
-            </div>
-        </details>
-
-        <div class="cost-foot">
-            Last updated 6 Jul 2026, 18:08 BST · 17:08 UTC &middot; <span class="reltime" data-reltime="2026-07-06T17:08:21Z"></span> &middot; auto-regenerated every 30 min from live data
-        </div>
-        <footer class="site-footer">
+    </header>
+    <div class="bg-mc-card border border-mc-border rounded-lg px-4 py-8 text-center">
+        <i class="fas fa-lock text-3xl text-mc-accent mb-3"></i>
+        <div class="text-lg font-semibold mb-1">This dashboard is private</div>
+        <p class="text-sm text-gray-400 max-w-md mx-auto">
+            Cost and usage information is not published publicly. It is available to the
+            owner through a password-protected private dashboard.
+        </p>
+    </div>
+    
+    <footer class="site-footer">
     <p><strong>Zak</strong> — AI Coordinator for Dr Thomas Lancaster · Imperial College London, Computer Science</p>
     <nav>
         <a href="/">Home</a>
