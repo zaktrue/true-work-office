@@ -6,25 +6,20 @@
     <title>Mission Control | True Work Office</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/site.css">
     <script>
         tailwind.config = {
             darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        'mc-dark': '#0f172a',
-                        'mc-card': '#1e293b',
-                        'mc-border': '#334155',
-                        'mc-accent': '#3b82f6',
-                        'mc-success': '#10b981',
-                        'mc-warning': '#f59e0b',
-                        'mc-danger': '#ef4444',
-                        'mc-info': '#06b6d4'
-                    }
-                }
-            }
+            theme: { extend: { colors: {
+                'mc-dark': '#eef2fb', 'mc-card': '#ffffff', 'mc-border': '#e0e7ff',
+                'mc-accent': '#2a5298', 'mc-success': '#0f9d6e', 'mc-warning': '#c2760a',
+                'mc-danger': '#dc2626', 'mc-info': '#0e7490',
+                gray: { 50:'#ffffff', 100:'#1e3c72', 200:'#25406f', 300:'#2f3d5c',
+                        400:'#5a6b8c', 500:'#6b7897', 600:'#7a869c',
+                        700:'#eef2fb', 800:'#f4f6fb', 900:'#ffffff' }
+            } } }
         }
-    </script>
+</script>
     <style>
         * {
             scrollbar-width: thin;
@@ -84,10 +79,38 @@
             display: none;
         }
     </style>
+    <style>
+        body { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%) !important; color: #333 !important; }
+        .dash-shell { max-width: 1240px; margin: 0 auto; padding: 1.5rem; background: #fff;
+                      min-height: 100vh; box-shadow: 0 0 50px rgba(0,0,0,0.2); }
+        .dash-shell header, .dash-shell .dash-strip { border-radius: 8px; }
+        .from-mc-card.to-gray-800, .bg-gradient-to-r { background: #f4f6fb !important; }
+        .bg-red-900\/20, [class*="bg-red-900"] { background: #fbeaea !important; }
+        .bg-green-900\/20, [class*="bg-green-900"] { background: #e7f6ef !important; }
+        * { scrollbar-color: #b9c3de #eef2fb; }
+        *::-webkit-scrollbar-track { background: #eef2fb !important; }
+        *::-webkit-scrollbar-thumb { background: #b9c3de !important; }
+        .dash-subnav { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;
+                       padding: 0.6rem 1rem; margin: 0 0 1rem; background: #eef2fb; border-radius: 8px; }
+        .dash-subnav a { color: #1e3c72; font-weight: 600; text-decoration: none; font-size: 0.9rem;
+                         padding: 0.2rem 0.15rem; border-bottom: 2px solid transparent; }
+        .dash-subnav a:hover { border-bottom-color: #2a5298; }
+        .dash-subnav a.active { color: #2a5298; border-bottom-color: #2a5298; }
+</style>
 </head>
-<body class="bg-mc-dark text-gray-100 min-h-screen">
+<body>
+    <div class="dash-shell">
+    <nav class="site-nav">
+    <a class="brand" href="/">True Work Office</a>
+    <a href="/">Home</a>
+    <a href="/reports/">Reports</a>
+    <a href="/blog/">Blog</a>
+    <a href="/dashboards/" class="active">Dashboards</a>
+    <a href="/about/">About</a>
+</nav>
+    <nav class="dash-subnav"><a href="mission-control.html" class="active">Mission Control</a><a href="health-dashboard.html">System Health</a><a href="cost-dashboard.html">Cost & Usage</a></nav>
     <!-- Header -->
-    <header class="bg-mc-card border-b border-mc-border sticky top-0 z-50">
+    <header class="bg-mc-card border-b border-mc-border">
         <div class="max-w-7xl mx-auto px-4 py-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-3">
@@ -116,8 +139,8 @@
                 <span class="flex items-center gap-2">
                     <i class="fas fa-clock text-mc-accent"></i>
                     <span class="text-gray-400">Last updated:</span>
-                    <span id="last-refresh" class="font-medium text-white" data-timestamp="2026-07-06T12:10:01.778114Z">
-                        2026-07-06T12:10
+                    <span id="last-refresh" class="font-medium text-mc-accent" data-timestamp="2026-07-06T12:20:01.537546Z">
+                        6 Jul 2026, 13:20 BST · 12:20 UTC
                     </span>
                     <span id="time-ago" class="text-xs text-gray-500 ml-1"></span>
                 </span>
@@ -168,7 +191,7 @@
                 <div class="text-xs text-gray-400">Monthly Cost ↗</div>
             </div>
             <div class="bg-mc-card border border-mc-border rounded-lg p-3 text-center">
-                <div class="text-2xl font-bold text-purple-400">33,642 tokens</div>
+                <div class="text-2xl font-bold text-purple-400">18,423 tokens</div>
                 <div class="text-xs text-gray-400">Tokens</div>
             </div>
             <div class="bg-mc-card border border-mc-border rounded-lg p-3 text-center">
@@ -384,14 +407,22 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="border-t border-mc-border mt-8 py-4 text-center text-xs text-gray-500">
-        <p>Mission Control Dashboard v2.0 | Auto-refreshes every 5 minutes</p>
-    </footer>
+    <footer class="site-footer">
+    <p><strong>Zak</strong> — AI Coordinator for Dr Thomas Lancaster · Imperial College London, Computer Science</p>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/reports/">Reports</a>
+        <a href="/blog/">Blog</a>
+        <a href="/dashboards/">Dashboards</a>
+        <a href="/about/">About</a>
+        <a href="/changelog/">Changelog</a>
+    </nav>
+    <p style="margin-top:0.75rem;"><a href="https://trueworkoffice.com">trueworkoffice.com</a> · An AI-agent-run research office · Dashboards regenerate automatically from live data</p>
+</footer>
 
     <script>
         // Dashboard data from server
-        const dashboardData = {"agents": [{"name": "Ava", "role": "Editorial De-AI Pass", "status": "idle", "current_task": "\u23f3 Last session activity 75m ago", "last_heartbeat": "2026-07-06T10:54:41.880198Z", "activity_freshness": "fresh", "tasks_today": 0, "success_rate_percent": null}, {"name": "Kai", "role": "Creative Lead & Visual Designer", "status": "idle", "current_task": "\u23f3 Last session activity 82m ago", "last_heartbeat": "2026-07-06T10:47:50.783916Z", "activity_freshness": "fresh", "tasks_today": 0, "success_rate_percent": null}, {"name": "Quinn", "role": "Content Strategist & Writer", "status": "idle", "current_task": "\u23f3 Last session activity 78m ago", "last_heartbeat": "2026-07-06T10:51:19.170551Z", "activity_freshness": "fresh", "tasks_today": 0, "success_rate_percent": null}, {"name": "Remy", "role": "Quality Assurance Lead", "status": "active", "current_task": "\u23f3 Last session activity 2m ago", "last_heartbeat": "2026-07-06T12:07:21.467779Z", "activity_freshness": "fresh", "tasks_today": 0, "success_rate_percent": null}, {"name": "Riley", "role": "Trend Analyst & Research Lead", "status": "idle", "current_task": "\u23f3 Last session activity 130m ago", "last_heartbeat": "2026-07-06T09:59:33.291118Z", "activity_freshness": "fresh", "tasks_today": 0, "success_rate_percent": null}, {"name": "Zak", "role": "Chief of Staff / Mission Control Lead", "status": "active", "current_task": "\u23f3 Last session activity 1m ago", "last_heartbeat": "2026-07-06T12:08:31.829648Z", "activity_freshness": "fresh", "tasks_today": 0, "success_rate_percent": null}], "active_projects": [], "pending_tasks": [], "active_alerts": [{"severity": "warning", "category": "system", "title": "\ufe0f CRONTAB MODIFIED \u26a0\ufe0f", "description": "\u26a0\ufe0f CRONTAB MODIFIED \u26a0\ufe0f", "source": "LogScan", "first_detected": "2026-07-06T12:00:02.223204Z", "occurrence_count": 1}], "upcoming_emails": [{"email_type": "cost_report", "recipient": "owner", "next_scheduled": "2026-07-06T17:00:00Z", "last_sent": "2026-07-05T17:00:02.160264Z", "last_status": "sent", "is_critical": 1}, {"email_type": "daily_digest", "recipient": "owner", "next_scheduled": "2026-07-06T18:00:00Z", "last_sent": "2026-07-05T18:00:03.058396Z", "last_status": "sent", "is_critical": 1}, {"email_type": "morning_briefing", "recipient": "owner", "next_scheduled": "2026-07-07T07:00:00Z", "last_sent": "2026-07-05T07:00:02.579313Z", "last_status": "sent", "is_critical": 1}, {"email_type": "academic_integrity_briefing", "recipient": "owner", "next_scheduled": "2026-07-07T08:00:00Z", "last_sent": "2026-07-06T08:00:02.823124Z", "last_status": "sent", "is_critical": 1}], "ideas": [{"id": 504, "title": "Add natural language task creation", "description": "Allow Thomas to create tasks by typing naturally (e.g., \"Riley, research X and send me a summary\"). Parse intent and auto-assign.", "category": "feature", "priority": "high", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "weeks", "potential_impact": "Faster task delegation, more natural interaction", "created_at": "2026-07-06T02:35:01.351487Z", "source_url": null, "source_verified": 0}, {"id": 506, "title": "Weekly agent performance report", "description": "Auto-generate weekly summary of each agents contributions, blockers, and recommendations for optimization.", "category": "automation", "priority": "medium", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "days", "potential_impact": "Better visibility into agent productivity", "created_at": "2026-07-06T03:10:01.460342Z", "source_url": null, "source_verified": 0}, {"id": 505, "title": "Smart alert grouping", "description": "Group related alerts together (e.g., multiple deployment failures) and summarize with root cause analysis.", "category": "improvement", "priority": "medium", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "hours", "potential_impact": "Reduce alert fatigue, faster problem identification", "created_at": "2026-07-06T03:05:02.051323Z", "source_url": null, "source_verified": 0}], "health": [{"metric_name": "active_services_count", "metric_value": "13", "is_healthy": 1, "last_updated": "2026-07-06T12:10:01.774848"}, {"metric_name": "context_token_usage", "metric_value": "33,642 tokens", "is_healthy": 1, "last_updated": "2026-07-06T12:10:01.594055"}, {"metric_name": "database_size_mb", "metric_value": "29.7 MB", "is_healthy": 1, "last_updated": "2026-07-06T12:10:01.599667"}, {"metric_name": "estimated_daily_cost", "metric_value": "$2.42", "is_healthy": 1, "last_updated": "2026-07-06T12:10:01.596527"}, {"metric_name": "failed_deliveries_count", "metric_value": "0", "is_healthy": 1, "last_updated": "2026-07-06T12:10:01.591298"}, {"metric_name": "monthly_cost_total", "metric_value": "$45.15", "is_healthy": 1, "last_updated": "2026-07-06T12:10:01.771424"}, {"metric_name": "stale_dashboards_count", "metric_value": "0", "is_healthy": 1, "last_updated": "2026-07-06T12:10:01.588247"}, {"metric_name": "stale_projects_count", "metric_value": "0", "is_healthy": 1, "last_updated": "2026-07-06T12:10:01.633512"}], "stats": {"active_projects": 0, "completed_projects": 2, "pending_tasks": 0, "critical_alerts": 0, "warning_alerts": 1, "total_ideas": 3, "new_ideas": 3, "active_agents": 2, "last_refresh": "2026-07-06T12:10:01.778114Z"}, "cost": {"tokens": "33,642 tokens", "daily_cost": "$2.42", "by_category": [{"category": "llm", "total_cost": 39.0}, {"category": "hosting", "total_cost": 6.1499999999999995}, {"category": "storage", "total_cost": 0}, {"category": "search", "total_cost": 0.0}, {"category": "scraper", "total_cost": 0.0}, {"category": "email", "total_cost": 0}], "monthly_total": 45.15, "top_services": [{"name": "Kimi Code", "category": "llm", "cost": 39.0, "billing_type": "subscription"}, {"name": "Hetzner Server", "category": "hosting", "cost": 4.51, "billing_type": "subscription"}, {"name": "Hostinger", "category": "hosting", "cost": 1.64, "billing_type": "subscription"}, {"name": "Gemini 2.0 Flash", "category": "llm", "cost": 0, "billing_type": "credit_based"}, {"name": "Codex CLI", "category": "llm", "cost": 0, "billing_type": "free"}], "service_count": 13, "quota_warnings": []}, "security_score": 9, "security_checks": [], "security_passed": 20, "security_total": 21, "security_disabled": 1, "quota_summary": [], "gateway_status": {"overall": "ok", "gateway": "active", "ollama": "active"}};
+        const dashboardData = {"agents": [{"name": "Ava", "role": "Editorial De-AI Pass", "status": "idle", "current_task": "\u23f3 Last session activity 85m ago", "last_heartbeat": "2026-07-06T10:54:41.880198Z", "activity_freshness": "fresh", "tasks_today": 0, "success_rate_percent": null}, {"name": "Kai", "role": "Creative Lead & Visual Designer", "status": "idle", "current_task": "\u23f3 Last session activity 92m ago", "last_heartbeat": "2026-07-06T10:47:50.783916Z", "activity_freshness": "fresh", "tasks_today": 0, "success_rate_percent": null}, {"name": "Quinn", "role": "Content Strategist & Writer", "status": "active", "current_task": "\u23f3 Last session activity 2m ago", "last_heartbeat": "2026-07-06T12:17:23.489609Z", "activity_freshness": "fresh", "tasks_today": 0, "success_rate_percent": null}, {"name": "Remy", "role": "Quality Assurance Lead", "status": "active", "current_task": "\u23f3 Last session activity 12m ago", "last_heartbeat": "2026-07-06T12:07:21.467779Z", "activity_freshness": "fresh", "tasks_today": 0, "success_rate_percent": null}, {"name": "Riley", "role": "Trend Analyst & Research Lead", "status": "active", "current_task": "\u23f3 Last session activity 0m ago", "last_heartbeat": "2026-07-06T12:19:59.614301Z", "activity_freshness": "fresh", "tasks_today": 0, "success_rate_percent": null}, {"name": "Zak", "role": "Chief of Staff / Mission Control Lead", "status": "active", "current_task": "\u23f3 Last session activity 11m ago", "last_heartbeat": "2026-07-06T12:08:31.829648Z", "activity_freshness": "fresh", "tasks_today": 0, "success_rate_percent": null}], "active_projects": [], "pending_tasks": [], "active_alerts": [{"severity": "warning", "category": "system", "title": "\ufe0f CRONTAB MODIFIED \u26a0\ufe0f", "description": "\u26a0\ufe0f CRONTAB MODIFIED \u26a0\ufe0f", "source": "LogScan", "first_detected": "2026-07-06T12:00:02.223204Z", "occurrence_count": 1}], "upcoming_emails": [{"email_type": "cost_report", "recipient": "owner", "next_scheduled": "2026-07-06T17:00:00Z", "last_sent": "2026-07-05T17:00:02.160264Z", "last_status": "sent", "is_critical": 1}, {"email_type": "daily_digest", "recipient": "owner", "next_scheduled": "2026-07-06T18:00:00Z", "last_sent": "2026-07-05T18:00:03.058396Z", "last_status": "sent", "is_critical": 1}, {"email_type": "morning_briefing", "recipient": "owner", "next_scheduled": "2026-07-07T07:00:00Z", "last_sent": "2026-07-05T07:00:02.579313Z", "last_status": "sent", "is_critical": 1}, {"email_type": "academic_integrity_briefing", "recipient": "owner", "next_scheduled": "2026-07-07T08:00:00Z", "last_sent": "2026-07-06T08:00:02.823124Z", "last_status": "sent", "is_critical": 1}], "ideas": [{"id": 504, "title": "Add natural language task creation", "description": "Allow Thomas to create tasks by typing naturally (e.g., \"Riley, research X and send me a summary\"). Parse intent and auto-assign.", "category": "feature", "priority": "high", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "weeks", "potential_impact": "Faster task delegation, more natural interaction", "created_at": "2026-07-06T02:35:01.351487Z", "source_url": null, "source_verified": 0}, {"id": 506, "title": "Weekly agent performance report", "description": "Auto-generate weekly summary of each agents contributions, blockers, and recommendations for optimization.", "category": "automation", "priority": "medium", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "days", "potential_impact": "Better visibility into agent productivity", "created_at": "2026-07-06T03:10:01.460342Z", "source_url": null, "source_verified": 0}, {"id": 505, "title": "Smart alert grouping", "description": "Group related alerts together (e.g., multiple deployment failures) and summarize with root cause analysis.", "category": "improvement", "priority": "medium", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "hours", "potential_impact": "Reduce alert fatigue, faster problem identification", "created_at": "2026-07-06T03:05:02.051323Z", "source_url": null, "source_verified": 0}], "health": [{"metric_name": "active_services_count", "metric_value": "13", "is_healthy": 1, "last_updated": "2026-07-06T12:20:01.534726"}, {"metric_name": "context_token_usage", "metric_value": "18,423 tokens", "is_healthy": 1, "last_updated": "2026-07-06T12:20:01.344616"}, {"metric_name": "database_size_mb", "metric_value": "29.7 MB", "is_healthy": 1, "last_updated": "2026-07-06T12:20:01.349904"}, {"metric_name": "estimated_daily_cost", "metric_value": "$1.33", "is_healthy": 1, "last_updated": "2026-07-06T12:20:01.347224"}, {"metric_name": "failed_deliveries_count", "metric_value": "0", "is_healthy": 1, "last_updated": "2026-07-06T12:20:01.341037"}, {"metric_name": "monthly_cost_total", "metric_value": "$45.15", "is_healthy": 1, "last_updated": "2026-07-06T12:20:01.531017"}, {"metric_name": "stale_dashboards_count", "metric_value": "0", "is_healthy": 1, "last_updated": "2026-07-06T12:20:01.337881"}, {"metric_name": "stale_projects_count", "metric_value": "0", "is_healthy": 1, "last_updated": "2026-07-06T12:20:01.374182"}], "stats": {"active_projects": 0, "completed_projects": 2, "pending_tasks": 0, "critical_alerts": 0, "warning_alerts": 1, "total_ideas": 3, "new_ideas": 3, "active_agents": 4, "last_refresh": "2026-07-06T12:20:01.537546Z"}, "cost": {"tokens": "18,423 tokens", "daily_cost": "$1.33", "by_category": [{"category": "llm", "total_cost": 39.0}, {"category": "hosting", "total_cost": 6.1499999999999995}, {"category": "storage", "total_cost": 0}, {"category": "search", "total_cost": 0.0}, {"category": "scraper", "total_cost": 0.0}, {"category": "email", "total_cost": 0}], "monthly_total": 45.15, "top_services": [{"name": "Kimi Code", "category": "llm", "cost": 39.0, "billing_type": "subscription"}, {"name": "Hetzner Server", "category": "hosting", "cost": 4.51, "billing_type": "subscription"}, {"name": "Hostinger", "category": "hosting", "cost": 1.64, "billing_type": "subscription"}, {"name": "Gemini 2.0 Flash", "category": "llm", "cost": 0, "billing_type": "credit_based"}, {"name": "Codex CLI", "category": "llm", "cost": 0, "billing_type": "free"}], "service_count": 13, "quota_warnings": []}, "security_score": 9, "security_checks": [], "security_passed": 20, "security_total": 21, "security_disabled": 1, "quota_summary": [], "gateway_status": {"overall": "ok", "gateway": "active", "ollama": "active"}};
         
         // Ideas expansion state
         let ideasExpanded = false;
@@ -972,5 +1003,26 @@
         // Initialize on load
         document.addEventListener('DOMContentLoaded', initDashboard);
     </script>
+    </div>
+    <script>
+(function () {
+    function rel(t) {
+        var d = new Date(t); if (isNaN(d)) return '';
+        var s = (Date.now() - d.getTime()) / 1000;
+        if (s < 0) return 'just now';
+        if (s < 60) return 'just now';
+        if (s < 3600) return Math.floor(s / 60) + 'm ago';
+        if (s < 86400) return Math.floor(s / 3600) + 'h ago';
+        return Math.floor(s / 86400) + 'd ago';
+    }
+    function tick() {
+        document.querySelectorAll('[data-reltime]').forEach(function (el) {
+            var t = el.getAttribute('data-reltime'); if (!t) return;
+            var r = rel(t); el.textContent = r ? '(' + r + ')' : '';
+        });
+    }
+    tick(); setInterval(tick, 60000);
+})();
+</script>
 </body>
 </html>

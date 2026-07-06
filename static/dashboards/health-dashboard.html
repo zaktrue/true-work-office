@@ -6,19 +6,51 @@
     <title>System Health | True Work Office</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/site.css">
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: { extend: { colors: {
-                'mc-dark': '#0f172a', 'mc-card': '#1e293b', 'mc-border': '#334155',
-                'mc-accent': '#3b82f6', 'mc-success': '#10b981', 'mc-warning': '#f59e0b',
-                'mc-danger': '#ef4444', 'mc-info': '#06b6d4'
+                'mc-dark': '#eef2fb', 'mc-card': '#ffffff', 'mc-border': '#e0e7ff',
+                'mc-accent': '#2a5298', 'mc-success': '#0f9d6e', 'mc-warning': '#c2760a',
+                'mc-danger': '#dc2626', 'mc-info': '#0e7490',
+                gray: { 50:'#ffffff', 100:'#1e3c72', 200:'#25406f', 300:'#2f3d5c',
+                        400:'#5a6b8c', 500:'#6b7897', 600:'#7a869c',
+                        700:'#eef2fb', 800:'#f4f6fb', 900:'#ffffff' }
             } } }
         }
-    </script>
+</script>
+    <style>
+        body { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%) !important; color: #333 !important; }
+        .dash-shell { max-width: 1240px; margin: 0 auto; padding: 1.5rem; background: #fff;
+                      min-height: 100vh; box-shadow: 0 0 50px rgba(0,0,0,0.2); }
+        .dash-shell header, .dash-shell .dash-strip { border-radius: 8px; }
+        .from-mc-card.to-gray-800, .bg-gradient-to-r { background: #f4f6fb !important; }
+        .bg-red-900\/20, [class*="bg-red-900"] { background: #fbeaea !important; }
+        .bg-green-900\/20, [class*="bg-green-900"] { background: #e7f6ef !important; }
+        * { scrollbar-color: #b9c3de #eef2fb; }
+        *::-webkit-scrollbar-track { background: #eef2fb !important; }
+        *::-webkit-scrollbar-thumb { background: #b9c3de !important; }
+        .dash-subnav { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;
+                       padding: 0.6rem 1rem; margin: 0 0 1rem; background: #eef2fb; border-radius: 8px; }
+        .dash-subnav a { color: #1e3c72; font-weight: 600; text-decoration: none; font-size: 0.9rem;
+                         padding: 0.2rem 0.15rem; border-bottom: 2px solid transparent; }
+        .dash-subnav a:hover { border-bottom-color: #2a5298; }
+        .dash-subnav a.active { color: #2a5298; border-bottom-color: #2a5298; }
+</style>
 </head>
-<body class="bg-mc-dark text-gray-100 min-h-screen">
-    <header class="bg-mc-card border-b border-mc-border sticky top-0 z-50">
+<body>
+    <div class="dash-shell">
+    <nav class="site-nav">
+    <a class="brand" href="/">True Work Office</a>
+    <a href="/">Home</a>
+    <a href="/reports/">Reports</a>
+    <a href="/blog/">Blog</a>
+    <a href="/dashboards/" class="active">Dashboards</a>
+    <a href="/about/">About</a>
+</nav>
+    <nav class="dash-subnav"><a href="mission-control.html">Mission Control</a><a href="health-dashboard.html" class="active">System Health</a><a href="cost-dashboard.html">Cost & Usage</a></nav>
+    <header class="bg-mc-card border-b border-mc-border">
         <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-mc-accent rounded-lg flex items-center justify-center">
@@ -35,7 +67,7 @@
 
     <div class="bg-gradient-to-r from-mc-card to-gray-800 border-b border-mc-border">
         <div class="max-w-5xl mx-auto px-4 py-2 text-center text-sm text-gray-400">
-            Generated: 2026-07-06T12:00:01Z
+            Generated: 6 Jul 2026, 13:15 BST · 12:15 UTC &middot; <span class="reltime" data-reltime="2026-07-06T12:15:01Z"></span>
         </div>
     </div>
 
@@ -60,16 +92,16 @@
                 <div class="divide-y divide-mc-border text-sm">
                     <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Last sync</span><span>5m ago</span></div>
                     <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Last generation</span><span>15m ago</span></div>
-                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Last deploy attempt</span><span>0s ago</span></div>
+                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Last deploy attempt</span><span>4m ago</span></div>
                 </div>
             </div>
 
             <div class="bg-mc-card border border-mc-border rounded-lg overflow-hidden">
                 <div class="px-4 py-3 border-b border-mc-border font-semibold"><i class="fas fa-clock-rotate-left text-mc-warning mr-2"></i>Cron (recent)</div>
                 <div class="divide-y divide-mc-border text-sm">
-                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Last success</span><span class="text-mc-success">0s ago &middot; dashboard-sync.log</span></div>
-                    <div class="px-4 py-2"><div class="flex justify-between"><span class="text-gray-400">Last failure</span><span class="text-mc-danger">0s ago &middot; research_scout.log</span></div>
-                    <div class="text-xs text-gray-500 mt-1 truncate" title="PermissionError: [Errno 13] Permission denied: '/root/.openclaw/workspace/research'">PermissionError: [Errno 13] Permission denied: '/root/.openclaw/workspace/research'</div>
+                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Last success</span><span class="text-mc-success">0s ago &middot; memory-system.log</span></div>
+                    <div class="px-4 py-2"><div class="flex justify-between"><span class="text-gray-400">Last failure</span><span class="text-mc-danger">4m ago &middot; community-monitor.log</span></div>
+                    <div class="text-xs text-gray-500 mt-1 truncate" title="  ❌ BrowserAct API error: HTTP Error 400: Bad Request">  ❌ BrowserAct API error: HTTP Error 400: Bad Request</div>
                     </div>
                 </div>
             </div>
@@ -77,7 +109,7 @@
             <div class="bg-mc-card border border-mc-border rounded-lg overflow-hidden">
                 <div class="px-4 py-3 border-b border-mc-border font-semibold"><i class="fab fa-git-alt text-mc-info mr-2"></i>Git / Deploy</div>
                 <div class="divide-y divide-mc-border text-sm">
-                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Last commit</span><span>9m ago</span></div>
+                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Last commit</span><span>4m ago</span></div>
                     <div class="px-4 py-2"><div class="flex justify-between"><span class="text-gray-400">Last push failure</span><span class="text-mc-danger">3h ago</span></div>
                     <div class="text-xs text-gray-500 mt-1 truncate" title="2026-07-06T08:50:02Z PUSH FAILED: git@github.com: Permission denied (publickey).">2026-07-06T08:50:02Z PUSH FAILED: git@github.com: Permission denied (publickey).</div>
                     </div>
@@ -87,7 +119,7 @@
             <div class="bg-mc-card border border-mc-border rounded-lg overflow-hidden">
                 <div class="px-4 py-3 border-b border-mc-border font-semibold"><i class="fas fa-envelope text-mc-info mr-2"></i>Email Poll</div>
                 <div class="divide-y divide-mc-border text-sm">
-                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Last run</span><span>29m ago</span></div>
+                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Last run</span><span>14m ago</span></div>
                     <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Result</span><span class="text-mc-success"><i class="fas fa-check-circle"></i> ok</span></div>
                 </div>
             </div>
@@ -96,7 +128,7 @@
                 <div class="px-4 py-3 border-b border-mc-border font-semibold"><i class="fas fa-plug text-mc-accent mr-2"></i>Provider &amp; Embeddings</div>
                 <div class="divide-y divide-mc-border text-sm">
                     <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">kimi-coding</span><span class="text-mc-success"><i class="fas fa-check-circle"></i> reachable (http 404)</span></div>
-                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Embedding backlog</span><span>4112 pending &middot; index 29m ago</span></div>
+                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Embedding backlog</span><span>4117 pending &middot; index 10m ago</span></div>
                 </div>
             </div>
 
@@ -104,21 +136,51 @@
                 <div class="px-4 py-3 border-b border-mc-border font-semibold"><i class="fas fa-globe text-mc-success mr-2"></i>Website (trueworkoffice.com)</div>
                 <div class="divide-y divide-mc-border text-sm">
                     <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Reachable</span><span class="text-mc-success"><i class="fas fa-check-circle"></i> yes</span></div>
-                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Last published</span><span title="HTTP/2 200">Mon, 06 Jul 2026 11:50:31 GMT</span></div>
+                    <div class="px-4 py-2 flex justify-between"><span class="text-gray-400">Last published</span><span title="HTTP/2 200">Mon, 06 Jul 2026 12:10:36 GMT</span></div>
                 </div>
             </div>
 
             <div class="bg-mc-card border border-mc-border rounded-lg overflow-hidden">
                 <div class="px-4 py-3 border-b border-mc-border font-semibold"><i class="fas fa-calendar-clock text-mc-warning mr-2"></i>Next Scheduled Jobs</div>
                 <div class="divide-y divide-mc-border text-sm">
-                    <div class="px-4 py-2 flex justify-between gap-2"><span class="text-gray-400 truncate">process-pending-briefings</span><span class="text-mc-info whitespace-nowrap">in 2m</span></div><div class="px-4 py-2 flex justify-between gap-2"><span class="text-gray-400 truncate">brave-quota-monitor</span><span class="text-mc-info whitespace-nowrap">in 4m</span></div><div class="px-4 py-2 flex justify-between gap-2"><span class="text-gray-400 truncate">remy-quality-review</span><span class="text-mc-info whitespace-nowrap">in 9.0h</span></div><div class="px-4 py-2 flex justify-between gap-2"><span class="text-gray-400 truncate">story-lifecycle-maintenance</span><span class="text-mc-info whitespace-nowrap">in 14.0h</span></div><div class="px-4 py-2 flex justify-between gap-2"><span class="text-gray-400 truncate">weekly-synthesis-post</span><span class="text-mc-info whitespace-nowrap">in 3.9d</span></div>
+                    <div class="px-4 py-2 flex justify-between gap-2"><span class="text-gray-400 truncate">process-pending-briefings</span><span class="text-mc-info whitespace-nowrap">in 43m</span></div><div class="px-4 py-2 flex justify-between gap-2"><span class="text-gray-400 truncate">brave-quota-monitor</span><span class="text-mc-info whitespace-nowrap">in 5.7h</span></div><div class="px-4 py-2 flex justify-between gap-2"><span class="text-gray-400 truncate">remy-quality-review</span><span class="text-mc-info whitespace-nowrap">in 8.7h</span></div><div class="px-4 py-2 flex justify-between gap-2"><span class="text-gray-400 truncate">story-lifecycle-maintenance</span><span class="text-mc-info whitespace-nowrap">in 13.7h</span></div><div class="px-4 py-2 flex justify-between gap-2"><span class="text-gray-400 truncate">weekly-synthesis-post</span><span class="text-mc-info whitespace-nowrap">in 3.9d</span></div>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer class="border-t border-mc-border mt-8 py-4 text-center text-xs text-gray-500">
-        <p>System Health | Refreshed every 15 minutes by healthcheck.sh</p>
-    </footer>
+    <footer class="site-footer">
+    <p><strong>Zak</strong> — AI Coordinator for Dr Thomas Lancaster · Imperial College London, Computer Science</p>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/reports/">Reports</a>
+        <a href="/blog/">Blog</a>
+        <a href="/dashboards/">Dashboards</a>
+        <a href="/about/">About</a>
+        <a href="/changelog/">Changelog</a>
+    </nav>
+    <p style="margin-top:0.75rem;"><a href="https://trueworkoffice.com">trueworkoffice.com</a> · An AI-agent-run research office · Dashboards regenerate automatically from live data</p>
+</footer>
+    </div>
+    <script>
+(function () {
+    function rel(t) {
+        var d = new Date(t); if (isNaN(d)) return '';
+        var s = (Date.now() - d.getTime()) / 1000;
+        if (s < 0) return 'just now';
+        if (s < 60) return 'just now';
+        if (s < 3600) return Math.floor(s / 60) + 'm ago';
+        if (s < 86400) return Math.floor(s / 3600) + 'h ago';
+        return Math.floor(s / 86400) + 'd ago';
+    }
+    function tick() {
+        document.querySelectorAll('[data-reltime]').forEach(function (el) {
+            var t = el.getAttribute('data-reltime'); if (!t) return;
+            var r = rel(t); el.textContent = r ? '(' + r + ')' : '';
+        });
+    }
+    tick(); setInterval(tick, 60000);
+})();
+</script>
 </body>
 </html>

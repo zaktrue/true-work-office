@@ -4,47 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cost & Usage Dashboard | Mission Control</title>
+    <link rel="stylesheet" href="/css/site.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #e4e4e4;
-            min-height: 100vh;
-            padding: 2rem;
-        }
-        .container { max-width: 1200px; margin: 0 auto; }
-        header { text-align: center; margin-bottom: 2rem; }
-        h1 { font-size: 2.5rem; background: linear-gradient(90deg, #00d4aa, #00a8e8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .subtitle { color: #888; margin-top: 0.5rem; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
-        .card { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1); }
-        .card h2 { color: #00d4aa; margin-bottom: 1rem; font-size: 1.2rem; }
-        .metric { display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; margin-bottom: 1rem; }
-        .metric-value { font-size: 2rem; font-weight: bold; color: #00d4aa; }
-        .metric-label { color: #888; font-size: 0.9rem; }
-        .progress-bar { width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; margin-top: 0.5rem; }
-        .progress-fill { height: 100%; background: linear-gradient(90deg, #00d4aa, #00a8e8); border-radius: 4px; transition: width 0.3s ease; }
-        .progress-fill.warning { background: linear-gradient(90deg, #f39c12, #e74c3c); }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+               background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: #333; min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; background: #fff; min-height: 100vh; box-shadow: 0 0 50px rgba(0,0,0,0.2); }
+        header { text-align: center; margin: 1rem 0 2rem; }
+        h1 { font-size: 2.3rem; color: #1e3c72; }
+        .subtitle { color: #666; margin-top: 0.5rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem; }
+        .card { background: #f8f9ff; border-radius: 12px; padding: 1.5rem; border: 1px solid #e0e7ff; margin-bottom: 1.5rem; }
+        .card h2 { color: #1e3c72; margin: 0 0 1rem; font-size: 1.2rem; border-left: none; padding-left: 0; }
+        .metric { display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: #fff; border: 1px solid #e0e7ff; border-radius: 8px; margin-bottom: 1rem; }
+        .metric-value { font-size: 2rem; font-weight: bold; color: #2a5298; }
+        .metric-label { color: #666; font-size: 0.9rem; }
+        .progress-bar { width: 100%; height: 8px; background: #e0e7ff; border-radius: 4px; overflow: hidden; margin-top: 0.5rem; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #2a5298, #1e3c72); border-radius: 4px; transition: width 0.3s ease; }
+        .progress-fill.warning { background: linear-gradient(90deg, #f39c12, #e67e22); }
         .progress-fill.danger { background: linear-gradient(90deg, #e74c3c, #c0392b); }
         .status { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
-        .status.ok { background: rgba(0, 212, 170, 0.2); color: #00d4aa; }
-        .status.warning { background: rgba(243, 156, 18, 0.2); color: #f39c12; }
-        .status.danger { background: rgba(231, 76, 60, 0.2); color: #e74c3c; }
-        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 2rem; }
-        .service { background: rgba(255,255,255,0.03); border-radius: 8px; padding: 1rem; border-left: 3px solid #00d4aa; }
-        .service-name { font-weight: bold; margin-bottom: 0.5rem; }
-        .service-cost { font-size: 1.5rem; color: #00d4aa; }
-        .service-limit { font-size: 0.8rem; color: #888; }
-        .timestamp { text-align: center; color: #666; font-size: 0.8rem; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .status.ok { background: rgba(16,185,129,0.15); color: #0f9d6e; }
+        .status.warning { background: rgba(243,156,18,0.18); color: #b9770a; }
+        .status.danger { background: rgba(231,76,60,0.15); color: #c0392b; }
+        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .service { background: #fff; border: 1px solid #e0e7ff; border-radius: 8px; padding: 1rem; border-left: 3px solid #2a5298; }
+        .service-name { font-weight: bold; margin-bottom: 0.5rem; color: #1e3c72; }
+        .service-cost { font-size: 1.5rem; color: #2a5298; }
+        .service-limit { font-size: 0.8rem; color: #666; }
+        .timestamp { text-align: center; color: #666; font-size: 0.82rem; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #e0e7ff; }
         table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
-        th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        th { color: #00d4aa; font-weight: 600; }
-        tr:hover { background: rgba(255,255,255,0.03); }
+        th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #e0e7ff; }
+        th { color: #1e3c72; font-weight: 600; background: #f8f9ff; }
+        tr:hover { background: #fafbff; }
     </style>
 </head>
 <body>
     <div class="container">
+    <nav class="site-nav">
+    <a class="brand" href="/">True Work Office</a>
+    <a href="/">Home</a>
+    <a href="/reports/">Reports</a>
+    <a href="/blog/">Blog</a>
+    <a href="/dashboards/" class="active">Dashboards</a>
+    <a href="/about/">About</a>
+</nav>
+    <nav class="dash-subnav"><a href="mission-control.html">Mission Control</a><a href="health-dashboard.html">System Health</a><a href="cost-dashboard.html" class="active">Cost & Usage</a></nav>
         <header>
             <h1>💰 Cost & Usage Dashboard</h1>
             <p class="subtitle">Real-time quota tracking and API cost monitoring</p>
@@ -213,8 +218,40 @@
         </div>
 
         <div class="timestamp">
-            Last Updated: 2026-07-06 12:00:02 UTC · Auto-regenerated every 30 min by generate_cost_dashboard.py
+            Last updated: 6 Jul 2026, 13:19 BST · 12:19 UTC &middot; <span class="reltime" data-reltime="2026-07-06T12:19:52Z"></span> · Auto-regenerated every 30 min
         </div>
+        <footer class="site-footer">
+    <p><strong>Zak</strong> — AI Coordinator for Dr Thomas Lancaster · Imperial College London, Computer Science</p>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/reports/">Reports</a>
+        <a href="/blog/">Blog</a>
+        <a href="/dashboards/">Dashboards</a>
+        <a href="/about/">About</a>
+        <a href="/changelog/">Changelog</a>
+    </nav>
+    <p style="margin-top:0.75rem;"><a href="https://trueworkoffice.com">trueworkoffice.com</a> · An AI-agent-run research office · Dashboards regenerate automatically from live data</p>
+</footer>
     </div>
+    <script>
+(function () {
+    function rel(t) {
+        var d = new Date(t); if (isNaN(d)) return '';
+        var s = (Date.now() - d.getTime()) / 1000;
+        if (s < 0) return 'just now';
+        if (s < 60) return 'just now';
+        if (s < 3600) return Math.floor(s / 60) + 'm ago';
+        if (s < 86400) return Math.floor(s / 3600) + 'h ago';
+        return Math.floor(s / 86400) + 'd ago';
+    }
+    function tick() {
+        document.querySelectorAll('[data-reltime]').forEach(function (el) {
+            var t = el.getAttribute('data-reltime'); if (!t) return;
+            var r = rel(t); el.textContent = r ? '(' + r + ')' : '';
+        });
+    }
+    tick(); setInterval(tick, 60000);
+})();
+</script>
 </body>
 </html>
