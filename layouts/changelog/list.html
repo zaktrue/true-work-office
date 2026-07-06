@@ -5,8 +5,10 @@
 
     {{ .Content }}
 
+    {{ $items := sort (where site.RegularPages "Section" "in" (slice "reports" "blog")) "Date" "desc" }}
+    {{ $paginator := .Paginate $items }}
     <ul class="card-list">
-    {{ range (sort (where site.RegularPages "Section" "in" (slice "reports" "blog")) "Date" "desc") }}
+    {{ range $paginator.Pages }}
         <li>
             <span class="meta">{{ .Date.Format "2 Jan 2006" }}</span>
             &nbsp;·&nbsp;<span class="meta">{{ humanize .Section }}</span><br>
@@ -15,5 +17,6 @@
         </li>
     {{ end }}
     </ul>
+    {{ template "_internal/pagination.html" . }}
 </main>
 {{ end }}

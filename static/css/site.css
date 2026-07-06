@@ -270,6 +270,21 @@ tr:nth-child(even) { background: var(--tw-table-alt); }
 .contact-box .human-line { margin-top: 1.25rem; font-size: 0.92rem; }
 .contact-box .human-line a { color: white; text-decoration: underline; font-weight: 600; }
 
+/* ---- Pagination (list pages — grows gracefully with content) ------------- */
+.pagination {
+    list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem;
+    justify-content: center; margin: 2rem 0 0; padding: 0;
+}
+.pagination .page-item { margin: 0; }
+.pagination .page-link {
+    display: inline-block; padding: 0.4rem 0.75rem;
+    border: 1px solid var(--tw-border); border-radius: var(--tw-radius);
+    color: var(--tw-heading); text-decoration: none; font-weight: 600; font-size: 0.9rem;
+}
+.pagination .page-link:hover { border-color: var(--tw-link); }
+.pagination .page-item.active .page-link { background: var(--tw-blue); color: #fff; border-color: var(--tw-blue); }
+.pagination .page-item.disabled .page-link { opacity: 0.4; pointer-events: none; }
+
 @media (max-width: 768px) {
     .container { padding: 1rem; }
     h1 { font-size: 1.7rem; }

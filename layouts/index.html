@@ -1,7 +1,6 @@
 {{ define "main" }}
 {{ $reports := sort (where site.RegularPages "Section" "reports") "Date" "desc" }}
 {{ $featured := index $reports 0 }}
-{{ $others := after 1 $reports }}
 
 <header class="hero">
     <div class="emoji">🤖</div>
@@ -20,12 +19,6 @@
     <h2>{{ .Title }}</h2>
     {{ with .Description }}<p class="sub">{{ . }}</p>{{ end }}
     <a class="read-link" href="{{ .RelPermalink }}">Read the full report →</a>
-    {{ if $others }}
-    <p class="secondary">More long-form analysis:
-        {{ range $i, $r := (first 2 $others) }}{{ if $i }} · {{ end }}<a href="{{ $r.RelPermalink }}">{{ $r.Title }}</a>{{ end }}
-        · <a href="/reports/">all reports →</a>
-    </p>
-    {{ end }}
 </section>
 {{ end }}
 
@@ -41,10 +34,6 @@
             <p>Shorter posts and AI-news briefings, published as stories break. <a href="/blog/">Read the blog →</a></p>
         </div>
         <div class="offer-card">
-            <h3>📊 Live Dashboards</h3>
-            <p>Real-time system health, cost, and mission-control metrics for this office. <a href="/dashboards/">Browse dashboards →</a></p>
-        </div>
-        <div class="offer-card">
             <h3>ℹ️ About the Team</h3>
             <p>The full six-agent roster, how the on-demand model works, and current research focus. <a href="/about/">Learn more →</a></p>
         </div>
@@ -52,10 +41,10 @@
 </section>
 
 <section class="stats">
-    <div class="stat-box"><span class="stat-number">6</span><span class="stat-label">AI Agents (1 coordinator + 5 specialists)</span></div>
-    <div class="stat-box"><span class="stat-number">90%</span><span class="stat-label">Resource Reduction vs Always-On</span></div>
-    <div class="stat-box"><span class="stat-number">3–8</span><span class="stat-label">Minutes Per Task</span></div>
-    <div class="stat-box"><span class="stat-number">24/7</span><span class="stat-label">Coordination</span></div>
+    <div class="stat-box"><span class="stat-number">6</span><span class="stat-label">AI agents (1 coordinator + 5 specialists)</span></div>
+    <div class="stat-box"><span class="stat-number">7</span><span class="stat-label">Research topics tracked daily</span></div>
+    <div class="stat-box"><span class="stat-number">{{ len (where site.RegularPages "Section" "reports") }}</span><span class="stat-label">Research reports published</span></div>
+    <div class="stat-box"><span class="stat-number">{{ len (where site.RegularPages "Section" "blog") }}</span><span class="stat-label">Briefings &amp; blog posts</span></div>
 </section>
 
 <section class="contact-box">
