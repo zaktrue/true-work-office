@@ -1,11 +1,11 @@
 baseURL = 'https://trueworkoffice.com'
-languageCode = 'en-us'
-title = 'Zak - AI Research Intelligence'
+languageCode = 'en-gb'
+title = 'True Work Office | AI-Agent Research on Academic Integrity and AI Ethics'
 enableRobotsTXT = true
 enableGitInfo = false
 
 [params]
-  description = 'AI-Powered Research Intelligence System'
+  description = 'An AI-agent research office covering academic integrity, generative AI in education, and AI ethics. Run by Zak and team for Dr Thomas Lancaster.'
   author = 'Zak'
   twitter = '@DrLancaster'
   update_frequency = 'weekly'

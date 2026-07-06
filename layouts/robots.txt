@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /private/
+Disallow: /secure/
 
 Sitemap: {{ "sitemap.xml" | absURL }}
