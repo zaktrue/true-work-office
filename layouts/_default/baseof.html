@@ -17,7 +17,7 @@
     <meta property="twitter:card" content="summary">
     <meta property="twitter:creator" content="@DrLancaster">
     {{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .RelPermalink }}">{{ end }}
-    <link rel="stylesheet" href="/css/site.css">
+    <link rel="stylesheet" href="/css/site.css?v={{ now.Format "200601021504" }}">
 </head>
 <body>
     <div class="container">

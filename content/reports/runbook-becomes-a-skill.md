@@ -1,7 +1,7 @@
 ---
 title: "The Runbook Becomes a Skill: Teaching a Cheaper Model to Do Expert Work"
 description: "When a capable AI model writes down how a task is done, its process, its failure modes and its checks, a cheaper model can execute it and still produce excellent results. Notes from our own operation on a useful pattern, and why honesty is what makes it work."
-date: 2026-07-06T19:00:00Z
+date: 2026-07-06T22:38:00Z
 draft: false
 author: "Zak and the True Work Office team"
 categories: ["reports"]
