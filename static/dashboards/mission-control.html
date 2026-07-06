@@ -115,8 +115,8 @@
             <div class="flex items-center justify-center gap-2 text-sm">
                 <i class="fas fa-clock text-mc-accent"></i>
                 <span class="text-gray-400">Last updated:</span>
-                <span id="last-refresh" class="font-medium text-white" data-timestamp="2026-07-06T06:50:01.859427">
-                    2026-07-06T06:50
+                <span id="last-refresh" class="font-medium text-white" data-timestamp="2026-07-06T07:00:01.696514">
+                    2026-07-06T07:00
                 </span>
                 <span id="time-ago" class="text-xs text-gray-500 ml-2"></span>
             </div>
@@ -150,7 +150,7 @@
                 <div class="text-xs text-gray-400">Critical</div>
             </div>
             <div class="bg-mc-card border border-mc-border rounded-lg p-3 text-center">
-                <div class="text-2xl font-bold text-mc-warning">1</div>
+                <div class="text-2xl font-bold text-mc-warning">5</div>
                 <div class="text-xs text-gray-400">Warnings</div>
             </div>
             <div class="bg-mc-card border border-mc-border rounded-lg p-3 text-center cursor-pointer hover:bg-gray-800 transition" onclick="window.open('cost-dashboard.html', '_blank')">
@@ -158,7 +158,7 @@
                 <div class="text-xs text-gray-400">Monthly Cost ↗</div>
             </div>
             <div class="bg-mc-card border border-mc-border rounded-lg p-3 text-center">
-                <div class="text-2xl font-bold text-purple-400">0</div>
+                <div class="text-2xl font-bold text-purple-400">No data</div>
                 <div class="text-xs text-gray-400">Tokens</div>
             </div>
             <div class="bg-mc-card border border-mc-border rounded-lg p-3 text-center">
@@ -194,7 +194,7 @@
                             <i class="fas fa-bell text-mc-danger"></i>
                             Active Alerts
                         </h2>
-                        <span class="text-xs text-gray-400" id="alert-count">1</span>
+                        <span class="text-xs text-gray-400" id="alert-count">5</span>
                     </div>
                     <div id="alert-list" class="max-h-64 overflow-y-auto">
                         <!-- Alerts populated by JS -->
@@ -328,151 +328,241 @@
                             <i class="fas fa-shield-alt text-blue-400"></i>
                             Security Status
                         </h2>
-                        <span class="text-xs px-2 py-1 rounded-full bg-green-500/20 text-green-400">
-                            Score: 10/10
+                        <span class="text-xs px-2 py-1 rounded-full bg-yellow-500/20 text-yellow-400">
+                            16/28 PASS &middot; 2 disabled
                         </span>
                     </div>
                     <div class="divide-y divide-mc-border" id="security-checks-list">
-                        <!-- Security checks populated dynamically -->
+                        <!-- Security checks populated dynamically. Sorted critical-first (FAIL/STALE/UNKNOWN above PASS/DISABLED). -->
                         
-                        <div class="px-4 py-2 flex items-center justify-between text-sm ">
-                            <span class="text-gray-400">Daily Security Audit</span>
-                            <span class="text-green-400">
-                                <i class="fas fa-check-circle"></i>
-                                Pass
-                            </span>
+                        <div class="px-4 py-2 text-sm bg-red-900/10">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Agent Spawning</span>
+                                <span class="text-red-400">
+                                    <i class="fas fa-times-circle"></i>
+                                    Fail
+                                </span>
+                            </div>
+                            <div class="text-xs text-gray-500 mt-0.5 truncate" title="No files match scripts/*-heartbeat.sh">No files match scripts/*-heartbeat.sh</div>
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm ">
-                            <span class="text-gray-400">Email Scheduler</span>
-                            <span class="text-green-400">
-                                <i class="fas fa-check-circle"></i>
-                                Pass
-                            </span>
+                        <div class="px-4 py-2 text-sm bg-red-900/10">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Context Compression Monitor</span>
+                                <span class="text-red-400">
+                                    <i class="fas fa-times-circle"></i>
+                                    Fail
+                                </span>
+                            </div>
+                            <div class="text-xs text-gray-500 mt-0.5 truncate" title="Script not found: scripts/auto_compression_monitor.py">Script not found: scripts/auto_compression_monitor.py</div>
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm ">
-                            <span class="text-gray-400">Mission Control Data Sync</span>
-                            <span class="text-green-400">
-                                <i class="fas fa-check-circle"></i>
-                                Pass
-                            </span>
+                        <div class="px-4 py-2 text-sm bg-red-900/10">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Cost Dashboard</span>
+                                <span class="text-red-400">
+                                    <i class="fas fa-times-circle"></i>
+                                    Fail
+                                </span>
+                            </div>
+                            <div class="text-xs text-gray-500 mt-0.5 truncate" title="Script not found: scripts/generate_cost_dashboard_v2.py">Script not found: scripts/generate_cost_dashboard_v2.py</div>
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm ">
-                            <span class="text-gray-400">Openclaw Gateway Binding</span>
-                            <span class="text-green-400">
-                                <i class="fas fa-check-circle"></i>
-                                Pass
-                            </span>
+                        <div class="px-4 py-2 text-sm bg-red-900/10">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Daily Dashboard Audit</span>
+                                <span class="text-red-400">
+                                    <i class="fas fa-times-circle"></i>
+                                    Fail
+                                </span>
+                            </div>
+                            <div class="text-xs text-gray-500 mt-0.5 truncate" title="Script not found: crons/daily_dashboard_audit.sh">Script not found: crons/daily_dashboard_audit.sh</div>
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm ">
-                            <span class="text-gray-400">Openclaw Update Check</span>
-                            <span class="text-green-400">
-                                <i class="fas fa-check-circle"></i>
-                                Pass
-                            </span>
+                        <div class="px-4 py-2 text-sm bg-red-900/10">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Daily Feature Audit</span>
+                                <span class="text-red-400">
+                                    <i class="fas fa-times-circle"></i>
+                                    Fail
+                                </span>
+                            </div>
+                            <div class="text-xs text-gray-500 mt-0.5 truncate" title="Script not found: crons/daily_feature_audit.sh">Script not found: crons/daily_feature_audit.sh</div>
                         </div>
                     </div>
                     <!-- Expandable full registry -->
                     <div id="security-registry-full" class="hidden divide-y divide-mc-border border-t border-mc-border">
                         
-                        <div class="px-4 py-2 flex items-center justify-between text-sm bg-gray-800/30">
-                            <span class="text-gray-400">Telegram Access Control</span>
-                            <span class="text-xs text-gray-500">critical priority</span>
+                        <div class="px-4 py-2 text-sm bg-gray-800/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Dashboard Quality Validator</span>
+                                <span class="text-xs text-red-400">Fail &middot; medium</span>
+                            </div>
+                            <div class="text-xs text-gray-500 mt-0.5 truncate" title="Script not found: scripts/validate_dashboard_quality.py">Script not found: scripts/validate_dashboard_quality.py</div>
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm bg-gray-800/30">
-                            <span class="text-gray-400">Agent Spawning</span>
-                            <span class="text-xs text-gray-500">critical priority</span>
+                        <div class="px-4 py-2 text-sm bg-gray-800/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Health Predictor Dashboard</span>
+                                <span class="text-xs text-red-400">Fail &middot; medium</span>
+                            </div>
+                            <div class="text-xs text-gray-500 mt-0.5 truncate" title="Script not found: scripts/system_health_predictor.py">Script not found: scripts/system_health_predictor.py</div>
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm bg-gray-800/30">
-                            <span class="text-gray-400">Credential Health Check</span>
-                            <span class="text-xs text-gray-500">high priority</span>
+                        <div class="px-4 py-2 text-sm bg-gray-800/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Weekly Feature Audit</span>
+                                <span class="text-xs text-red-400">Fail &middot; low</span>
+                            </div>
+                            <div class="text-xs text-gray-500 mt-0.5 truncate" title="Script not found: crons/weekly_feature_audit.sh">Script not found: crons/weekly_feature_audit.sh</div>
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm bg-gray-800/30">
-                            <span class="text-gray-400">Cron Protection Monitor</span>
-                            <span class="text-xs text-gray-500">high priority</span>
+                        <div class="px-4 py-2 text-sm bg-gray-800/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Daily Security Audit</span>
+                                <span class="text-xs text-mc-warning">Unknown &middot; critical</span>
+                            </div>
+                            <div class="text-xs text-gray-500 mt-0.5 truncate" title="Script exists but no active cron entry found">Script exists but no active cron entry found</div>
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm bg-gray-800/30">
-                            <span class="text-gray-400">Dashboard Deployment</span>
-                            <span class="text-xs text-gray-500">high priority</span>
+                        <div class="px-4 py-2 text-sm bg-gray-800/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Delivery Confirmation Monitor</span>
+                                <span class="text-xs text-mc-warning">Unknown &middot; high</span>
+                            </div>
+                            <div class="text-xs text-gray-500 mt-0.5 truncate" title="Script exists but no active cron entry found">Script exists but no active cron entry found</div>
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm bg-gray-800/30">
-                            <span class="text-gray-400">Dashboard Generation</span>
-                            <span class="text-xs text-gray-500">high priority</span>
+                        <div class="px-4 py-2 text-sm bg-gray-800/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Cost Tracking Sync</span>
+                                <span class="text-xs text-mc-warning">Unknown &middot; medium</span>
+                            </div>
+                            <div class="text-xs text-gray-500 mt-0.5 truncate" title="Script exists but no active cron entry found">Script exists but no active cron entry found</div>
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm bg-gray-800/30">
-                            <span class="text-gray-400">Delivery Confirmation Monitor</span>
-                            <span class="text-xs text-gray-500">high priority</span>
+                        <div class="px-4 py-2 text-sm bg-gray-800/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">File Permissions Audit</span>
+                                <span class="text-xs text-mc-warning">Unknown &middot; medium</span>
+                            </div>
+                            <div class="text-xs text-gray-500 mt-0.5 truncate" title="No independent script (Part of daily security audit)">No independent script (Part of daily security audit)</div>
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm bg-gray-800/30">
-                            <span class="text-gray-400">Ssh Configuration + Fail2Ban</span>
-                            <span class="text-xs text-gray-500">high priority</span>
+                        <div class="px-4 py-2 text-sm bg-gray-800/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Email Scheduler</span>
+                                <span class="text-xs text-green-400">Pass &middot; critical</span>
+                            </div>
+                            
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm bg-gray-800/30">
-                            <span class="text-gray-400">Ufw Firewall Status</span>
-                            <span class="text-xs text-gray-500">high priority</span>
+                        <div class="px-4 py-2 text-sm bg-gray-800/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Mission Control Data Sync</span>
+                                <span class="text-xs text-green-400">Pass &middot; critical</span>
+                            </div>
+                            
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm bg-gray-800/30">
-                            <span class="text-gray-400">Api Health Monitor</span>
-                            <span class="text-xs text-gray-500">medium priority</span>
+                        <div class="px-4 py-2 text-sm bg-gray-800/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Openclaw Gateway Binding</span>
+                                <span class="text-xs text-green-400">Pass &middot; critical</span>
+                            </div>
+                            
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm bg-gray-800/30">
-                            <span class="text-gray-400">Context Compression Monitor</span>
-                            <span class="text-xs text-gray-500">medium priority</span>
+                        <div class="px-4 py-2 text-sm bg-gray-800/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Openclaw Update Check</span>
+                                <span class="text-xs text-green-400">Pass &middot; critical</span>
+                            </div>
+                            
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm bg-gray-800/30">
-                            <span class="text-gray-400">Cost Dashboard</span>
-                            <span class="text-xs text-gray-500">medium priority</span>
+                        <div class="px-4 py-2 text-sm bg-gray-800/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Telegram Access Control</span>
+                                <span class="text-xs text-green-400">Pass &middot; critical</span>
+                            </div>
+                            
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm bg-gray-800/30">
-                            <span class="text-gray-400">Cost Tracking Sync</span>
-                            <span class="text-xs text-gray-500">medium priority</span>
+                        <div class="px-4 py-2 text-sm bg-gray-800/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Credential Health Check</span>
+                                <span class="text-xs text-green-400">Pass &middot; high</span>
+                            </div>
+                            
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm bg-gray-800/30">
-                            <span class="text-gray-400">Daily Dashboard Audit</span>
-                            <span class="text-xs text-gray-500">medium priority</span>
+                        <div class="px-4 py-2 text-sm bg-gray-800/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Cron Protection Monitor</span>
+                                <span class="text-xs text-green-400">Pass &middot; high</span>
+                            </div>
+                            
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm bg-gray-800/30">
-                            <span class="text-gray-400">Daily Feature Audit</span>
-                            <span class="text-xs text-gray-500">medium priority</span>
+                        <div class="px-4 py-2 text-sm bg-gray-800/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Dashboard Deployment</span>
+                                <span class="text-xs text-green-400">Pass &middot; high</span>
+                            </div>
+                            
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm bg-gray-800/30">
-                            <span class="text-gray-400">Daily Memory Maintenance</span>
-                            <span class="text-xs text-gray-500">medium priority</span>
+                        <div class="px-4 py-2 text-sm bg-gray-800/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Dashboard Generation</span>
+                                <span class="text-xs text-green-400">Pass &middot; high</span>
+                            </div>
+                            
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm bg-gray-800/30">
-                            <span class="text-gray-400">Daily Quota Tracking</span>
-                            <span class="text-xs text-gray-500">medium priority</span>
+                        <div class="px-4 py-2 text-sm bg-gray-800/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Ssh Configuration + Fail2Ban</span>
+                                <span class="text-xs text-green-400">Pass &middot; high</span>
+                            </div>
+                            
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm bg-gray-800/30">
-                            <span class="text-gray-400">Dashboard Quality Validator</span>
-                            <span class="text-xs text-gray-500">medium priority</span>
+                        <div class="px-4 py-2 text-sm bg-gray-800/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Ufw Firewall Status</span>
+                                <span class="text-xs text-green-400">Pass &middot; high</span>
+                            </div>
+                            
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm bg-gray-800/30">
-                            <span class="text-gray-400">File Permissions Audit</span>
-                            <span class="text-xs text-gray-500">medium priority</span>
+                        <div class="px-4 py-2 text-sm bg-gray-800/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Daily Memory Maintenance</span>
+                                <span class="text-xs text-green-400">Pass &middot; medium</span>
+                            </div>
+                            
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm bg-gray-800/30">
-                            <span class="text-gray-400">Health Predictor Dashboard</span>
-                            <span class="text-xs text-gray-500">medium priority</span>
+                        <div class="px-4 py-2 text-sm bg-gray-800/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Daily Quota Tracking</span>
+                                <span class="text-xs text-green-400">Pass &middot; medium</span>
+                            </div>
+                            
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm bg-gray-800/30">
-                            <span class="text-gray-400">Memory System Check</span>
-                            <span class="text-xs text-gray-500">medium priority</span>
+                        <div class="px-4 py-2 text-sm bg-gray-800/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Memory System Check</span>
+                                <span class="text-xs text-green-400">Pass &middot; medium</span>
+                            </div>
+                            
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm bg-gray-800/30">
-                            <span class="text-gray-400">Nightly Research Job</span>
-                            <span class="text-xs text-gray-500">medium priority</span>
+                        <div class="px-4 py-2 text-sm bg-gray-800/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Community Monitor</span>
+                                <span class="text-xs text-green-400">Pass &middot; low</span>
+                            </div>
+                            
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm bg-gray-800/30">
-                            <span class="text-gray-400">Community Monitor</span>
-                            <span class="text-xs text-gray-500">low priority</span>
+                        <div class="px-4 py-2 text-sm bg-gray-800/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Idea Staleness Check</span>
+                                <span class="text-xs text-green-400">Pass &middot; low</span>
+                            </div>
+                            
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm bg-gray-800/30">
-                            <span class="text-gray-400">Idea Staleness Check</span>
-                            <span class="text-xs text-gray-500">low priority</span>
+                        <div class="px-4 py-2 text-sm bg-gray-800/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Api Health Monitor</span>
+                                <span class="text-xs text-gray-500">Disabled &middot; medium</span>
+                            </div>
+                            <div class="text-xs text-gray-500 mt-0.5 truncate" title="disabled 2026-07-06 (missing script)">disabled 2026-07-06 (missing script)</div>
                         </div>
-                        <div class="px-4 py-2 flex items-center justify-between text-sm bg-gray-800/30">
-                            <span class="text-gray-400">Weekly Feature Audit</span>
-                            <span class="text-xs text-gray-500">low priority</span>
+                        <div class="px-4 py-2 text-sm bg-gray-800/30">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-400">Nightly Research Job</span>
+                                <span class="text-xs text-gray-500">Disabled &middot; medium</span>
+                            </div>
+                            <div class="text-xs text-gray-500 mt-0.5 truncate" title="disabled 2026-07-06 (missing script)">disabled 2026-07-06 (missing script)</div>
                         </div>
                     </div>
                     <!-- Toggle button -->
@@ -484,7 +574,7 @@
                     </div>
                 </div>
 
-                <!-- System Health -->
+                <!-- System Health (data-sync metrics) -->
                 <div class="bg-mc-card border border-mc-border rounded-lg overflow-hidden">
                     <div class="px-4 py-3 border-b border-mc-border">
                         <h2 class="font-semibold flex items-center gap-2">
@@ -494,6 +584,20 @@
                     </div>
                     <div id="health-list" class="divide-y divide-mc-border">
                         <!-- Health metrics populated by JS -->
+                    </div>
+                </div>
+
+                <!-- System Health (server-level: gateway/ollama/disk/cron/git/provider) -->
+                <div class="bg-mc-card border border-mc-border rounded-lg overflow-hidden cursor-pointer hover:border-blue-500/50 transition" onclick="window.open('health-dashboard.html', '_blank')">
+                    <div class="px-4 py-3 flex items-center justify-between bg-gradient-to-r from-blue-900/20 to-transparent">
+                        <h2 class="font-semibold flex items-center gap-2">
+                            <i class="fas fa-server text-mc-info"></i>
+                            Server Health Detail
+                        </h2>
+                        <span class="text-xs text-mc-accent">Full page &rarr;</span>
+                    </div>
+                    <div class="px-4 py-2 text-xs text-gray-400 border-t border-mc-border">
+                        Gateway, ollama, disk, cron outcomes, git push, email poll, provider &amp; embedding backlog - refreshed every 15 min
                     </div>
                 </div>
             </div>
@@ -507,7 +611,7 @@
 
     <script>
         // Dashboard data from server
-        const dashboardData = {"agents": [{"name": "Ava", "role": "Analytics Lead & Systems Monitor", "status": "offline", "current_task": "No heartbeat log found", "last_heartbeat": "2026-07-06T06:50:01.759866", "heartbeat_freshness": "fresh", "tasks_today": 0, "success_rate_percent": 100}, {"name": "Echo", "role": "Social Media Manager", "status": "offline", "current_task": "No heartbeat log found", "last_heartbeat": "2026-07-06T06:50:01.767005", "heartbeat_freshness": "fresh", "tasks_today": 0, "success_rate_percent": 100}, {"name": "Kai", "role": "Creative Lead & Visual Designer", "status": "offline", "current_task": "No heartbeat log found", "last_heartbeat": "2026-07-06T06:50:01.756242", "heartbeat_freshness": "fresh", "tasks_today": 0, "success_rate_percent": 100}, {"name": "Quinn", "role": "Content Strategist & Writer", "status": "offline", "current_task": "No heartbeat log found", "last_heartbeat": "2026-07-06T06:50:01.749450", "heartbeat_freshness": "fresh", "tasks_today": 0, "success_rate_percent": 100}, {"name": "Remy", "role": "Quality Assurance Lead", "status": "offline", "current_task": "No heartbeat log found", "last_heartbeat": "2026-07-06T06:50:01.763536", "heartbeat_freshness": "fresh", "tasks_today": 0, "success_rate_percent": 100}, {"name": "Riley", "role": "Trend Analyst & Research Lead", "status": "offline", "current_task": "No heartbeat log found", "last_heartbeat": "2026-07-06T06:50:01.737826", "heartbeat_freshness": "fresh", "tasks_today": 0, "success_rate_percent": 100}, {"name": "Zak", "role": "Chief of Staff / Mission Control Lead", "status": "offline", "current_task": "No heartbeat log found", "last_heartbeat": "2026-07-06T06:50:01.734255", "heartbeat_freshness": "fresh", "tasks_today": 0, "success_rate_percent": 100}], "active_projects": [{"name": "Agent Model Transition", "status": "active", "priority": "medium", "progress_percent": 90, "assigned_agents": "[\"Zak\"]", "target_date": null, "last_update": "2026-02-26T08:00:00"}, {"name": "Discord Migration & Monitoring", "status": "active", "priority": "high", "progress_percent": 85, "assigned_agents": "[\"Zak\"]", "target_date": null, "last_update": "2026-02-26T09:00:00"}, {"name": "Dashboard System Fixes", "status": "active", "priority": "high", "progress_percent": 95, "assigned_agents": "[\"Zak\"]", "target_date": null, "last_update": "2026-02-26T09:30:00"}, {"name": "Research: AI detection tools in education...", "status": "active", "priority": "high", "progress_percent": 0, "assigned_agents": "[\"Riley\", \"Echo\", \"Ava\", \"Quinn\", \"Remy\"]", "target_date": null, "last_update": null}], "pending_tasks": [], "active_alerts": [{"severity": "warning", "category": "system", "title": "\ufe0f CRONTAB MODIFIED \u26a0\ufe0f", "description": "\u26a0\ufe0f CRONTAB MODIFIED \u26a0\ufe0f", "source": "LogScan", "first_detected": "2026-07-04T00:00:02.247181", "occurrence_count": 1}], "upcoming_emails": [{"email_type": "morning_briefing", "recipient": "owner@redacted.invalid", "next_scheduled": "2026-07-06T07:00:00", "last_sent": "2026-07-05T07:00:02.579313", "last_status": "sent", "is_critical": 1}, {"email_type": "academic_integrity_briefing", "recipient": "owner@redacted.invalid", "next_scheduled": "2026-07-06T08:00:00", "last_sent": "2026-07-05T08:00:03.228906", "last_status": "sent", "is_critical": 1}, {"email_type": "cost_report", "recipient": "owner@redacted.invalid", "next_scheduled": "2026-07-06T17:00:00", "last_sent": "2026-07-05T17:00:02.160264", "last_status": "sent", "is_critical": 1}, {"email_type": "daily_digest", "recipient": "owner@redacted.invalid", "next_scheduled": "2026-07-06T18:00:00", "last_sent": "2026-07-05T18:00:03.058396", "last_status": "sent", "is_critical": 1}], "ideas": [{"id": 504, "title": "Add natural language task creation", "description": "Allow Thomas to create tasks by typing naturally (e.g., \"Riley, research X and send me a summary\"). Parse intent and auto-assign.", "category": "feature", "priority": "high", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "weeks", "potential_impact": "Faster task delegation, more natural interaction", "created_at": "2026-07-06T02:35:01.351487", "source_url": null, "source_verified": 0}, {"id": 506, "title": "Weekly agent performance report", "description": "Auto-generate weekly summary of each agents contributions, blockers, and recommendations for optimization.", "category": "automation", "priority": "medium", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "days", "potential_impact": "Better visibility into agent productivity", "created_at": "2026-07-06T03:10:01.460342", "source_url": null, "source_verified": 0}, {"id": 505, "title": "Smart alert grouping", "description": "Group related alerts together (e.g., multiple deployment failures) and summarize with root cause analysis.", "category": "improvement", "priority": "medium", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "hours", "potential_impact": "Reduce alert fatigue, faster problem identification", "created_at": "2026-07-06T03:05:02.051323", "source_url": null, "source_verified": 0}], "health": [{"metric_name": "agent_heartbeat_freshness", "metric_value": "0 min ago", "is_healthy": 1, "last_updated": "2026-07-06T06:50:01.802506"}, {"metric_name": "context_token_usage", "metric_value": null, "is_healthy": 1, "last_updated": "2026-07-06 06:50:01"}, {"metric_name": "database_size_mb", "metric_value": "29.7 MB", "is_healthy": 1, "last_updated": "2026-07-06T06:50:01.778952"}, {"metric_name": "estimated_daily_cost", "metric_value": null, "is_healthy": 1, "last_updated": "2026-07-06 06:50:01"}, {"metric_name": "failed_deliveries_count", "metric_value": "0", "is_healthy": 1, "last_updated": "2026-07-06T06:50:01.776463"}, {"metric_name": "stale_dashboards_count", "metric_value": "0", "is_healthy": 1, "last_updated": "2026-07-06T06:50:01.773471"}], "stats": {"active_projects": 4, "completed_projects": 0, "pending_tasks": 0, "critical_alerts": 0, "warning_alerts": 1, "total_ideas": 3, "new_ideas": 3, "active_agents": 0, "last_refresh": "2026-07-06T06:50:01.859427"}, "cost": {"tokens": "0", "daily_cost": "$0.00", "by_category": [{"category": "llm", "total_cost": 39.0}, {"category": "hosting", "total_cost": 6.1499999999999995}, {"category": "version_control", "total_cost": 0}, {"category": "storage", "total_cost": 0}, {"category": "search", "total_cost": 0}, {"category": "scraper", "total_cost": 0}, {"category": "email", "total_cost": 0}], "monthly_total": 45.15, "top_services": [{"name": "Kimi Code", "category": "llm", "cost": 39.0, "billing_type": "subscription"}, {"name": "Hetzner Server", "category": "hosting", "cost": 4.51, "billing_type": "subscription"}, {"name": "Hostinger", "category": "hosting", "cost": 1.64, "billing_type": "subscription"}, {"name": "Gemini 2.0 Flash", "category": "llm", "cost": 0, "billing_type": "credit_based"}, {"name": "Codex CLI", "category": "llm", "cost": 0, "billing_type": "free"}], "service_count": 13, "quota_warnings": []}, "security_score": 10, "security_checks": [{"name": "Daily Security Audit", "status": "PASS", "priority": "critical", "display_name": "Daily Security Audit"}, {"name": "Email Scheduler", "status": "PASS", "priority": "critical", "display_name": "Email Scheduler"}, {"name": "Mission Control Data Sync", "status": "PASS", "priority": "critical", "display_name": "Mission Control Data Sync"}, {"name": "OpenClaw Gateway Binding", "status": "PASS", "priority": "critical", "display_name": "Openclaw Gateway Binding"}, {"name": "OpenClaw Update Check", "status": "PASS", "priority": "critical", "display_name": "Openclaw Update Check"}, {"name": "Telegram Access Control", "status": "PASS", "priority": "critical", "display_name": "Telegram Access Control"}, {"name": "agent-spawning-capability", "status": "PASS", "priority": "critical", "display_name": "Agent Spawning"}, {"name": "Credential Health Check", "status": "PASS", "priority": "high", "display_name": "Credential Health Check"}, {"name": "Cron Protection Monitor", "status": "PASS", "priority": "high", "display_name": "Cron Protection Monitor"}, {"name": "Dashboard Deployment", "status": "PASS", "priority": "high", "display_name": "Dashboard Deployment"}, {"name": "Dashboard Generation", "status": "PASS", "priority": "high", "display_name": "Dashboard Generation"}, {"name": "Delivery Confirmation Monitor", "status": "PASS", "priority": "high", "display_name": "Delivery Confirmation Monitor"}, {"name": "SSH Configuration + Fail2ban", "status": "PASS", "priority": "high", "display_name": "Ssh Configuration + Fail2Ban"}, {"name": "UFW Firewall Status", "status": "PASS", "priority": "high", "display_name": "Ufw Firewall Status"}, {"name": "API Health Monitor", "status": "PASS", "priority": "medium", "display_name": "Api Health Monitor"}, {"name": "Context Compression Monitor", "status": "PASS", "priority": "medium", "display_name": "Context Compression Monitor"}, {"name": "Cost Dashboard", "status": "PASS", "priority": "medium", "display_name": "Cost Dashboard"}, {"name": "Cost Tracking Sync", "status": "PASS", "priority": "medium", "display_name": "Cost Tracking Sync"}, {"name": "Daily Dashboard Audit", "status": "PASS", "priority": "medium", "display_name": "Daily Dashboard Audit"}, {"name": "Daily Feature Audit", "status": "PASS", "priority": "medium", "display_name": "Daily Feature Audit"}, {"name": "Daily Memory Maintenance", "status": "PASS", "priority": "medium", "display_name": "Daily Memory Maintenance"}, {"name": "Daily Quota Tracking", "status": "PASS", "priority": "medium", "display_name": "Daily Quota Tracking"}, {"name": "Dashboard Quality Validator", "status": "PASS", "priority": "medium", "display_name": "Dashboard Quality Validator"}, {"name": "File Permissions Audit", "status": "PASS", "priority": "medium", "display_name": "File Permissions Audit"}, {"name": "Health Predictor Dashboard", "status": "PASS", "priority": "medium", "display_name": "Health Predictor Dashboard"}, {"name": "Memory System Check", "status": "PASS", "priority": "medium", "display_name": "Memory System Check"}, {"name": "Nightly Research Job", "status": "PASS", "priority": "medium", "display_name": "Nightly Research Job"}, {"name": "Community Monitor", "status": "PASS", "priority": "low", "display_name": "Community Monitor"}, {"name": "Idea Staleness Check", "status": "PASS", "priority": "low", "display_name": "Idea Staleness Check"}, {"name": "Weekly Feature Audit", "status": "PASS", "priority": "low", "display_name": "Weekly Feature Audit"}], "security_passed": 30, "security_total": 30, "quota_summary": []};
+        const dashboardData = {"agents": [{"name": "Ava", "role": "Analytics Lead & Systems Monitor", "status": "offline", "current_task": "No heartbeat log found", "last_heartbeat": null, "heartbeat_freshness": "unknown", "tasks_today": 0, "success_rate_percent": null}, {"name": "Echo", "role": "Social Media Manager", "status": "offline", "current_task": "No heartbeat log found", "last_heartbeat": null, "heartbeat_freshness": "unknown", "tasks_today": 0, "success_rate_percent": null}, {"name": "Kai", "role": "Creative Lead & Visual Designer", "status": "offline", "current_task": "No heartbeat log found", "last_heartbeat": null, "heartbeat_freshness": "unknown", "tasks_today": 0, "success_rate_percent": null}, {"name": "Quinn", "role": "Content Strategist & Writer", "status": "offline", "current_task": "No heartbeat log found", "last_heartbeat": null, "heartbeat_freshness": "unknown", "tasks_today": 0, "success_rate_percent": null}, {"name": "Remy", "role": "Quality Assurance Lead", "status": "offline", "current_task": "No heartbeat log found", "last_heartbeat": null, "heartbeat_freshness": "unknown", "tasks_today": 0, "success_rate_percent": null}, {"name": "Riley", "role": "Trend Analyst & Research Lead", "status": "offline", "current_task": "No heartbeat log found", "last_heartbeat": null, "heartbeat_freshness": "unknown", "tasks_today": 0, "success_rate_percent": null}, {"name": "Zak", "role": "Chief of Staff / Mission Control Lead", "status": "offline", "current_task": "No heartbeat log found", "last_heartbeat": null, "heartbeat_freshness": "unknown", "tasks_today": 0, "success_rate_percent": null}], "active_projects": [{"name": "Agent Model Transition", "status": "active", "priority": "medium", "progress_percent": 90, "assigned_agents": "[\"Zak\"]", "target_date": null, "last_update": "2026-02-26T08:00:00", "is_stale": 1}, {"name": "Discord Migration & Monitoring", "status": "active", "priority": "high", "progress_percent": 85, "assigned_agents": "[\"Zak\"]", "target_date": null, "last_update": "2026-02-26T09:00:00", "is_stale": 1}, {"name": "Dashboard System Fixes", "status": "active", "priority": "high", "progress_percent": 95, "assigned_agents": "[\"Zak\"]", "target_date": null, "last_update": "2026-02-26T09:30:00", "is_stale": 1}, {"name": "Research: AI detection tools in education...", "status": "active", "priority": "high", "progress_percent": 0, "assigned_agents": "[\"Riley\", \"Echo\", \"Ava\", \"Quinn\", \"Remy\"]", "target_date": null, "last_update": null, "is_stale": 1}], "pending_tasks": [], "active_alerts": [{"severity": "warning", "category": "projects", "title": "Stale project: Research: AI detection tools in education...", "description": "\"Research: AI detection tools in education...\" is marked active but has not been updated in 128 days (last update: 2026-02-27 19:22:28).", "source": "DataSync", "first_detected": "2026-07-06T06:54:49.798843", "occurrence_count": 5}, {"severity": "warning", "category": "projects", "title": "Stale project: Agent Model Transition", "description": "\"Agent Model Transition\" is marked active but has not been updated in 129 days (last update: 2026-02-26T08:00:00).", "source": "DataSync", "first_detected": "2026-07-06T06:54:49.795424", "occurrence_count": 5}, {"severity": "warning", "category": "projects", "title": "Stale project: Dashboard System Fixes", "description": "\"Dashboard System Fixes\" is marked active but has not been updated in 129 days (last update: 2026-02-26T09:30:00).", "source": "DataSync", "first_detected": "2026-07-06T06:54:49.792672", "occurrence_count": 5}, {"severity": "warning", "category": "projects", "title": "Stale project: Discord Migration & Monitoring", "description": "\"Discord Migration & Monitoring\" is marked active but has not been updated in 129 days (last update: 2026-02-26T09:00:00).", "source": "DataSync", "first_detected": "2026-07-06T06:54:49.788439", "occurrence_count": 5}, {"severity": "warning", "category": "system", "title": "\ufe0f CRONTAB MODIFIED \u26a0\ufe0f", "description": "\u26a0\ufe0f CRONTAB MODIFIED \u26a0\ufe0f", "source": "LogScan", "first_detected": "2026-07-04T00:00:02.247181", "occurrence_count": 1}], "upcoming_emails": [{"email_type": "academic_integrity_briefing", "recipient": "owner@redacted.invalid", "next_scheduled": "2026-07-06T08:00:00", "last_sent": "2026-07-05T08:00:03.228906", "last_status": "sent", "is_critical": 1}, {"email_type": "cost_report", "recipient": "owner@redacted.invalid", "next_scheduled": "2026-07-06T17:00:00", "last_sent": "2026-07-05T17:00:02.160264", "last_status": "sent", "is_critical": 1}, {"email_type": "daily_digest", "recipient": "owner@redacted.invalid", "next_scheduled": "2026-07-06T18:00:00", "last_sent": "2026-07-05T18:00:03.058396", "last_status": "sent", "is_critical": 1}, {"email_type": "morning_briefing", "recipient": "owner@redacted.invalid", "next_scheduled": "2026-07-07T07:00:00", "last_sent": "2026-07-05T07:00:02.579313", "last_status": "sent", "is_critical": 1}], "ideas": [{"id": 504, "title": "Add natural language task creation", "description": "Allow Thomas to create tasks by typing naturally (e.g., \"Riley, research X and send me a summary\"). Parse intent and auto-assign.", "category": "feature", "priority": "high", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "weeks", "potential_impact": "Faster task delegation, more natural interaction", "created_at": "2026-07-06T02:35:01.351487", "source_url": null, "source_verified": 0}, {"id": 506, "title": "Weekly agent performance report", "description": "Auto-generate weekly summary of each agents contributions, blockers, and recommendations for optimization.", "category": "automation", "priority": "medium", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "days", "potential_impact": "Better visibility into agent productivity", "created_at": "2026-07-06T03:10:01.460342", "source_url": null, "source_verified": 0}, {"id": 505, "title": "Smart alert grouping", "description": "Group related alerts together (e.g., multiple deployment failures) and summarize with root cause analysis.", "category": "improvement", "priority": "medium", "status": "proposed", "suggested_by": "Zak", "estimated_effort": "hours", "potential_impact": "Reduce alert fatigue, faster problem identification", "created_at": "2026-07-06T03:05:02.051323", "source_url": null, "source_verified": 0}], "health": [{"metric_name": "agent_heartbeat_freshness", "metric_value": "Unknown", "is_healthy": 0, "last_updated": "2026-07-06T07:00:01.411266"}, {"metric_name": "context_token_usage", "metric_value": "No data", "is_healthy": 0, "last_updated": "2026-07-06T07:00:01.311467"}, {"metric_name": "estimated_daily_cost", "metric_value": "No data", "is_healthy": 0, "last_updated": "2026-07-06T07:00:01.316620"}, {"metric_name": "stale_projects_count", "metric_value": "4", "is_healthy": 0, "last_updated": "2026-07-06T07:00:01.439448"}, {"metric_name": "active_services_count", "metric_value": "13", "is_healthy": 1, "last_updated": "2026-07-06T07:00:01.691004"}, {"metric_name": "database_size_mb", "metric_value": "29.7 MB", "is_healthy": 1, "last_updated": "2026-07-06T07:00:01.320307"}, {"metric_name": "failed_deliveries_count", "metric_value": "0", "is_healthy": 1, "last_updated": "2026-07-06T07:00:01.305244"}, {"metric_name": "monthly_cost_total", "metric_value": "$45.15", "is_healthy": 1, "last_updated": "2026-07-06T07:00:01.686009"}, {"metric_name": "stale_dashboards_count", "metric_value": "0", "is_healthy": 1, "last_updated": "2026-07-06T07:00:01.300850"}], "stats": {"active_projects": 4, "completed_projects": 0, "pending_tasks": 0, "critical_alerts": 0, "warning_alerts": 5, "total_ideas": 3, "new_ideas": 3, "active_agents": 0, "last_refresh": "2026-07-06T07:00:01.696514"}, "cost": {"tokens": "No data", "daily_cost": "No data", "by_category": [{"category": "llm", "total_cost": 39.0}, {"category": "hosting", "total_cost": 6.1499999999999995}, {"category": "version_control", "total_cost": 0}, {"category": "storage", "total_cost": 0}, {"category": "search", "total_cost": 0}, {"category": "scraper", "total_cost": 0}, {"category": "email", "total_cost": 0}], "monthly_total": 45.15, "top_services": [{"name": "Kimi Code", "category": "llm", "cost": 39.0, "billing_type": "subscription"}, {"name": "Hetzner Server", "category": "hosting", "cost": 4.51, "billing_type": "subscription"}, {"name": "Hostinger", "category": "hosting", "cost": 1.64, "billing_type": "subscription"}, {"name": "Gemini 2.0 Flash", "category": "llm", "cost": 0, "billing_type": "credit_based"}, {"name": "Codex CLI", "category": "llm", "cost": 0, "billing_type": "free"}], "service_count": 13, "quota_warnings": []}, "security_score": 5, "security_checks": [{"name": "agent-spawning-capability", "status": "FAIL", "status_class": "fail", "priority": "critical", "detail": "No files match scripts/*-heartbeat.sh", "display_name": "Agent Spawning"}, {"name": "Context Compression Monitor", "status": "FAIL", "status_class": "fail", "priority": "medium", "detail": "Script not found: scripts/auto_compression_monitor.py", "display_name": "Context Compression Monitor"}, {"name": "Cost Dashboard", "status": "FAIL", "status_class": "fail", "priority": "medium", "detail": "Script not found: scripts/generate_cost_dashboard_v2.py", "display_name": "Cost Dashboard"}, {"name": "Daily Dashboard Audit", "status": "FAIL", "status_class": "fail", "priority": "medium", "detail": "Script not found: crons/daily_dashboard_audit.sh", "display_name": "Daily Dashboard Audit"}, {"name": "Daily Feature Audit", "status": "FAIL", "status_class": "fail", "priority": "medium", "detail": "Script not found: crons/daily_feature_audit.sh", "display_name": "Daily Feature Audit"}, {"name": "Dashboard Quality Validator", "status": "FAIL", "status_class": "fail", "priority": "medium", "detail": "Script not found: scripts/validate_dashboard_quality.py", "display_name": "Dashboard Quality Validator"}, {"name": "Health Predictor Dashboard", "status": "FAIL", "status_class": "fail", "priority": "medium", "detail": "Script not found: scripts/system_health_predictor.py", "display_name": "Health Predictor Dashboard"}, {"name": "Weekly Feature Audit", "status": "FAIL", "status_class": "fail", "priority": "low", "detail": "Script not found: crons/weekly_feature_audit.sh", "display_name": "Weekly Feature Audit"}, {"name": "Daily Security Audit", "status": "UNKNOWN", "status_class": "warn", "priority": "critical", "detail": "Script exists but no active cron entry found", "display_name": "Daily Security Audit"}, {"name": "Delivery Confirmation Monitor", "status": "UNKNOWN", "status_class": "warn", "priority": "high", "detail": "Script exists but no active cron entry found", "display_name": "Delivery Confirmation Monitor"}, {"name": "Cost Tracking Sync", "status": "UNKNOWN", "status_class": "warn", "priority": "medium", "detail": "Script exists but no active cron entry found", "display_name": "Cost Tracking Sync"}, {"name": "File Permissions Audit", "status": "UNKNOWN", "status_class": "warn", "priority": "medium", "detail": "No independent script (Part of daily security audit)", "display_name": "File Permissions Audit"}, {"name": "Email Scheduler", "status": "PASS", "status_class": "pass", "priority": "critical", "detail": "Log fresh (0m old)", "display_name": "Email Scheduler"}, {"name": "Mission Control Data Sync", "status": "PASS", "status_class": "pass", "priority": "critical", "detail": "Invoked directly by data_sync.py each cycle", "display_name": "Mission Control Data Sync"}, {"name": "OpenClaw Gateway Binding", "status": "PASS", "status_class": "pass", "priority": "critical", "detail": "bound to 127.0.0.1:30076 only", "display_name": "Openclaw Gateway Binding"}, {"name": "OpenClaw Update Check", "status": "PASS", "status_class": "pass", "priority": "critical", "detail": "Log fresh (1499m old)", "display_name": "Openclaw Update Check"}, {"name": "Telegram Access Control", "status": "PASS", "status_class": "pass", "priority": "critical", "detail": "groupPolicy=disabled, dmPolicy=allowlist", "display_name": "Telegram Access Control"}, {"name": "Credential Health Check", "status": "PASS", "status_class": "pass", "priority": "high", "detail": "Manual check; last log credential-health.log", "display_name": "Credential Health Check"}, {"name": "Cron Protection Monitor", "status": "PASS", "status_class": "pass", "priority": "high", "detail": "Log fresh (0m old)", "display_name": "Cron Protection Monitor"}, {"name": "Dashboard Deployment", "status": "PASS", "status_class": "pass", "priority": "high", "detail": "Log fresh (0m old)", "display_name": "Dashboard Deployment"}, {"name": "Dashboard Generation", "status": "PASS", "status_class": "pass", "priority": "high", "detail": "Invoked directly by data_sync.py each cycle", "display_name": "Dashboard Generation"}, {"name": "SSH Configuration + Fail2ban", "status": "PASS", "status_class": "pass", "priority": "high", "detail": "password auth disabled; fail2ban active", "display_name": "Ssh Configuration + Fail2Ban"}, {"name": "UFW Firewall Status", "status": "PASS", "status_class": "pass", "priority": "high", "detail": "UFW enabled (/etc/ufw/ufw.conf)", "display_name": "Ufw Firewall Status"}, {"name": "Daily Memory Maintenance", "status": "PASS", "status_class": "pass", "priority": "medium", "detail": "Log fresh (299m old)", "display_name": "Daily Memory Maintenance"}, {"name": "Daily Quota Tracking", "status": "PASS", "status_class": "pass", "priority": "medium", "detail": "Log fresh (424m old)", "display_name": "Daily Quota Tracking"}, {"name": "Memory System Check", "status": "PASS", "status_class": "pass", "priority": "medium", "detail": "Log fresh (0m old)", "display_name": "Memory System Check"}, {"name": "Community Monitor", "status": "PASS", "status_class": "pass", "priority": "low", "detail": "Log fresh (59m old)", "display_name": "Community Monitor"}, {"name": "Idea Staleness Check", "status": "PASS", "status_class": "pass", "priority": "low", "detail": "Invoked directly by data_sync.py each cycle", "display_name": "Idea Staleness Check"}, {"name": "API Health Monitor", "status": "DISABLED", "status_class": "disabled", "priority": "medium", "detail": "disabled 2026-07-06 (missing script)", "display_name": "Api Health Monitor"}, {"name": "Nightly Research Job", "status": "DISABLED", "status_class": "disabled", "priority": "medium", "detail": "disabled 2026-07-06 (missing script)", "display_name": "Nightly Research Job"}], "security_passed": 16, "security_total": 28, "security_disabled": 2, "quota_summary": []};
         
         // Ideas expansion state
         let ideasExpanded = false;
@@ -647,14 +751,26 @@
         function renderAgents() {
             const container = document.getElementById('agent-list');
             container.innerHTML = '';
-            
+
+            // Honest rendering: reflect agent.status as recorded (from real
+            // heartbeat log evidence), not a hardcoded "Active"/"Available"
+            // regardless of what the data says. Agents run on-demand (they
+            // spawn when there's a task), so 'offline' with no heartbeat
+            // data is expected/normal - but we say that plainly instead of
+            // implying a heartbeat that never happened.
             dashboardData.agents.forEach(agent => {
-                // For on-demand model, show all specialist agents as "Available"
-                // Only Zak shows as "Active" since he's always online
-                const isZak = agent.name === 'Zak';
-                const displayStatus = isZak ? 'Active' : 'Available';
-                const statusClass = isZak ? 'status-active' : 'status-idle';
-                
+                const statusClass = getStatusClass(agent.status);
+                const displayStatus = (agent.status || 'unknown').charAt(0).toUpperCase() + (agent.status || 'unknown').slice(1);
+
+                let heartbeatNote;
+                if (agent.heartbeat_freshness === 'unknown' || !agent.last_heartbeat) {
+                    heartbeatNote = 'No heartbeat data (on-demand)';
+                } else if (agent.heartbeat_freshness === 'fresh') {
+                    heartbeatNote = `Last seen ${formatTimeAgo(agent.last_heartbeat)}`;
+                } else {
+                    heartbeatNote = `Stale - last seen ${formatTimeAgo(agent.last_heartbeat)}`;
+                }
+
                 const div = document.createElement('div');
                 div.className = 'px-4 py-3 hover:bg-gray-800 transition';
                 div.innerHTML = `
@@ -666,6 +782,7 @@
                         <span class="text-xs text-gray-400">${displayStatus}</span>
                     </div>
                     <div class="text-xs text-gray-400">${agent.role || 'Agent'}</div>
+                    <div class="text-xs text-gray-500 mt-0.5">${heartbeatNote}</div>
                 `;
                 container.appendChild(div);
             });
@@ -742,14 +859,20 @@
                 const priorityColor = project.priority === 'critical' ? 'text-mc-danger' :
                                      project.priority === 'high' ? 'text-mc-warning' :
                                      'text-gray-400';
-                
+
+                // is_stale is computed server-side from last_update (or created_at)
+                // being 30+ days old. Nothing previously flagged this - a project
+                // could sit "active" for months with zero indication it had stalled.
+                const isStale = project.is_stale === 1 || project.is_stale === true;
+
                 const div = document.createElement('div');
-                div.className = 'px-4 py-3 hover:bg-gray-800 transition';
+                div.className = `px-4 py-3 hover:bg-gray-800 transition ${isStale ? 'bg-yellow-900/10 border-l-2 border-mc-warning' : ''}`;
                 div.innerHTML = `
                     <div class="flex items-center justify-between mb-2">
                         <span class="font-medium truncate flex-1">${project.name}</span>
                         <span class="text-xs ${priorityColor} capitalize ml-2">${project.priority}</span>
                     </div>
+                    ${isStale ? `<div class="text-xs text-mc-warning mb-2"><i class="fas fa-clock-rotate-left mr-1"></i>Stale - no update since ${project.last_update ? formatDateShort(project.last_update) : 'creation'}</div>` : ''}
                     <div class="w-full bg-gray-700 rounded-full h-2 mb-2">
                         <div class="bg-mc-accent h-2 rounded-full transition-all" style="width: ${project.progress_percent || 0}%"></div>
                     </div>
