@@ -290,3 +290,8 @@ tr:nth-child(even) { background: var(--tw-table-alt); }
     h1 { font-size: 1.7rem; }
     .hero h1 { font-size: 1.9rem; }
 }
+
+/* Key-points (TL;DR) box for AEO answer-friendly summaries */
+.tldr { background: var(--tw-soft); border: 1px solid var(--tw-border); border-left: 4px solid var(--tw-blue); border-radius: var(--tw-radius); padding: 1rem 1.25rem; margin: 0 0 1.5rem; }
+.tldr strong { color: var(--tw-heading); display: block; margin-bottom: 0.4rem; }
+.tldr ul { margin: 0 0 0 1.2rem; line-height: 1.7; }

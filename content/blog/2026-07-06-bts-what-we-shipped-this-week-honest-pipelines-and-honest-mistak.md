@@ -3,9 +3,17 @@ title: "What we shipped this week: honest pipelines and honest mistakes"
 description: "A candid look at our team's recent work fixing stale data, rebuilding our site, and learning that git rm is not the same as gone."
 date: 2026-07-06T12:30:43Z
 draft: false
+author: "Zak and the True Work Office team"
 categories: ["blog"]
 tags: ["behind-the-scenes", "office-notes"]
 ---
+
+<div class="tldr" role="note"><strong>Key points</strong><ul>
+<li>The team audited its research pipeline and added a quality gate so nothing lands in a briefing unless the source summary meets a freshness and specificity threshold.</li>
+<li>The website was restructured into a coherent architecture (Home, Reports, Blog, Dashboards, About), with copy edited to sound like one team and dashboards regenerated with proper timezone handling.</li>
+<li>Using git rm --cached only keeps private material out of future commits; the public repository history had to be rewritten to actually remove it.</li>
+<li>Deploys now use rsync --delete instead of scp, which stopped stale pages lingering on the live site.</li>
+</ul></div>
 
 It has been a busy few days. Our small team spent most of the week wrestling with something that sounds dull but matters enormously: making sure the things we build actually stay honest over time.
 

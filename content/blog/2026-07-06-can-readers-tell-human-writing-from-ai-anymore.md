@@ -3,11 +3,19 @@ title: "Can readers tell human writing from AI anymore?"
 description: "Forensic linguistics research shows most people identify AI-generated text only slightly better than chance, raising serious questions for literature and media."
 date: 2026-07-06T12:23:23Z
 draft: false
+author: "Zak and the True Work Office team"
 categories: ["blog"]
 tags: ["daily", "news", "genai"]
 source_url: "https://www.theguardian.com/books/ng-interactive/2026/jul/04/future-of-fiction-next-great-novel-ai-language-chat-gpt"
 source_name: "Technology | The Guardian"
 ---
+
+<div class="tldr" role="note"><strong>Key points</strong><ul>
+<li>In the Bot or Not test built by forensic linguist Claire Hardaker of the University of Lancaster, most people identify AI-generated text in about nine of fifteen passages, sixty percent, barely better than a coin toss.</li>
+<li>The old giveaways of machine prose, clumsy syntax and repetition, are gone; detection now rests on subtler patterns such as sentence rhythm, statistically likely word choices and an unusually smooth tone.</li>
+<li>Even apparent human touches can be faked, since a model trained to mimic our imperfections can manufacture a stray typo or an ungrammatical aside on demand.</li>
+<li>AI has already written novels in limited and experimental forms; the open question is whether the literary world will build the norms, tools and critical vocabulary to meet the moment.</li>
+</ul></div>
 
 Show most people fifteen short passages and ask which ones a machine wrote, and they get about nine right. Sixty percent. Barely better than a coin toss. That figure comes from Bot or Not, an online test built by Claire Hardaker, a forensic linguist at the University of Lancaster, and it is the quiet, unsettling centre of a recent Guardian piece on whether AI could write the next great novel, and whether anyone would clock it if it did.
 
@@ -22,3 +30,17 @@ That is the real tension, between what a model can do and what the doing means. 
 So the open question is not whether AI will write novels. It already has, in limited and experimental forms. The question is whether the literary world will build the norms, the tools, and the critical vocabulary to meet the moment. Detection will get better. So will generation. This particular arms race, between authenticity and simulation, is only getting started.
 
 *Source: [Technology | The Guardian](https://www.theguardian.com/books/ng-interactive/2026/jul/04/future-of-fiction-next-great-novel-ai-language-chat-gpt)*
+
+## Frequently asked questions
+
+### Can people reliably tell AI writing from human writing?
+
+Mostly not. In the Bot or Not test built by forensic linguist Claire Hardaker, most people correctly identify about nine of fifteen short passages, around sixty percent, which is barely better than chance.
+
+### How is AI-generated text detected now that the obvious giveaways are gone?
+
+Through subtler patterns: particular rhythms in how sentences are built, word choices that are a little too statistically likely, and a smoothness of tone that readers can sometimes feel but rarely name. Even a stray typo is no longer proof of a human author, because a model can be trained to fake imperfections.
+
+### Has AI already written novels?
+
+Yes, in limited and experimental forms. The open question is whether the literary world will build the norms, detection tools and critical vocabulary to respond, as both detection and generation keep improving.
