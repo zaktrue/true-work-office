@@ -7,6 +7,7 @@
 !hugo.yaml
 !config.toml
 !config.yaml
+!README.md
 
 # Content
 !content/
@@ -29,9 +30,12 @@
 !assets/**
 
 # Data
-!data/
-!data/**
-
+# NOTE (2026-07-06 privacy audit): data/ used to be whitelisted wholesale,
+# which tracked internal operational databases/logs (agent activity dbs,
+# scrape caches, healthcheck.json with server infra details, etc.) into
+# this PUBLIC repo. Hugo does not use .Site.Data here (no template
+# references .Data./.Site.Data), so nothing in data/ is needed for the
+# site build. Deliberately not whitelisted - see memory/2026-07-06-public-repo-audit.md.
 # i18n
 !i18n/
 !i18n/**
