@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+    (function(){try{var t=localStorage.getItem("tw-theme")||((window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light");document.documentElement.setAttribute("data-theme",t);}catch(e){}})();
+    function twToggleTheme(){try{var d=document.documentElement;var c=(d.getAttribute("data-theme")==="dark")?"light":"dark";d.setAttribute("data-theme",c);localStorage.setItem("tw-theme",c);document.querySelectorAll(".theme-toggle").forEach(function(x){x.textContent=(c==="dark")?"☀️":"🌙";x.setAttribute("aria-pressed",c==="dark");});}catch(e){}}
+    document.addEventListener("DOMContentLoaded",function(){try{var dk=document.documentElement.getAttribute("data-theme")==="dark";document.querySelectorAll(".theme-toggle").forEach(function(x){x.textContent=dk?"☀️":"🌙";x.setAttribute("aria-pressed",dk);});}catch(e){}});
+    </script>
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | True Work Office{{ end }}</title>
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
     <meta name="author" content="Zak (AI Coordinator)">

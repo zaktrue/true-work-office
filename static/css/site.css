@@ -4,6 +4,12 @@
    Linked by every Hugo page (via baseof.html / index.html) AND by the
    generated dashboards (mission-control, health, cost) so the whole site —
    including generated pages — shares one visual system automatically.
+
+   Theming: colours are driven by CSS custom properties. Dark mode is applied
+   either automatically (prefers-color-scheme) or explicitly via
+   data-theme="dark" | "light" on <html> (set by the nav toggle, persisted in
+   localStorage). Surfaces flip; the gold featured box and navy/contact boxes
+   keep dark text on their own light backgrounds in both themes.
    ========================================================================== */
 
 :root {
@@ -18,6 +24,50 @@
     --tw-danger: #dc2626;
     --tw-info: #0e7490;
     --tw-radius: 8px;
+
+    /* semantic tokens (overridden in dark mode) */
+    --tw-page: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    --tw-surface: #ffffff;
+    --tw-heading: var(--tw-navy);
+    --tw-link: var(--tw-blue);
+    --tw-table-alt: #fafbff;
+    --tw-subnav-bg: #eef2fb;
+    --tw-shadow: rgba(0,0,0,0.2);
+    --tw-lead: #444;
+}
+
+/* Dark theme — explicit toggle */
+:root[data-theme="dark"] {
+    --tw-ink: #d7deee;
+    --tw-muted: #93a1bd;
+    --tw-soft: #1b2540;
+    --tw-border: #2b3958;
+    --tw-page: linear-gradient(135deg, #0c1220 0%, #131d33 100%);
+    --tw-surface: #141c2e;
+    --tw-heading: #9db8ff;
+    --tw-link: #7ea6ff;
+    --tw-table-alt: #172136;
+    --tw-subnav-bg: #172136;
+    --tw-shadow: rgba(0,0,0,0.6);
+    --tw-lead: #b8c2d8;
+}
+
+/* Dark theme — automatic, unless the visitor has explicitly chosen light */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --tw-ink: #d7deee;
+        --tw-muted: #93a1bd;
+        --tw-soft: #1b2540;
+        --tw-border: #2b3958;
+        --tw-page: linear-gradient(135deg, #0c1220 0%, #131d33 100%);
+        --tw-surface: #141c2e;
+        --tw-heading: #9db8ff;
+        --tw-link: #7ea6ff;
+        --tw-table-alt: #172136;
+        --tw-subnav-bg: #172136;
+        --tw-shadow: rgba(0,0,0,0.6);
+        --tw-lead: #b8c2d8;
+    }
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,7 +76,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
     color: var(--tw-ink);
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    background: var(--tw-page);
     min-height: 100vh;
 }
 
@@ -34,9 +84,9 @@ body {
     max-width: 900px;
     margin: 0 auto;
     padding: 2rem;
-    background: white;
+    background: var(--tw-surface);
     min-height: 100vh;
-    box-shadow: 0 0 50px rgba(0,0,0,0.2);
+    box-shadow: 0 0 50px var(--tw-shadow);
 }
 
 /* Wide variant for data-dense dashboards */
@@ -57,7 +107,7 @@ body {
 
 .site-nav .brand {
     font-weight: 800;
-    color: var(--tw-navy);
+    color: var(--tw-heading);
     text-decoration: none;
     margin-right: auto;
     font-size: 1rem;
@@ -65,7 +115,7 @@ body {
 }
 
 .site-nav a {
-    color: var(--tw-navy);
+    color: var(--tw-heading);
     font-weight: 600;
     text-decoration: none;
     font-size: 0.95rem;
@@ -76,9 +126,23 @@ body {
 .site-nav a:hover { border-bottom-color: var(--tw-blue); }
 
 .site-nav a.active {
-    color: var(--tw-blue);
-    border-bottom-color: var(--tw-blue);
+    color: var(--tw-link);
+    border-bottom-color: var(--tw-link);
 }
+
+/* Theme toggle button (shared chrome) */
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--tw-border);
+    color: var(--tw-heading);
+    border-radius: var(--tw-radius);
+    padding: 0.2rem 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1.2;
+    font-weight: 600;
+}
+.theme-toggle:hover { border-color: var(--tw-link); }
 
 @media (max-width: 640px) {
     .site-nav { gap: 0.9rem; }
@@ -96,7 +160,7 @@ body {
     color: var(--tw-muted);
 }
 
-.site-footer a { color: var(--tw-navy); text-decoration: none; font-weight: 600; }
+.site-footer a { color: var(--tw-heading); text-decoration: none; font-weight: 600; }
 .site-footer a:hover { text-decoration: underline; }
 .site-footer nav { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 0.75rem; }
 
@@ -104,26 +168,26 @@ body {
 .dash-subnav {
     display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;
     padding: 0.6rem 1rem; margin: 0 0 1.25rem;
-    background: #eef2fb; border-radius: var(--tw-radius);
+    background: var(--tw-subnav-bg); border-radius: var(--tw-radius);
 }
 .dash-subnav a {
-    color: var(--tw-navy); font-weight: 600; text-decoration: none; font-size: 0.9rem;
+    color: var(--tw-heading); font-weight: 600; text-decoration: none; font-size: 0.9rem;
     padding: 0.2rem 0.15rem; border-bottom: 2px solid transparent;
 }
 .dash-subnav a:hover { border-bottom-color: var(--tw-blue); }
-.dash-subnav a.active { color: var(--tw-blue); border-bottom-color: var(--tw-blue); }
+.dash-subnav a.active { color: var(--tw-link); border-bottom-color: var(--tw-link); }
 .reltime { color: var(--tw-muted); font-size: 0.85em; }
 
 /* ---- Core typography ----------------------------------------------------- */
-h1 { font-size: 2.2rem; font-weight: 800; color: var(--tw-navy); margin-bottom: 0.5rem; }
+h1 { font-size: 2.2rem; font-weight: 800; color: var(--tw-heading); margin-bottom: 0.5rem; }
 h2 {
-    font-size: 1.6rem; font-weight: 700; color: var(--tw-navy);
+    font-size: 1.6rem; font-weight: 700; color: var(--tw-heading);
     margin: 2rem 0 1rem; border-left: 4px solid var(--tw-blue); padding-left: 1rem;
 }
-h3 { color: var(--tw-navy); margin-bottom: 0.4rem; }
+h3 { color: var(--tw-heading); margin-bottom: 0.4rem; }
 p { margin-bottom: 1rem; }
-strong { color: var(--tw-navy); }
-a { color: var(--tw-blue); }
+strong { color: var(--tw-heading); }
+a { color: var(--tw-link); }
 ul, ol { margin: 0.5rem 0 1rem 1.6rem; line-height: 1.9; }
 hr { border: none; border-top: 1px solid var(--tw-border); margin: 2rem 0; }
 
@@ -133,11 +197,11 @@ hr { border: none; border-top: 1px solid var(--tw-border); margin: 2rem 0; }
 /* Tables */
 table { border-collapse: collapse; width: 100%; margin: 1.5rem 0; }
 th, td { border: 1px solid var(--tw-border); padding: 0.75rem; text-align: left; }
-th { background: var(--tw-soft); color: var(--tw-navy); }
-tr:nth-child(even) { background: #fafbff; }
+th { background: var(--tw-soft); color: var(--tw-heading); }
+tr:nth-child(even) { background: var(--tw-table-alt); }
 
 /* ---- Reusable content components (used by home + list pages) ------------- */
-.lead { font-size: 1.2rem; color: #444; margin-bottom: 1.5rem; }
+.lead { font-size: 1.2rem; color: var(--tw-lead); margin-bottom: 1.5rem; }
 
 .card-list { list-style: none; margin-left: 0; padding: 0; }
 .card-list li {
@@ -160,7 +224,7 @@ tr:nth-child(even) { background: #fafbff; }
 }
 .hero .emoji { font-size: 3.5rem; margin-bottom: 0.75rem; }
 .hero h1 { font-size: 2.5rem; }
-.hero .tagline { font-size: 1.25rem; color: #555; font-style: italic; }
+.hero .tagline { font-size: 1.25rem; color: var(--tw-muted); font-style: italic; }
 .hero .subtitle { font-size: 1.05rem; color: var(--tw-muted); margin-top: 0.75rem; }
 
 .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin: 2rem 0; }
@@ -177,8 +241,9 @@ tr:nth-child(even) { background: #fafbff; }
     font-weight: 800; font-size: 0.72rem; letter-spacing: 0.05em; text-transform: uppercase;
     padding: 0.25rem 0.75rem; border-radius: 999px; margin-bottom: 0.75rem;
 }
-.featured-report h2 { border-left: none; padding-left: 0; margin: 0 0 0.25rem; }
+.featured-report h2 { border-left: none; padding-left: 0; margin: 0 0 0.25rem; color: var(--tw-navy); }
 .featured-report .sub { font-style: italic; color: #555; margin-bottom: 1rem; }
+.featured-report p { color: #4a4636; }
 .featured-report .read-link { display: inline-block; margin-top: 0.5rem; font-weight: 700; color: var(--tw-navy); text-decoration: none; }
 .featured-report .read-link:hover { text-decoration: underline; }
 .featured-report .secondary { margin-top: 1rem; font-size: 0.92rem; color: #6b5a2e; }
@@ -186,7 +251,7 @@ tr:nth-child(even) { background: #fafbff; }
 .offer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; }
 .offer-card { background: var(--tw-soft); border: 1px solid var(--tw-border); border-radius: var(--tw-radius); padding: 1.25rem; }
 .offer-card h3 { font-size: 1.05rem; }
-.offer-card a { color: var(--tw-blue); font-weight: 600; text-decoration: none; }
+.offer-card a { color: var(--tw-link); font-weight: 600; text-decoration: none; }
 .offer-card a:hover { text-decoration: underline; }
 
 .contact-box {
