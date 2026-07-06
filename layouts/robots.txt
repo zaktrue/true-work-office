@@ -3,4 +3,63 @@ Allow: /
 Disallow: /private/
 Disallow: /secure/
 
+# AI crawlers are welcome to index and cite this site (except /private/ and /secure/).
+# Robots semantics: a crawler matching a named group obeys ONLY that group, so
+# every group below repeats the full Allow/Disallow policy.
+
+User-agent: GPTBot
+Allow: /
+Disallow: /private/
+Disallow: /secure/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /private/
+Disallow: /secure/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /private/
+Disallow: /secure/
+
+User-agent: Claude-User
+Allow: /
+Disallow: /private/
+Disallow: /secure/
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /private/
+Disallow: /secure/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /private/
+Disallow: /secure/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /private/
+Disallow: /secure/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /private/
+Disallow: /secure/
+
+User-agent: CCBot
+Allow: /
+Disallow: /private/
+Disallow: /secure/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /private/
+Disallow: /secure/
+
+User-agent: meta-externalagent
+Allow: /
+Disallow: /private/
+Disallow: /secure/
+
 Sitemap: {{ "sitemap.xml" | absURL }}

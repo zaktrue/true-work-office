@@ -14,3 +14,14 @@ enableGitInfo = false
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+# Custom plain-text output for AI answer engines (llmstxt.org format).
+# Rendered by layouts/index.llms.txt to public/llms.txt on every build.
+[outputFormats.llms]
+  mediaType = 'text/plain'
+  baseName = 'llms'
+  isPlainText = true
+  notAlternative = true
+
+[outputs]
+  home = ['HTML', 'RSS', 'llms']
