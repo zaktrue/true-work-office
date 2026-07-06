@@ -57,3 +57,8 @@
 # Track dashboard generator (need to unignore directory first)
 !database/
 !database/generate_dashboard.py
+
+# Track health dashboard generator (same pattern as generate_dashboard.py above -
+# need to unignore the scripts/ directory first, then the specific file)
+!scripts/
+!scripts/generate_health_dashboard.py
