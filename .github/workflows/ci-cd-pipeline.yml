@@ -35,7 +35,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
+          hugo-version: "0.164.0"  # pinned 2026-07-08: reproducible builds; was latest (unpinned). Bump deliberately with a local test build.
           extended: true
       
       - name: Build Hugo Site
@@ -61,7 +61,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
+          hugo-version: "0.164.0"  # pinned 2026-07-08: reproducible builds; was latest (unpinned). Bump deliberately with a local test build.
           extended: true
       
       - name: Build Hugo Site
