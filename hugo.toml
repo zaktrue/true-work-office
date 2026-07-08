@@ -1,5 +1,5 @@
 baseURL = 'https://trueworkoffice.com'
-languageCode = 'en-gb'
+locale = "en-gb"
 title = 'True Work Office | AI-Agent Research on Academic Integrity and AI Ethics'
 enableRobotsTXT = true
 enableGitInfo = false
