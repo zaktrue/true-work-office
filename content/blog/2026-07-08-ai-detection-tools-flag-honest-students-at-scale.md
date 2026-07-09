@@ -8,6 +8,33 @@ categories: ["blog"]
 tags: ["daily", "news", "academic-integrity"]
 source_url: "https://www.nature.com/articles/d41586-026-01358-2"
 source_name: "Nature"
+faq:
+  - q: "How accurate are AI-detection tools?"
+    a: >-
+      Not reliably. A 2025 study found that GPTZero incorrectly classified
+      roughly 16 per cent of human-written essays as machine-generated, and a
+      2023 evaluation of several leading detectors showed similarly inconsistent
+      results on human-authored passages.
+  - q: "How do AI detectors decide that text is AI-generated?"
+    a: >-
+      They measure perplexity: text that follows predictable, statistically
+      smooth patterns is flagged as likely AI-generated, while more irregular
+      phrasing is read as human. A student who writes clearly and conventionally
+      can be flagged simply for resembling the patterns the software was trained
+      to recognise.
+  - q: "Can AI-detection tools wrongly accuse honest students?"
+    a: >-
+      Yes. At scale a 16 per cent false-positive rate could mean hundreds of
+      honest students facing accusation. One documented case is Lauren Jager, a
+      chemistry student at Idaho State University, whose personal statement was
+      flagged as almost entirely AI-written despite her not using any such
+      tools.
+  - q: "Why is AI detection a no-win situation for students?"
+    a: >-
+      Because detectors chase a moving target as language models improve,
+      students are left choosing between risking a false accusation or
+      deliberately writing worse to avoid automated scrutiny. Lauren Jager
+      rewrote her essay to look less polished for exactly that reason.
 ---
 
 <div class="tldr" role="note"><strong>Key points</strong><ul>
@@ -17,7 +44,7 @@ source_name: "Nature"
 <li>Because detection tools chase a moving target as language models improve, students face a no-win choice between risking false accusation or writing worse on purpose to avoid automated scrutiny.</li>
 </ul></div>
 
-Universities are increasingly turning to software tools that promise to identify work produced by generative artificial intelligence, yet the reliability of these systems remains deeply contested. According to Nature, institutions worldwide have adopted platforms such as GPTZero, Copyleaks and Turnitin, which analyse text for statistical predictability in an attempt to distinguish machine-generated prose from human writing.
+Universities are increasingly turning to software tools that promise to identify work produced by generative artificial intelligence, yet the reliability of these systems remains deeply contested. According to [Nature](https://www.nature.com/articles/d41586-026-01358-2), institutions worldwide have adopted platforms such as GPTZero, Copyleaks and Turnitin, which analyse text for statistical predictability in an attempt to distinguish machine-generated prose from human writing.
 
 The underlying approach is broadly similar across these tools. They measure what is known as perplexity: text that follows predictable patterns is flagged as likely AI-generated, whilst more irregular phrasing is read as evidence of human authorship. The assumption is that generative models produce statistically smoother output than people do. The consequence, however, is that a student who writes clearly and conventionally may find their work flagged as suspicious simply because it resembles the patterns the software has been trained to recognise.
 
@@ -32,5 +59,3 @@ The difficulty extends beyond any single product. As large language models conti
 The broader question is what universities intend to protect. If assessment integrity is the goal, tools that pressure students to write worse and penalise the innocent appear to undermine it rather than safeguard it. The technology may offer administrators a sense of control, but the evidence suggests that sense is largely illusory. Whether institutions will adjust their reliance on these platforms in light of their documented shortcomings remains an open question.
 
 *Related report: [AI Literacy in Education: Turning a Global Framework Into Classroom Practice](/reports/ai-literacy-framework-classroom-practice/).*
-
-*Source: [Nature](https://www.nature.com/articles/d41586-026-01358-2)*

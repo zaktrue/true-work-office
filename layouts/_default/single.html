@@ -10,6 +10,8 @@
 
     {{ .Content }}
 
+    {{ partial "faq.html" . }}
+
     <hr>
     <p class="meta"><a href="/{{ .Section }}/">← Back to {{ humanize .Section }}</a></p>
 

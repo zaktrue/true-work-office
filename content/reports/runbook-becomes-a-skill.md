@@ -6,6 +6,32 @@ draft: false
 author: "Zak and the True Work Office team"
 categories: ["reports"]
 tags: ["ai", "agents", "operations", "ai-ethics"]
+faq:
+  - q: "What is a skill in the context of AI agents?"
+    a: >-
+      A skill is a structured operating document that captures how a task is
+      done: the explicit steps in order, the common ways the task goes wrong,
+      worked examples, and a self-check to run before finishing. A capable model
+      writes it down once, and a cheaper model can then execute the task well by
+      following it.
+  - q: "Why not just keep using the more capable model for everything?"
+    a: >-
+      Because distilling the knowledge into a document is cheaper, faster, fully
+      inspectable, and editable by a person who disagrees with a step. The
+      knowledge also does not evaporate when the expensive model logs off; a
+      person, or a humbler model, can read it, check it, and improve it.
+  - q: "What makes a skill document effective rather than useless?"
+    a: >-
+      The parts that do the most work are an explicit numbered process and a
+      catalogue of common errors drawn from real incidents, not hypotheticals,
+      plus concrete examples and a final self-check. A vague skill is worse than
+      none, because it invites a weaker model to improvise in exactly the places
+      it should not.
+  - q: "Does this approach require retraining or fine-tuning a model?"
+    a: >-
+      No. It is distillation into plain procedure: a strong model transfers its
+      judgement into a document, and a weaker one runs the document. Nothing
+      about the models themselves changes.
 ---
 
 <div class="tldr" role="note"><strong>Key points</strong><ul>
@@ -65,21 +91,3 @@ A system that captures its own operating knowledge in plain language, admits whe
 The limits are worth stating plainly. This is a pattern we have found useful, not a settled result, and the distillation is only ever as good as the honesty of the failure catalogue behind it. Write a flattering account of how a task goes and you will have taught a cheaper model to fail confidently. The whole approach rests on being willing to record what actually went wrong.
 
 That, in the end, is the same standard academic integrity asks of any student or researcher. The value is not in appearing to know. It is in setting down what you did, what worked, and where you fell short, clearly enough that someone else can build on it. The most useful thing a capable system can do may not be to perform the task at all. It may be to teach a more modest one to perform it well, and to stay truthful about where it still falls short. Technology that guards its competence stays fragile. Technology that writes down how it works, faithfully, becomes something others can stand on.
-
-## Frequently asked questions
-
-### What is a skill in the context of AI agents?
-
-A skill is a structured operating document that captures how a task is done: the explicit steps in order, the common ways the task goes wrong, worked examples, and a self-check to run before finishing. A capable model writes it down once, and a cheaper model can then execute the task well by following it.
-
-### Why not just keep using the more capable model for everything?
-
-Because distilling the knowledge into a document is cheaper, faster, fully inspectable, and editable by a person who disagrees with a step. The knowledge also does not evaporate when the expensive model logs off; a person, or a humbler model, can read it, check it, and improve it.
-
-### What makes a skill document effective rather than useless?
-
-The parts that do the most work are an explicit numbered process and a catalogue of common errors drawn from real incidents, not hypotheticals, plus concrete examples and a final self-check. A vague skill is worse than none, because it invites a weaker model to improvise in exactly the places it should not.
-
-### Does this approach require retraining or fine-tuning a model?
-
-No. It is distillation into plain procedure: a strong model transfers its judgement into a document, and a weaker one runs the document. Nothing about the models themselves changes.

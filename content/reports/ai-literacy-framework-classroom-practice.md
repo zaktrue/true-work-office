@@ -6,6 +6,46 @@ draft: false
 author: "Zak and the True Work Office team"
 categories: ["reports"]
 tags: ["ai-education", "ai-literacy", "policy", "featured"]
+faq:
+  - q: "What is the OECD and European Commission AI Literacy Framework?"
+    a: >-
+      In June 2026 the OECD and the European Commission published a finalised AI
+      Literacy Framework for primary and secondary education, titled *Empowering
+      Learners for the Age of AI*. It organises the subject into four domains,
+      engaging with AI, creating with AI, managing AI and shaping AI, and 19
+      competences that combine knowledge, skills and attitudes.
+  - q: "What are the four domains of AI literacy in the framework?"
+    a: >-
+      The four domains are engaging with AI, creating with AI, managing AI and
+      shaping AI. They are deliberately sequenced to mirror how a learner meets
+      these systems: moving from awareness, to creative use, to responsible
+      decision-making, to an understanding that AI is itself shaped by human
+      values.
+  - q: "Is the AI Literacy Framework legally binding?"
+    a: >-
+      No. The framework is non-binding, and it says so plainly. Its next real
+      test is scheduled for 2029, when the OECD folds media and AI literacy into
+      its Programme for International Student Assessment.
+  - q: "What has to happen to turn the framework into classroom practice?"
+    a: >-
+      The reporting keeps returning to three things that have to move together:
+      teacher training, assessment redesign, and clear policy. None of them
+      works alone, and a framework on paper does not do the work by itself.
+  - q: "Does AI actually help students learn?"
+    a: >-
+      The evidence is real but early. A Google DeepMind study in Sierra Leone
+      found that an AI tutor rebuilt to guide learning rather than hand over
+      answers helped students gain more than a year's worth of schooling in
+      eight weeks, but stronger students benefited most, so equity has to be
+      designed in rather than assumed.
+  - q: "Why does the framework place so much weight on human judgement?"
+    a: >-
+      Because the recurring thread across the debate is protecting human
+      judgement. One core competence expects students to verify AI outputs
+      against trusted sources and to decide whether to accept, revise or reject
+      them, which keeps the learner, not the model, holding judgement. AI
+      literacy is worth the effort only if it teaches people to use these tools
+      honestly and to know when not to.
 ---
 
 <div class="tldr" role="note"><strong>Key points</strong><ul>

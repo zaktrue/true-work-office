@@ -1,0 +1,13 @@
+{{- /*
+  Content image render hook (site-wide standard).
+  Applies at BUILD TIME to every Markdown image ( ![alt](src "title") ) in
+  content/. It guarantees responsive, lazy-loaded markup and a consistent
+  `content-img` / `lightbox-img` class so /js/lightbox.js can turn every
+  content image into a click-to-expand trigger. Raw-HTML <figure>/<img> blocks
+  written directly in Markdown are picked up by the same JS (it targets every
+  image inside <article>), so the lightbox is uniform across old and new pages.
+  Emitting an <img> (not a block <figure>) keeps the markup valid whether the
+  image is inline or standalone in a paragraph.
+*/ -}}
+{{- $alt := .Text -}}
+<img class="content-img lightbox-img" src="{{ .Destination | safeURL }}" alt="{{ $alt }}" loading="lazy" decoding="async"{{ with .Title }} title="{{ . }}"{{ end }}>

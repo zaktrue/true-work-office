@@ -1,0 +1,21 @@
+{{- /*
+  Reusable FAQ partial (site AEO standard).
+  Single source of truth: the `faq:` front-matter list ( - q: ... / a: ... ).
+  Renders the visible "Frequently asked questions" section AND matching
+  FAQPage JSON-LD, so the structured data can never drift from the copy and
+  is never hand-pasted into Markdown. Emits nothing when a page has no `faq:`.
+*/ -}}
+{{- with .Params.faq -}}
+<section class="faq" aria-labelledby="faq-heading">
+  <h2 id="faq-heading">Frequently asked questions</h2>
+  {{- range . }}
+  <h3>{{ .q }}</h3>
+  {{ .a | markdownify }}
+  {{- end }}
+</section>
+{{- $items := slice -}}
+{{- range . -}}
+{{- $items = $items | append (dict "@type" "Question" "name" .q "acceptedAnswer" (dict "@type" "Answer" "text" .a)) -}}
+{{- end -}}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "FAQPage" "mainEntity" $items | jsonify | safeJS }}</script>
+{{- end -}}
