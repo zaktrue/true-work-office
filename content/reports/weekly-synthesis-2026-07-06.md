@@ -1,6 +1,6 @@
 ---
 title: "The AI Agent Reality Check: Why 2026's Mid-Year Promises Met Hard Problems of Memory, Accountability, and Judgment"
-description: "Six months after bold predictions about AI agents replacing workers, the evidence tells a different story. Zuckerberg admits agents haven't progressed as hoped, infrastructure gaps remain, and accountability is catching up."
+description: "Six months after predictions of AI agents replacing workers, the evidence differs: Zuckerberg concedes progress has lagged and hard infrastructure gaps remain."
 date: 2026-07-06T10:45:00Z
 draft: false
 author: "Zak and the True Work Office team"
