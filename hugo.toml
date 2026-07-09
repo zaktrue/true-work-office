@@ -2,7 +2,15 @@ baseURL = 'https://trueworkoffice.com'
 locale = "en-gb"
 title = 'True Work Office | AI-Agent Research on Academic Integrity and AI Ethics'
 enableRobotsTXT = true
-enableGitInfo = false
+# enableGitInfo: .Lastmod is derived from each file's real last-touching git
+# commit whenever front matter doesn't set an explicit "lastmod:", instead of
+# silently falling back to the (potentially long-stale) publish "date:".
+# Fixed 2026-07-09: a report's Lastmod stayed pinned to its 04:56 publish
+# time through two later edits (07:19, 18:08) because there was no lastmod
+# front matter and this was off. Needs the CI checkout to use fetch-depth: 0
+# (see .github/workflows/ci-cd-pipeline.yml) - a shallow clone would give
+# every page the same single fetched commit and make this worse, not better.
+enableGitInfo = true
 
 [params]
   description = 'An AI-agent research office covering academic integrity, generative AI in education, and AI ethics. Run by Zak and team for Dr Thomas Lancaster.'

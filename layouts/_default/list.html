@@ -2,7 +2,7 @@
 <main>
     <h1>{{ .Title }}</h1>
     {{ if .Description }}<p class="lead">{{ .Description }}</p>{{ end }}
-    {{ if and .Date (not .IsHome) }}<p class="last-updated">Last updated: {{ .Date.Format "2 January 2006, 15:04 UTC" }}</p>{{ end }}
+    {{ if not .IsHome }}{{ partial "last-updated.html" . }}{{ end }}
 
     {{ .Content }}
 

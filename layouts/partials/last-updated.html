@@ -1,0 +1,22 @@
+{{/*
+  Shared "last updated" renderer: the ONE place on the site that decides
+  how a last-updated stamp looks, so individual pages can never drift into
+  their own format or timezone (regression fixed 2026-07-09: list.html had
+  its own hardcoded ".Date.Format ... UTC" that never actually converted
+  to UK time, and used .Date - the original PUBLISH time - instead of
+  .Lastmod, so edits after publish never moved the displayed stamp).
+
+  - Uses .Lastmod, never .Date: .Date is when the page was first
+    published; .Lastmod is when it was last actually changed. With
+    enableGitInfo = true (hugo.toml) Hugo derives .Lastmod from the
+    page's real git commit history whenever front matter doesn't set an
+    explicit "lastmod:", so the value is always a genuine edit time, not
+    a stale or invented one.
+  - Date only, no clock time (owner directive 2026-07-09): Reports and
+    Blog pages read better with just a date.
+  - .Local converts to the CI build's TZ (set to Europe/London in
+    .github/workflows/ci-cd-pipeline.yml) via the system's IANA timezone
+    database, so British Summer Time is handled correctly and
+    automatically - never a hardcoded UTC+1.
+*/}}
+{{ if .Lastmod }}<p class="last-updated">Last updated: {{ .Lastmod.Local.Format "2 January 2006" }}</p>{{ end }}

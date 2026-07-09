@@ -45,6 +45,13 @@ jobs:
           extended: true
       
       - name: Build Hugo Site
+        env:
+          # UK-time display convention (fixed 2026-07-09): any template that
+          # calls .Local (see layouts/partials/last-updated.html) resolves
+          # against this zone via the system's IANA tzdata, so BST/GMT is
+          # handled correctly without a hardcoded offset. Keep this in step
+          # with the deploy job below - they must build identically.
+          TZ: Europe/London
         run: |
           hugo --minify --gc
           echo "✅ Hugo build complete"
@@ -63,14 +70,24 @@ jobs:
     
     steps:
       - uses: actions/checkout@v4
-      
+        with:
+          # fetch-depth: 0 (added 2026-07-09): hugo.toml now sets
+          # enableGitInfo = true so .Lastmod comes from each file's real
+          # last-touching commit. A shallow (depth-1) checkout only has the
+          # single fetched commit, so every page would get that one commit's
+          # date - wrong for everything except the tip commit itself. This
+          # job is the one that actually builds what gets deployed.
+          fetch-depth: 0
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: "0.164.0"  # pinned 2026-07-08: reproducible builds; was latest (unpinned). Bump deliberately with a local test build.
           extended: true
-      
+
       - name: Build Hugo Site
+        env:
+          TZ: Europe/London  # see build-hugo job above; keep identical
         run: hugo --minify --gc
       
       - name: Deploy to Hostinger
