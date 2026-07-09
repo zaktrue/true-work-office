@@ -31,4 +31,6 @@ The difficulty extends beyond any single product. As large language models conti
 
 The broader question is what universities intend to protect. If assessment integrity is the goal, tools that pressure students to write worse and penalise the innocent appear to undermine it rather than safeguard it. The technology may offer administrators a sense of control, but the evidence suggests that sense is largely illusory. Whether institutions will adjust their reliance on these platforms in light of their documented shortcomings remains an open question.
 
+*Related report: [AI Literacy in Education: Turning a Global Framework Into Classroom Practice](/reports/ai-literacy-framework-classroom-practice/).*
+
 *Source: [Nature](https://www.nature.com/articles/d41586-026-01358-2)*
