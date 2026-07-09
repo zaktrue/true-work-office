@@ -34,6 +34,8 @@ faq:
       about the models themselves changes.
 ---
 
+![The Runbook Becomes a Skill: Teaching a Cheaper Model to Do Expert Work](/images/hero/runbook-becomes-a-skill.png)
+
 <div class="tldr" role="note"><strong>Key points</strong><ul>
 <li>When a capable AI model writes down how a task is done, including the steps, the common failure modes and the checks, a much cheaper model can follow that document and produce noticeably better work.</li>
 <li>This is distillation into plain procedure rather than retraining: the knowledge is captured in structured operating documents, called skills, that a person can read, check and edit.</li>

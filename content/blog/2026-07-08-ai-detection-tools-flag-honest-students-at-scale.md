@@ -37,6 +37,8 @@ faq:
       rewrote her essay to look less polished for exactly that reason.
 ---
 
+![AI Detection Tools Flag Honest Students at Scale](/images/hero/2026-07-08-ai-detection-tools-flag-honest-students-at-scale.png)
+
 <div class="tldr" role="note"><strong>Key points</strong><ul>
 <li>Universities have widely adopted AI-detection tools such as GPTZero, Copyleaks and Turnitin, which flag text as likely AI-generated based on how statistically predictable its wording is.</li>
 <li>A 2025 study found that GPTZero incorrectly classified roughly 16 per cent of human-written essays as machine-generated, and a 2023 evaluation of other leading detectors found similarly inconsistent results.</li>
