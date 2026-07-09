@@ -56,16 +56,12 @@
 **/*private*
 
 # Exception: Track dashboard generator
-!database/generate_dashboard.py
 
 # Track dashboard generator (need to unignore directory first)
 !database/
-!database/generate_dashboard.py
 
 # Track health dashboard generator (same pattern as generate_dashboard.py above -
 # need to unignore the scripts/ directory first, then the specific file)
 !scripts/
-!scripts/generate_health_dashboard.py
 
 # Track shared dashboard chrome module (imported by the tracked dashboard generators)
-!scripts/dashboard_chrome.py
