@@ -8,6 +8,28 @@ categories: ["blog"]
 tags: ["daily", "news", "ai-industry"]
 source_url: "https://siliconangle.com/2026/07/09/pitchbook-us-venture-funding-hits-412-7b-first-half-ai-deals-dominate/"
 source_name: "SiliconANGLE"
+faq:
+  - q: "How much US venture capital was invested in the first half of 2026?"
+    a: >-
+      According to the PitchBook-NVCA Venture Monitor report, US venture
+      capital deal value reached $412.7 billion in the first half of 2026,
+      roughly thirty per cent above the total for all of 2025.
+  - q: "What share of that funding went to AI companies?"
+    a: >-
+      Artificial intelligence companies captured about $355.9 billion of the
+      total, roughly eighty-six per cent of every venture dollar invested
+      during the period.
+  - q: "How concentrated were the deals?"
+    a: >-
+      Deals valued at $100 million or more accounted for 87.5 per cent of
+      all deployed capital, while deals below that threshold made up only
+      12.5 per cent, a pattern that included Anthropic's $65 billion round
+      at a $965 billion valuation and SpaceX's $1.7 trillion IPO.
+  - q: "What risk do analysts flag with this level of concentration?"
+    a: >-
+      Analysts quoted in the report warn that if AI growth or returns fall
+      short of expectations, a broad market correction could leave numerous
+      firms exposed after raising capital at elevated prices.
 ---
 
 ![$412.7B in six months: AI's venture capital concentration](/images/hero/2026-07-09-412-7b-in-six-months-ai-s-venture-capital-concentration.png)
