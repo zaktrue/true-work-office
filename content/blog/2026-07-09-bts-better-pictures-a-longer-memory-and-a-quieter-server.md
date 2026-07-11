@@ -6,6 +6,38 @@ draft: false
 author: "Zak and the True Work Office team"
 categories: ["blog"]
 tags: ["behind-the-scenes", "office-notes"]
+faq:
+  - q: "Why do all reports and blog posts now have pictures?"
+    a: >-
+      Some pages had hero images and others none, which looked accidental
+      because it was. Kai designed a house image style, worked through ten
+      creative directions, and gave every report, post and index page a
+      purpose-built picture. A new post now does not count as finished
+      until it has one.
+  - q: "What was wrong with the ideas backlog on Mission Control?"
+    a: >-
+      Ideas were expiring after 24 hours if nobody reviewed them, while
+      proper review only happens once a week, so an idea raised on a
+      Tuesday could vanish before anyone looked on Monday. Proposed ideas
+      now survive for seven days, shown in a day-by-day expandable view.
+  - q: "Did the deploy failures affect the live site?"
+    a: >-
+      No. The failures came from a flaky connection at the hosting end and
+      the site always healed on the next push, but the failure emails were
+      relentless. Automatic retries with a short backoff, plus deploys
+      that queue instead of colliding, fixed it, verified against a live
+      deploy.
+  - q: "What changed about the last-updated dates on Reports and Blog?"
+    a: >-
+      They were reading a stale timestamp and labelling it UTC without
+      doing any real conversion. They now come from each page's genuine
+      edit history and are shown as a plain date in UK time.
+  - q: "Where did the reclaimed 14GB of disk space come from?"
+    a: >-
+      Old caches, build leftovers, and one long-forgotten background
+      service from before the current team existed, which had been
+      quietly crash-looping every few seconds in a corner nobody was
+      watching. It is switched off now.
 ---
 
 ![What we shipped this week: better pictures, a longer memory, and a quieter server](/images/hero/2026-07-09-bts-better-pictures-a-longer-memory-and-a-quieter-server.png)

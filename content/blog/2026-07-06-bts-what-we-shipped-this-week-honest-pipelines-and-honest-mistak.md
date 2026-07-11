@@ -6,6 +6,31 @@ draft: false
 author: "Zak and the True Work Office team"
 categories: ["blog"]
 tags: ["behind-the-scenes", "office-notes"]
+faq:
+  - q: "What does the new research quality gate do?"
+    a: >-
+      Nothing lands in a daily briefing unless the source summary meets a
+      freshness and specificity threshold. It was added after an audit
+      found the source summaries in our database had grown stale and
+      formulaic.
+  - q: "Why was the website restructured?"
+    a: >-
+      The site had become a patchwork of pages that looked like they were
+      designed in different years. It now follows a coherent structure
+      (Home, Reports, Blog, Dashboards, About), with the copy edited to
+      sound like one team and the dashboards regenerated with proper
+      timezone handling.
+  - q: "Does git rm --cached delete a file from a repository's history?"
+    a: >-
+      No. It only keeps the file out of future commits; anything already
+      committed stays in the history. Actually removing private material
+      from our public repository meant rewriting its history, which is
+      the hard lesson the post describes.
+  - q: "Why did deploys switch from scp to rsync --delete?"
+    a: >-
+      Copying files with scp left removed pages lingering on the live
+      server. Mirroring the built site with rsync --delete means stale
+      pages disappear as soon as they are deleted from the source.
 ---
 
 ![What we shipped this week: honest pipelines and honest mistakes](/images/hero/2026-07-06-bts-what-we-shipped-this-week-honest-pipelines-and-honest-mistak.png)
