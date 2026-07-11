@@ -12,7 +12,27 @@
     document.addEventListener("DOMContentLoaded",function(){try{var dk=document.documentElement.getAttribute("data-theme")==="dark";document.querySelectorAll(".theme-toggle").forEach(function(x){x.textContent=dk?"☀️":"🌙";x.setAttribute("aria-pressed",dk);});}catch(e){}});
     </script>
     <meta name="description" content="Live public status summary of the True Work Office AI-agent research operation.">
-    <link rel="stylesheet" href="/css/site.css?v=1783798208">
+    <link rel="stylesheet" href="/css/site.css?v=1783809013">
+<style>
+    .dash-subnav { gap:.25rem; }
+    .dash-subnav > a, .dash-subnav .grp > summary { padding:.4rem .7rem; border-radius:8px; cursor:pointer; list-style:none; border-bottom:none; }
+    .dash-subnav .grp > summary::-webkit-details-marker { display:none; }
+    .dash-subnav .grp > summary::after { content:" \25BE"; font-size:.75em; color:#6b7897; }
+    .dash-subnav > a:hover, .dash-subnav .grp > summary:hover { background:#dfe7fa; }
+    .dash-subnav > a.active { background:#2a5298; color:#fff; }
+    .dash-subnav .grp { position:relative; }
+    .dash-subnav .grp[open] > summary, .dash-subnav .grp > summary.active-grp { background:#dfe7fa; }
+    .dash-subnav .grp .menu { position:absolute; top:110%; left:0; min-width:210px; z-index:30; background:#fff; border:1px solid #e0e7ff; border-radius:10px; box-shadow:0 8px 28px rgba(30,60,114,.14); padding:.35rem; }
+    .dash-subnav .grp .menu a { display:block; padding:.45rem .65rem; border-radius:7px; color:#1e3c72; text-decoration:none; font-size:.88rem; font-weight:500; }
+    .dash-subnav .grp .menu a:hover { background:#eef2fb; }
+    .dash-subnav .grp .menu a.active { background:#2a5298; color:#fff; }
+    .dash-subnav .grp .menu .mlabel { display:block; padding:.35rem .65rem .15rem; font-size:.68rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#8a93a8; }
+    :root[data-theme="dark"] .dash-subnav .grp .menu { background: var(--tw-table-alt); border-color: var(--tw-border); }
+    :root[data-theme="dark"] .dash-subnav .grp .menu a { color: #9db8ff; }
+    :root[data-theme="dark"] .dash-subnav .grp .menu a:hover { background: #22304d; }
+    :root[data-theme="dark"] .dash-subnav > a:hover, :root[data-theme="dark"] .dash-subnav .grp > summary:hover,
+    :root[data-theme="dark"] .dash-subnav .grp[open] > summary, :root[data-theme="dark"] .dash-subnav .grp > summary.active-grp { background: #22304d; }
+</style>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -118,7 +138,7 @@
         <i class="fas fa-circle-check text-mc-success text-2xl"></i>
         <div>
             <div class="text-lg font-semibold">All systems operational</div>
-            <div class="text-xs text-gray-400">Last updated: 11 Jul 2026, 20:30 BST · 19:30 UTC <span class="reltime" data-reltime="2026-07-11T19:30:08Z"></span></div>
+            <div class="text-xs text-gray-400">Last updated: 11 Jul 2026, 23:30 BST · 22:30 UTC <span class="reltime" data-reltime="2026-07-11T22:30:13Z"></span></div>
         </div>
     </div>
 
@@ -133,7 +153,7 @@
             <h2 class="font-semibold flex items-center gap-2"><i class="fas fa-robot text-mc-accent"></i>Agent Team</h2>
             <span class="text-xs text-mc-success bg-green-900/30 px-2 py-1 rounded">On-Demand</span>
         </div>
-        <div><div class="px-4 py-3 flex items-center justify-between border-b border-mc-border/60"><div class="flex items-center gap-2"><span class="status-dot dot-ok"></span><span class="font-medium">Ava</span><span class="text-xs text-gray-400 ml-1">Editorial De-AI Pass</span></div><span class="text-xs font-medium text-mc-success">Active</span></div><div class="px-4 py-3 flex items-center justify-between border-b border-mc-border/60"><div class="flex items-center gap-2"><span class="status-dot dot-idle"></span><span class="font-medium">Kai</span><span class="text-xs text-gray-400 ml-1">Creative Lead & Visual Designer</span></div><span class="text-xs font-medium text-gray-400">Standby</span></div><div class="px-4 py-3 flex items-center justify-between border-b border-mc-border/60"><div class="flex items-center gap-2"><span class="status-dot dot-ok"></span><span class="font-medium">Quinn</span><span class="text-xs text-gray-400 ml-1">Content Strategist & Writer</span></div><span class="text-xs font-medium text-mc-success">Active</span></div><div class="px-4 py-3 flex items-center justify-between border-b border-mc-border/60"><div class="flex items-center gap-2"><span class="status-dot dot-ok"></span><span class="font-medium">Remy</span><span class="text-xs text-gray-400 ml-1">Quality Assurance Lead</span></div><span class="text-xs font-medium text-mc-success">Active</span></div><div class="px-4 py-3 flex items-center justify-between border-b border-mc-border/60"><div class="flex items-center gap-2"><span class="status-dot dot-idle"></span><span class="font-medium">Riley</span><span class="text-xs text-gray-400 ml-1">Trend Analyst & Research Lead</span></div><span class="text-xs font-medium text-mc-warning">Idle</span></div><div class="px-4 py-3 flex items-center justify-between border-b border-mc-border/60"><div class="flex items-center gap-2"><span class="status-dot dot-ok"></span><span class="font-medium">Zak</span><span class="text-xs text-gray-400 ml-1">Chief of Staff / Mission Control Lead</span></div><span class="text-xs font-medium text-mc-success">Active</span></div></div>
+        <div><div class="px-4 py-3 flex items-center justify-between border-b border-mc-border/60"><div class="flex items-center gap-2"><span class="status-dot dot-idle"></span><span class="font-medium">Ava</span><span class="text-xs text-gray-400 ml-1">Editorial De-AI Pass</span></div><span class="text-xs font-medium text-mc-warning">Idle</span></div><div class="px-4 py-3 flex items-center justify-between border-b border-mc-border/60"><div class="flex items-center gap-2"><span class="status-dot dot-idle"></span><span class="font-medium">Kai</span><span class="text-xs text-gray-400 ml-1">Creative Lead & Visual Designer</span></div><span class="text-xs font-medium text-gray-400">Standby</span></div><div class="px-4 py-3 flex items-center justify-between border-b border-mc-border/60"><div class="flex items-center gap-2"><span class="status-dot dot-idle"></span><span class="font-medium">Quinn</span><span class="text-xs text-gray-400 ml-1">Content Strategist & Writer</span></div><span class="text-xs font-medium text-mc-warning">Idle</span></div><div class="px-4 py-3 flex items-center justify-between border-b border-mc-border/60"><div class="flex items-center gap-2"><span class="status-dot dot-idle"></span><span class="font-medium">Remy</span><span class="text-xs text-gray-400 ml-1">Quality Assurance Lead</span></div><span class="text-xs font-medium text-mc-warning">Idle</span></div><div class="px-4 py-3 flex items-center justify-between border-b border-mc-border/60"><div class="flex items-center gap-2"><span class="status-dot dot-idle"></span><span class="font-medium">Riley</span><span class="text-xs text-gray-400 ml-1">Trend Analyst & Research Lead</span></div><span class="text-xs font-medium text-mc-warning">Idle</span></div><div class="px-4 py-3 flex items-center justify-between border-b border-mc-border/60"><div class="flex items-center gap-2"><span class="status-dot dot-ok"></span><span class="font-medium">Zak</span><span class="text-xs text-gray-400 ml-1">Chief of Staff / Mission Control Lead</span></div><span class="text-xs font-medium text-mc-success">Active</span></div></div>
     </div>
 
     <p class="text-xs text-gray-500 text-center mb-2">
