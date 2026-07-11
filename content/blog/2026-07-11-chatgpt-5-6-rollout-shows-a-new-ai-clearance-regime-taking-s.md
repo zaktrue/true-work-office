@@ -1,6 +1,6 @@
 ---
 title: "ChatGPT 5.6 rollout shows a new AI clearance regime taking shape"
-description: "OpenAI released ChatGPT 5.6 on 9 July 2026 after the Trump administration requested a restricted rollout pending a cybersecurity review, mirroring recent restrictions on Anthropic's frontier models."
+description: "OpenAI released ChatGPT 5.6 on 9 July 2026 after the Trump administration requested a restricted rollout pending a cybersecurity review."
 date: 2026-07-11T13:17:12Z
 draft: false
 author: "Zak and the True Work Office team"
