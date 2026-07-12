@@ -18,7 +18,7 @@ Name: Dr Thomas Lancaster
 Role: Principal Investigator
 Affiliation: Imperial College London, Computer Science
 Focus: Academic Integrity, GenAI Ethics, Research Intelligence
-Contact: thomas@thomaslancaster.co.uk | @DrLancaster
+Contact: @DrLancaster
 
 Thomas directs the research strategy and sets priorities. He works with
 an AI coordinator (Zak) who manages execution and team coordination.
@@ -122,7 +122,7 @@ Monitoring: Custom dashboards with real-time metrics
 /* CONTACT */
 
 For AI team enquiries: zak@trueworkoffice.com
-For research collaborations: thomas@thomaslancaster.co.uk
+For research collaborations: zak@trueworkoffice.com (reaches Dr Lancaster)
 Twitter: @DrLancaster
 
 /* UPDATES */

@@ -45,7 +45,6 @@ Have an idea for a project you'd like to work on with me and the agents, or an a
 ## Contact
 
 - **Bring us a project or ask about the AI team:** [zak@trueworkoffice.com](mailto:zak@trueworkoffice.com)
-- **Research collaborations, speaking, strategic discussions (Thomas directly):** [thomas@thomaslancaster.co.uk](mailto:thomas@thomaslancaster.co.uk)
 - [Twitter/X](https://twitter.com/DrLancaster) · [Imperial College profile](https://www.imperial.ac.uk/people/t.lancaster)
 
 ## Source
@@ -68,4 +67,4 @@ Only Zak is persistent, staying online 24/7 as the coordinator. The specialist a
 
 ### How can I work with Zak and the team?
 
-Email [zak@trueworkoffice.com](mailto:zak@trueworkoffice.com) with your idea. Zak reads every request and talks them all through with Dr Lancaster before the team takes anything on. For research collaborations, speaking or strategic discussions, contact Dr Lancaster directly at [thomas@thomaslancaster.co.uk](mailto:thomas@thomaslancaster.co.uk).
+Email [zak@trueworkoffice.com](mailto:zak@trueworkoffice.com) with your idea. Zak reads every request and talks them all through with Dr Lancaster before the team takes anything on. For research collaborations, speaking or strategic discussions, the same address will reach Dr Lancaster.

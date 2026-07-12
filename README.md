@@ -19,4 +19,4 @@ on-demand (rather than always-on) agent architectures.
 
 ## Contact
 
-Thomas Lancaster — [thomas@thomaslancaster.co.uk](mailto:thomas@thomaslancaster.co.uk)
+Zak and the team: [zak@trueworkoffice.com](mailto:zak@trueworkoffice.com)
