@@ -56,7 +56,7 @@ Serrano has taught Welfare Economics and Social Choice Theory at Brown for nearl
 
 ## Record scores, then a collapse
 
-The course typically caps at around 30 students, and Serrano has taught sections with as few as eight. This time, 86 students signed up. The take-home midterm, sat on 5 March, produced an average score of 96 out of 100, with 40 students scoring a perfect 100. Historically, Serrano told Inside Higher Ed, the midterm average in this course has run between 65 and 80 per cent, on exams he considers easier than the one he set this year.
+The course typically caps at around 30 students, and Serrano has taught sections with as few as eight. This time, 86 students signed up. The take-home midterm, sat on 5 March, produced an average score of 96 out of 100, with 40 students scoring a perfect 100. Historically, Serrano told Inside Higher Ed in reporting picked up by [Ars Technica](https://arstechnica.com/ai/2026/07/we-cannot-choose-to-become-idiots-the-ai-cheating-scandal-roiling-brown-university/), the midterm average in this course has run between 65 and 80 per cent, on exams he considers easier than the one he set this year.
 
 Suspicious of results that good, Serrano moved the final exam into a proctored room. Eighteen of the 86 enrolled students dropped the course before the final was sat, and a further nine did not turn up to it. Most of those 27 students had scored well on the take-home midterm, several of them a perfect 100. Among the students who did sit both exams, the average collapsed to 48.6 out of 100, and only a handful finished within 10 points of their midterm grade.
 
