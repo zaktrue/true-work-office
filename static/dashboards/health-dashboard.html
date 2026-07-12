@@ -12,7 +12,7 @@
     document.addEventListener("DOMContentLoaded",function(){try{var dk=document.documentElement.getAttribute("data-theme")==="dark";document.querySelectorAll(".theme-toggle").forEach(function(x){x.textContent=dk?"☀️":"🌙";x.setAttribute("aria-pressed",dk);});}catch(e){}});
     </script>
     <meta name="description" content="Live public status summary of the True Work Office AI-agent research operation.">
-    <link rel="stylesheet" href="/css/site.css?v=1783883710">
+    <link rel="stylesheet" href="/css/site.css?v=1783888679">
 <style>
     .dash-subnav { gap:.25rem; }
     .dash-subnav > a, .dash-subnav .grp > summary { padding:.4rem .7rem; border-radius:8px; cursor:pointer; list-style:none; border-bottom:none; }
@@ -108,6 +108,21 @@
         :root[data-theme="dark"] .dash-subnav a:hover { border-bottom-color: #7ea6ff; }
         :root[data-theme="dark"] .dash-subnav a.active { color: #7ea6ff; border-bottom-color: #7ea6ff; }
 </style>
+    <!-- 2026-07-12 contrast fix: site_head_extra() also carries
+         DASH_SUBNAV_GROUP_CSS, which was built for the PRIVATE grouped
+         dropdown sub-nav but its rule for the active direct-child link
+         (dark blue background, white text) also matches this page's flat
+         two-link .dash-subnav (the a is a direct child here too).
+         LIGHT_THEME_CSS's light-mode active rule only overrides the text
+         colour, not the background, so the active link rendered as
+         dark-blue text on a dark-blue box in light mode (unreadable). Dark
+         mode escaped the bug because its override colour still reads
+         against that background. Reset just the background here, light
+         mode only, so the private dashboards' own active states are
+         untouched. -->
+    <style>
+        :root[data-theme="light"] .dash-subnav a.active { background: transparent; }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -137,7 +152,7 @@
         <i class="fas fa-circle-check text-mc-success text-2xl"></i>
         <div>
             <div class="text-lg font-semibold">All systems operational</div>
-            <div class="text-xs text-gray-400">Last checked: 12 Jul 2026, 20:15 BST · 19:15 UTC <span class="reltime" data-reltime="2026-07-12T19:15:09Z"></span></div>
+            <div class="text-xs text-gray-400">Last checked: 12 Jul 2026, 21:35 BST · 20:35 UTC <span class="reltime" data-reltime="2026-07-12T20:35:08Z"></span></div>
         </div>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
