@@ -65,3 +65,17 @@
 !scripts/
 
 # Track shared dashboard chrome module (imported by the tracked dashboard generators)
+
+# --- 2026-07-12 privacy hardening (backlog-a) ---
+# The dangling !database/ and !scripts/ negations above lost their
+# intended specific-file exceptions at some point, leaving those
+# directories open to accidental adds, and internal coordination files
+# were briefly force-added to this PUBLIC repo (removed same day).
+# Re-ignore internal operational directories explicitly. Generated
+# dashboards are published via static/dashboards/, which stays tracked.
+# See memory/2026-07-06-public-repo-audit.md.
+database/
+scripts/
+coordination/
+memory/
+docs/
