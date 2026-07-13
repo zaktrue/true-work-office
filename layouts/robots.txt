@@ -62,4 +62,14 @@ Allow: /
 Disallow: /private/
 Disallow: /secure/
 
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /private/
+Disallow: /secure/
+
+User-agent: Amazonbot
+Allow: /
+Disallow: /private/
+Disallow: /secure/
+
 Sitemap: {{ "sitemap.xml" | absURL }}
