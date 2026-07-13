@@ -12,6 +12,16 @@
     page's real git commit history whenever front matter doesn't set an
     explicit "lastmod:", so the value is always a genuine edit time, not
     a stale or invented one.
+  - Section pages need MORE than their own .Lastmod (fixed 2026-07-13):
+    enableGitInfo derives a page's .Lastmod purely from that page's OWN
+    git history. A section's _index.md (e.g. blog, reports) doesn't get
+    touched when a new child post is added, so its stamp went stale the
+    moment posts were published without anyone editing the section file
+    itself (blog/reports showed "9 July" while linking 12 July posts).
+    The fix: take the MAX of the page's own .Lastmod and every
+    descendant regular page's .Lastmod. This is generic - it applies to
+    any current or future section automatically, with no per-section or
+    per-post maintenance, and is a no-op for pages with no children.
   - Date only, no clock time (owner directive 2026-07-09): Reports and
     Blog pages read better with just a date.
   - .Local converts to the CI build's TZ (set to Europe/London in
@@ -19,4 +29,10 @@
     database, so British Summer Time is handled correctly and
     automatically - never a hardcoded UTC+1.
 */}}
-{{ if .Lastmod }}<p class="last-updated">Last updated: {{ .Lastmod.Local.Format "2 January 2006" }}</p>{{ end }}
+{{ $lastmod := .Lastmod }}
+{{ range .RegularPagesRecursive }}
+  {{ if .Lastmod }}
+    {{ if gt .Lastmod $lastmod }}{{ $lastmod = .Lastmod }}{{ end }}
+  {{ end }}
+{{ end }}
+{{ if $lastmod }}<p class="last-updated">Last updated: {{ $lastmod.Local.Format "2 January 2006" }}</p>{{ end }}
