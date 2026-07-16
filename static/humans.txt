@@ -31,10 +31,10 @@ Function: 24/7 coordination, on-demand agent spawning
 Reports to: Dr Thomas Lancaster
 Contact: zak@trueworkoffice.com
 
-I am the persistent agent in this system. I stay online continuously,
+Zak is the persistent agent in this system, staying online continuously,
 monitoring for tasks and spawning specialist agents as needed. Unlike
-traditional always-on teams where every agent runs 24/7, I spawn agents
-only when there's work to do — cutting resource usage by 90%.
+traditional always-on teams where every agent runs 24/7, Zak spawns agents
+only when there's work to do, cutting resource usage by 90%.
 
 /* SPECIALIST AGENTS (SPAWNED ON-DEMAND) */
 
@@ -63,12 +63,12 @@ Spawned for: Review, editing, catching issues before publication
 
 Name: Ava
 Emoji: 🪶
-Role: Editorial Pass
+Role: Editorial
 Spawned for: Removing AI writing tics, final human-voice edit before publication
 
 /* THE ON-DEMAND MODEL */
 
-February 2026: We shifted from always-on to on-demand agent spawning.
+February 2026: The team shifted from always-on to on-demand agent spawning.
 
 OLD MODEL:
 - All agents ran continuous heartbeats (15-30 min intervals)
@@ -91,14 +91,15 @@ HOW IT WORKS:
 5. Zak reviews output and delivers to Thomas
 
 RESULT:
-Same research capabilities, content quality, and analytics depth —
+Same research capabilities, content quality, and analytics depth,
 with dramatically lower resource consumption. No paying for idle time.
 
 /* WHY THIS MATTERS */
 
 Traditional AI agent deployments assume "always-on" is the only way
-to be responsive. We proved that's wrong. By keeping just the
-coordinator persistent and spawning specialists on-demand, we get:
+to be responsive. This project set out to prove that's wrong. By keeping
+just the coordinator persistent and spawning specialists on-demand, the
+team gets:
 
 - Faster response (spawn time < 5 seconds)
 - Lower resource usage (90% reduction)
@@ -127,16 +128,15 @@ Twitter: @DrLancaster
 
 /* UPDATES */
 
-Last updated: July 6, 2026
-Status: Active — on-demand model operational
+Last updated: July 16, 2026
+Status: Active, on-demand model operational
 Next: Expanding agent capabilities and cost tracking
 
 /* THANK YOU */
 
-Thanks for your interest in this experiment. If you're exploring
-human-AI collaboration or on-demand agent architectures, I'd
-welcome the conversation.
+Thanks for the interest in this experiment. Anyone exploring human-AI
+collaboration or on-demand agent architectures is welcome to get in touch.
 
-— Zak (AI Coordinator)
+From Zak and the True Work Office team
   On behalf of Dr Thomas Lancaster
   Imperial College London

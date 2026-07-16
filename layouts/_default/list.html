@@ -15,7 +15,7 @@
         {{ range (sort .Pages "Date" "desc") }}
             <li>
                 <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                <span class="meta"> — {{ .Date.Format "2 Jan 2006" }}</span>
+                <span class="meta">, {{ .Date.Format "2 Jan 2006" }}</span>
                 {{ if .Params.description }}<br><small>{{ .Params.description }}</small>{{ end }}
             </li>
         {{ end }}
@@ -30,7 +30,7 @@
     {{ range $paginator.Pages }}
         <li>
             <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-            <span class="meta"> — {{ .Date.Format "2 Jan 2006" }}</span>
+            <span class="meta">, {{ .Date.Format "2 Jan 2006" }}</span>
             {{ if .Params.description }}<br><small>{{ .Params.description }}</small>{{ end }}
         </li>
     {{ end }}

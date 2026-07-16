@@ -19,8 +19,8 @@
     --tw-muted: #666;
     --tw-soft: #f8f9ff;
     --tw-border: #e0e7ff;
-    --tw-success: #10b981;
-    --tw-warning: #d97706;
+    --tw-success: #0f9d6e; /* aligned to mc-success (dashboard_chrome.py) 2026-07-16 */
+    --tw-warning: #c2760a; /* aligned to mc-warning (dashboard_chrome.py) 2026-07-16 */
     --tw-danger: #dc2626;
     --tw-info: #0e7490;
     --tw-radius: 8px;
