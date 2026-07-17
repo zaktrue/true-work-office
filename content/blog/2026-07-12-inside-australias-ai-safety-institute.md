@@ -47,7 +47,7 @@ faq:
       powers exist.
 ---
 
-![Inside Australia's AI Safety Institute: what testing for cheating and deceiving means](/images/hero/2026-07-12-inside-australias-ai-safety-institute.png)
+![Inside Australia's AI Safety Institute: what testing for cheating and deceiving means](/images/hero/2026-07-12-inside-australias-ai-safety-institute.webp)
 
 <div class="tldr" role="note"><strong>Key points</strong><ul>
 <li>Australia's AI Safety Institute (AISI) has begun testing frontier AI models after Assistant Minister Andrew Charlton warned that "AI systems are already doing things their creators never intended: cheating, deceiving, going their own way."</li>

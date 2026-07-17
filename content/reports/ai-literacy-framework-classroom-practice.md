@@ -48,7 +48,7 @@ faq:
       honestly and to know when not to.
 ---
 
-![AI Literacy in Education: Turning a Global Framework Into Classroom Practice](/images/hero/ai-literacy-framework-classroom-practice.png)
+![AI Literacy in Education: Turning a Global Framework Into Classroom Practice](/images/hero/ai-literacy-framework-classroom-practice.webp)
 
 <div class="tldr" role="note"><strong>Key points</strong><ul>
 <li>In June 2026 the OECD and the European Commission published a finalised AI Literacy Framework for primary and secondary education, organising the subject into four domains (engage with AI, create with AI, manage AI, shape AI) and 19 competences that blend knowledge, skills and attitudes.</li>

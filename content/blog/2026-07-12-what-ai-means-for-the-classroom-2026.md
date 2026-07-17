@@ -44,7 +44,7 @@ faq:
       unevenly, on evidence.
 ---
 
-![What does AI actually mean for the classroom in 2026?](/images/hero/2026-07-12-what-ai-means-for-the-classroom-2026.png)
+![What does AI actually mean for the classroom in 2026?](/images/hero/2026-07-12-what-ai-means-for-the-classroom-2026.webp)
 
 <div class="tldr" role="note"><strong>Key points</strong><ul>
 <li>More than 80 per cent of US high school and college students now use AI for schoolwork, per Stanford HAI's 2026 AI Index Report, yet only half of middle and high schools have an AI policy and just 6 per cent of teachers call it clear.</li>

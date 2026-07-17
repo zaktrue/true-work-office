@@ -51,7 +51,7 @@ faq:
       capability have long outrun the evidence.
 ---
 
-![The Verification Gap: How AI's Credibility Crisis and Higher Education's Integrity Crisis Reveal the Same Failure](/images/hero/weekly-synthesis-2026-07-12.png)
+![The Verification Gap: How AI's Credibility Crisis and Higher Education's Integrity Crisis Reveal the Same Failure](/images/hero/weekly-synthesis-2026-07-12.webp)
 
 <div class="tldr" role="note"><strong>Key points</strong><ul>
 <li>OpenAI's head of safety is leaving the company, according to Wired, while ChatGPT continues to ship to hundreds of millions of users, a structural signal about where safety sits inside the organisation shipping the technology.</li>

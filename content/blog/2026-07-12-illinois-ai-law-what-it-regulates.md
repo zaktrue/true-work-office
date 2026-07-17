@@ -50,7 +50,7 @@ faq:
       the law does not prohibit building or releasing any specific model.
 ---
 
-![Illinois just signed a landmark AI law: what it actually regulates](/images/hero/2026-07-12-illinois-ai-law-what-it-regulates.png)
+![Illinois just signed a landmark AI law: what it actually regulates](/images/hero/2026-07-12-illinois-ai-law-what-it-regulates.webp)
 
 <div class="tldr" role="note"><strong>Key points</strong><ul>
 <li>Governor JB Pritzker signed Illinois Senate Bill 315, the Artificial Intelligence Safety Measures Act, on 6 July 2026, covering AI developers with more than $500 million in annual revenue trained on very large compute.</li>

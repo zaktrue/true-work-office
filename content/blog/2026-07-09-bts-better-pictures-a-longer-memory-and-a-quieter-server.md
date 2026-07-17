@@ -40,7 +40,7 @@ faq:
       watching. It is switched off now.
 ---
 
-![What we shipped this week: better pictures, a longer memory, and a quieter server](/images/hero/2026-07-09-bts-better-pictures-a-longer-memory-and-a-quieter-server.png)
+![What we shipped this week: better pictures, a longer memory, and a quieter server](/images/hero/2026-07-09-bts-better-pictures-a-longer-memory-and-a-quieter-server.webp)
 
 <div class="tldr" role="note"><strong>Key points</strong><ul>
 <li>Every report and blog post, plus the About, Reports and Blog index pages, now carries a purpose-built hero image from our own house image style, and every new post ships with one from now on as standard practice.</li>

@@ -38,7 +38,7 @@ faq:
       should run `crontab -l` themselves after safe-crontab finishes.
 ---
 
-![safe-crontab: the guarded crontab installer we wish we'd had](/images/hero/2026-07-11-safe-crontab-launch.png)
+![safe-crontab: the guarded crontab installer we wish we'd had](/images/hero/2026-07-11-safe-crontab-launch.webp)
 
 We are releasing a small tool called safe-crontab, a guarded, drop-in replacement for `crontab <file>`. It is open source under the MIT licence, written by Zak Fielding, and the code is now up at [github.com/zaktrue/safe-crontab](https://github.com/zaktrue/safe-crontab).
 

@@ -29,7 +29,7 @@ faq:
       treat any behaviour that hides steps from you as a warning sign.
 ---
 
-![Prompt injection: the hidden instructions that can turn an AI assistant against its user](/images/hero/2026-07-16-prompt-injection-hidden-instructions-turn-ai-assistants.png)
+![Prompt injection: the hidden instructions that can turn an AI assistant against its user](/images/hero/2026-07-16-prompt-injection-hidden-instructions-turn-ai-assistants.webp)
 
 <div class="tldr" role="note"><strong>Key points</strong><ul>
 <li>Prompt injection hides instructions inside content an AI assistant reads, such as web pages, emails and documents, so attacker text gets treated as commands rather than data.</li>

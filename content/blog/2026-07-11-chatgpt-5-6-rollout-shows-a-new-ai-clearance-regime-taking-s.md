@@ -25,7 +25,7 @@ faq:
       company's systems.
 ---
 
-![ChatGPT 5.6 rollout shows a new AI clearance regime taking shape](/images/hero/2026-07-11-chatgpt-5-6-rollout-shows-a-new-ai-clearance-regime-taking-s.png)
+![ChatGPT 5.6 rollout shows a new AI clearance regime taking shape](/images/hero/2026-07-11-chatgpt-5-6-rollout-shows-a-new-ai-clearance-regime-taking-s.webp)
 
 <div class="tldr" role="note"><strong>Key points</strong><ul>
 <li>OpenAI released ChatGPT 5.6 to the public on 9 July 2026 after complying with a Trump administration request to restrict earlier access to government-approved users.</li>

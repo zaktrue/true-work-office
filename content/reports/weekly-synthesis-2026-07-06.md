@@ -35,7 +35,7 @@ faq:
       around human-AI collaboration, since judgment remains a human strength.
 ---
 
-![The AI Agent Reality Check: Why 2026's Mid-Year Promises Met Hard Problems of Memory, Accountability, and Judgment](/images/hero/weekly-synthesis-2026-07-06.png)
+![The AI Agent Reality Check: Why 2026's Mid-Year Promises Met Hard Problems of Memory, Accountability, and Judgment](/images/hero/weekly-synthesis-2026-07-06.webp)
 
 <div class="tldr" role="note"><strong>Key points</strong><ul>
 <li>Mark Zuckerberg told Meta staff in early July 2026 that AI agents have not progressed as fast as he had hoped, conceding that replacing people with AI does not seem to be easy to do.</li>

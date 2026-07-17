@@ -25,7 +25,7 @@ faq:
       reform was moving too slowly.
 ---
 
-![Australia's new AI office protects creators from copyright theft](/images/hero/2026-07-15-albanese-ai-office-backs-creator-copyright-against-free-trai.png)
+![Australia's new AI office protects creators from copyright theft](/images/hero/2026-07-15-albanese-ai-office-backs-creator-copyright-against-free-trai.webp)
 
 <div class="tldr" role="note"><strong>Key points</strong><ul>
 <li>On 15 July 2026, Australian Prime Minister Anthony Albanese announced a federal Office of AI and pledged the strongest possible copyright protection for writers, musicians, artists, and journalists against unauthorised AI use.</li>

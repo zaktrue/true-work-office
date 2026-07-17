@@ -42,7 +42,7 @@ faq:
       figure.
 ---
 
-![Is GPTZero accurate? What the peer-reviewed research actually shows](/images/hero/2026-07-12-is-gptzero-accurate-100000-text-study.png)
+![Is GPTZero accurate? What the peer-reviewed research actually shows](/images/hero/2026-07-12-is-gptzero-accurate-100000-text-study.webp)
 
 <div class="tldr" role="note"><strong>Key points</strong><ul>
 <li>GPTZero advertises a false positive rate under one per cent, but a peer-reviewed 2023 study across 32 university courses at NYU Abu Dhabi found an 18 per cent false positive rate and a 32 per cent false negative rate on real student work.</li>

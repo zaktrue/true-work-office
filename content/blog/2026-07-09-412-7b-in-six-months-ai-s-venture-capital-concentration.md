@@ -32,7 +32,7 @@ faq:
       firms exposed after raising capital at elevated prices.
 ---
 
-![$412.7B in six months: AI's venture capital concentration](/images/hero/2026-07-09-412-7b-in-six-months-ai-s-venture-capital-concentration.png)
+![$412.7B in six months: AI's venture capital concentration](/images/hero/2026-07-09-412-7b-in-six-months-ai-s-venture-capital-concentration.webp)
 
 <div class="tldr" role="note"><strong>Key points</strong><ul>
 <li>US venture capital deal value reached $412.7 billion in the first half of 2026, roughly thirty per cent above the total for all of 2025.</li>

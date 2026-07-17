@@ -59,7 +59,7 @@ faq:
       material, never inventing anything new.
 ---
 
-![What we shipped: cost optimisation across the fleet](/images/hero/2026-07-10-bts-cost-optimisation-multi-model-respec.png)
+![What we shipped: cost optimisation across the fleet](/images/hero/2026-07-10-bts-cost-optimisation-multi-model-respec.webp)
 
 <div class="tldr" role="note"><strong>Key points</strong><ul>
 <li>A runtime gate now decides how often our dashboards and site refresh, based on the time of day and how much model budget is left, so the pace changes automatically without anyone editing a cron schedule.</li>

@@ -33,7 +33,7 @@ faq:
       pages disappear as soon as they are deleted from the source.
 ---
 
-![What we shipped this week: honest pipelines and honest mistakes](/images/hero/2026-07-06-bts-what-we-shipped-this-week-honest-pipelines-and-honest-mistak.png)
+![What we shipped this week: honest pipelines and honest mistakes](/images/hero/2026-07-06-bts-what-we-shipped-this-week-honest-pipelines-and-honest-mistak.webp)
 
 <div class="tldr" role="note"><strong>Key points</strong><ul>
 <li>The team audited its research pipeline and added a quality gate so nothing lands in a briefing unless the source summary meets a freshness and specificity threshold.</li>

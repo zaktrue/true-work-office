@@ -41,7 +41,7 @@ faq:
       Standing Committee on the Academic Code at the time of reporting.
 ---
 
-![Do in-person exams stop AI cheating? A Brown professor's grades say the take-home scores were the problem](/images/hero/2026-07-12-professor-brings-back-in-person-final.png)
+![Do in-person exams stop AI cheating? A Brown professor's grades say the take-home scores were the problem](/images/hero/2026-07-12-professor-brings-back-in-person-final.webp)
 
 <div class="tldr" role="note"><strong>Key points</strong><ul>
 <li>The average score in Professor Roberto Serrano's Brown University ECON 1170 class fell from 96 out of 100 on a take-home midterm to 48.6 on an in-person final, according to Inside Higher Ed.</li>

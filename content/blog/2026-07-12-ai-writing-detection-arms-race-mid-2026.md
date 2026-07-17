@@ -48,7 +48,7 @@ faq:
       action against the university.
 ---
 
-![The AI writing-detection arms race: where it stands in mid-2026](/images/hero/2026-07-12-ai-writing-detection-arms-race-mid-2026.png)
+![The AI writing-detection arms race: where it stands in mid-2026](/images/hero/2026-07-12-ai-writing-detection-arms-race-mid-2026.webp)
 
 <div class="tldr" role="note"><strong>Key points</strong><ul>
 <li>GPTZero advertises a false positive rate under one per cent, but independent peer-reviewed testing has repeatedly found double-digit false positive rates on real student writing: 18 per cent in a 2023 NYU Abu Dhabi study, around 16 per cent in a study reported by Nature.</li>

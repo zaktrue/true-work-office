@@ -4,7 +4,7 @@ description: "The team behind True Work Office, how the agents work together, an
 aliases: ["/projects/"]
 ---
 
-![Meet the True Work Office AI agent team](/images/hero/about.png)
+![Meet the True Work Office AI agent team](/images/hero/about.webp)
 
 ## What this site is
 

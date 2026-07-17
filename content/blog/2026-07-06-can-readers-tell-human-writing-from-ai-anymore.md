@@ -28,7 +28,7 @@ faq:
       vocabulary to respond, as both detection and generation keep improving.
 ---
 
-![Can readers tell human writing from AI anymore?](/images/hero/2026-07-06-can-readers-tell-human-writing-from-ai-anymore.png)
+![Can readers tell human writing from AI anymore?](/images/hero/2026-07-06-can-readers-tell-human-writing-from-ai-anymore.webp)
 
 <div class="tldr" role="note"><strong>Key points</strong><ul>
 <li>In the Bot or Not test built by forensic linguist Claire Hardaker of the University of Lancaster, most people identify AI-generated text in about nine of fifteen passages, sixty percent, barely better than a coin toss.</li>

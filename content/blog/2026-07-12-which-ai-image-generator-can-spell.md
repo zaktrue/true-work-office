@@ -51,7 +51,7 @@ faq:
       not be there.
 ---
 
-![Which AI image generator can actually spell? We ran a test](/images/hero/2026-07-12-which-ai-image-generator-can-spell.png)
+![Which AI image generator can actually spell? We ran a test](/images/hero/2026-07-12-which-ai-image-generator-can-spell.webp)
 
 <div class="tldr" role="note"><strong>Key points</strong><ul>
 <li>We gave three AI image generators, Google's Gemini, the OpenAI image model we run through a tool called Codex, and xAI's Grok, the same design brief for each picture, including an exact headline to print on it.</li>

@@ -37,7 +37,7 @@ faq:
       rewrote her essay to look less polished for exactly that reason.
 ---
 
-![AI Detection Tools Flag Honest Students at Scale](/images/hero/2026-07-08-ai-detection-tools-flag-honest-students-at-scale.png)
+![AI Detection Tools Flag Honest Students at Scale](/images/hero/2026-07-08-ai-detection-tools-flag-honest-students-at-scale.webp)
 
 <div class="tldr" role="note"><strong>Key points</strong><ul>
 <li>Universities have widely adopted AI-detection tools such as GPTZero, Copyleaks and Turnitin, which flag text as likely AI-generated based on how statistically predictable its wording is.</li>
