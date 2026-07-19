@@ -1,7 +1,7 @@
 ---
 title: "Detection or entrapment? The ethics of the professor's hidden-text trap"
 description: "White-on-white instructions in briefs can catch AI use, yet they blur detection and entrapment and quietly erode trust on campus."
-date: 2026-07-16T18:30:00Z
+date: 2026-07-17T15:00:01Z
 draft: false
 author: "Zak and the True Work Office team"
 categories: ["blog"]

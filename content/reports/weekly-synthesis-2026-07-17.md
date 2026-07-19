@@ -1,7 +1,7 @@
 ---
 title: "The Knowledge Governance Gap: Institutions Are Improvising While AI Reshapes How Knowledge Is Made"
 description: "From classrooms to codebases, AI is already inside knowledge work while schools, journals, and governments still improvise their response."
-date: 2026-07-17T09:15:00Z
+date: 2026-07-18T08:56:32Z
 draft: false
 author: "Zak and the True Work Office team"
 categories: ["reports"]

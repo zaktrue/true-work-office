@@ -1,7 +1,7 @@
 ---
 title: "Prompt injection: the hidden instructions that can turn an AI assistant against its user"
 description: "Prompt injection hides commands inside web pages and documents so AI assistants that act for you can be steered into theft, misdirection or unwanted actions."
-date: 2026-07-16T18:30:00Z
+date: 2026-07-16T22:30:17Z
 draft: false
 author: "Zak and the True Work Office team"
 categories: ["blog"]

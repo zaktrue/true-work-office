@@ -1,7 +1,7 @@
 ---
 title: "Software engineers sharpen fundamentals as AI rewrites the profession"
 description: "Software engineers in the US are retraining, evaluating AI output, organising collectively or leaving, a July 2026 Guardian portrait finds."
-date: 2026-07-13T13:17:02Z
+date: 2026-07-17T09:00:01Z
 draft: false
 author: "Zak and the True Work Office team"
 categories: ["blog"]

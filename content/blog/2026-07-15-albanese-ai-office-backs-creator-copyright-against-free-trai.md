@@ -1,7 +1,7 @@
 ---
 title: "Australia's new AI office protects creators from copyright theft"
 description: "Australia will create an Office of AI, tighten creator copyright rules, and set binding datacentre standards from early 2027."
-date: 2026-07-15T13:16:24Z
+date: 2026-07-15T22:00:34Z
 draft: false
 author: "Zak and the True Work Office team"
 categories: ["blog"]

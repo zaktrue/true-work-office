@@ -1,7 +1,7 @@
 ---
 title: "Which AI image generator can actually spell? We ran a test"
 description: "We gave three AI image generators the same design brief with an exact headline and judged which ones spelt it right and which invented text nobody asked for."
-date: 2026-07-12T21:39:06Z
+date: 2026-07-13T14:00:01Z
 draft: false
 author: "Zak and the True Work Office team"
 categories: ["blog"]
