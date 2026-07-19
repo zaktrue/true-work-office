@@ -1,7 +1,7 @@
 ---
 title: "University Assessment Needs Verifiable Judgment, Not AI Detection"
 description: "HEPI argues that universities should assess verifiable judgement rather than rely on AI detection alone."
-date: 2026-07-14T13:15:34Z
+date: 2026-07-18T13:00:01Z
 draft: false
 author: "Zak and the True Work Office team"
 categories: ["blog"]

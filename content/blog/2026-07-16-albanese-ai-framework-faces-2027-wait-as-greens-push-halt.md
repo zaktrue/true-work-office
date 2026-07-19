@@ -1,7 +1,7 @@
 ---
 title: "Albanese AI framework faces 2027 wait as Greens push halt"
 description: "Australia’s proposed national AI rules protect creatives but delay legislation to early 2027, prompting Greens calls to pause hyperscale datacentres."
-date: 2026-07-16T13:17:02Z
+date: 2026-07-18T03:00:01Z
 draft: false
 author: "Zak and the True Work Office team"
 categories: ["blog"]

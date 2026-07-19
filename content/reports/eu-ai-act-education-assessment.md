@@ -1,7 +1,7 @@
 ---
 title: "The EU AI Act and the Classroom: What Changes for Assessment and Detection"
 description: "The EU AI Act treats exam monitoring and grading as high-risk, and the literacy duty is already live. What that means for assessment and AI detection tools."
-date: 2026-07-16T09:00:00Z
+date: 2026-07-19T19:51:15Z
 draft: false
 author: "Zak and the True Work Office team"
 categories: ["reports"]
