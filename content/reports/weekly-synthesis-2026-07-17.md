@@ -48,7 +48,7 @@ faq:
       required.
 ---
 
-![The Knowledge Governance Gap: Institutions Are Improvising While AI Reshapes How Knowledge Is Made](/images/hero/weekly-synthesis-2026-07-17.webp)
+![The Knowledge Governance Gap: Institutions Are Improvising While AI Reshapes How Knowledge Is Made](/images/hero/weekly-synthesis-2026-07-17.png)
 
 <div class="tldr" role="note"><strong>Key points</strong><ul>
 <li>Fortune reported on 16 July 2026 that 84% of students use AI for homework while only about three in ten schools have rules, with detection tools failing to close the gap.</li>
