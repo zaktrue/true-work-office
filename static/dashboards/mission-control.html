@@ -12,7 +12,7 @@
     document.addEventListener("DOMContentLoaded",function(){try{var dk=document.documentElement.getAttribute("data-theme")==="dark";document.querySelectorAll(".theme-toggle").forEach(function(x){x.textContent=dk?"☀️":"🌙";x.setAttribute("aria-pressed",dk);});}catch(e){}});
     </script>
     <meta name="description" content="Live public status summary of the True Work Office AI-agent research operation.">
-    <link rel="stylesheet" href="/css/site.css?v=1784748309">
+    <link rel="stylesheet" href="/css/site.css?v=1784752202">
 <style>
     /* Dropdown-vs-standard-item consistency fix (owner report, 2026-07-15):
        standard nav items and dropdown items (top-level <a>, <summary>, and
@@ -52,6 +52,20 @@
     :root[data-theme="dark"] nav.dash-subnav .grp .menu a:hover { background: #22304d; }
     :root[data-theme="dark"] nav.dash-subnav > a:hover, :root[data-theme="dark"] nav.dash-subnav .grp > summary:hover,
     :root[data-theme="dark"] nav.dash-subnav .grp[open] > summary, :root[data-theme="dark"] nav.dash-subnav .grp > summary.active-grp { background: #22304d; }
+    /* --- W279 find-a-page search box (added 2026-07-22) --- */
+    .dash-find { position:relative; margin:.4rem 0 .1rem; max-width:340px; }
+    .dash-find-input { width:100%; box-sizing:border-box; font:inherit; font-size:.82rem; padding:.34rem .6rem; border:1px solid #d6def5; border-radius:8px; background:#fff; color:#1e3c72; }
+    .dash-find-input::placeholder { color:#9aa4bd; }
+    .dash-find-input:focus { outline:none; border-color:#2a5298; box-shadow:0 0 0 2px rgba(42,82,152,.15); }
+    .dash-find-results { position:absolute; left:0; top:104%; z-index:60; width:100%; min-width:240px; background:#fff; border:1px solid #e0e7ff; border-radius:10px; box-shadow:0 8px 28px rgba(30,60,114,.16); padding:.25rem; max-height:60vh; overflow-y:auto; }
+    .dash-find-item { display:flex; justify-content:space-between; gap:.6rem; align-items:baseline; padding:.4rem .55rem; border-radius:7px; text-decoration:none; color:#1e3c72; }
+    .dash-find-item:hover, .dash-find-item.active { background:#eef2fb; }
+    .dash-find-title { font-size:.82rem; }
+    .dash-find-sect { font-size:.6rem; text-transform:uppercase; letter-spacing:.05em; color:#8a93a8; white-space:nowrap; }
+    :root[data-theme="dark"] .dash-find-input { background: var(--tw-table-alt); border-color: var(--tw-border); color:#9db8ff; }
+    :root[data-theme="dark"] .dash-find-results { background: var(--tw-table-alt); border-color: var(--tw-border); }
+    :root[data-theme="dark"] .dash-find-item { color:#9db8ff; }
+    :root[data-theme="dark"] .dash-find-item:hover, :root[data-theme="dark"] .dash-find-item.active { background:#22304d; }
 </style>
 <style>
     .tw-updated-strip { display:flex; align-items:center; justify-content:center; flex-wrap:wrap;
@@ -185,18 +199,18 @@
         </div>
     </header>
 
-    <div class="border bg-green-900/20 border-green-500/40 rounded-lg px-4 py-4 mb-4 flex items-center gap-3">
-        <i class="fas fa-circle-check text-mc-success text-2xl"></i>
+    <div class="border bg-red-900/20 border-red-500/40 rounded-lg px-4 py-4 mb-4 flex items-center gap-3">
+        <i class="fas fa-triangle-exclamation text-mc-danger text-2xl"></i>
         <div>
-            <div class="text-lg font-semibold">All systems operational</div>
-            <div class="text-xs text-gray-400">Last updated: 22 Jul 2026, 20:25 BST <span class="reltime" data-reltime="2026-07-22T19:25:09Z"></span></div>
+            <div class="text-lg font-semibold">Some systems degraded</div>
+            <div class="text-xs text-gray-400">Last updated: 22 Jul 2026, 21:25 BST <span class="reltime" data-reltime="2026-07-22T20:25:09Z"></span></div>
         </div>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
         <div class="bg-mc-card border border-mc-border rounded-lg p-4 text-center"><div class="text-2xl font-bold text-mc-accent">11</div><div class="text-xs text-gray-400">Services Operational</div></div>
-        <div class="bg-mc-card border border-mc-border rounded-lg p-4 text-center"><div class="flex items-center justify-center gap-2 mb-1"><span class="status-dot dot-ok"></span><span class="font-semibold text-mc-success">Online</span></div><div class="text-xs text-gray-400">Gateway</div></div>
-        <div class="bg-mc-card border border-mc-border rounded-lg p-4 text-center"><div class="flex items-center justify-center gap-2 mb-1"><span class="status-dot dot-ok"></span><span class="font-semibold text-mc-success">Online</span></div><div class="text-xs text-gray-400">AI Model Runtime</div></div>
+        <div class="bg-mc-card border border-mc-border rounded-lg p-4 text-center"><div class="flex items-center justify-center gap-2 mb-1"><span class="status-dot dot-bad"></span><span class="font-semibold text-mc-danger">Unknown</span></div><div class="text-xs text-gray-400">Gateway</div></div>
+        <div class="bg-mc-card border border-mc-border rounded-lg p-4 text-center"><div class="flex items-center justify-center gap-2 mb-1"><span class="status-dot dot-bad"></span><span class="font-semibold text-mc-danger">Unknown</span></div><div class="text-xs text-gray-400">AI Model Runtime</div></div>
     </div>
 
     <div class="bg-mc-card border border-mc-border rounded-lg overflow-hidden mb-4">
@@ -204,7 +218,7 @@
             <h2 class="font-semibold flex items-center gap-2"><i class="fas fa-robot text-mc-accent"></i>Agent Team</h2>
             <span class="text-xs text-mc-success bg-green-900/30 px-2 py-1 rounded">On-Demand</span>
         </div>
-        <div><div class="px-4 py-3 flex items-center justify-between border-b border-mc-border/60"><div class="flex items-center gap-2"><span class="status-dot dot-idle"></span><span class="font-medium">Ava</span><span class="text-xs text-gray-400 ml-1">Editorial</span></div><span class="text-xs font-medium text-mc-warning">Idle</span></div><div class="px-4 py-3 flex items-center justify-between border-b border-mc-border/60"><div class="flex items-center gap-2"><span class="status-dot dot-idle"></span><span class="font-medium">Kai</span><span class="text-xs text-gray-400 ml-1">Creative & Technical</span></div><span class="text-xs font-medium text-gray-400">Standby</span></div><div class="px-4 py-3 flex items-center justify-between border-b border-mc-border/60"><div class="flex items-center gap-2"><span class="status-dot dot-idle"></span><span class="font-medium">Quinn</span><span class="text-xs text-gray-400 ml-1">Content Strategist</span></div><span class="text-xs font-medium text-mc-warning">Idle</span></div><div class="px-4 py-3 flex items-center justify-between border-b border-mc-border/60"><div class="flex items-center gap-2"><span class="status-dot dot-idle"></span><span class="font-medium">Remy</span><span class="text-xs text-gray-400 ml-1">Quality Assurance</span></div><span class="text-xs font-medium text-mc-warning">Idle</span></div><div class="px-4 py-3 flex items-center justify-between border-b border-mc-border/60"><div class="flex items-center gap-2"><span class="status-dot dot-idle"></span><span class="font-medium">Riley</span><span class="text-xs text-gray-400 ml-1">Research Specialist</span></div><span class="text-xs font-medium text-mc-warning">Idle</span></div><div class="px-4 py-3 flex items-center justify-between border-b border-mc-border/60"><div class="flex items-center gap-2"><span class="status-dot dot-ok"></span><span class="font-medium">Zak</span><span class="text-xs text-gray-400 ml-1">Coordinator (persistent)</span></div><span class="text-xs font-medium text-mc-success">Active</span></div></div>
+        <div><div class="px-4 py-3 flex items-center justify-between border-b border-mc-border/60"><div class="flex items-center gap-2"><span class="status-dot dot-ok"></span><span class="font-medium">Ava</span><span class="text-xs text-gray-400 ml-1">Editorial</span></div><span class="text-xs font-medium text-mc-success">Active</span></div><div class="px-4 py-3 flex items-center justify-between border-b border-mc-border/60"><div class="flex items-center gap-2"><span class="status-dot dot-idle"></span><span class="font-medium">Kai</span><span class="text-xs text-gray-400 ml-1">Creative & Technical</span></div><span class="text-xs font-medium text-gray-400">Standby</span></div><div class="px-4 py-3 flex items-center justify-between border-b border-mc-border/60"><div class="flex items-center gap-2"><span class="status-dot dot-ok"></span><span class="font-medium">Quinn</span><span class="text-xs text-gray-400 ml-1">Content Strategist</span></div><span class="text-xs font-medium text-mc-success">Active</span></div><div class="px-4 py-3 flex items-center justify-between border-b border-mc-border/60"><div class="flex items-center gap-2"><span class="status-dot dot-ok"></span><span class="font-medium">Remy</span><span class="text-xs text-gray-400 ml-1">Quality Assurance</span></div><span class="text-xs font-medium text-mc-success">Active</span></div><div class="px-4 py-3 flex items-center justify-between border-b border-mc-border/60"><div class="flex items-center gap-2"><span class="status-dot dot-idle"></span><span class="font-medium">Riley</span><span class="text-xs text-gray-400 ml-1">Research Specialist</span></div><span class="text-xs font-medium text-mc-warning">Idle</span></div><div class="px-4 py-3 flex items-center justify-between border-b border-mc-border/60"><div class="flex items-center gap-2"><span class="status-dot dot-ok"></span><span class="font-medium">Zak</span><span class="text-xs text-gray-400 ml-1">Coordinator (persistent)</span></div><span class="text-xs font-medium text-mc-success">Active</span></div></div>
     </div>
 
     <p class="text-xs text-gray-500 text-center mb-2">
