@@ -1,5 +1,4 @@
 {{ define "main" }}
-<main>
     <h1>{{ .Title }}</h1>
     {{ if .Description }}<p class="lead">{{ .Description }}</p>{{ end }}
     {{ if not .IsHome }}{{ partial "last-updated.html" . }}{{ end }}
@@ -37,5 +36,4 @@
     </ul>
     {{ template "_internal/pagination.html" . }}
     {{ end }}
-</main>
 {{ end }}

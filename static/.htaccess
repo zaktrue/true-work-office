@@ -1,0 +1,17 @@
+# Public-site browser protections. The public dashboards still load Tailwind
+# and Font Awesome from their existing CDNs, so those two origins remain
+# explicit. The inline allowances preserve the current Hugo theme bootstrap
+# and the generated dashboard scripts.
+<IfModule mod_headers.c>
+    Header always set Strict-Transport-Security "max-age=31536000"
+
+    # Scope document policies to static HTML. The protected /secure/ entry
+    # point is index.php and retains its own stricter child-directory policy.
+    <FilesMatch "\.(?:html?)$">
+        Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data:; font-src 'self' data: https://cdnjs.cloudflare.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+        Header always set X-Content-Type-Options "nosniff"
+        Header always set Referrer-Policy "strict-origin-when-cross-origin"
+        Header always set Permissions-Policy "accelerometer=(), camera=(), geolocation=(), gyroscope=(), microphone=(), payment=(), usb=()"
+        Header always set X-Frame-Options "DENY"
+    </FilesMatch>
+</IfModule>

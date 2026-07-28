@@ -50,10 +50,13 @@
     {{ end }}
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <div class="container">
         {{ partial "site-nav.html" . }}
 
-        {{ block "main" . }}{{ end }}
+        <main id="main-content" tabindex="-1">
+            {{ block "main" . }}{{ end }}
+        </main>
 
         {{ partial "site-footer.html" . }}
     </div>
