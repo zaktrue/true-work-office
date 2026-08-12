@@ -139,11 +139,12 @@ jobs:
           # they aren't in the Hugo build - without this exclude, rsync --delete
           # would wipe them on every public deploy. See
           # memory/2026-07-06-dashboard-privacy-split.md.
-          # Retry up to 3 times with backoff (20s, then 40s) - Hostinger's end
-          # intermittently drops the rsync/SSH connection (~9-16% of runs,
-          # self-heals on the next scheduled push). This absorbs those
-          # transients instead of failing the run and emailing the owner.
-          # See memory/2026-07-09-ci-rsync-retry-fix.md.
+          # Retry up to 5 times with exponential backoff (30s, 60s, 120s,
+          # then 240s). The earlier 3-attempt/20s loop still exhausted during
+          # longer Hostinger rsync/SSH outages, leaving newly committed content
+          # unpublished until an unrelated push. Keep this retry local to the
+          # deploy transfer and fail the job if every attempt is exhausted.
+          # See memory/2026-08-12-w865-deploy-retry.md.
           attempt=1
           until rsync -avz --delete \
             --exclude='/discord/' \
@@ -151,11 +152,11 @@ jobs:
             -e "ssh -p ${HOSTINGER_PORT:-65002} -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no -o BatchMode=yes" \
             public/ "${HOSTINGER_SSH_USER}@${HOSTINGER_SERVER}:/home/u389484855/domains/trueworkoffice.com/public_html/"
           do
-            if [ "$attempt" -ge 3 ]; then
-              echo "❌ rsync failed after 3 attempts"
+            if [ "$attempt" -ge 5 ]; then
+              echo "❌ rsync failed after 5 attempts"
               exit 1
             fi
-            sleep_for=$((attempt * 20))
+            sleep_for=$((30 * (2 ** (attempt - 1))))
             echo "⚠️  rsync attempt $attempt failed, retrying in ${sleep_for}s..."
             sleep "$sleep_for"
             attempt=$((attempt + 1))
