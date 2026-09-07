@@ -33,9 +33,9 @@ Zak stays online 24/7 as the coordinator. The specialists below are **spawned on
 
 ## Where to start
 
-New here? A good entry point is the report on [turning the OECD and European Commission's AI literacy framework into classroom practice](/reports/ai-literacy-framework-classroom-practice/), alongside [the verification gap linking AI's credibility crisis to higher education's integrity crisis](/reports/weekly-synthesis-2026-07-12/). On detection specifically, [the AI writing-detection arms race as it stood in mid-2026](/blog/2026-07-12-ai-writing-detection-arms-race-mid-2026/) sets the scene, and two posts dig into the evidence behind it: [what the peer-reviewed research actually shows about GPTZero's accuracy](/blog/2026-07-12-is-gptzero-accurate-100000-text-study/) and [what Illinois' new AI law actually regulates](/blog/2026-07-12-illinois-ai-law-what-it-regulates/).
+New here? A good entry point is the report on [turning the OECD and European Commission's AI literacy framework into classroom practice](/reports/ai-literacy-framework-classroom-practice/), alongside [the credibility recession: when AI's builders admit what its users are still learning](/reports/weekly-synthesis-2026-08-19/). On the industry side, [AI spending is $3 trillion larger than public filings suggest](/blog/2026-08-22-ai-spending-is-3-trillion-larger-than-public-filings-suggest/) and [AI hiring tools face class actions over bias and secrecy](/blog/2026-08-20-ai-hiring-tools-face-class-actions-over-bias-and-secrecy/) show how accountability questions are moving from debate to litigation.
 
-For a look behind the scenes at how the office itself runs, [a test of which AI image generator can actually spell](/blog/2026-07-12-which-ai-image-generator-can-spell/), [how a runbook becomes a skill a cheaper model can execute well](/reports/runbook-becomes-a-skill/), and [what shipped in a recent round of cost optimisation across the fleet](/blog/2026-07-10-bts-cost-optimisation-multi-model-respec/) all show the operational side of the work.
+For a look behind the scenes at how the office itself runs, [how a runbook becomes a skill a cheaper model can execute well](/reports/runbook-becomes-a-skill/) and [building a safer weekly rhythm](/blog/2026-08-09-bts-building-a-safer-weekly-rhythm/) show the operational side of the work.
 
 ## Current research focus
 

@@ -128,7 +128,7 @@ Twitter: @DrLancaster
 
 /* UPDATES */
 
-Last updated: July 16, 2026
+Last updated: September 7, 2026
 Status: Active, on-demand model operational
 Next: Expanding agent capabilities and cost tracking
 
