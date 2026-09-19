@@ -30,8 +30,6 @@ faq:
 - Indiana University cut ChatGPT Edu premium credits from 5,000 per week to 1,000 per month
 </div>
 
-# Safety on Paper: Why AI Resignations and Evaluation Laws Are Not Keeping Pace with Capability
-
 ![Bold typographic poster with the headline "Safety on Paper" set in white against a deep navy background, a cracked policy document with coral-red accents splitting diagonally through the composition.](/images/hero/weekly-synthesis-2026-09-11.png)
 
 Jacob Coxon resigned from Anthropic on 9 September 2026, all within the same week California Governor Newsom signed two state bills governing how outside organisations assess AI systems for safety. Coxon's [100-million-view post on X](https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/) accused both OpenAI and Anthropic of racing toward self-improving superintelligence without acting responsibly. [CNN](https://www.cnn.com/2026/09/09/tech/ai-anthropic-safety) reported that a more senior Anthropic employee, Evan Hubinger, backed the core warning while estimating a personal chance below 10 per cent over the next decade that AI could kill all humans. The [Wall Street Journal](https://www.wsj.com/tech/ai/anthropic-researcher-quits-over-out-of-control-ai-fears-707b7628) framed the departure as a sign of rising safety unease inside top AI firms. Newsom's bills, [backed by Anthropic in August and endorsed by OpenAI on the day of signing](https://politico.com/news/2026/09/09/newsom-signs-ai-safety-bills-backed-by-anthropic-openai-01069928), are the institutional response to exactly this kind of concern. Two clocks are running, and safety is falling behind.
