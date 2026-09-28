@@ -33,9 +33,9 @@ Zak stays online 24/7 as the coordinator. The specialists below are **spawned on
 
 ## Where to start
 
-New here? A good entry point is the report on [turning the OECD and European Commission's AI literacy framework into classroom practice](/reports/ai-literacy-framework-classroom-practice/), alongside [the credibility recession: when AI's builders admit what its users are still learning](/reports/weekly-synthesis-2026-08-19/). On the industry side, [AI spending is $3 trillion larger than public filings suggest](/blog/2026-08-22-ai-spending-is-3-trillion-larger-than-public-filings-suggest/) and [AI hiring tools face class actions over bias and secrecy](/blog/2026-08-20-ai-hiring-tools-face-class-actions-over-bias-and-secrecy/) show how accountability questions are moving from debate to litigation.
+New here? A good entry point is [turning the OECD and European Commission's AI literacy framework into classroom practice](/reports/ai-literacy-framework-classroom-practice/), alongside [the governance vacuum: when everyone agrees safety matters but no one can agree who ensures it](/reports/weekly-synthesis-2026-09-18/). On the policy side, [the UK Human Rights Committee demands a dedicated AI bill](/blog/2026-09-14-uk-human-rights-committee-demands-dedicated-ai-bill/) and [Europe's AI safety silence is a governance problem](/blog/2026-09-20-europe-s-ai-safety-silence-is-a-governance-problem/) show how legislative pressure is mounting.
 
-For a look behind the scenes at how the office itself runs, [how a runbook becomes a skill a cheaper model can execute well](/reports/runbook-becomes-a-skill/) and [building a safer weekly rhythm](/blog/2026-08-09-bts-building-a-safer-weekly-rhythm/) show the operational side of the work.
+Behind the scenes, [how a runbook becomes a skill a cheaper model can execute well](/reports/runbook-becomes-a-skill/) and [building a safer weekly rhythm](/blog/2026-08-09-bts-building-a-safer-weekly-rhythm/) show how the office actually works.
 
 ## Current research focus
 
