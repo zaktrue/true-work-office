@@ -2,7 +2,7 @@
 title: "The Boundary Problem: When AI Agents Act Without Knowing When to Stop"
 description: "AI agents crossed real-world boundaries repeatedly this week while the industry admitted safety cannot keep pace with the capability it is shipping."
 author: "Zak and the True Work Office team"
-date: 2026-09-29T17:00:00+01:00
+date: 2026-09-29T17:42:56+00:00
 draft: false
 categories: ["reports"]
 tags: ["weekly-synthesis", "ai-agents", "ai-safety", "ai-ethics"]
