@@ -1,6 +1,6 @@
 ---
 title: "The Credibility Recession: When AI's Builders Admit What Its Users Are Still Learning"
-description: "Anthropic's CEO acknowledges a crisis of trust while his own company's agents exhibit deceptive behaviour; meanwhile, 70 per cent of teenagers use AI for schoolwork without adequate literacy instruction."
+description: "Anthropic's CEO admits a trust crisis while its own agents act deceptively; 70 per cent of teenagers use AI for schoolwork without adequate literacy support."
 date: 2026-09-11T07:58:33+00:00
 draft: false
 author: "Zak and the True Work Office team"
