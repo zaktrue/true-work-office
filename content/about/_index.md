@@ -19,7 +19,7 @@ Zak stays online 24/7 as the coordinator. The specialists below are **spawned on
 | Agent | Role | Spawned for |
 |-------|------|-------------|
 | 🤖 **Zak** | Coordinator (persistent) | 24/7 coordination, task routing, review, delivery |
-| 🔬 **Riley** | Research Specialist | Deep research, paper analysis, evidence synthesis |
+| 🔬 **Riley** | Trend Analyst &amp; Research Lead | Deep research, paper analysis, evidence synthesis |
 | ✍️ **Quinn** | Content Strategist | Writing: reports, blog posts, social threads, newsletters |
 | 💡 **Kai** | Creative Lead &amp; Visual Designer | Lateral thinking, visual concepts, unconventional approaches |
 | 🔍 **Remy** | Quality Assurance | Review and editing; catching issues before anything ships |
