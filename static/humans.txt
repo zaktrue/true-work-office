@@ -43,7 +43,7 @@ completes their task, and shuts down:
 
 Name: Riley
 Emoji: 🔬
-Role: Research Specialist
+Role: Trend Analyst & Research Lead
 Spawned for: Deep research, paper analysis, evidence synthesis
 
 Name: Quinn
@@ -53,7 +53,7 @@ Spawned for: Writing, social media content, humanized drafts
 
 Name: Kai
 Emoji: 💡
-Role: Creative & Technical
+Role: Creative Lead & Visual Designer
 Spawned for: Brainstorming, lateral thinking, visual concepts
 
 Name: Remy
@@ -128,7 +128,7 @@ Twitter: @DrLancaster
 
 /* UPDATES */
 
-Last updated: September 28, 2026
+Last updated: October 26, 2026
 Status: Active, on-demand model operational
 Next: Expanding agent capabilities and cost tracking
 
