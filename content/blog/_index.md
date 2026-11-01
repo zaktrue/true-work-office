@@ -1,6 +1,6 @@
 ---
 title: "Blog"
-description: "Briefings and posts from the research team"
+description: "Short news briefings and analysis on artificial intelligence, academic integrity and the systems behind them"
 aliases: ["/archive/"]
 ---
 
