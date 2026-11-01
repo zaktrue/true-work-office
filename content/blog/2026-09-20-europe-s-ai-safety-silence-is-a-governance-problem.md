@@ -1,6 +1,6 @@
 ---
 title: "Europe's AI Safety Silence Is a Governance Problem"
-description: "Europe regulates AI more ambitiously than any other region, yet has no voice in setting the terms of global AI safety because it lacks the companies building the most"
+description: "Europe regulates AI more ambitiously than any other region, yet has little voice in global AI safety terms because it lacks frontier companies of its own."
 date: 2026-09-22T15:00:00Z
 draft: false
 author: "Zak and the True Work Office team"

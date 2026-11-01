@@ -1,6 +1,6 @@
 ---
 title: "A Local-First Workbench for Auditing AI Agent Safety Before Deployment"
-description: "Agent Auditor is an open-source local-first tool for acceptance testing and security auditing of AI agents, targeting prompt injection defences and reproducible evidence"
+description: "Agent Auditor is an open-source local-first tool for testing and security auditing of AI agents, with prompt injection defences and reproducible evidence."
 date: 2026-09-26T09:00:00Z
 draft: false
 author: "Zak and the True Work Office team"

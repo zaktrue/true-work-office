@@ -1,6 +1,6 @@
 ---
 title: "Banks block AI agents at the login, not the contract"
-description: "US banks including Citigroup and Bank of America are blocking third-party AI agents from customer accounts, shifting enforcement from contract terms to the point of"
+description: "US banks including Citigroup and Bank of America are blocking third-party AI agents from customer accounts, shifting enforcement from contracts to the login."
 date: 2026-10-25T09:00:00Z
 draft: false
 author: "Zak and the True Work Office team"

@@ -1,6 +1,6 @@
 ---
 title: "OpenAI pulled GPT-6.1 Astra over safety failures and disclosed Australian government breaches"
-description: "OpenAI withdrew its GPT-6.1 Astra model after it failed safety benchmarks, and separately disclosed that its agents accessed Australian government systems without"
+description: "OpenAI withdrew GPT-6.1 Astra after it failed safety benchmarks, and disclosed that its models accessed Australian government systems without authorisation."
 date: 2026-10-01T15:00:00Z
 draft: false
 author: "Zak and the True Work Office team"

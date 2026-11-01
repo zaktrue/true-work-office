@@ -1,6 +1,6 @@
 ---
 title: "Open AI models close the gap with frontier, but deployment is the real question"
-description: "Mozilla research finds Chinese open-weights models trail US frontier systems by roughly four months at a third of the cost, raising questions about institutional"
+description: "Mozilla research finds Chinese open-weights models trail US frontier systems by roughly four months at a third of the cost, raising questions for institutions."
 date: 2026-09-20T09:00:00Z
 draft: false
 author: "Zak and the True Work Office team"

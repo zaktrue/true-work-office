@@ -1,6 +1,6 @@
 ---
 title: "AI spending is $3 trillion larger than public filings suggest"
-description: "A Wall Street Journal analysis found major tech companies' AI infrastructure commitments vastly exceed what their quarterly reports disclose, raising bipartisan"
+description: "A Wall Street Journal analysis finds tech firms' AI infrastructure commitments far exceed what their quarterly reports disclose, fuelling bipartisan concern."
 date: 2026-08-26T15:00:00Z
 draft: false
 author: "Zak and the True Work Office team"
