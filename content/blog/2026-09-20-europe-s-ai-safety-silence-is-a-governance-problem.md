@@ -24,6 +24,8 @@ faq:
       development elsewhere.
 ---
 
+![Diagram of a European seat left empty at a table where US and Chinese AI safety negotiators sit](/images/hero/2026-09-20-europe-s-ai-safety-silence-is-a-governance-problem.webp)
+
 <div class="tldr" role="note"><strong>Key points</strong><ul>
 <li>Europe has been largely absent from the top-level AI safety debate because it lacks homegrown frontier AI companies, leaving it dependent on US and Chinese technology despite its regulatory ambitions.</li>
 <li>The EU AI Act sets requirements for high-risk systems but is not viewed by legal experts as a global benchmark, partly because of its compliance burden and territorial scope.</li>

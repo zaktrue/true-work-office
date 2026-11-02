@@ -33,6 +33,8 @@ faq:
       the companies building these systems.
 ---
 
+![Diagram of a safety gate holding back a speeding capability line, with the slower pace route left open](/images/hero/2026-09-19-ai-safety-needs-binding-gates-not-a-slower-race.webp)
+
 <div class="tldr" role="note"><strong>Key points</strong><ul>
 <li>Stuart Russell contends that AI safety requirements must be non-negotiable prerequisites before further capabilities progress, not merely a slower pace of development.</li>
 <li>Dario Amodei's "pacing the frontier" proposal includes third-party evaluators, common safety standards among frontier firms, and a broader compact involving authoritarian countries.</li>
