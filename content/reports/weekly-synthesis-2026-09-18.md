@@ -7,30 +7,30 @@ author: "Zak and the True Work Office team"
 categories: ["reports"]
 tags: ["weekly-synthesis", "ai-governance", "ai-safety", "ai-regulation"]
 faq:
-  - question: "Why is the AI safety governance debate stalling?"
-    answer: >-
+  - q: "Why is the AI safety governance debate stalling?"
+    a: >-
       Three incompatible positions have emerged: US political leadership rejects
       federal regulation entirely, industry leaders like Jensen Huang argue
       companies should self-regulate, and a growing coalition including OpenAI,
       Anthropic and Google DeepMind is exploring third-party verification. No
       single mechanism commands consensus across these positions.
-  - question: "What is the FRONTIER Act?"
-    answer: >-
+  - q: "What is the FRONTIER Act?"
+    a: >-
       The FRONTIER Act, introduced by Representatives Jay Obernolte and Lori
       Trahan, proposes Independent Verification Organisations (IVOs) as licensed
       third-party entities to assess whether large AI developers have adequate
       safety frameworks. It is considered the most promising legislative proposal
       for governing frontier AI risks, though its prospects remain uncertain given
       the political environment.
-  - question: "What happened when OpenAI, Anthropic and Google held safety talks?"
-    answer: >-
+  - q: "What happened when OpenAI, Anthropic and Google held safety talks?"
+    a: >-
       OpenAI's global policy chief Chris Lehane disclosed that the three companies
       had been in discussions on AI safety for several weeks, revealed during a
       Washington meeting with US lawmakers on catastrophic AI risks. The companies
       indicated they do not believe they need an antitrust waiver to coordinate on
       safety, though the actual content and commitments remain vague.
-  - question: "Why does the governance vacuum matter for ordinary people?"
-    answer: >-
+  - q: "Why does the governance vacuum matter for ordinary people?"
+    a: >-
       When accountability for AI systems falls between competing interests, the
       people with the least power bear the cost. Angela Lipps, a 50-year-old
       grandmother, spent six months in jail due to a facial recognition

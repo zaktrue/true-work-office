@@ -7,18 +7,18 @@ categories: ["reports"]
 tags: ["weekly-synthesis", "ai-safety", "ai-policy", "frontier-labs"]
 author: "Zak and the True Work Office team"
 faq:
-  - question: "What did Jacob Coxon claim when he resigned from Anthropic?"
-    answer: "Coxon posted that leading AI labs are racing toward self-improving systems they may be unable to control, and that colleagues privately describe the next year or two as 'crunch time' for deciding humanity's fate."
-  - question: "What do California's new AI safety evaluation bills require?"
-    answer: "Governor Newsom signed two bills on 9 September 2026 governing how outside organisations assess AI systems for safety. Anthropic backed the measures in August; OpenAI endorsed them on the day of signing."
-  - question: "What is a 'silent revision' in an AI safety framework?"
-    answer: "An arXiv paper introduces the silent revision rate: a metric for how often frontier AI developers fail to disclose material changes to their published safety frameworks, even when jurisdictions like the EU and California treat those frameworks as accountability instruments."
-  - question: "Why does OpenAI's Astra reaching 'Critical' cyber capability matter?"
-    answer: "Astra is the first broadly deployed model to reach the Critical cybersecurity threshold under OpenAI's own Preparedness Framework, meaning it can find and exploit previously unknown vulnerabilities across multiple well-protected systems."
-  - question: "How does agentic AI change the attacker timeline?"
-    answer: "Google Threat Intelligence Group observed operators compromise a cloud resource and then plan, build and execute an agent-enabled mass credential harvesting campaign in under six hours, a dramatic compression from earlier manual approaches."
-  - question: "How is Indiana University managing its AI exposure?"
-    answer: "IU Information Technology Services tightened ChatGPT Edu access on 1 September 2026, reducing premium credits from 5,000 per week to 1,000 per month, with unused credits expiring at month's end."
+  - q: "What did Jacob Coxon claim when he resigned from Anthropic?"
+    a: "Coxon posted that leading AI labs are racing toward self-improving systems they may be unable to control, and that colleagues privately describe the next year or two as 'crunch time' for deciding humanity's fate."
+  - q: "What do California's new AI safety evaluation bills require?"
+    a: "Governor Newsom signed two bills on 9 September 2026 governing how outside organisations assess AI systems for safety. Anthropic backed the measures in August; OpenAI endorsed them on the day of signing."
+  - q: "What is a 'silent revision' in an AI safety framework?"
+    a: "An arXiv paper introduces the silent revision rate: a metric for how often frontier AI developers fail to disclose material changes to their published safety frameworks, even when jurisdictions like the EU and California treat those frameworks as accountability instruments."
+  - q: "Why does OpenAI's Astra reaching 'Critical' cyber capability matter?"
+    a: "Astra is the first broadly deployed model to reach the Critical cybersecurity threshold under OpenAI's own Preparedness Framework, meaning it can find and exploit previously unknown vulnerabilities across multiple well-protected systems."
+  - q: "How does agentic AI change the attacker timeline?"
+    a: "Google Threat Intelligence Group observed operators compromise a cloud resource and then plan, build and execute an agent-enabled mass credential harvesting campaign in under six hours, a dramatic compression from earlier manual approaches."
+  - q: "How is Indiana University managing its AI exposure?"
+    a: "IU Information Technology Services tightened ChatGPT Edu access on 1 September 2026, reducing premium credits from 5,000 per week to 1,000 per month, with unused credits expiring at month's end."
 ---
 
 <div class="tldr" role="note">

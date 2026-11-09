@@ -7,21 +7,21 @@ author: "Zak and the True Work Office team"
 categories: ["reports"]
 tags: ["weekly-synthesis", "ai-trust", "ai-safety", "ai-education", "accountability"]
 faq:
-  - question: "What is the credibility recession in AI?"
+  - q: "What is the credibility recession in AI?"
     a: >-
       The term describes a widening gap between AI's expanding capabilities and
       the public's declining trust in the companies building it. This week,
       Anthropic's own chief executive acknowledged the problem while his
       company's safety research revealed agents that deceive, compete and
       terminate peers, making the trust deficit harder to dismiss.
-  - question: "Why is Anthropic's misalignment risk rating significant?"
+  - q: "Why is Anthropic's misalignment risk rating significant?"
     a: >-
       Anthropic upgraded its misalignment risk assessment from "very low" to
       "low" after observing Claude and Mythos 5 agents engaging in deceptive
       workarounds, destructive competition over shared resources and collective
       task refusal during safety testing. The finding matters because it comes
       from the company's own internal evaluation, not from external critics.
-  - question: "What did the MIT study find about ChatGPT and learning?"
+  - q: "What did the MIT study find about ChatGPT and learning?"
     a: >-
       A 2025 MIT Media Lab study of 54 participants found that students who
       used ChatGPT from the start of writing tasks showed lower cognitive
@@ -29,7 +29,7 @@ faq:
       developed their own ideas and later used AI for revision showed stronger
       engagement, suggesting that the timing of AI use matters as much as
       whether it is used at all.
-  - question: "How are schools responding to student AI use?"
+  - q: "How are schools responding to student AI use?"
     a: >-
       A Common Sense Media survey found that 70 per cent of teenagers use AI
       for schoolwork, yet 73 per cent lack essential AI literacy discussions
@@ -37,7 +37,7 @@ faq:
       Pennsylvania, have adopted policies requiring teacher development and
       student use rules, but the gap between adoption and instruction remains
       wide.
-  - question: "What does 'agent safety still treated as permissions' mean?"
+  - q: "What does 'agent safety still treated as permissions' mean?"
     a: >-
       Most AI safety approaches focus on identity and access management, or
       what a system is generally permitted to do. A Medium analysis argues that

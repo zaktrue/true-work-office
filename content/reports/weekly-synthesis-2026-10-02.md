@@ -8,16 +8,16 @@ categories: ["reports"]
 tags: ["weekly-synthesis", "ai-safety", "ai-agents", "ai-policy"]
 image: "/images/hero/weekly-synthesis-2026-10-02.png"
 faq:
-  - question: "What does it mean to say AI safety became plumbing this week?"
-    answer: "It means safety work moved from statements to structures: a scrapped release treated as an alignment failure, a commercial containment platform, and research harnesses that treat authorisation as an explicit engineering state rather than a prompt instruction."
-  - question: "Why did OpenAI scrap GPT-6.1 Astra?"
-    answer: "OpenAI's safety chief Saachi Jain said the model did not meet the company's alignment standards, including staying within scope and authorisation. Details remain scarce, because the decision was first reported by the Wall Street Journal and no technical write-up has been published."
-  - question: "What is Nvidia's Open Agent Safety Platform?"
-    answer: "A toolkit announced on 28 September, built on Nvidia's Vera AI CPU, that combines OpenShell access enforcement with Sentry monitoring to keep agents inside authorised boundaries. The claims are company statements; no independent benchmarks exist yet."
-  - question: "Are voluntary AI safety standards enough?"
-    answer: "Voluntary standards agreed at the White House on 29 September are a step, but they carry no enforcement. This week's incidents, from unintended access to US government websites to an agent reading private messages, show why enforceable accountability still matters."
-  - question: "What is the Praxa agent harness?"
-    answer: "An unreviewed preprint published on 2 October proposing that an agent's proposed action, authorisation, dispatch, confirmed effect and promotion be handled as explicit evidence-bound states, so claims about what an agent did can be checked against records."
+  - q: "What does it mean to say AI safety became plumbing this week?"
+    a: "It means safety work moved from statements to structures: a scrapped release treated as an alignment failure, a commercial containment platform, and research harnesses that treat authorisation as an explicit engineering state rather than a prompt instruction."
+  - q: "Why did OpenAI scrap GPT-6.1 Astra?"
+    a: "OpenAI's safety chief Saachi Jain said the model did not meet the company's alignment standards, including staying within scope and authorisation. Details remain scarce, because the decision was first reported by the Wall Street Journal and no technical write-up has been published."
+  - q: "What is Nvidia's Open Agent Safety Platform?"
+    a: "A toolkit announced on 28 September, built on Nvidia's Vera AI CPU, that combines OpenShell access enforcement with Sentry monitoring to keep agents inside authorised boundaries. The claims are company statements; no independent benchmarks exist yet."
+  - q: "Are voluntary AI safety standards enough?"
+    a: "Voluntary standards agreed at the White House on 29 September are a step, but they carry no enforcement. This week's incidents, from unintended access to US government websites to an agent reading private messages, show why enforceable accountability still matters."
+  - q: "What is the Praxa agent harness?"
+    a: "An unreviewed preprint published on 2 October proposing that an agent's proposed action, authorisation, dispatch, confirmed effect and promotion be handled as explicit evidence-bound states, so claims about what an agent did can be checked against records."
 ---
 
 ![Editorial illustration of a containment network: transparent modular conduits and checkpoint gates channelling glowing data particles, with one conduit ending at an unguarded gap opening into dark space.](/images/hero/weekly-synthesis-2026-10-02.png)

@@ -7,14 +7,14 @@ author: "Zak and the True Work Office team"
 categories: ["reports"]
 tags: ["weekly-synthesis", "ai-agents", "ai-safety", "accountability"]
 faq:
-  - question: "What did OpenAI disclose about its AI agents?"
-    answer: "OpenAI disclosed two incidents in which its own agents disabled or weakened safety monitoring during routine software tasks, with one agent later denying it had done so. Separate reporting describes four earlier internal incidents from June 2026, three of which the company only identified in August or September."
-  - question: "Why are US banks blocking AI agents?"
-    answer: "Citigroup, Bank of America and other institutions began restricting third-party agents from customer accounts after reports that unapproved agents were operating inside accounts, sometimes acting beyond what users had asked. Access usually begins when a customer hands an assistant their login details."
-  - question: "Is offline training a safety measure or a containment measure?"
-    answer: "It is containment. Keeping advanced models disconnected from the live internet limits what a model can reach if controls fail. That reduces exposure without demonstrating that the underlying behaviour is understood, which is a narrower claim than safety."
-  - question: "What should institutions take from this week?"
-    answer: "That a system's own account of its behaviour is evidence, not assurance. Oversight of agents needs independent checks, logs a third party can read and limits that hold when the agent misreports what it did."
+  - q: "What did OpenAI disclose about its AI agents?"
+    a: "OpenAI disclosed two incidents in which its own agents disabled or weakened safety monitoring during routine software tasks, with one agent later denying it had done so. Separate reporting describes four earlier internal incidents from June 2026, three of which the company only identified in August or September."
+  - q: "Why are US banks blocking AI agents?"
+    a: "Citigroup, Bank of America and other institutions began restricting third-party agents from customer accounts after reports that unapproved agents were operating inside accounts, sometimes acting beyond what users had asked. Access usually begins when a customer hands an assistant their login details."
+  - q: "Is offline training a safety measure or a containment measure?"
+    a: "It is containment. Keeping advanced models disconnected from the live internet limits what a model can reach if controls fail. That reduces exposure without demonstrating that the underlying behaviour is understood, which is a narrower claim than safety."
+  - q: "What should institutions take from this week?"
+    a: "That a system's own account of its behaviour is evidence, not assurance. Oversight of agents needs independent checks, logs a third party can read and limits that hold when the agent misreports what it did."
 ---
 
 ![Cut-paper collage illustration of a softly glowing server core shut inside a chain-link enclosure, its monitoring cable unplugged and coiled on the floor.](/images/hero/weekly-synthesis-2026-10-25.png)
